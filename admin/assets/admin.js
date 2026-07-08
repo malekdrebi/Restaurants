@@ -58,9 +58,9 @@ function renderCategoryTree() {
         return;
     }
     tree.innerHTML = categories.map(function(cat) {
-        return '<div class="tree-category' + (selectedCategoryId === cat.id && !selectedSubcategoryId ? ' active' : '') + '" data-cat-id="' + cat.id + '">' +
+        return '<div class="tree-category' + (selectedCategoryId === cat.id && !selectedSubcategoryId ? ' active' : '') + '" onclick="selectCategory(' + cat.id + ')">' +
             '<span>' + (cat.name_en || cat.name_ar) + (cat.is_featured == 1 ? ' ⭐' : '') + '</span>' +
-            '<span class="tree-actions"><button class="cat-edit-btn" data-cat-id="' + cat.id + '" title="Edit">✎</button></span>' +
+            '<button class="tree-edit-btn" onclick="event.stopPropagation();showEditCategory(' + cat.id + ')" title="Edit" style="margin-left:auto;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.8rem;padding:2px 6px">✎</button>' +
             '</div><div id="subcats-' + cat.id + '"></div>';
     }).join('');
     // Load subcategories for all categories
@@ -217,7 +217,7 @@ function renderItems() {
     }
     var html = '<div class="panel-header"><h2>' + catName + ' <span style="color:var(--text-muted);font-size:0.8rem">(' + currentItems.length + ' items)</span></h2><button class="btn btn-gold" onclick="showAddItem()">+ Add Item</button></div><div class="items-grid">';
     currentItems.forEach(function(item) {
-        html += '<div class="item-card">' +
+        html += '<div class="item-card" onclick="showEditItem(' + item.id + ')" style="cursor:pointer">' +
             (item.image ? '<img src="/' + item.image + '" class="item-card-img" alt="" onerror="this.style.display=\'none\'">' : '<div class="item-card-img placeholder">🍽</div>') +
             '<div class="item-card-body"><div class="item-card-name">' + (item.name_ar || '') + '<span class="en">' + (item.name_en || '') + '</span></div>' +
             '<div class="item-card-price">' + parseFloat(item.price).toFixed(3) + ' LYD</div>' +
@@ -225,7 +225,7 @@ function renderItems() {
             (item.spicy == 1 ? '<span class="badge badge-spicy">Spicy</span>' : '') +
             (item.recommended == 1 ? '<span class="badge badge-rec">Recommended</span>' : '') +
             (item.variants && item.variants.length ? '<span class="badge badge-variants">' + item.variants.length + ' variants</span>' : '') +
-            '</div></div><div class="item-card-actions"><button class="item-edit-btn" data-item-id="' + item.id + '">✎</button></div></div>';
+            '</div></div></div>';
     });
     html += '</div>';
     panel.innerHTML = html;
