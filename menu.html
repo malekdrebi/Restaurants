@@ -1,0 +1,3678 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a1816">
+    <title>Lavina House | Menu</title>
+    <!-- Social Sharing Meta Tags (Open Graph) -->
+    <meta property="og:title" content="Lavina House Cafe & Restaurant | Menu">
+    <meta property="og:description"
+        content="Experience the finest flavors at Lavina House. Browse our signature menu and build your personalized order for the waiter.">
+    <meta property="og:image" content="logo-removebg-preview.png">
+    <meta property="og:url" content="https://lavina-house.vercel.app">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description"
+        content="Official digital menu for Lavina House. Choose from our delicious categories and prepare your order easily.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0b09;
+            --bg-secondary: #141210;
+            --text-primary: #f8f4ef;
+            --text-secondary: #a39b8d;
+            --accent-gold: #a66f36;
+            /* Warm Copper Bronze */
+            --accent-gold-dim: rgba(166, 111, 54, 0.15);
+            --accent-gold-glow: rgba(166, 111, 54, 0.35);
+            --border-color: rgba(248, 244, 239, 0.05);
+            --glass-bg: rgba(13, 11, 9, 0.8);
+            --glass-border: rgba(166, 111, 54, 0.2);
+            --shadow-premium: 0 20px 50px rgba(0, 0, 0, 0.8);
+            --shimmer-gradient: linear-gradient(90deg, transparent, rgba(166, 111, 54, 0.1), transparent);
+        }
+
+        html {
+            width: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #151311;
+            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Parallax Background Layers */
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .parallax-layer {
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            height: 110%;
+            background-size: cover;
+            background-position: center;
+            pointer-events: none;
+        }
+
+        .layer-1 {
+            background-image: url('background.jpg');
+            filter: blur(2px) brightness(0.25);
+            opacity: 0.9;
+        }
+
+        .layer-2 {
+            background-image: radial-gradient(circle at 50% 50%, rgba(175, 110, 49, 0.1) 0%, transparent 80%);
+            opacity: 0.6;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .arabic {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+        }
+
+        /* Header */
+        header {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 30px 20px 30px;
+            background: transparent;
+            position: relative;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .logo-text {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(166, 111, 54, 0.3);
+            animation: logoPulse 4s infinite ease-in-out;
+        }
+
+        @keyframes logoPulse {
+
+            0%,
+            100% {
+                text-shadow: 0 0 20px rgba(166, 111, 54, 0.3);
+                filter: brightness(1);
+            }
+
+            50% {
+                text-shadow: 0 0 40px rgba(166, 111, 54, 0.6);
+                filter: brightness(1.2);
+            }
+        }
+
+        .header-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .ornament {
+            margin: 20px auto;
+            width: 60px;
+            height: 1px;
+            background: var(--accent-gold);
+            position: relative;
+        }
+
+        .ornament::before {
+            content: '✾';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--accent-gold);
+            font-size: 12px;
+            background: var(--bg-color);
+            padding: 0 10px;
+        }
+
+        /* Sticky Navigation */
+        .nav-sticky-wrapper {
+            position: sticky;
+            top: 112px;
+            z-index: 1000;
+            background: rgba(13, 11, 9, 0.97);
+            padding: 0 15px 15px;
+        }
+
+        nav {
+            position: relative;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            padding: 12px 0;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+            box-shadow: var(--shadow-premium);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Enhanced Scroll Indicators */
+            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        }
+
+        nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-container {
+            display: flex;
+            padding: 0 25px;
+            gap: 12px;
+            justify-content: flex-start;
+        }
+
+        .nav-item {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .nav-item .arabic-nav {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .nav-item.active {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold-dim);
+            background: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            position: sticky;
+            top: 56px;
+            margin: 0;
+            padding: 10px 15px;
+            background: rgba(13, 11, 9, 0.97);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 2000;
+        }
+
+        .search-wrapper {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 8px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow-premium);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .search-wrapper:focus-within {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 25px var(--accent-gold-glow);
+            transform: translateY(-2px);
+        }
+
+        .search-icon {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            opacity: 0.8;
+            flex-shrink: 0;
+        }
+
+        .search-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 100px 20px;
+            color: var(--text-secondary);
+            font-style: italic;
+            display: none;
+        }
+
+        .no-results.visible {
+            display: block;
+        }
+
+        /* Menu Content */
+        main {
+            padding: 20px 20px 80px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .category-section {
+            padding-top: 100px;
+            scroll-margin-top: 180px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            will-change: transform, opacity;
+        }
+
+        .category-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .category-title {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+        }
+
+        .category-arabic {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .menu-items {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            gap: 15px;
+            /* Added gap for image */
+        }
+
+        .item-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid var(--accent-gold-dim);
+            flex-shrink: 0;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .item-image-placeholder {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            border: 1px solid var(--accent-gold-dim);
+            flex-shrink: 0;
+            background-image: url('https://talabiety.net/storage/restaurant/logo/17324395526742ee0054728.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            filter: grayscale(80%);
+        }
+
+        .item-details {
+            flex: 1;
+            padding-right: 0px;
+            min-width: 0;
+            /* adjusted */
+        }
+
+        .menu-item::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+        }
+
+        .menu-item:last-child::after {
+            display: none;
+        }
+
+
+
+        .item-header {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 6px;
+        }
+
+        .item-name {
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--text-primary);
+            letter-spacing: 0.5px;
+        }
+
+        .item-variant-label {
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+            opacity: 0.9;
+            margin-top: -2px;
+            font-weight: 500;
+            display: block;
+        }
+
+        .item-arabic {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .item-description {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        .item-price {
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .footer-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-contact {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .contact-item {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--accent-gold);
+        }
+
+        .contact-icon {
+            color: var(--accent-gold);
+            flex-shrink: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-up {
+            animation: fadeIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        /* Luxury Shimmer Effect */
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: var(--shimmer-gradient);
+            transform: translateX(-100%);
+            animation: shimmerEffect 3s infinite;
+        }
+
+        @keyframes shimmerEffect {
+            0% {
+                transform: translateX(-100%) skewX(-15deg);
+            }
+
+            30% {
+                transform: translateX(100%) skewX(-15deg);
+            }
+
+            100% {
+                transform: translateX(100%) skewX(-15deg);
+            }
+        }
+
+        /* Badge Animation */
+        @keyframes badgePulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+
+        .badge-recommended {
+            animation: badgePulse 2s infinite;
+        }
+
+        /* Fade and Scale Entry */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+                transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal-item.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Section Reveal */
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .subcategory-title {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed var(--accent-gold-dim);
+            padding-bottom: 8px;
+            text-align: start;
+        }
+
+
+
+
+        .lang-btn {
+            padding: 8px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            border: none;
+            background: transparent;
+        }
+
+        .lang-btn.active {
+            background: var(--accent-gold);
+            color: var(--bg-color);
+        }
+
+        /* Hide logic */
+        [lang="en"] .ar-text {
+            display: none !important;
+        }
+
+        [lang="ar"] .en-text {
+            display: none !important;
+        }
+
+        [lang="ar"] {
+            direction: rtl;
+        }
+
+        [lang="en"] {
+            direction: ltr;
+        }
+
+        .ar-text {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .en-text {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Horizontal Scrollable Category */
+        .horizontal-scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px 15px 30px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            /* Fade effect for horizontal scroll */
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .horizontal-scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-card {
+            flex: 0 0 280px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            scroll-snap-align: center;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            position: relative;
+        }
+
+        .carousel-card:active {
+            transform: scale(0.98);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--accent-gold-dim);
+        }
+
+        .card-details {
+            padding: 20px 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .card-name {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .card-description {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .card-price {
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        /* Badges */
+        .badge {
+            position: absolute;
+            top: 12px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .badge-recommended {
+            background: var(--accent-gold);
+            color: #000;
+            left: 12px;
+        }
+
+        .badge-spicy {
+            background: #ff4d4d;
+            color: #fff;
+            right: 12px;
+        }
+
+        /* Variant Selection */
+        .variant-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            padding: 2px;
+        }
+
+        .variant-chip {
+            padding: 8px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+            cursor: pointer;
+            white-space: normal;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Cairo', 'Montserrat', sans-serif;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .variant-chip:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-gold-dim);
+            color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        .variant-chip.active {
+            background: var(--accent-gold);
+            color: #12100e;
+            border-color: var(--accent-gold);
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(175, 110, 49, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .variant-chip:active {
+            transform: scale(0.96);
+        }
+
+        /* Price Update Animation */
+        @keyframes pricePulse {
+            0% {
+                transform: scale(1);
+                color: var(--accent-gold);
+            }
+
+            50% {
+                transform: scale(1.1);
+                color: #fff;
+                text-shadow: 0 0 10px var(--accent-gold-glow);
+            }
+
+            100% {
+                transform: scale(1);
+                color: var(--accent-gold);
+            }
+        }
+
+        .price-pulse {
+            animation: pricePulse 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 15px;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+            border: 1px solid var(--accent-gold-dim);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        /* Cart FAB */
+        .cart-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1a1816;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.4);
+            z-index: 2000;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: none;
+            /* Shown when items added */
+        }
+
+        .cart-fab:active {
+            transform: scale(0.9);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #ff4d4d;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            border: 2px solid var(--bg-color);
+        }
+
+        /* Add to Cart Button */
+        .add-to-cart-btn {
+            background: var(--accent-gold-dim);
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .add-to-cart-btn:active {
+            transform: scale(0.85);
+            background: var(--accent-gold);
+            color: #1a1816;
+        }
+
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            bottom: 0px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 30px 30px 0 0;
+            border-top: 1px solid var(--glass-border);
+            z-index: 2100;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 30px;
+        }
+
+        .cart-modal.open {
+            transform: translateY(0);
+        }
+
+        .cart-header {
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cart-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .cart-item-price {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .cart-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cart-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid var(--accent-gold);
+            background: transparent;
+            color: var(--accent-gold);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .cart-footer {
+            padding: 20px 25px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .cart-total {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .clear-cart {
+            font-size: 0.8rem;
+            color: #ff4d4d;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2050;
+            display: none;
+        }
+
+        /* Interactive Guide Styles */
+        .guide-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 5000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .guide-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--accent-gold-dim);
+            border-radius: 30px;
+            width: 100%;
+            max-width: 450px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            animation: guideSlideUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes guideSlideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .guide-step {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .guide-step.active {
+            display: block;
+        }
+
+        .guide-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-gold-dim);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            color: var(--accent-gold);
+            animation: pulseIcon 2s infinite;
+        }
+
+        @keyframes pulseIcon {
+            0% {
+                box-shadow: 0 0 0 0 rgba(175, 110, 49, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 20px rgba(175, 110, 49, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(175, 110, 49, 0);
+            }
+        }
+
+        .guide-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .guide-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .guide-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .guide-btn {
+            flex: 1;
+            padding: 14px;
+            border-radius: 15px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-next {
+            background: var(--accent-gold);
+            color: #000;
+        }
+
+        .btn-skip {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .guide-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            width: 24px;
+            border-radius: 10px;
+            background: var(--accent-gold);
+        }
+
+        .help-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 45px;
+            height: 45px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--accent-gold);
+            z-index: 1500;
+            cursor: pointer;
+            box-shadow: var(--shadow-premium);
+        }
+
+        /* Language Selection Modal */
+        .lang-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 6000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .lang-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--accent-gold-dim);
+            border-radius: 30px;
+            width: 100%;
+            max-width: 400px;
+            padding: 50px 30px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            animation: guideSlideUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .lang-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .lang-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .lang-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .lang-option-btn {
+            padding: 16px;
+            border-radius: 15px;
+            border: 1px solid var(--accent-gold-dim);
+            background: rgba(175, 110, 49, 0.1);
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lang-option-btn:hover {
+            background: var(--accent-gold);
+            color: #000;
+        }
+
+        /* ========== HUB SCREEN ========== */
+        .hub-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+            padding: 20px;
+            isolation: isolate;
+        }
+
+        .hub-screen::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('background1.jpg') center/cover no-repeat;
+            filter: blur(8px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hub-inner {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 480px) {
+            .hub-inner {
+                padding-top: 60px;
+            }
+
+            .hub-logo {
+                font-size: 2rem;
+            }
+        }
+
+        .hub-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 3.2rem);
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(166, 111, 54, 0.3);
+            animation: logoPulse 4s infinite ease-in-out;
+        }
+
+        .hub-subtitle {
+            color: #d6ccb8;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+
+        .hub-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .hub-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 24px 20px;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hub-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--shimmer-gradient);
+            transition: left 0.6s ease;
+        }
+
+        .hub-card:hover::before {
+            left: 100%;
+        }
+
+        .hub-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(166, 111, 54, 0.2);
+        }
+
+        .hub-card-icon {
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+        }
+
+        .hub-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .hub-card-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ========== GALLERY SCREEN (Carousel) ========== */
+        .gallery-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 1000;
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            cursor: pointer;
+            background: #000;
+        }
+
+        .carousel-back-wrapper {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1002;
+        }
+
+        .carousel-back {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 1001;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #fff;
+            width: 22px;
+            border-radius: 4px;
+        }
+
+        .carousel-hint {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.75rem;
+            z-index: 1001;
+            transition: opacity 0.5s ease;
+        }
+
+        @media (min-width: 768px) {
+            .hub-cards {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hub-card {
+                flex: 1 1 200px;
+                max-width: 280px;
+            }
+        }
+
+        /* ========== VIP SCREEN ========== */
+        .vip-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            z-index: 1000;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Back button overlay */
+        .vip-back-btn-wrapper {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1002;
+        }
+
+        .vip-back {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+        }
+
+        /* VIP Hero Top with blurred image */
+        .vip-hero-top {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vip-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(6px);
+            transform: scale(1.1);
+        }
+
+        .vip-hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .vip-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .vip-hero-star {
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+            filter: drop-shadow(0 0 20px rgba(166, 111, 54, 0.6));
+            animation: logoPulse 3s infinite ease-in-out;
+        }
+
+        .vip-hero-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #fff;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 40px rgba(0, 0, 0, 0.6);
+            margin-bottom: 16px;
+        }
+
+        .vip-hero-ornament {
+            width: 50px;
+            height: 1px;
+            background: var(--accent-gold);
+            margin: 0 auto;
+        }
+
+        /* VIP Features overlaid on hero */
+        .vip-features {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 20px 10px 24px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .vip-feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 4px;
+            pointer-events: auto;
+        }
+
+        .vip-feature-icon {
+            color: #fff;
+            opacity: 0.9;
+            filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+        }
+
+        .vip-feature-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #fff;
+            font-weight: 600;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .vip-feature-label {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        /* VIP Image Carousel */
+        .vip-gallery-section {
+            padding: 30px 0 20px;
+            position: relative;
+        }
+
+        .vip-carousel {
+            height: 380px;
+            border-radius: 0;
+        }
+
+        .vip-carousel .carousel-slide {
+            flex: 0 0 85%;
+            padding: 0 8px;
+        }
+
+        .vip-carousel .carousel-slide img {
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .vip-carousel-dots {
+            position: static;
+            margin-top: 14px;
+            display: flex;
+            justify-content: center;
+            transform: none;
+        }
+
+        .vip-carousel-dots .carousel-dot {
+            background: rgba(166, 111, 54, 0.3);
+        }
+
+        .vip-carousel-dots .carousel-dot.active {
+            background: var(--accent-gold);
+        }
+
+        .vip-section-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+            padding: 0 20px;
+        }
+
+        @media (min-width: 768px) {
+            .vip-hero-top {
+                height: 100vh;
+            }
+
+            .vip-hero-heading {
+                font-size: 3.5rem;
+                letter-spacing: 8px;
+            }
+
+            .vip-features {
+                padding: 30px 40px 34px;
+            }
+
+            .vip-feature-value {
+                font-size: 1.8rem;
+            }
+
+            .vip-feature-label {
+                font-size: 0.75rem;
+            }
+
+            .vip-carousel {
+                height: 500px;
+            }
+
+            .vip-carousel .carousel-slide {
+                flex: 0 0 60%;
+            }
+        }
+
+        /* VIP Plates Section */
+        .vip-plates-section {
+            padding: 30px 20px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .vip-subsection {
+            margin-bottom: 30px;
+        }
+
+        .vip-subsection-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .vip-items-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .vip-items-grid-inner {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .vip-item-desc {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+
+        @media (min-width: 768px) {
+            .vip-items-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .vip-items-grid-inner {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .vip-item-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .vip-item-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(166, 111, 54, 0.15);
+        }
+
+        .vip-item-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .vip-item-image-placeholder {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vip-item-image-placeholder::after {
+            content: '✦';
+            color: var(--accent-gold);
+            font-size: 2rem;
+            opacity: 0.5;
+        }
+
+        .vip-item-info {
+            padding: 12px;
+        }
+
+        .vip-item-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .vip-item-price {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .vip-item-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .vip-item-thumb {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid var(--accent-gold-dim);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .vip-item-thumb:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-gold);
+        }
+
+        /* ========== SCREEN HEADER (shared) ========== */
+        .screen-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            padding: 8px 14px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .back-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        [dir="rtl"] .back-btn svg {
+            transform: scaleX(-1);
+        }
+
+        .menu-topbar {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 3000;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            direction: ltr;
+            background: rgba(13, 11, 9, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(166, 111, 54, 0.2);
+            border-radius: 0;
+            padding: 10px 16px;
+        }
+
+        .topbar-back {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .topbar-back:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        [dir="rtl"] .topbar-back svg {
+            transform: scaleX(-1);
+        }
+
+        .topbar-lang {
+            display: flex;
+            gap: 2px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            padding: 3px;
+        }
+
+        .screen-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .screen-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            padding: 0 0 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* ========== MENU TUTORIAL ========== */
+        .menu-tutorial {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .tutorial-card {
+            width: 100%;
+            max-width: 420px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 35px 25px 25px;
+            text-align: center;
+            box-shadow: var(--shadow-premium);
+        }
+
+        .tutorial-step {
+            display: none;
+            animation: fadeSlideIn 0.4s ease;
+        }
+
+        .tutorial-step.active {
+            display: block;
+        }
+
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tutorial-icon {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .tutorial-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .tutorial-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            min-height: 80px;
+        }
+
+        .tutorial-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 25px;
+            gap: 12px;
+        }
+
+        .tutorial-btn {
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .tutorial-skip {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tutorial-skip:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--text-primary);
+        }
+
+        .tutorial-next {
+            background: var(--accent-gold);
+            color: var(--bg-color);
+        }
+
+        .tutorial-next:hover {
+            filter: brightness(1.15);
+            box-shadow: 0 6px 25px rgba(166, 111, 54, 0.4);
+        }
+
+        .tutorial-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .tutorial-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .tutorial-dot.active {
+            background: var(--accent-gold);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* ── Restaurant Header ── */
+        .restaurant-header {
+            text-align: center;
+            padding: 12px 16px 6px;
+            display: none;
+        }
+        .restaurant-header.has-info {
+            display: block;
+        }
+        .restaurant-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .restaurant-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-gold);
+        }
+        .restaurant-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin: 0;
+        }
+
+        /* ── Loading Spinner ── */
+        .loading-spinner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+        .spinner {
+            width: 44px;
+            height: 44px;
+            border: 3px solid rgba(201, 163, 102, 0.2);
+            border-top-color: var(--accent-gold);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .loading-text {
+            margin-top: 14px;
+            color: #999;
+            font-size: 0.95rem;
+        }
+
+        /* ── Error Banner ── */
+        .error-banner {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+        .error-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+        .error-banner p {
+            margin: 6px 0;
+            font-size: 1rem;
+        }
+        .retry-btn {
+            margin-top: 16px;
+            padding: 10px 28px;
+            background: var(--accent-gold);
+            color: #1a1a1a;
+            border: none;
+            border-radius: 24px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+        }
+        .retry-btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Restaurant Header (dynamic) -->
+    <div id="restaurantHeader" class="restaurant-header"></div>
+
+    <!-- Language Selection Modal -->
+    <div class="lang-overlay" id="langOverlay">
+        <div class="lang-card">
+            <h1 class="lang-logo">Lavina House</h1>
+            <p class="lang-subtitle">Please select your preferred language<br>الرجاء اختيار لغتك المفضلة</p>
+            <div class="lang-options">
+                <button class="lang-option-btn" onclick="selectLanguage('ar')"
+                    style="font-family: 'Cairo', sans-serif;">العربية</button>
+                <button class="lang-option-btn" onclick="selectLanguage('en')">English</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HUB SCREEN -->
+    <section class="hub-screen" id="hubScreen" style="display: none;">
+        <div class="hub-inner">
+            <div class="hub-logo">Lavina House</div>
+            <div class="hub-subtitle">
+                <span class="ar-text">أهلاً وسهلاً بكم في لافينا هاوس</span>
+                <span class="en-text">Welcome to Lavina House</span>
+            </div>
+            <div class="ornament"></div>
+            <div class="hub-cards">
+                <div class="hub-card" onclick="showTutorial()">
+                    <div class="hub-card-icon">
+                        <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </div>
+                    <h3 class="hub-card-title">
+                        <span class="ar-text">المنيو</span>
+                        <span class="en-text">Menu</span>
+                    </h3>
+                    <p class="hub-card-desc">
+                        <span class="ar-text">تصفح المنيو الكامل وكيفية استخدامه</span>
+                        <span class="en-text">Browse the full menu and learn how it works</span>
+                    </p>
+                </div>
+                <div class="hub-card" onclick="showVip()">
+                    <div class="hub-card-icon">
+                        <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                            </polygon>
+                        </svg>
+                    </div>
+                    <h3 class="hub-card-title">
+                        <span class="ar-text">صالة VIP</span>
+                        <span class="en-text">VIP Lounge</span>
+                    </h3>
+                    <p class="hub-card-desc">
+                        <span class="ar-text">تشكيلة حصرية من أفخر الأطباق المميزة</span>
+                        <span class="en-text">Exclusive selection of our finest signature dishes</span>
+                    </p>
+                </div>
+                <div class="hub-card" onclick="showGallery()">
+                    <div class="hub-card-icon">
+                        <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="hub-card-title">
+                        <span class="ar-text">ألق نظرة في لافينا هاوس</span>
+                        <span class="en-text">Take a Look Inside Lavina House</span>
+                    </h3>
+                    <p class="hub-card-desc">
+                        <span class="ar-text">استمتع بجولة بصرية في أجواء المطعم</span>
+                        <span class="en-text">Enjoy a visual tour of our restaurant ambiance</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SCREEN -->
+    <section class="gallery-screen" id="galleryScreen" style="display: none;">
+        <div class="carousel-back-wrapper">
+            <button class="back-btn carousel-back" onclick="stopLookCarousel(); showHub()">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span class="ar-text">رجوع</span>
+                <span class="en-text">Back</span>
+            </button>
+        </div>
+        <div class="carousel-container" id="lookCarousel" dir="ltr">
+            <!-- Populated by JS from look/ folder -->
+        </div>
+        <div class="carousel-dots" id="lookDots"></div>
+        <div class="carousel-hint" id="lookHint">
+            <span class="ar-text">اسحب للمزيد</span>
+            <span class="en-text">Swipe for more</span>
+        </div>
+    </section>
+
+    <!-- VIP LOUNGE SCREEN -->
+    <section class="vip-screen" id="vipScreen" style="display: none;">
+        <div class="vip-back-btn-wrapper">
+            <button class="back-btn vip-back" onclick="stopVipCarousel(); showHub()">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span class="ar-text">رجوع</span>
+                <span class="en-text">Back</span>
+            </button>
+        </div>
+
+        <!-- VIP Hero with blurred image -->
+        <div class="vip-hero-top">
+            <div class="vip-hero-bg" style="background-image: url('vip/3.jpg');"></div>
+            <div class="vip-hero-content">
+                <h1 class="vip-hero-heading">VIP LOUNGE</h1>
+                <div class="vip-hero-ornament"></div>
+            </div>
+            <!-- Features overlaid on the image -->
+            <div class="vip-features">
+                <div class="vip-feature-item">
+                    <span class="vip-feature-value">45</span>
+                    <span class="vip-feature-label">
+                        <span class="ar-text">شخص</span>
+                        <span class="en-text">Persons</span>
+                    </span>
+                </div>
+                <div class="vip-feature-item">
+                    <div class="vip-feature-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="4" y1="20" x2="20" y2="20"></line>
+                            <line x1="12" y1="20" x2="12" y2="11"></line>
+                            <path d="M5 11a7 7 0 0 1 14 0"></path>
+                            <line x1="8" y1="11" x2="16" y2="11"></line>
+                        </svg>
+                    </div>
+                    <span class="vip-feature-label">
+                        <span class="ar-text">تراس</span>
+                        <span class="en-text">Terrace</span>
+                    </span>
+                </div>
+                <div class="vip-feature-item">
+                    <div class="vip-feature-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="7" r="3"></circle>
+                            <path d="M1 14 Q5 10 12 14 Q19 10 23 14"></path>
+                            <path d="M3 17 Q7 13 12 17 Q17 13 21 17"></path>
+                        </svg>
+                    </div>
+                    <span class="vip-feature-label">
+                        <span class="ar-text">إطلالة بحر</span>
+                        <span class="en-text">Sea View</span>
+                    </span>
+                </div>
+                <div class="vip-feature-item">
+                    <div class="vip-feature-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="9" width="20" height="8" rx="2"></rect>
+                            <circle cx="5" cy="13" r="1.5"></circle>
+                            <circle cx="9" cy="13" r="1.5"></circle>
+                            <circle cx="13" cy="13" r="1.5"></circle>
+                            <line x1="17" y1="11" x2="17" y2="15"></line>
+                            <line x1="21" y1="11" x2="21" y2="15"></line>
+                        </svg>
+                    </div>
+                    <span class="vip-feature-label">
+                        <span class="ar-text">دي جي</span>
+                        <span class="en-text">Mixer</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIP Image Carousel -->
+        <div class="vip-gallery-section">
+            <div class="carousel-container vip-carousel" id="vipCarousel" dir="ltr">
+                <!-- Populated by JS from vip/ folder -->
+            </div>
+            <div class="carousel-dots vip-carousel-dots" id="vipDots"></div>
+        </div>
+
+        <!-- VIP Plates -->
+        <div class="vip-plates-section">
+            <h3 class="vip-section-label">
+                <span class="ar-text">أطباق VIP</span>
+                <span class="en-text">VIP Plates</span>
+            </h3>
+            <div id="vipItems">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU TUTORIAL -->
+    <section class="menu-tutorial" id="menuTutorial" style="display: none;">
+        <div class="tutorial-card">
+            <div class="tutorial-steps" id="tutorialSteps">
+                <div class="tutorial-step active" data-step="1">
+                    <div class="tutorial-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                    </div>
+                    <h2 class="tutorial-title">
+                        <span class="ar-text">تصفح الفئات</span>
+                        <span class="en-text">Browse Categories</span>
+                    </h2>
+                    <p class="tutorial-text">
+                        <span class="ar-text">استخدم شريط التنقل العلوي للتنقل بين أقسام المنيو المختلفة مثل الفطور،
+                            الغداء، المشروبات والمزيد.</span>
+                        <span class="en-text">Use the top navigation bar to jump between menu sections like Breakfast,
+                            Lunch, Drinks, and more.</span>
+                    </p>
+                </div>
+                <div class="tutorial-step" data-step="2">
+                    <div class="tutorial-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </div>
+                    <h2 class="tutorial-title">
+                        <span class="ar-text">ابحث بسهولة</span>
+                        <span class="en-text">Search Easily</span>
+                    </h2>
+                    <p class="tutorial-text">
+                        <span class="ar-text">استخدم شريط البحث للعثور على أي طبق أو مشروب تريده بسرعة. اكتب أي كلمة
+                            وسيتم تصفية النتائج فوراً.</span>
+                        <span class="en-text">Use the search bar to quickly find any dish or drink. Type any keyword and
+                            results will filter instantly.</span>
+                    </p>
+                </div>
+                <div class="tutorial-step" data-step="3">
+                    <div class="tutorial-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h2 class="tutorial-title">
+                        <span class="ar-text">أضف إلى طلبك</span>
+                        <span class="en-text">Build Your Order</span>
+                    </h2>
+                    <p class="tutorial-text">
+                        <span class="ar-text">اضغط على زر (+) بجانب أي صنف لإضافته إلى سلة طلباتك. اضغط على الصور
+                            لتكبيرها ومشاهدة التفاصيل.</span>
+                        <span class="en-text">Tap the (+) button next to any item to add it to your order basket. Tap on
+                            images to zoom in and see details.</span>
+                    </p>
+                </div>
+                <div class="tutorial-step" data-step="4">
+                    <div class="tutorial-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="tutorial-title">
+                        <span class="ar-text">أبلغ النادل</span>
+                        <span class="en-text">Tell the Waiter</span>
+                    </h2>
+                    <p class="tutorial-text">
+                        <span class="ar-text">عند حضور النادل، ببساطة قم بقراءة الأصناف الموجودة في سلتك له.</span>
+                        <span class="en-text">When the waiter arrives, simply read or show the items in your basket to
+                            them.</span>
+                    </p>
+                </div>
+                <div class="tutorial-step" data-step="5">
+                    <div class="tutorial-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="8 12 11 15 16 9"></polyline>
+                        </svg>
+                    </div>
+                    <h2 class="tutorial-title">
+                        <span class="ar-text">جاهز للاستكشاف؟</span>
+                        <span class="en-text">Ready to Explore?</span>
+                    </h2>
+                    <p class="tutorial-text">
+                        <span class="ar-text">أنت الآن جاهز لتصفح المنيو! يمكنك دائماً العودة إلى هذا الدليل بالضغط على
+                            زر المساعدة (?) أسفل الشاشة.</span>
+                        <span class="en-text">You're all set to explore the menu! You can always revisit this guide by
+                            tapping the help (?) button at the bottom of the screen.</span>
+                    </p>
+                </div>
+            </div>
+            <div class="tutorial-footer">
+                <button class="tutorial-btn tutorial-skip" id="tutorialSkip">
+                    <span class="ar-text">تخطي</span>
+                    <span class="en-text">Skip</span>
+                </button>
+                <div class="tutorial-dots" id="tutorialDots">
+                    <span class="tutorial-dot active"></span>
+                    <span class="tutorial-dot"></span>
+                    <span class="tutorial-dot"></span>
+                    <span class="tutorial-dot"></span>
+                    <span class="tutorial-dot"></span>
+                </div>
+                <button class="tutorial-btn tutorial-next" id="tutorialNext">
+                    <span class="ar-text">التالي</span>
+                    <span class="en-text">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="parallax-bg">
+        <div class="parallax-layer layer-1" id="parallaxLayer1"></div>
+        <div class="parallax-layer layer-2" id="parallaxLayer2"></div>
+    </div>
+
+    <!-- Menu Top Bar (Back + Language) -->
+    <div class="menu-topbar" id="menuTopBar" style="display: none;">
+        <button class="topbar-back" onclick="showHub()">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+        </button>
+        <div class="topbar-lang">
+            <button class="lang-btn" onclick="setLang('en')">EN</button>
+            <button class="lang-btn active" onclick="setLang('ar')">AR</button>
+        </div>
+    </div>
+
+    <header class="animate-up" style="display: none;">
+        <h1 class="logo-text">Lavina House</h1>
+        <div class="header-subtitle">Signature Menu</div>
+        <div class="ornament"></div>
+    </header>
+
+    <div class="search-container" style="display: none;">
+        <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search menu... / ابحث في المنيو..."
+                onkeyup="handleSearch(event)">
+        </div>
+    </div>
+
+
+    <div class="nav-sticky-wrapper" id="navStickyWrapper" style="display: none;">
+        <nav id="navbar">
+            <div class="nav-container" id="navContainer">
+                <!-- Populated by JS -->
+            </div>
+        </nav>
+    </div>
+
+    <main id="menuContainer" style="display: none;">
+        <!-- Populated by JS -->
+    </main>
+    <div id="noResults" class="no-results" style="display: none;">
+        <div style="font-size: 3rem; margin-bottom: 20px;">☕</div>
+        <div class="ar-text">عذراً، لم نجد ما تبحث عنه... جرب كلمة أخرى</div>
+        <div class="en-text">Sorry, we couldn't find what you're looking for... try another keyword</div>
+    </div>
+
+    <footer style="display: none;">
+        <div class="footer-logo">Lavina House</div>
+        <div class="footer-text">An Elegant Experience</div>
+        <div class="footer-contact">
+            <a href="tel:0922162016" class="contact-item" style="text-decoration: none;">
+                <svg class="contact-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-2.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                    </path>
+                </svg>
+                <span>0922162016</span>
+            </a>
+            <a href="https://www.google.com/maps/place/Lavina+House/@32.8792225,13.1426646,17z/data=!3m1!4b1!4m6!3m5!1s0x13a8ed76c0ac7bbd:0xc5a2c3ab78dc5baf!8m2!3d32.8792225!4d13.1426646!16s%2Fg%2F11fjqk4dzv?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank" class="contact-item" style="text-decoration: none;">
+                <svg class="contact-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span class="ar-text">حي الأندلس طريق الكورنيش</span>
+                <span class="en-text">Hay-Alandalus Triq-Alkurnaish</span>
+            </a>
+            <div class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span class="ar-text">السبت إلى الجمعة 9:00 صباحاً - 12:00 مساءً</span>
+                <span class="en-text">Saturday to Friday 9:00 AM - 12:00 PM</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Premium UI Components -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="Full size image">
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+    <div class="cart-fab" id="cartFab" onclick="toggleCart()" style="display: none;">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <div class="cart-count" id="cartCount">0</div>
+    </div>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <div class="cart-title">
+                <span class="ar-text">طلبي للنادل</span>
+                <span class="en-text">Order for Waiter</span>
+            </div>
+            <span style="font-size: 1.5rem; cursor: pointer;" onclick="closeCart()">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItemsList">
+            <!-- Populated by JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <div>
+                    <span class="ar-text">الإجمالي</span>
+                    <span class="en-text">Total</span>
+                </div>
+                <div id="cartTotalValue">0 د.ل</div>
+            </div>
+            <div class="clear-cart" onclick="clearCart()">
+                <span class="ar-text">مسح الطلب</span>
+                <span class="en-text">Clear Order</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Guide Modal -->
+    <div class="guide-overlay" id="guideOverlay">
+        <div class="guide-card">
+            <div id="stepsContainer">
+                <!-- Step 1 -->
+                <div class="guide-step active" data-step="1">
+                    <div class="guide-icon">
+                        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                    </div>
+                    <h2 class="guide-title">
+                        <span class="ar-text">تصفح الفئات</span>
+                        <span class="en-text">Browse Categories</span>
+                    </h2>
+                    <p class="guide-text">
+                        <span class="ar-text">استخدم شريط التنقل العلوي للتنقل بين أقسام المنيو المختلفة مثل الفطور،
+                            الغداء، المشروبات والمزيد.</span>
+                        <span class="en-text">Use the top navigation bar to jump between menu sections like Breakfast,
+                            Lunch, Drinks, and more.</span>
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="guide-step" data-step="2">
+                    <div class="guide-icon">
+                        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </div>
+                    <h2 class="guide-title">
+                        <span class="ar-text">ابحث بسهولة</span>
+                        <span class="en-text">Search Easily</span>
+                    </h2>
+                    <p class="guide-text">
+                        <span class="ar-text">استخدم شريط البحث للعثور على أي طبق أو مشروب تريده بسرعة. اكتب أي كلمة
+                            وسيتم تصفية النتائج فوراً.</span>
+                        <span class="en-text">Use the search bar to quickly find any dish or drink. Type any keyword and
+                            results will filter instantly.</span>
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="guide-step" data-step="3">
+                    <div class="guide-icon">
+                        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h2 class="guide-title">
+                        <span class="ar-text">أضف إلى طلبك</span>
+                        <span class="en-text">Build Your Order</span>
+                    </h2>
+                    <p class="guide-text">
+                        <span class="ar-text">اضغط على زر (+) بجانب أي صنف لإضافته إلى سلة طلباتك. اضغط على الصور
+                            لتكبيرها ومشاهدة التفاصيل.</span>
+                        <span class="en-text">Tap the (+) button next to any item to add it to your order basket. Tap on
+                            images to zoom in and see details.</span>
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="guide-step" data-step="4">
+                    <div class="guide-icon">
+                        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="guide-title">
+                        <span class="ar-text">أبلغ النادل</span>
+                        <span class="en-text">Tell the Waiter</span>
+                    </h2>
+                    <p class="guide-text">
+                        <span class="ar-text">عند حضور النادل، ببساطة قم بقراءة الأصناف الموجودة في سلتك له.</span>
+                        <span class="en-text">When the waiter arrives, simply read or show the items in your basket to
+                            them.</span>
+                    </p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="guide-step" data-step="5">
+                    <div class="guide-icon">
+                        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="8 12 11 15 16 9"></polyline>
+                        </svg>
+                    </div>
+                    <h2 class="guide-title">
+                        <span class="ar-text">جاهز للاستكشاف؟</span>
+                        <span class="en-text">Ready to Explore?</span>
+                    </h2>
+                    <p class="guide-text">
+                        <span class="ar-text">أنت الآن جاهز لتصفح المنيو! يمكنك دائماً العودة إلى هذا الدليل بالضغط على
+                            زر المساعدة (?) أسفل الشاشة.</span>
+                        <span class="en-text">You're all set to explore the menu! You can always revisit this guide by
+                            tapping the help (?) button at the bottom of the screen.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="guide-footer">
+                <button class="guide-btn btn-skip" id="skipGuide">
+                    <span class="ar-text">تخطي</span>
+                    <span class="en-text">Skip</span>
+                </button>
+                <button class="guide-btn btn-next" id="nextGuide">
+                    <span class="ar-text">التالي</span>
+                    <span class="en-text">Next</span>
+                </button>
+            </div>
+
+            <div class="guide-dots" id="guideDots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Button -->
+    <div class="help-btn" onclick="openGuide(true)" style="display: none;">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 5;
+
+        function openGuide(manual = false) {
+            const hasSeenGuide = localStorage.getItem('lavina_guide_seen');
+            if (!hasSeenGuide || manual) {
+                document.getElementById('guideOverlay').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                setStep(1);
+            }
+        }
+
+        function setStep(step) {
+            currentStep = step;
+            document.querySelectorAll('.guide-step').forEach(s => s.classList.remove('active'));
+            document.querySelector(`.guide-step[data-step="${step}"]`).classList.add('active');
+
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((d, i) => d.classList.toggle('active', i === step - 1));
+
+            const nextBtn = document.getElementById('nextGuide');
+            if (step === totalSteps) {
+                nextBtn.innerHTML = '<span class="ar-text">فهمت!</span><span class="en-text">Got it!</span>';
+            } else {
+                nextBtn.innerHTML = '<span class="ar-text">التالي</span><span class="en-text">Next</span>';
+            }
+        }
+
+        document.getElementById('nextGuide').onclick = () => {
+            if (currentStep < totalSteps) {
+                setStep(currentStep + 1);
+            } else {
+                closeGuide();
+            }
+        };
+
+        document.getElementById('skipGuide').onclick = closeGuide;
+
+        function closeGuide() {
+            document.getElementById('guideOverlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            localStorage.setItem('lavina_guide_seen', 'true');
+        }
+
+        function selectLanguage(lang) {
+            setLang(lang);
+            document.getElementById('langOverlay').style.display = 'none';
+            // Show hub screen after a small delay
+            setTimeout(() => showHub(), 400);
+        }
+
+        // ---- IMAGE DATA FOR CAROUSELS ----
+        // Drop your images into the 'look/' and 'vip/' folders, then update these arrays:
+        const lookImages = [
+            'look/529382617_1065538569071813_422788919766769381_n.jpg',
+            'look/530474315_1069225922036411_7713793458850291476_n.jpg',
+            'look/532971888_1070884025203934_8871732062709276553_n.jpg',
+            'look/535535072_1074404811518522_6489369758503474818_n.jpg',
+            'look/542752928_1088449826780687_6668822589459107647_n.jpg',
+            'look/568968306_1128858329406503_4712141511669995336_n.jpg',
+            'look/589163086_1160171959608473_3349114471157116383_n.jpg',
+            'look/598745062_1170544235237912_1789301708877099555_n.jpg',
+            'look/599952552_1170544208571248_3734094862384536506_n.jpg',
+            'look/600058512_1168938488731820_5304838275462907869_n.jpg',
+        ];
+
+        const vipImages = [
+            'vip/1.jpg', 'vip/2.jpg', 'vip/3.jpg', 'vip/4.jpg', 'vip/5.jpg',
+            'vip/7.jpg', 'vip/8.jpg', 'vip/10.jpg', 'vip/VIP1.jpeg', 'vip/VIP2.jpeg',
+            'vip/VIP3.jpeg', 'vip/VIP4.jpeg', 'vip/VIP5.jpeg', 'vip/VIP6.jpeg', 'vip/VIP7.jpeg'
+        ];
+
+        let lookCarouselInterval = null;
+        let vipCarouselInterval = null;
+
+        function buildCarousel(containerId, dotsId, images) {
+            const container = document.getElementById(containerId);
+            const dots = document.getElementById(dotsId);
+            if (!container || !dots) return;
+
+            container.innerHTML = images.map((src, i) => `
+                <div class="carousel-slide">
+                    <img src="${src}" alt="Slide ${i + 1}" loading="${i < 2 ? 'eager' : 'lazy'}" onclick="openLightbox('${src}')">
+                </div>
+            `).join('');
+
+            dots.innerHTML = images.map((_, i) => `
+                <span class="carousel-dot ${i === 0 ? 'active' : ''}"></span>
+            `).join('');
+        }
+
+        function startCarousel(containerId, dotsId, intervalRef) {
+            const container = document.getElementById(containerId);
+            const dots = document.getElementById(dotsId);
+            if (!container || !dots) return;
+
+            const slides = container.querySelectorAll('.carousel-slide');
+            if (slides.length === 0) return;
+
+            let currentIndex = 0;
+
+            const updateDots = (index) => {
+                dots.querySelectorAll('.carousel-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === index);
+                });
+            };
+
+            // Update dots on scroll
+            container.addEventListener('scroll', () => {
+                const idx = Math.round(container.scrollLeft / container.clientWidth);
+                if (idx !== currentIndex && idx >= 0 && idx < slides.length) {
+                    currentIndex = idx;
+                    updateDots(idx);
+                }
+            }, { passive: true });
+        }
+
+        function stopLookCarousel() {
+            if (lookCarouselInterval) { clearInterval(lookCarouselInterval); lookCarouselInterval = null; }
+        }
+
+        function stopVipCarousel() {
+            if (vipCarouselInterval) { clearInterval(vipCarouselInterval); vipCarouselInterval = null; }
+        }
+
+        // ---- HUB / GALLERY / VIP / TUTORIAL NAVIGATION ----
+
+        function hideAllScreens() {
+            document.getElementById('hubScreen').style.display = 'none';
+            document.getElementById('galleryScreen').style.display = 'none';
+            document.getElementById('vipScreen').style.display = 'none';
+            document.getElementById('menuTutorial').style.display = 'none';
+        }
+
+        function hideMenuElements() {
+            document.getElementById('menuTopBar').style.display = 'none';
+            document.querySelector('header').style.display = 'none';
+            document.querySelector('.search-container').style.display = 'none';
+            document.querySelector('.nav-sticky-wrapper').style.display = 'none';
+            document.querySelector('main').style.display = 'none';
+            document.querySelector('footer').style.display = 'none';
+            document.querySelector('.cart-fab').style.display = 'none';
+            document.querySelector('.help-btn').style.display = 'none';
+            document.getElementById('noResults').style.display = 'none';
+        }
+
+        function showMenuElements() {
+            document.getElementById('menuTopBar').style.display = 'flex';
+            document.querySelector('header').style.display = '';
+            document.querySelector('.search-container').style.display = '';
+            document.querySelector('.nav-sticky-wrapper').style.display = '';
+            document.querySelector('main').style.display = '';
+            document.querySelector('footer').style.display = '';
+            document.querySelector('.cart-fab').style.display = '';
+            document.querySelector('.help-btn').style.display = '';
+            document.getElementById('noResults').style.display = '';
+        }
+
+        function showHub() {
+            hideAllScreens();
+            hideMenuElements();
+            stopLookCarousel();
+            stopVipCarousel();
+            document.getElementById('hubScreen').style.display = 'flex';
+            document.body.style.overflow = 'auto';
+        }
+
+        function showGallery() {
+            hideAllScreens();
+            hideMenuElements();
+            stopVipCarousel();
+            document.getElementById('galleryScreen').style.display = 'block';
+            document.getElementById('menuTopBar').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            buildCarousel('lookCarousel', 'lookDots', lookImages);
+            startCarousel('lookCarousel', 'lookDots', 'look');
+        }
+
+        function showVip() {
+            hideAllScreens();
+            hideMenuElements();
+            stopLookCarousel();
+            renderVipItems();
+            document.getElementById('vipScreen').style.display = 'block';
+            document.getElementById('menuTopBar').style.display = 'flex';
+            document.body.style.overflow = 'auto';
+            buildCarousel('vipCarousel', 'vipDots', vipImages);
+            startCarousel('vipCarousel', 'vipDots', 'vip');
+        }
+
+        function showTutorial() {
+            hideAllScreens();
+            hideMenuElements();
+            stopLookCarousel();
+            stopVipCarousel();
+            document.getElementById('menuTutorial').style.display = 'flex';
+            document.getElementById('menuTopBar').style.display = 'flex';
+            currentTutorialStep = 1;
+            updateTutorialStep();
+            document.body.style.overflow = 'hidden';
+        }
+
+        function startMenu() {
+            hideAllScreens();
+            document.getElementById('menuTutorial').style.display = 'none';
+            showMenuElements();
+            document.body.style.overflow = 'auto';
+            renderCategories();
+            renderMenu();
+        }
+
+        // ---- TUTORIAL STEPS ----
+        let currentTutorialStep = 1;
+        const totalTutorialSteps = 5;
+
+        function updateTutorialStep() {
+            document.querySelectorAll('.tutorial-step').forEach(s => s.classList.remove('active'));
+            const stepEl = document.querySelector(`.tutorial-step[data-step="${currentTutorialStep}"]`);
+            if (stepEl) stepEl.classList.add('active');
+
+            document.querySelectorAll('.tutorial-dot').forEach((d, i) => {
+                d.classList.toggle('active', i === currentTutorialStep - 1);
+            });
+
+            const nextBtn = document.getElementById('tutorialNext');
+            if (currentTutorialStep === totalTutorialSteps) {
+                nextBtn.innerHTML = `<span class="ar-text">دخول للمنيو</span><span class="en-text">Enter Menu</span>`;
+            } else {
+                nextBtn.innerHTML = `<span class="ar-text">التالي</span><span class="en-text">Next</span>`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const tutNext = document.getElementById('tutorialNext');
+            const tutSkip = document.getElementById('tutorialSkip');
+            if (tutNext) {
+                tutNext.onclick = () => {
+                    if (currentTutorialStep < totalTutorialSteps) {
+                        currentTutorialStep++;
+                        updateTutorialStep();
+                    } else {
+                        startMenu();
+                    }
+                };
+            }
+            if (tutSkip) {
+                tutSkip.onclick = () => startMenu();
+            }
+        });
+
+        // ---- VIP ITEMS RENDERING ----
+        function renderVipItems() {
+            const vipContainer = document.getElementById('vipItems');
+
+            const setMenuItems = [];
+
+            const buffetItems = [
+                { name: 'بوفيه مفتوح', en_name: 'Open Buffet', price: '', image: 'images/OpenPuffet/1.jpeg', images: ['images/OpenPuffet/2.jpeg', 'images/OpenPuffet/3.jpeg', 'images/OpenPuffet/4.jpeg', 'images/OpenPuffet/5.jpeg'], desc: 'تشكيلة واسعة من المقبلات، السلطات، الأطباق الرئيسية والحلويات', en_desc: 'Wide selection of appetizers, salads, main courses and desserts' },
+            ];
+
+            const sectionCard = (item) => `
+                <div class="vip-item-card">
+                    ${item.image ? `<img src="${item.image}" alt="${item.en_name || item.name}" class="vip-item-image" loading="lazy" onclick="openLightbox('${item.image}')">` : `<div class="vip-item-image-placeholder"></div>`}
+                    <div class="vip-item-info">
+                        <div class="vip-item-name ar-text">${item.name}</div>
+                        <div class="vip-item-name en-text">${item.en_name || ''}</div>
+                        ${item.desc ? `<div class="vip-item-desc ar-text">${item.desc}</div>` : ''}
+                        ${item.en_desc ? `<div class="vip-item-desc en-text">${item.en_desc}</div>` : ''}
+                        ${item.images ? `<div class="vip-item-gallery">${item.images.map(img => `<img src="${img}" class="vip-item-thumb" loading="lazy" onclick="openLightbox('${img}')">`).join('')}</div>` : ''}
+                    </div>
+                </div>
+            `;
+
+            vipContainer.innerHTML = `
+                <!-- <div class="vip-subsection">
+                    <h3 class="vip-subsection-title">
+                        <span class="ar-text">لا يوجد قائمة محددة</span>
+                        <span class="en-text">There is no set menu</span>
+                    </h3>
+                    <div class="vip-items-grid-inner">${setMenuItems.map(sectionCard).join('')}</div> -->
+                </div>
+                <div class="vip-subsection">
+                    <h3 class="vip-subsection-title">
+                        <span class="ar-text">● بوفيه</span>
+                        <span class="en-text">● Buffet</span>
+                    </h3>
+                    <div class="vip-items-grid-inner">${buffetItems.map(sectionCard).join('')}</div>
+                </div>
+            `;
+        }
+
+        // Redundant with init below; kept for safety on slow connections
+        window.addEventListener('load', () => {
+            const savedLang = localStorage.getItem('lavina_language');
+            if (!savedLang) {
+                document.getElementById('langOverlay').style.display = 'flex';
+                hideMenuElements();
+            }
+        });
+
+
+
+
+        // ── Multi-Restaurant Menu Loader ──
+        const RESTAURANT_SLUG = new URLSearchParams(window.location.search).get('slug') || 'lavina-house';
+        const CART_KEY = 'lavina_cart_' + RESTAURANT_SLUG;
+        let menuData = [];
+        let restaurantInfo = null;
+
+        // JSON_DATA_START (data loaded dynamically from API — see loadMenu())
+                const navContainer = document.getElementById('navContainer');
+        const menuContainer = document.getElementById('menuContainer');
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+        let currentLang = 'ar';
+        let searchQuery = '';
+
+        // ── Load menu from API ──
+        async function loadMenu() {
+            menuContainer.innerHTML = `<div class="loading-spinner"><div class="spinner"></div><p class="loading-text ar-text">جاري تحميل القائمة...</p><p class="loading-text en-text">Loading menu...</p></div>`;
+            navContainer.innerHTML = '';
+
+            try {
+                const response = await fetch('/api/index.php?endpoint=menu&slug=' + encodeURIComponent(RESTAURANT_SLUG));
+                if (!response.ok) throw new Error('API returned ' + response.status);
+                const data = await response.json();
+                menuData = data.menu;
+                restaurantInfo = data.restaurant;
+
+                // Update restaurant header
+                updateRestaurantHeader();
+
+                // Restore saved language
+                const savedLang = localStorage.getItem('lavina_language');
+                if (savedLang) {
+                    setLang(savedLang, false);
+                }
+
+                renderCategories();
+                renderMenu();
+                updateCartUI();
+            } catch (err) {
+                console.error('Menu load failed:', err);
+                // Try static fallback
+                try {
+                    const fallbackResp = await fetch('/static/' + RESTAURANT_SLUG + '.html');
+                    if (fallbackResp.ok) {
+                        window.location.href = '/static/' + RESTAURANT_SLUG + '.html';
+                        return;
+                    }
+                } catch (e) { /* fallback also failed */ }
+
+                menuContainer.innerHTML = `<div class="error-banner">
+                    <div class="error-icon">⚠</div>
+                    <p class="ar-text">تعذر تحميل القائمة. يرجى المحاولة مرة أخرى.</p>
+                    <p class="en-text">Could not load the menu. Please try again.</p>
+                    <button class="retry-btn" onclick="loadMenu()">
+                        <span class="ar-text">إعادة المحاولة</span>
+                        <span class="en-text">Retry</span>
+                    </button>
+                </div>`;
+            }
+        }
+
+        function updateRestaurantHeader() {
+            if (!restaurantInfo) return;
+            const header = document.getElementById('restaurantHeader');
+            if (!header) return;
+            header.classList.add('has-info');
+            header.innerHTML = `
+                <div class="restaurant-info">
+                    ${restaurantInfo.logo ? `<img src="${restaurantInfo.logo}" alt="Logo" class="restaurant-logo">` : ''}
+                    <div>
+                        <h1 class="restaurant-name ar-text">${restaurantInfo.name_ar || ''}</h1>
+                        <h1 class="restaurant-name en-text">${restaurantInfo.name_en || ''}</h1>
+                    </div>
+                </div>
+            `;
+        }
+
+        function handleSearch(e) {
+            searchQuery = e.target.value.toLowerCase().trim();
+            renderMenu();
+
+            // Auto scroll to top on search start
+            if (searchQuery.length === 1 && e.key !== 'Backspace') {
+                window.scrollTo({ top: 300, behavior: "smooth" });
+            }
+        }
+
+        function setLang(lang, save = true) {
+            currentLang = lang;
+            if (save) {
+                localStorage.setItem('lavina_language', lang);
+            }
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.innerText.toLowerCase() === lang);
+            });
+
+            renderCategories();
+            renderMenu();
+        }
+
+        const renderCategories = () => {
+            navContainer.innerHTML = menuData.map((category, index) => {
+                let cleanName = (category.name.split('(')[0]).trim();
+                if (cleanName.endsWith(' من')) {
+                    cleanName = cleanName.slice(0, -3).trim();
+                }
+                const cleanEnName = (category.en_name.split('(')[0]).trim();
+                return `
+                    <a href="#cat_${index}" class="nav-item ${index === 0 ? 'active' : ''}" data-target="cat_${index}">
+                        <span class="ar-text">${cleanName}</span>
+                        <span class="en-text">${cleanEnName}</span>
+                    </a>
+                `;
+            }).join('');
+
+            // Re-attach click listeners
+            document.querySelectorAll('.nav-item').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    const headerOffset = 100;
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                });
+            });
+        };
+
+        const renderMenu = () => {
+            let totalFound = 0;
+
+            menuContainer.innerHTML = menuData.map((category, catIndex) => {
+                let itemsHtml = '';
+                let catMatches = false;
+
+                const renderItem = (item, index, parentIndex, subcatIndex = null) => {
+                    // Search filtering
+                    if (searchQuery) {
+                        const nameMatch = item.name.toLowerCase().includes(searchQuery) ||
+                            item.en_name.toLowerCase().includes(searchQuery);
+                        const descMatch = (item.desc || '').toLowerCase().includes(searchQuery) ||
+                            (item.en_desc || '').toLowerCase().includes(searchQuery);
+
+                        // Also check variants
+                        let variantMatch = false;
+                        if (item.variants) {
+                            variantMatch = item.variants.some(v =>
+                                (v.name || '').toLowerCase().includes(searchQuery) ||
+                                (v.en_name || '').toLowerCase().includes(searchQuery) ||
+                                (v.variant_name || '').toLowerCase().includes(searchQuery) ||
+                                (v.variant_en_name || '').toLowerCase().includes(searchQuery)
+                            );
+                        }
+
+                        if (!nameMatch && !descMatch && !variantMatch) return '';
+                    }
+
+                    catMatches = true;
+                    totalFound++;
+
+                    const itemId = `item_${parentIndex}_${subcatIndex !== null ? subcatIndex + '_' : ''}${index}`;
+                    const hasVariants = item.variants && item.variants.length > 0;
+                    const displayItem = hasVariants ? item.variants[item.selected_variant_idx || 0] : item;
+
+                    return `
+                    <div class="menu-item reveal-item visible" id="${itemId}" data-item='${encodeURIComponent(JSON.stringify(item))}'>
+                        <div class="item-visual">
+                             ${displayItem.image ? `<img src="${displayItem.image}" alt="${displayItem.name}" class="item-image" loading="lazy" onclick="openLightbox('${displayItem.image}')">` : `<div class="item-image-placeholder"></div>`}
+                        </div>
+                        <div class="item-details">
+                            <div class="item-header" style="flex-direction: row; justify-content: space-between; align-items: flex-start;">
+                                <div style="display: flex; flex-direction: column;">
+                                    <span class="item-name ar-text">${item.name} ${item.spicy ? '<span style="color: #ff4d4d; font-size: 0.8rem;">🌶️</span>' : ''}</span>
+                                    <span class="item-variant-label ar-text">${hasVariants ? (displayItem.name || '') : ''}</span>
+                                    <span class="item-name en-text">${item.en_name} ${item.spicy ? '<span style="color: #ff4d4d; font-size: 0.8rem;">🌶️</span>' : ''}</span>
+                                    <span class="item-variant-label en-text">${hasVariants ? (displayItem.en_name || '') : ''}</span>
+                                </div>
+                                <button class="add-to-cart-btn" onclick="addToCartFromElement('${itemId}')">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="item-description ar-text">${displayItem.desc || ''}</div>
+                            <div class="item-description en-text">${displayItem.en_desc || ''}</div>
+                            
+                            ${hasVariants ? `
+                                <div class="variant-selector">
+                                    ${item.variants.map((v, vIdx) => `
+                                        <div class="variant-chip ${vIdx === (item.selected_variant_idx || 0) ? 'active' : ''}" 
+                                             onclick="updateItemVariant('${itemId}', ${vIdx})">
+                                            <span class="ar-text">${v.variant_name || v.name}</span>
+                                            <span class="en-text">${v.variant_en_name || v.en_name}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                        <div class="item-price-container" style="align-self: flex-end; text-align: right;">
+                            <div class="item-price ar-text">${displayItem.price}</div>
+                            <div class="item-price en-text">${displayItem.price.replace('د.ل', 'LYD')}</div>
+                        </div>
+                    </div>
+                `;
+                };
+
+                if (category.items && category.items.length > 0) {
+                    category.items.forEach((item, index) => {
+                        itemsHtml += renderItem(item, index, catIndex);
+                    });
+                }
+
+                if (category.subcategories && category.subcategories.length > 0) {
+                    category.subcategories.forEach((sub, subIdx) => {
+                        let subcatHtml = '';
+                        sub.items.forEach((item, index) => {
+                            subcatHtml += renderItem(item, index, catIndex, subIdx);
+                        });
+
+                        if (subcatHtml) {
+                            itemsHtml += `
+                                <h3 class="subcategory-title">
+                                    <span class="ar-text">${sub.name}</span>
+                                    <span class="en-text">${sub.en_name}</span>
+                                </h3>
+                                ${subcatHtml}
+                            `;
+                        }
+                    });
+                }
+
+                if (!catMatches && searchQuery) return '';
+
+                const isFeatured = (category.name === 'الأكثر طلباً' || category.name === 'الأسرع طلباً' || category.en_name === 'Most Ordered' || category.en_name === 'Fastest Ordered') && !searchQuery;
+
+                return `
+                    <div id="cat_${catIndex}" class="category-section visible" data-cat="cat_${catIndex}">
+                        <div class="category-header">
+                            <h2 class="category-title">
+                                <span class="ar-text">${category.name}</span>
+                                <span class="en-text">${category.en_name}</span>
+                            </h2>
+                            <div class="ornament" style="width: 40px; margin-top: 15px;"></div>
+                        </div>
+                        <div class="${isFeatured ? 'horizontal-scroll-container' : 'menu-items'}">
+                            ${isFeatured ? category.items.map((item, index) => {
+                    const itemId = `fav_${catIndex}_${index}`;
+                    return `
+                                            <div class="carousel-card shimmer" id="${itemId}" data-item='${encodeURIComponent(JSON.stringify(item))}'>
+                                                ${item.recommended ? `<div class="badge badge-recommended"><span class="ar-text">موصى به</span><span class="en-text">Recommended</span></div>` : ''}
+                                                ${item.spicy ? `<div class="badge badge-spicy">🌶️</div>` : ''}
+                                                ${item.image ? `<img src="${item.image}" alt="${item.name}" class="card-image" loading="lazy" onclick="openLightbox('${item.image}')">` : `<div class="item-image-placeholder" style="width: 100%; height: 200px;"></div>`}
+                                                <div class="card-details">
+                                                    <div class="card-name ar-text">${item.name}</div>
+                                                    <div class="card-name en-text">${item.en_name}</div>
+                                                    <div class="card-description ar-text">${item.desc || ''}</div>
+                                                    <div class="card-description en-text">${item.en_desc || ''}</div>
+                                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                                                        <div>
+                                                            <div class="card-price ar-text" style="margin-top: 0;">${item.price}</div>
+                                                            <div class="card-price en-text" style="margin-top: 0;">${item.price.replace('د.ل', 'LYD')}</div>
+                                                        </div>
+                                                        <button class="add-to-cart-btn" onclick="addToCartFromElement('${itemId}')">
+                                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            `;
+                }).join('') : itemsHtml}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            noResults.classList.toggle('visible', totalFound === 0 && searchQuery !== '');
+
+            // Re-observe for scroll reveal and active nav
+            const sections = document.querySelectorAll('.category-section');
+            sections.forEach(section => {
+                visibilityObserver.observe(section);
+                navObserver.observe(section);
+            });
+        };
+
+        // Search bar is always visible via sticky positioning
+
+        // Scroll Observer for fade-in
+        const visObserverOptions = {
+            root: null,
+            rootMargin: '0px 0px -10% 0px',
+            threshold: 0
+        };
+
+        const visibilityObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, visObserverOptions);
+
+        // Scroll Observer for active nav highlighting
+        const navObserverOptions = {
+            root: null,
+            rootMargin: '-180px 0px -40% 0px',
+            threshold: 0
+        };
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    updateActiveNavLink(id);
+                }
+            });
+        }, navObserverOptions);
+
+        function updateActiveNavLink(currentId) {
+            const navLinks = document.querySelectorAll('.nav-item');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentId) {
+                    link.classList.add('active');
+
+                    // Center the active link in the navbar
+                    const nav = document.getElementById('navbar');
+                    const linkRect = link.getBoundingClientRect();
+                    const navRect = nav.getBoundingClientRect();
+
+                    if (linkRect.left < navRect.left || linkRect.right > navRect.right) {
+                        nav.scrollTo({
+                            left: link.offsetLeft - nav.offsetWidth / 2 + link.offsetWidth / 2,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        }
+
+        // --- Premium Features Logic ---
+
+        // Parallax Effect - Removed per request for static background
+        /*
+                window.addEventListener('scroll', () => {
+        ...
+                });
+        */
+
+        // Lightbox
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = src;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cart Logic
+        let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+
+        function updateItemVariant(itemId, variantIdx) {
+            const itemElement = document.getElementById(itemId);
+            const itemData = JSON.parse(decodeURIComponent(itemElement.getAttribute('data-item')));
+            const variant = itemData.variants[variantIdx];
+
+            // Update visible elements
+            const img = itemElement.querySelector('.item-image');
+            const placeholder = itemElement.querySelector('.item-image-placeholder');
+            const namesAr = itemElement.querySelectorAll('.item-name.ar-text');
+            const namesEn = itemElement.querySelectorAll('.item-name.en-text');
+            const variantLabelsAr = itemElement.querySelectorAll('.item-variant-label.ar-text');
+            const variantLabelsEn = itemElement.querySelectorAll('.item-variant-label.en-text');
+            const descsAr = itemElement.querySelectorAll('.item-description.ar-text');
+            const descsEn = itemElement.querySelectorAll('.item-description.en-text');
+            const pricesAr = itemElement.querySelectorAll('.item-price.ar-text');
+            const pricesEn = itemElement.querySelectorAll('.item-price.en-text');
+
+            if (variant.image) {
+                if (img) {
+                    img.src = variant.image;
+                    img.onclick = () => openLightbox(variant.image);
+                } else if (placeholder) {
+                    const newImg = document.createElement('img');
+                    newImg.src = variant.image;
+                    newImg.className = 'item-image';
+                    newImg.onclick = () => openLightbox(variant.image);
+                    placeholder.replaceWith(newImg);
+                }
+            } else if (itemData.image) {
+                if (img) {
+                    img.src = itemData.image;
+                    img.onclick = () => openLightbox(itemData.image);
+                } else if (placeholder) {
+                    const newImg = document.createElement('img');
+                    newImg.src = itemData.image;
+                    newImg.className = 'item-image';
+                    newImg.onclick = () => openLightbox(itemData.image);
+                    placeholder.replaceWith(newImg);
+                }
+            } else {
+                if (img) {
+                    const newPlaceholder = document.createElement('div');
+                    newPlaceholder.className = 'item-image-placeholder';
+                    img.replaceWith(newPlaceholder);
+                }
+            }
+
+            variantLabelsAr.forEach(el => el.innerText = variant.name || '');
+            variantLabelsEn.forEach(el => el.innerText = variant.en_name || '');
+            descsAr.forEach(el => el.innerText = variant.desc || '');
+            descsEn.forEach(el => el.innerText = variant.en_desc || '');
+            pricesAr.forEach(el => el.innerText = variant.price);
+            pricesEn.forEach(el => el.innerText = variant.price.replace('د.ل', 'LYD'));
+
+            // Update active chip
+            itemElement.querySelectorAll('.variant-chip').forEach((chip, idx) => {
+                chip.classList.toggle('active', idx === variantIdx);
+            });
+
+            // Pulse animation for price
+            pricesAr.forEach(el => {
+                el.classList.remove('price-pulse');
+                void el.offsetWidth; // Trigger reflow
+                el.classList.add('price-pulse');
+            });
+            pricesEn.forEach(el => {
+                el.classList.remove('price-pulse');
+                void el.offsetWidth; // Trigger reflow
+                el.classList.add('price-pulse');
+            });
+
+            // Store current selection in data attribute for addToCart
+            itemElement.setAttribute('data-selected-variant', variantIdx);
+        }
+
+        function addToCartFromElement(itemId) {
+            const itemElement = document.getElementById(itemId);
+            const itemData = JSON.parse(decodeURIComponent(itemElement.getAttribute('data-item')));
+            const variantIdx = parseInt(itemElement.getAttribute('data-selected-variant') || '0');
+
+            let itemToPush = itemData;
+            if (itemData.variants && itemData.variants.length > 0) {
+                const variant = itemData.variants[variantIdx];
+                itemToPush = {
+                    ...itemData,
+                    price: variant.price,
+                    image: variant.image || itemData.image,
+                    desc: variant.desc || itemData.desc,
+                    en_desc: variant.en_desc || itemData.en_desc,
+                    selected_variant_name: variant.name,
+                    selected_variant_en_name: variant.en_name || variant.name,
+                    variant_id: variant.id || null
+                };
+            } else {
+                itemToPush.variant_id = null;
+            }
+
+            addToCart(encodeURIComponent(JSON.stringify(itemToPush)));
+        }
+
+        function addToCart(encodedItem) {
+            const item = JSON.parse(decodeURIComponent(encodedItem));
+            const existingItem = cart.find(i => i.id === item.id && i.variant_id === (item.variant_id || null));
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ ...item, quantity: 1 });
+            }
+
+            saveCart();
+            updateCartUI();
+
+            // Show FAB with animation
+            const fab = document.getElementById('cartFab');
+            fab.style.display = 'flex';
+            fab.style.transform = 'scale(1.2)';
+            setTimeout(() => fab.style.transform = 'scale(1)', 200);
+        }
+
+        function removeFromCart(index) {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity -= 1;
+            } else {
+                cart.splice(index, 1);
+            }
+            saveCart();
+            updateCartUI();
+        }
+
+        function clearCart() {
+            if (confirm(currentLang === 'ar' ? 'هل أنت متأكد من مسح الطلب؟' : 'Are you sure you want to clear the order?')) {
+                cart = [];
+                saveCart();
+                updateCartUI();
+                closeCart();
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem(CART_KEY, JSON.stringify(cart));
+        }
+
+        function updateCartUI() {
+            const cartItemsList = document.getElementById('cartItemsList');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotalValue = document.getElementById('cartTotalValue');
+            const fab = document.getElementById('cartFab');
+
+            let total = 0;
+            let count = 0;
+
+            cartItemsList.innerHTML = cart.map((item, index) => {
+                const price = parseFloat(item.price.replace(/[^\d.]/g, ''));
+                total += price * item.quantity;
+                count += item.quantity;
+
+                return `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">
+                                ${currentLang === 'ar' ? item.name : item.en_name}
+                                ${item.selected_variant_name ? `<br><small style="color: var(--accent-gold); opacity: 0.8;">(${currentLang === 'ar' ? item.selected_variant_name : item.selected_variant_en_name || item.selected_variant_name})</small>` : ''}
+                            </div>
+                            <div class="cart-item-price">${item.price} x ${item.quantity}</div>
+                        </div>
+                        <div class="cart-controls">
+                            <button class="cart-btn" onclick="removeFromCart(${index})">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </button>
+                            <span style="font-weight: 600; min-width: 20px; text-align: center;">${item.quantity}</span>
+                            <button class="cart-btn" onclick="addToCart('${encodeURIComponent(JSON.stringify(item))}')">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            cartCount.innerText = count;
+            cartTotalValue.innerText = total.toFixed(3) + ' د.ل';
+
+            fab.style.display = count > 0 ? 'flex' : 'none';
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            const overlay = document.getElementById('overlay');
+            modal.classList.toggle('open');
+            overlay.style.display = modal.classList.contains('open') ? 'block' : 'none';
+            document.body.style.overflow = modal.classList.contains('open') ? 'hidden' : 'auto';
+        }
+
+        function closeCart() {
+            const modal = document.getElementById('cartModal');
+            const overlay = document.getElementById('overlay');
+            modal.classList.remove('open');
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Initialize
+        const savedLang = localStorage.getItem('lavina_language');
+        if (!savedLang) {
+            // First time visitor: show language selection, hide everything else
+            document.getElementById('langOverlay').style.display = 'flex';
+            hideMenuElements();
+            document.body.style.overflow = 'hidden';
+        } else {
+            // Returning user: set language and show hub
+            setLang(savedLang, false);
+            hideMenuElements();
+            showHub();
+        }
+        // Start loading menu data in background (will be ready when menu is accessed)
+        loadMenu();
+        updateCartUI();
+
+    </script>
+</body>
+
+</html>

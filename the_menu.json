@@ -1,0 +1,1515 @@
+[
+  {
+    "name": "الافطار من (8ص الى 1م)",
+    "subcategories": [],
+    "items": [
+      {
+        "name": "ﻻﻓﻴﻨﺎ",
+        "price": "40.000 د.ل",
+        "desc": "ﺑﺮﻳﻮش, أوﻣﻠﻴﺖ, ﻋﺴﻞ, ﻣﺮﺑﻰ, ﺟﺒﻨﺔ, ﻓﻮاﻛﻪ, ﻧﻮﺗﻴﻼ, زﻳﺘﻮن ﻣﺘﺒﻞ, ﻫﺮﻳﺴﺔ, ﺳﻠﺔ ﺧﺒﺰ, ﺷﺎي (أﺧﻀﺮ أو أﺣﻤﺮ)",
+        "image": "images/lavina.jpg"
+      },
+      {
+        "name": "ﻻﻓﻴﻨﺎ (ﻋﺎئلي)",
+        "price": "195.000 د.ل",
+        "desc": "ﺷﻜﺸﻮﻛﺔ, أوﻣﻠﻴﺖ, ﻗﻼﻳﺔ, ﻣﻨﺎﻗﻴﺶ, أﺟﺒﺎن ﻣﺸﻜﻠﺔ, ﺳﻼﻃﺔ مخلل, زﻳﺘﻮن ﻣﺘﺒﻞ, ﻫﺮﻳﺴﺔ, ﺑﺮﻳﻮش, ﺑﻦ ﻛﻴﻚ, ﻣﺮﺑﻰ, ﻓﻄﻴﺮة ﻣﻐﺮﺑﻴﺔ, ﻧﻮﺗﻴﻼ, ﻋﺴﻞ, ﻳﺎﻏﻮرت، زﺑﺪة, ﺳﻠﺔ ﺧﺒﺰ, ﺑﺮاد ﺷﺎﻫﻲ (أﺧﻀﺮ أو أﺣﻤﺮ) (يكفي 3 أشخاص)",
+        "image": "images/lavina.jpg"
+      },
+      {
+        "name": "ﻛﻮﻧﺘﻴﻨﻨﺘﺎل",
+        "price": "45.000 د.ل",
+        "desc": "ﺑﺮﻳﻮش , اﻧﺠﻠﻴﺶ ﻛﻴﻚ, ﺑﺸﻤﺎط ﻗﺮﻳﺴﻴﻨﻰ, ﻣﺮﺑﻰ , ﻋﺴﻞ, زﺑﺪة, ﺻﺤﻦ ﺳﻼﻃﺔ, ﻓﻮاﻛﺔ ﻣﺠﻔﻔﺔ, ﻛﻮب ﻋﺼﻴﺮ, ﻗﻬﻮة وﺣﻠﻴﺐ",
+        "image": "images/continental.jpg"
+      },
+      {
+        "name": "افطار مغربي",
+        "price": "35.000 د.ل",
+        "desc": "ﻓﻄﻴﺮة ﻣﻐﺮﺑﻴﺔ, ﻋﺴﻞ, ﻣﺮﺑﻰ, زﺑﺪة, ﺑﻴﺾ ﻣﺴﻠﻮق, ﺟﺒﻨﺔ , ﺳﻠﺔ ﺧﺒﺰ, ﺷﺎي (أﺧﻀﺮ أو أﺣﻤﺮ )",
+        "image": "images/oriental_breakfast.png"
+      },
+      {
+        "name": "شرقي",
+        "price": "45.000 د.ل",
+        "desc": "ﻓﻮل ﻓﻼﻓﻞ, ﺑﺎﺑﺎﻏﻨﻮج, ﺳﻼﻃﺔ ﺣﻤﺺ, ﻣﺨﻠﻞ, ﻟﺒﻨﻪ , ﺳﻠﺔ ﺧﺒﺰ ,ﺷﺎي )أﺧﻀﺮ أو أﺣﻤﺮ",
+        "image": "images/oriental_breakfast.png"
+      },
+      {
+        "name": "صحن قلايه",
+        "price": "38.000 د.ل",
+        "desc": "ﻟﺤﻢ ﺑﻘﺮ, ﺻﺤﻦ ﺳﻼﻃﺔ ﻣﺸﻜﻞ, ﻫﺮﻳﺴﺔ, زﻳﺘﻮن, ﺳﻠﺔ ﺧﺒﺰ",
+        "image": "images/qallaya_plate.jpg"
+      },
+      {
+        "name": "ﺷﻜﺸﻮﻛﺔ ﺗﺮﻛﻴﺔ",
+        "price": "28.000 د.ل",
+        "desc": "ﺷﻜﺸﻮﻛﺔ ﻣﻊ ﺟﺒﻨﺔ ﻣﻮزارﻳﻼ وﺟﺒﻨﺔ ﺗﺸﻴﺪر, ﺧﻴﺎر وﺟﻴﺮﺟﻴﺮ, زﻳﺘﻮن ﻣﺘﺒﻞ, ﺳﻠﺔ ﺧﺒﺰ, ﺷﺎي (أﺧﻀﺮ أو أﺣﻤﺮ)",
+        "image": "images/oriental_breakfast.png"
+      },
+      {
+        "name": "ﺷﻜﺸﻮﻛﺔ ﻣﺮﻗﺎز",
+        "price": "32.000 د.ل",
+        "desc": "ﺷﻜﺸﻮﻛﺔ ﻣﻊ ﻣﺮﻗﺎز, ﺟﺒﻨﺔ, ﺧﻀﺮوات, زﻳﺘﻮن ﻣﺘﺒﻞ, ﺳﻠﺔ ﺧﺒﺰو ﺷﺎي (أﺧﻀﺮ أو اﺣﻤﺮ)",
+        "image": "images/oriental_breakfast.png"
+      },
+      {
+        "name": "ﺷﻜﺸﻮﻛﺔ ﻗﺪﻳﺪ",
+        "price": "35.000 د.ل",
+        "desc": "ﺷﻜﺸﻮﻛﺔ ﺑﻘﺪﻳﺪ, ﺟﺒﻨﺔ, ﺧﻀﺮوات, زﻳﺘﻮن ﻣﺘﺒﻞ, ﺳﻠﺔ ﺧﺒﺰ, ﺷﺎي (أﺧﻀﺮ أو اﺣﻤﺮ)",
+        "image": "images/oriental_breakfast.png"
+      },
+      {
+        "name": "أوﻣﻠﻴﺖ ﻛﻼﺳﻴﻚ",
+        "price": "15.000 د.ل",
+        "desc": "ﺑﻴﺾ ﻣﻊ ﻫﺮﻳﺴﺔ, زﻳﺘﻮن, ﻃﻤﺎﻃﻢ، ﺧﻴﺎر، ﺟﺮﺟﻴﺮ و ﺳﻠﺔ ﺧﺒﺰ.",
+        "image": "images/egg_bagels.jpg"
+      },
+      {
+        "name": "أوﻣﻠﻴﺖ ﺑﺎﻟﺠﺒﻨﺔ",
+        "price": "18.000 د.ل",
+        "desc": "ﺑﻴﺾ وﺟﺒﻨﺔ ﻣﻊ ﻫﺮﻳﺴﺔ, زﻳﺘﻮن, ﻃﻤﺎﻃﻢ، ﺧﻴﺎر، ﺟﺮﺟﻴﺮ و ﺳﻠﺔ",
+        "image": "images/egg_bagels.jpg"
+      },
+      {
+        "name": "أوﻣﻠﻴﺖ ﺧﻀﺮوات",
+        "price": "20.000 د.ل",
+        "desc": "ﺑﻴﺾ, ﻓﻠﻔﻞ ﺣﻠﻮ, ﺑﺼﻞ, ﺟﺒﻨﺔ, ﺟﺮﺟﻴﺮ, ﻃﻤﺎﻃﻢ، ﺧﻴﺎر , زﻳﺘﻮن و ﺳﻠﺔ ﺧﺒﺰ.",
+        "image": "images/egg_bagels.jpg"
+      },
+      {
+        "name": "أوﻣﻠﻴﺖ ﻓﻘﺎع",
+        "price": "22.000 د.ل",
+        "desc": "ﺑﻴﺾ, ﻓﻠﻔﻞ ﺣﻠﻮ, ﻓﻘﺎع, ﺟﺒﻨﺔ، زﻳﺘﻮن, ﻃﻤﺎﻃﻢ, ﺧﻴﺎر, ﻫﺮﻳﺴﺔ, و ﺳﻠﺔ ﺧﺒﺰ.",
+        "image": "images/egg_bagels.jpg"
+      },
+      {
+        "name": "ﺗﻮﺳﺖ ﺟﺒﻨﺔ",
+        "price": "18.000 د.ل",
+        "desc": "ﺗﻮﺳﺖ ﻣﻊ ﺟﺒﻨﺔ ﻛﺮﻳﻢ,ﻣﻮزارﻳﻼ و ﺟﺒﻨﺔ زﻋﺘﺮ.",
+        "image": "images/SalamiToast.jpeg"
+      },
+      {
+        "name": "ﺗﻮﺳﺖ ﺗﻮﻧﺔ",
+        "price": "15.000 د.ل",
+        "desc": "ﺗﻮﺳﺖ ﺗﻮﻧﺔ, ﺟﺒﻨﺔ, ﻃﻤﺎﻃﻢ, ﺟﺮﺟﻴﺮ, زﻳﺘﻮن أﺳﻮد, زﻳﺘﻮن ﻣﺘﺒﻞ و ﻫﺮﻳﺴﺔ.",
+        "image": "images/SalamiToast.jpeg"
+      },
+      {
+        "name": "ﺗﻮﺳﺖ ﺑﻴﺾ",
+        "price": "15.000 د.ل",
+        "desc": "ﺗﻮﺳﺖ ﺑﻴﺾ ﻣﻘﻠﻲ, ﺟﺒﻨﺔ, ﻃﻤﺎﻃﻢ, ﺟﺮﺟﻴﺮ, زﻳﺘﻮن أﺳﻮد, زﻳﺘﻮن ﻣﺘﺒﻞ وﻫﺮﻳﺴﺔ.",
+        "image": "images/SalamiToast.jpeg"
+      },
+      {
+        "name": "ﺗﻮﺳﺖ ﺑﺒﺮوﻧﻲ",
+        "price": "18.000 د.ل",
+        "desc": "ﺗﻮﺳﺖ ﺳﻼﻣﻲ, ﺟﺒﻨﺔ, ﻃﻤﺎﻃﻢ, ﺟﺮﺟﻴﺮ ،زﻳﺘﻮن ﺷﺮاﺋﺢ أﺳﻮد, زﻳﺘﻮن ﻣﺘﺒﻞ وﻫﺮﻳﺴﺔ.",
+        "image": "images/SalamiToast.jpeg"
+      },
+      {
+        "name": "سكرامبل بيض",
+        "price": "20.000 د.ل",
+        "desc": "",
+        "image": "images/egg_bagels.jpg"
+      },
+      {
+        "name": "بيض بينديكت",
+        "price": "25.000 د.ل",
+        "desc": "",
+        "image": "images/egg_bagels.jpg"
+      },
+      {
+        "name": "بيجلز",
+        "price": "25.000 د.ل",
+        "desc": "ﺑﻴﺠﻞ ﺟﺒﻨﺔ ﻛﺮﻳﻢ, ﺳﻼﻣﻲ, ﻃﻤﺎﻃﻢ و ﺟﺮﺟﻴﺮ.",
+        "image": "images/egg_bagels.jpg"
+      },
+      {
+        "name": "بيجلز",
+        "price": "20.000 د.ل",
+        "desc": "بيجل بيض جبنة كريم , طماطم, جرجير, جبنة شرائح",
+        "image": "images/egg_bagels.jpg"
+      },
+      {
+        "name": "بيجلز",
+        "price": "20.000 د.ل",
+        "desc": "ﺑﻴﺠﻞ ﺗﻮﻧﺔ, ﻃﻤﺎﻃﻢ و ﺟﺮﺟﻴﺮ",
+        "image": "images/egg_bagels.jpg"
+      },
+      {
+        "name": "بيجلز",
+        "price": "25.000 د.ل",
+        "desc": "بيجل أجبان جبنة شرائح, موزاريلا, جبنة كريم, جرجير و طماطم",
+        "image": "images/egg_bagels.jpg"
+      },
+      {
+        "name": "اﻷﻓﻄﺎر اﻟﺼﺤﻲ 2",
+        "price": "25.000 د.ل",
+        "desc": "ﺑﻴﺾ ﻣﺴﻠﻮق, ﺗﻮﻧﺔ, ﺻﺤﻦ ﻓﻮاﻛﺔ, ﺷﻮﻓﺎن ﺣﻠﻴﺐ, ﺗﻮﺳﺖ ﺷﻌﻴﺮ و ﻳﻐﻮرت و ﺗﻤﺮ.",
+        "image": "images/oriental_breakfast.png"
+      },
+      {
+        "name": "اﻷﻓﻄﺎر اﻟﺼﺤﻲ",
+        "price": "20.000 د.ل",
+        "desc": "ﺑﻴﺎض ﺑﻴﺾ, ﻓﻮل ﺑﺎﻟﻴﻤﻮن, ﺗﻮﺳﺖ ﺷﻌﻴﺮ, ﻓﺮوﺗﺔ و ﻳﻐﻮرت.",
+        "image": "images/oriental_breakfast.png"
+      },
+      {
+        "name": "صحن شوفان",
+        "price": "20.000 د.ل",
+        "desc": "ﺻﺤﻦ ﺷﻮﻓﺎن ﻣﻊ اﻟﻤﻜﺴﺮات, ﺗﻤﺮ و ﻓﻮاﻛﺔ.",
+        "image": "images/oriental_breakfast.png"
+      },
+      {
+        "name": "إﺿﺎﻓﺎت -- ﺻﺤﻦ اﻟﺠﺒﻦ",
+        "price": "20.000 د.ل",
+        "desc": "ﺻﺤﻦ ﻳﺤﺘﻮي ﻋﻠﻰ ﻣﺠﻤﻮﻋﺔ ﻣﺘﻨﻮﻋﺔ ﻣﻦ اﻷﺟﺒﺎن",
+        "image": "images/cheese_sambousek.png"
+      },
+      {
+        "name": "اضافات -- اﻟﺰﻋﺘﺮ ﻣﻊ زﻳﺖ اﻟﺰﻳﺘﻮن",
+        "price": "8.000 د.ل",
+        "desc": "-2اﻟﺰﻋﺘﺮ ﻣﻊ زﻳﺖ اﻟﺰﻳﺘﻮن",
+        "image": "images/Meat_Safiha.png"
+      }
+    ]
+  },
+  {
+    "name": "الغداء (من الساعه 1م)",
+    "subcategories": [
+      {
+        "name": "المقبلات",
+        "items": [
+          {
+            "name": "ﺑﺮوﺳﻜﻴﺘﺎ",
+            "price": "15.000 د.ل",
+            "desc": "",
+            "image": "images/Bruschetta.png"
+          },
+          {
+            "name": "ﺑﻮرﻳﻚ ﻟﺤﻢ",
+            "price": "20.000 د.ل",
+            "desc": "",
+            "image": "images/meat_kibbeh_4_pieces.png"
+          },
+          {
+            "name": "ﻛﺒﺔ ﻟﺤﻢ (4 ﻗﻄﻊ)",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/meat_kibbeh_4_pieces.png"
+          },
+          {
+            "name": "ﻣﻮزارﻳﻼ ﻓﻴﻨﻘﺮ",
+            "price": "30.000 د.ل",
+            "desc": "",
+            "image": "images/cheese_sambousek.png"
+          },
+          {
+            "name": "ﻓﺶ ﻓﻴﻨﻘﺮ",
+            "price": "40.000 د.ل",
+            "desc": "",
+            "image": "images/fish_fingers.png"
+          },
+          {
+            "name": "ﺻﺤﻦ ﺑﻄﺎﻃﺎ",
+            "price": "20.000 د.ل",
+            "desc": "",
+            "image": "images/potato_fries_plate.png"
+          },
+          {
+            "name": "ﺳﻤﺒﻮﺳﺔ ﺑﺎﻟﺠﺒﻨﺔ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/cheese_sambousek.png"
+          },
+          {
+            "name": "ﺗﺸﻜﻴﻦ ﺳﺘﺮﻳﺒﺲ",
+            "price": "35.000 د.ل",
+            "desc": "",
+            "image": "images/chicken_strips.png"
+          },
+          {
+            "name": "بسطيلا دجاج",
+            "price": "35.000 د.ل",
+            "desc": "",
+            "image": "images/chicken_pastilla.jpg"
+          },
+          {
+            "name": "سوتي فواكه البحر",
+            "price": "35.000 د.ل",
+            "desc": "",
+            "image": "images/Lavina_Mix_seafood.jpeg"
+          },
+          {
+            "name": "صحن لاڤينا مشكل",
+            "price": "70.000 د.ل",
+            "desc": "",
+            "image": "images/Lavina_Family_Grill_Mix.jpeg"
+          }
+        ]
+      },
+      {
+        "name": "السلاطات",
+        "items": [
+          {
+            "name": "ﺳﻼﻃﺔ ﻋﺮﺑﻴﺔ",
+            "price": "15.000 د.ل",
+            "desc": "",
+            "image": "images/Arabic_Salad.PNG"
+          },
+          {
+            "name": "ﺳﻼﻃﺔ ﺣﻤﺺ",
+            "price": "15.000 د.ل",
+            "desc": "",
+            "image": "images/humus_salad.jpeg"
+          },
+          {
+            "name": "ﺳﻼﻃﺔ ﻛﻮل ﺳﻠﻮ",
+            "price": "15.000 د.ل",
+            "desc": "",
+            "image": "images/coleslaw_salad.png"
+          },
+          {
+            "name": "ﺳﻼﻃﺔ ﺟﺮﺟﻴﺮ",
+            "price": "20.000 د.ل",
+            "desc": "",
+            "image": "images/arugula_salad.jpg"
+          },
+          {
+            "name": "ﺳﻼﻃﺔ ﻣﺸﻮﻳﺔ",
+            "price": "20.000 د.ل",
+            "desc": "",
+            "image": "images/grilled_salad.png"
+          },
+          {
+            "name": "ﺳﻼﻃﺔ ﺑﺎﺑﺎ ﻏﻨﻮش",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/baba_ganoush_salad.png"
+          },
+          {
+            "name": "ﺳﻼﻃﺔ ﺳﻴﺰر",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Caesar_Salad.png"
+          },
+          {
+            "name": "ﺳﻼﻃﺔ ﻳﻮﻧﺎﻧﻴﺔ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/greek_salad.png"
+          },
+          {
+            "name": "ﺳﻼﻃﺔ ﻓﺘﻮش",
+            "price": "30.000 د.ل",
+            "desc": "",
+            "image": "images/fattoush_salad.png"
+          },
+          {
+            "name": "ﺳﻼﻃﺔ ﻓﻮاﻛﺔ اﻟﺒﺤﺮ",
+            "price": "30.000 د.ل",
+            "desc": "",
+            "image": "images/Lavina_Mix_seafood.jpeg"
+          },
+          {
+            "name": "ﺳﻼﻃﺔ ﻻﻓﻴﻨﺎ",
+            "price": "45.000 د.ل",
+            "desc": "",
+            "image": "images/lavina.jpg"
+          }
+        ]
+      },
+      {
+        "name": "الشوربات",
+        "items": [
+          {
+            "name": "ﺷﻮرﺑﺔ اﻟﻌﺪس",
+            "price": "15.000 د.ل",
+            "desc": "",
+            "image": "images/Lentil_Soup.png"
+          },
+          {
+            "name": "ﺷﻮرﺑﺔ اﻟﺪﺟﺎج ﺑﺎﻟﻔﻘﺎع",
+            "price": "27.000 د.ل",
+            "desc": "",
+            "image": "images/ChickenMashrumSoup.jpeg"
+          },
+          {
+            "name": "ﺷﻮرﺑﺔ اﻟﺠﻤﺒﺮي",
+            "price": "30.000 د.ل",
+            "desc": "",
+            "image": "images/shrimp_soup.png"
+          }
+        ]
+      },
+      {
+        "name": "باستا",
+        "items": [
+          {
+            "name": "ﺑﺎﺳﺘﺎ أرﺑﻴﺎﺗﺎ",
+            "price": "30.000 د.ل",
+            "desc": "",
+            "image": "images/pasta_arrabbiata.png"
+          },
+          {
+            "name": "ﺑﻴﺴﺘﻮ ﻓﻮزﻳﻠﻰ",
+            "price": "35.000 د.ل",
+            "desc": "",
+            "image": "images/Pesto_Fusilli.PNG"
+          },
+          {
+            "name": "ﺑﻮﻟﻮﻧﻴﺰ",
+            "price": "40.000 د.ل",
+            "desc": "",
+            "image": "images/Bolognese_Lasagna.jpeg"
+          },
+          {
+            "name": "اﻟﻔﺮﻳﺪو ﺑﺎﻟﺪﺟﺎج",
+            "price": "40.000 د.ل",
+            "desc": "",
+            "image": "images/chicken_alfredo.png"
+          },
+          {
+            "name": "ﺳﺒﺎﻗﻴﺘﻲ ﺑﺎﻟﻔﻮاﻛﺔ اﻟﺒﺤﺮ",
+            "price": "50.000 د.ل",
+            "desc": "",
+            "image": "images/seafood_risotto.jpg"
+          },
+          {
+            "name": "لانجويني قمبري",
+            "price": "55.000 د.ل",
+            "desc": "(ﺻﻮص اﺣﻤﺮ ﺻﻮص اﺑﻴﺾﺻﻮص ﺑﻴﻨﻚ)",
+            "image": "images/Shrimp_Linguine_Pink_Sauce.png"
+          },
+          {
+            "name": "ﻻزاﻧﻴﺎ ﺑﻠﻮﻧﻴﺰ",
+            "price": "45.000 د.ل",
+            "desc": "",
+            "image": "images/Bolognese_Lasagna.jpeg"
+          },
+          {
+            "name": "بشاميل دجاج",
+            "price": "40.000 د.ل",
+            "desc": "",
+            "image": "images/chicken_negresco.png"
+          }
+        ]
+      },
+      {
+        "name": "ريزوتو",
+        "items": [
+          {
+            "name": "روزوﺗﻮ ﻣﺸﺮوم",
+            "price": "40.000 د.ل",
+            "desc": "",
+            "image": "images/seafood_risotto.jpg"
+          },
+          {
+            "name": "روزوﺗﻮ ﺳﻲ ﻓﻮد",
+            "price": "55.000 د.ل",
+            "desc": "",
+            "image": "images/seafood_risotto.jpg"
+          }
+        ]
+      },
+      {
+        "name": "صفايح",
+        "items": [
+          {
+            "name": "ﺻﻔﻴﺤﺔ ﻟﺤﻢ",
+            "price": "28.000 د.ل",
+            "desc": "",
+            "image": "images/Meat_Safiha.png"
+          },
+          {
+            "name": "ﺻﻔﻴﺤﺔ ﺟﺒﻨﺔ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Checkin_pane.PNG"
+          },
+          {
+            "name": "ﺻﻔﻴﺤﺔ ﺑﺠﺒﻨﺔ وﻟﺤﻢ",
+            "price": "30.000 د.ل",
+            "desc": "",
+            "image": "images/Meat_Safiha.png"
+          },
+          {
+            "name": "ﺻﻔﻴﺤﺔ زﻋﺘﺮ",
+            "price": "20.000 د.ل",
+            "desc": "",
+            "image": "images/Meat_Safiha.png"
+          },
+          {
+            "name": "صفيحة زﻋﺘﺮ وﺟﺒﻨﺔ",
+            "price": "28.000 د.ل",
+            "desc": "",
+            "image": "images/Checkin_pane.PNG"
+          },
+          {
+            "name": "ﺻﻔﻴﺤﺔ ﻟﺤﻢ ﻣﻊ ﺟﺒﻨﺔ وزﻋﺘﺮ",
+            "price": "30.000 د.ل",
+            "desc": "",
+            "image": "images/Meat_Safiha.png"
+          },
+          {
+            "name": "ﺻﻔﻴﺤﺔ ﺣﺠﻢ ﻋﺎﺋﻠﻲ",
+            "price": "45.000 د.ل",
+            "desc": "",
+            "image": "images/Meat_Safiha.png"
+          }
+        ]
+      },
+      {
+        "name": "بيتزا",
+        "items": [
+          {
+            "name": "ﻣﺎرﺟﺎرﻳﺘﺎ",
+            "price": "25.000 د.ل",
+            "desc": "ﺟﺒﻨﺔ ﻣﻮزارﻳﻼ, ﺟﺒﻨﺔ ﺷﻴﺪر و ﻃﻤﺎﻃﻢ",
+            "image": "images/Mushroom_Pizza.PNG"
+          },
+          {
+            "name": "ﺧﻀﺎر",
+            "price": "35.000 د.ل",
+            "desc": "ﺧﻀﺮوات, ﺟﺒﻨﺔ, ﻓﻠﻔﻞ ﺣﻠﻮ,ﻃﻤﺎﻃﻢ, زﻳﺘﻮن و ﺑﺼﻞ",
+            "image": "images/Mushroom_Pizza.PNG"
+          },
+          {
+            "name": "ﻓﻘﺎع",
+            "price": "35.000 د.ل",
+            "desc": "ﺟﺒﻨﺔ, ﻓﻘﺎع, ﻃﻤﺎﻃﻢ و ﺑﺼﻞ.",
+            "image": "images/Mushroom_Pizza.PNG"
+          },
+          {
+            "name": "ﺗﻮﻧﺔ",
+            "price": "35.000 د.ل",
+            "desc": "ﺟﺒﻨﺔ, ﺗﻮﻧﺔ, ﻃﻤﺎﻃﻢ و ﺑﺼﻞ.",
+            "image": "images/Mushroom_Pizza.PNG"
+          },
+          {
+            "name": "ﺑﻴﺘﺰا رﻳﺠﻴﻨﺎ",
+            "price": "35.000 د.ل",
+            "desc": "ﺻﻠﺼﺔ, ﺟﺒﻨﺔ , ﻓﻘﺎع , ﺳﻼﻣﻲ وﺣﺒﻖ.",
+            "image": "images/Mushroom_Pizza.PNG"
+          },
+          {
+            "name": "ﺑﻴﺘﺰا ﺑﻴﺴﺘﻮ",
+            "price": "40.000 د.ل",
+            "desc": "ﺻﻠﺼﺔ ﺧﻀﺮاء, ﺟﺒﻨﺔ, ﻟﻮز ﺧﺰاﻳﻨﻲ",
+            "image": "images/Pesto_Fusilli.PNG"
+          },
+          {
+            "name": "ﺑﻴﺘﺰا ﻛﻮاﺗﺮو ﻓﻮرﻣﺎﺟﻲ",
+            "price": "35.000 د.ل",
+            "desc": "ﻛﻮاﺗﺮو ﻓﻮرﻣﺎﺟﻮ أرﺑﻌﺔ اﻧﻮاع ﻣﻦ ﺟﺒﻨﺔ",
+            "image": "images/quattro_formaggi_pizza.png"
+          },
+          {
+            "name": "ﺑﻴﺘﺰا دﺟﺎج",
+            "price": "40.000 د.ل",
+            "desc": "ﺻﻠﺼﺔ, ﺟﺒﻨﺔ, دﺟﺎج",
+            "image": "images/chicken_pizza.png"
+          },
+          {
+            "name": "ﺑﻴﺘﺰا ﺑﻴﺎﻧﻜﺎ",
+            "price": "45.000 د.ل",
+            "desc": "ﺻﻠﺼﺔ ﺑﻴﻀﺎ, ﺟﺒﻨﺔ و ﺟﺒﻤﺒﺮى.",
+            "image": "images/Bianca_Pizza.jpeg"
+          },
+          {
+            "name": "ﺑﻴﺘﺰا ﻻﻓﻴﻨﺎ",
+            "price": "60.000 د.ل",
+            "desc": "",
+            "image": "images/chicken_pizza.png"
+          }
+        ]
+      },
+      {
+        "name": "سندوتشات",
+        "items": [
+          {
+            "name": "سندوتش ﻓﺎﻫﻴﺘﺎ دﺟﺎج",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/beef_fajita.png"
+          },
+          {
+            "name": "ﻓﺎﻫﻴﺘﺎ ﻟﺤﻢ",
+            "price": "33.000 د.ل",
+            "desc": "",
+            "image": "images/beef_fajita.png"
+          },
+          {
+            "name": "ﻣﻴﻨﻲ ﺑﺮﺟﺮ ﻟﺤﻢ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/beef_fajita.png"
+          },
+          {
+            "name": "ﻛﻠﻮب ﺳﻨﺪوﺗﺶ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/club_sandwich.png"
+          },
+          {
+            "name": "ﺑﺮﺟﺮ ﻟﺤﻢ",
+            "price": "28.000 د.ل",
+            "desc": "",
+            "image": "images/beef_fajita.png"
+          },
+          {
+            "name": "ﺑﺎﻗﻴﺖ دﺟﺎج ﻣﺸﻮي",
+            "price": "35.000 د.ل",
+            "desc": "",
+            "image": "images/Grilled_Chicken_Baguette.jpeg"
+          }
+        ]
+      },
+      {
+        "name": "غربي اسماك وبحريات",
+        "items": [
+          {
+            "name": "قاروص مشوي",
+            "price": "70.000 د.ل",
+            "desc": "حوتة قاروص (سي باص )",
+            "image": "images/grilled_bream_meal.png"
+          },
+          {
+            "name": "ﺳﻲ ﺑﺎس ﻓﻴﻠﻴﺔ",
+            "price": "70.000 د.ل",
+            "desc": "",
+            "image": "images/grilled_bream_meal.png"
+          },
+          {
+            "name": "ﺟﻤﺒﺮي ﻣﺸﻮي",
+            "price": "85.000 د.ل",
+            "desc": "",
+            "image": "images/Lavina_Mix_seafood.jpeg"
+          },
+          {
+            "name": "ﺷﺮاﺋﺢ وراثة ﻣﻊ ﺻوص اﻟليمون",
+            "price": "45.000 د.ل",
+            "desc": "",
+            "image": "images/grilled_bream_meal.png"
+          },
+          {
+            "name": "ﺑﺎﻳﻼ",
+            "price": "75.000 د.ل",
+            "desc": "",
+            "image": "images/seafood_risotto.jpg"
+          },
+          {
+            "name": "ﻣﺸﻜﻞ ﻻﻓﻴﻨﺎ أﺳﻤﺎك",
+            "price": "130.000 د.ل",
+            "desc": "",
+            "image": "images/lavina.jpg"
+          }
+        ]
+      },
+      {
+        "name": "وجبات اطفال",
+        "items": [
+          {
+            "name": "ﺗﺸﻜﻴﻦ ﻧﺎﺟﻴﺖ",
+            "price": "25.000 د.ل",
+            "desc": "ﺗﻘﺪم ﻣﻊ أرز ﺑﻄﺎﻃﺔ ﻣﺤﻤﺮة ﺧﻀﺎر ﺳﻮﺗﻲ",
+            "image": "images/chicken_nuggets.jpeg"
+          }
+        ]
+      },
+      {
+        "name": "المطبخ الشرقي",
+        "items": [
+          {
+            "name": "ﺷﻴﺶ ﻃﺎووق",
+            "price": "40.000 د.ل",
+            "desc": "",
+            "image": "images/Dandishi.png"
+          },
+          {
+            "name": "ﻛﺒﺎب دﺟﺎج",
+            "price": "40.000 د.ل",
+            "desc": "",
+            "image": "images/Dandishi.png"
+          },
+          {
+            "name": "ﻧﺺ دﺟﺎج ﻣﺸﻮي",
+            "price": "40.000 د.ل",
+            "desc": "",
+            "image": "images/half_grilled_chicken.png"
+          },
+          {
+            "name": "ﻛﺒﺎب ﻟﺤﻢ",
+            "price": "45.000 د.ل",
+            "desc": "",
+            "image": "images/Meat_Kebab.jfif"
+          },
+          {
+            "name": "ﺷﻴﺶ ﻟﺤﻢ ﺧﺮوف",
+            "price": "65.000 د.ل",
+            "desc": "",
+            "image": "images/lamb_shish.png"
+          },
+          {
+            "name": "أرﻳﺎش ﺧﺮوف",
+            "price": "80.000 د.ل",
+            "desc": "",
+            "image": "images/Lamb_Chops_with_Lemon_Sauce.png"
+          },
+          {
+            "name": "ﻛﺒﺎب ادﻧﺎ ﺣﺎر",
+            "price": "48.000 د.ل",
+            "desc": "",
+            "image": "images/Meat_Kebab.jfif"
+          },
+          {
+            "name": "ﻛﺒﺎب ﺑﺎﻟﺠﺒﻨﺔ",
+            "price": "50.000 د.ل",
+            "desc": "",
+            "image": "images/Lamp_Chease_kebab.PNG"
+          },
+          {
+            "name": "ﺟﻮاﻧﺢ دﺟﺎج ﻣﺸﻮي",
+            "price": "35.000 د.ل",
+            "desc": "",
+            "image": "images/grilled_chicken_wings.png"
+          },
+          {
+            "name": "ﻓﺨﺪة دﺟﺎج ﻣﺸﻮي",
+            "price": "35.000 د.ل",
+            "desc": "",
+            "image": "images/grilled_chicken_wings.png"
+          },
+          {
+            "name": "ﻛﺒﺎب اورﻓﻠﻲ",
+            "price": "45.000 د.ل",
+            "desc": "",
+            "image": "images/Meat_Kebab.jfif"
+          },
+          {
+            "name": "ﻣﺸﻜﻞ 2 اسياخ",
+            "price": "35.000 د.ل",
+            "desc": "ﻛﺒﺎب ﻟﺤﻢ + ﺷﻴﺶ ﻃﺎووق",
+            "image": "images/mixed_2_skewers.png"
+          },
+          {
+            "name": "مشكل 3 اسياخ",
+            "price": "45.000 د.ل",
+            "desc": "ﻛﺒﺎب ﻟﺤﻢ + ﺷﻴﺶ ﻃﺎووق + ﺷﻴﺶ ﻟﺤﻢ ﻋﺠﻞ",
+            "image": "images/mixed_3_skewers.png"
+          },
+          {
+            "name": "مشكل 4 اسياخ",
+            "price": "60.000 د.ل",
+            "desc": "ﻛﺒﺎب ﻟﺤﻢ + ﺷﻴﺶ ﻃﺎووق + ﺷﻴﺶ ﻟﺤﻢ + ﻛﺒﺎب دﺟﺎج",
+            "image": "images/mixed_4_skewers.png"
+          },
+          {
+            "name": "ﻣﺸﻜﻞ 5 اﺳﻴﺎخ",
+            "price": "70.000 د.ل",
+            "desc": "ﻛﺒﺎب ﻟﺤﻢ +ﻛﺒﺎب دﺟﺎج +ﺷﻴﺶ ﻃﺎووق + ﺷﻴﺶ ﻟﺤﻢ ﻋﺠﻞ + ﻛﺒﺎب اورﻓﻠﻲ",
+            "image": "images/mixed_4_skewers.png"
+          },
+          {
+            "name": "ﻣﺸﻜﻞ 8 ﺳﻴﺎخ",
+            "price": "150.000 د.ل",
+            "desc": "ﻛﺒﺎب ﻟﺤﻢ + ﻛﺒﺎب دﺟﺎج + ﺷﻴﺶﻃﺎووق + ﺷﻴﺶ ﻟﺤﻢ ﻋﺠﻞ + ﻛﺒﺎب اورﻓﻠﻲ+ ﻛﺒﺎب ﺣﺎر + ﺟﻮاﻧﺢ + ﺻﻔﻴﺤﺔ + ﺻﺤﻦ ﺳﻼﻃﺔ",
+            "image": "images/Lavina_Family_Grill_Mix.jpeg"
+          },
+          {
+            "name": "ﻣﺸﻜﻞ مشاوي ﻻﻓﻴﻨﺎ ﻋﺎﺋﻠﻲ",
+            "price": "250.000 د.ل",
+            "desc": "2 ﻛﺒﺎب ﻟﺤﻢ + 2 ﻛﺒﺎب دﺟﺎج + 2 ﺷﻴﺶ ﻃﺎووق + 2ﺷﻴﺶ ﻟﺤﻢ ﻋﺠﻞ + 2 أرﻳﺎش ﺧﺮوف + 2 ﺟﻮاﻧﺢ + 2 أﻓﺨﺎد دجاج + 1 ﺻﻔﻴﺤﺔ ﺣﺴﺐ اﻟﻄﻠﺐ + 1 ﺻﺤﻦ سلاطة",
+            "image": "images/lavina.jpg"
+          }
+        ]
+      },
+      {
+        "name": "كريب حار",
+        "items": [
+          {
+            "name": "كريب أجبان",
+            "price": "28.000 د.ل",
+            "desc": "",
+            "image": "images/cheese_sambousek.png"
+          },
+          {
+            "name": "ﻛﺮﻳﺐ دﺟﺎج",
+            "price": "30.000 د.ل",
+            "desc": "",
+            "image": "images/beef_fajita.png"
+          },
+          {
+            "name": "ﻛﺮﻳﺐ ﺗﻮﻧﺔ",
+            "price": "30.000 د.ل",
+            "desc": "",
+            "image": "images/beef_fajita.png"
+          }
+        ]
+      },
+      {
+        "name": "غربي اللحوم",
+        "items": [
+          {
+            "name": "فيليه صوص ماشروم",
+            "price": "65.000 د.ل",
+            "desc": "",
+            "image": "images/Fillet_with_Mushroom_Sauce.png"
+          },
+          {
+            "name": "فيليه صوص ليمون",
+            "price": "65.000 د.ل",
+            "desc": "",
+            "image": "images/Lamb_Chops_with_Lemon_Sauce.png"
+          },
+          {
+            "name": "فيليه بصلصة الفلفل الأسود",
+            "price": "65.000 د.ل",
+            "desc": "",
+            "image": "images/Fillet_with_Black_Pepper_Sauce.png"
+          },
+          {
+            "name": "تي بون",
+            "price": "70.000 د.ل",
+            "desc": "",
+            "image": "images/Grilled_Fillet1.png"
+          },
+          {
+            "name": "فيليه المينيون",
+            "price": "210.000 د.ل",
+            "desc": "وزن اللحمة 600ج شخصين",
+            "image": "images/Grilled_Fillet1.png"
+          },
+          {
+            "name": "أرﻳﺎش ﺧﺮوف ﻣﻊ ﺻﻮص ﻟﻴﻤﻮن",
+            "price": "85.000 د.ل",
+            "desc": "",
+            "image": "images/Lamb_Chops_with_Lemon_Sauce.png"
+          },
+          {
+            "name": "ﻓﻴﻠﻴه صوص ﺟﺮﻳﻔﻲ",
+            "price": "65.000 د.ل",
+            "desc": "",
+            "image": "images/Grilled_Fillet1.png"
+          },
+          {
+            "name": "ﻓﻴﻠﻴﺔ ﺻﻮص ﻃﻤﺎﻃﻢ والجبن",
+            "price": "65.000 د.ل",
+            "desc": "",
+            "image": "images/Grilled_Fillet1.png"
+          },
+          {
+            "name": "ﻓﻴﻠﻴﺔ مشوي",
+            "price": "60.000 د.ل",
+            "desc": "",
+            "image": "images/Grilled_Fillet1.png"
+          }
+        ]
+      },
+      {
+        "name": "غربي الدجاج",
+        "items": [
+          {
+            "name": "ﺗﺸﻜﻴﻦ ﺑﺮﻳﺴﺖ ﺻﻮص ﻣﺎﺷﺮوم",
+            "price": "40.000 د.ل",
+            "desc": "",
+            "image": "images/chicken_breast_with_mushroom_sauce.png"
+          },
+          {
+            "name": "ﺗﺸﻜﻴﻦ ﺑﺮﻳﺴﺖ ﺑﺎﻧﻲ",
+            "price": "40.000 د.ل",
+            "desc": "",
+            "image": "images/ChickenStips.jpeg"
+          },
+          {
+            "name": "ﺗﺸﻜﻴﻦ ﺑﺮﻳﺴﺖ ﺻﻮص ﻟﻴﻤﻮن",
+            "price": "45.000 د.ل",
+            "desc": "",
+            "image": "images/Chicken_Breast.png"
+          },
+          {
+            "name": "رول دﺟﺎج ﺑﺎﻟﺴﺒﺎﻧﺦ واﻟﻤﻮزارﻳﻼ",
+            "price": "50.000 د.ل",
+            "desc": "",
+            "image": "images/roll.png"
+          },
+          {
+            "name": "ﻛﻮردون ﺑﻠﻮ",
+            "price": "45.000 د.ل",
+            "desc": "",
+            "image": "images/roll.png"
+          },
+          {
+            "name": "تشيكن بريست",
+            "price": "40.000 د.ل",
+            "desc": "",
+            "image": "images/Chicken_Breast.png"
+          }
+        ]
+      },
+      {
+        "name": "وجبات فاهيتا",
+        "items": [
+          {
+            "name": "وجبة فاهيتا دجاج",
+            "price": "40.000 د.ل",
+            "desc": "صدر دجاج متبل بالأعشاب والفلفل الحار و البصل ، الطماطم وخبز مكسيكان ساور كريم ، بيقو ديقالو ، ارز مكسيكان ، جبنة شيدر مكس",
+            "image": "images/Chicken_Fajita_Meal.png"
+          },
+          {
+            "name": "وجبة فاهيتا لحم",
+            "price": "45.000 د.ل",
+            "desc": "لحم بقري مشوي متبل بالأعشاب فلفل الوان ، بصل ، طماطم، خبز مكسيكان ، ارز مكسيكان ،ساور كريم ، بيقو ميقالو ، شيدر مكس",
+            "image": "images/beef_fajita_meal.png"
+          },
+          {
+            "name": "وجبة فاهيتا مكس",
+            "price": "50.000 د.ل",
+            "desc": "مكس صدر دجاج مشوي ، لحم بقري مشوي مع فلفل الوات ، بصل ، طماطم ، ارز مكسيكان ، ساور كريم ، بيقو ديقالو ، شيدر مكس",
+            "image": "images/fajita_mix.PNG"
+          }
+        ]
+      }
+    ],
+    "items": []
+  },
+  {
+    "name": "التحليه",
+    "subcategories": [],
+    "items": [
+      {
+        "name": "ﻛﺮﻳﺐ ﺳﻮﺷﻲ",
+        "price": "28.000 د.ل",
+        "desc": "",
+        "image": "images/fruit_pancake.png"
+      },
+      {
+        "name": "ﻛﺮﻳﺐ ﻓﻮاﻛﺔ",
+        "price": "30.000 د.ل",
+        "desc": "",
+        "image": "images/fruit_pancake.png"
+      },
+      {
+        "name": "ﻛﺮﻳﺐ اﻳﺲ ﻛﺮﻳﻢ",
+        "price": "26.000 د.ل",
+        "desc": "",
+        "image": "images/Waffel_icecream.PNG"
+      },
+      {
+        "name": "ﻛﺮﻳﺐ رول",
+        "price": "25.000 د.ل",
+        "desc": "",
+        "image": "images/roll.png"
+      },
+      {
+        "name": "كريب فيوتوتشيني",
+        "price": "30.000 د.ل",
+        "desc": "( نوتيلا/ فستق/ عسل ولوز/ لوتس/ عسل / اوريو / فواكه )",
+        "image": "images/fruit_pancake.png"
+      },
+      {
+        "name": "ﻛﺮﻳﺐ ﺗﺎم",
+        "price": "30.000 د.ل",
+        "desc": "",
+        "image": "images/fruit_pancake.png"
+      },
+      {
+        "name": "ﻛﺮﻳﺐ ﻓﺴﺘﻖ",
+        "price": "28.000 د.ل",
+        "desc": "",
+        "image": "images/Pistachio_Milkshake.PNG"
+      },
+      {
+        "name": "ﻛﺮﻳﺐ ﺑﻨﺪق",
+        "price": "25.000 د.ل",
+        "desc": "",
+        "image": "images/Pistachio_Milkshake.PNG"
+      },
+      {
+        "name": "ﻛﺮﻳﺐ ﻟﻮز",
+        "price": "25.000 د.ل",
+        "desc": "",
+        "image": "images/Pistachio_Milkshake.PNG"
+      },
+      {
+        "name": "كريب نوتيلا",
+        "price": "20.000 د.ل",
+        "desc": "",
+        "image": "images/nutella_croissant.jpg"
+      },
+      {
+        "name": "ﻛﺮواﺳﻮن ﻧﻮﺗﻴﻼ",
+        "price": "12.000 د.ل",
+        "desc": "",
+        "image": "images/nutella_croissant.jpg"
+      },
+      {
+        "name": "ﻛﺮواﺳﻮن ﺟﺒﻨﺔ",
+        "price": "15.000 د.ل",
+        "desc": "",
+        "image": "images/nutella_croissant.jpg"
+      },
+      {
+        "name": "ﻛﺮواﺳﻮن ﻋﺴﻞ",
+        "price": "12.000 د.ل",
+        "desc": "",
+        "image": "images/nutella_croissant.jpg"
+      },
+      {
+        "name": "ﻛﺮواﺳﻮن ﻧﻮﺗﻴﻼ + ﻋﺴﻞ + ﻟﻮز",
+        "price": "15.000 د.ل",
+        "desc": "",
+        "image": "images/nutella_croissant.jpg"
+      },
+      {
+        "name": "ﻣﺘﺮد ﺷﺮﻗﻲ ﻣﺸﻜﻞ ﻛﺒﻴﺮ",
+        "price": "60.000 د.ل",
+        "desc": "",
+        "image": "images/oriental_breakfast.png"
+      },
+      {
+        "name": "ﻣﺘﺮد ﺷﺮﻗﻲ ﻣﺸﻜﻞ ﺻﻐﻴﺮ",
+        "price": "35.000 د.ل",
+        "desc": "",
+        "image": "images/oriental_breakfast.png"
+      },
+      {
+        "name": "ﻓﻄﻴﺮة ﻣﻐﺮﺑﻴﺔ",
+        "price": "20.000 د.ل",
+        "desc": "(ﺗﻘﺪم ﻣﻊ ﻋﺴﻞ وزﻳﺘﻮن ﻣﻐﺮﺑﻲ)",
+        "image": "images/nutella_croissant.jpg"
+      },
+      {
+        "name": "ﺻﺤﻦ ﻓﻮاﻛﺔ ﻣﺸﻜﻠﺔ - كبير",
+        "price": "50.000 د.ل",
+        "desc": "(ﺣﺴﺐ اﻟﻤﻮﺳﻢ)",
+        "image": "images/fruit_pancake.png"
+      },
+      {
+        "name": "ﺻﺤﻦ ﻓﻮاﻛﺔ ﻣﺸﻜﻠﺔ - وسط",
+        "price": "25.000 د.ل",
+        "desc": "(ﺣﺴﺐ اﻟﻤﻮﺳﻢ)",
+        "image": "images/fruit_pancake.png"
+      },
+      {
+        "name": "ﻛﻴﻚ ﻻﻓﻴﻨﺎ",
+        "price": "30.000 د.ل",
+        "desc": "",
+        "image": "images/lavina.jpg"
+      },
+      {
+        "name": "ﺳﺎن ﺳﺒﺎﺳﺘﻴﺎن",
+        "price": "25.000 د.ل",
+        "desc": "",
+        "image": "images/fruit_pancake.png"
+      },
+      {
+        "name": "ﺑﺮاوﻧﻴﺰ أﻳﺲ ﻛﺮﻳﻢ",
+        "price": "25.000 د.ل",
+        "desc": "",
+        "image": "images/Waffel_icecream.PNG"
+      },
+      {
+        "name": "واﻓﻞ ﻛﻼﺳﻴﻚ",
+        "price": "18.000 د.ل",
+        "desc": "عسل",
+        "image": "images/Waffel_icecream.PNG"
+      },
+      {
+        "name": "واﻓﻞ ﻟﻮز وﻋﺴﻞ",
+        "price": "25.000 د.ل",
+        "desc": "",
+        "image": "images/Waffel_icecream.PNG"
+      },
+      {
+        "name": "واﻓﻞ اﻳﺲ ﻛﺮﻳﻢ",
+        "price": "26.000 د.ل",
+        "desc": "",
+        "image": "images/Waffel_icecream.PNG"
+      },
+      {
+        "name": "واﻓﻞ ﻓﻮاﻛﺔ",
+        "price": "30.000 د.ل",
+        "desc": "",
+        "image": "images/fruit_pancake.png"
+      },
+      {
+        "name": "واﻓﻞ ﻓﺴﺘﻖ",
+        "price": "28.000 د.ل",
+        "desc": "",
+        "image": "images/Waffel_icecream.PNG"
+      },
+      {
+        "name": "واﻓﻞ ﺑﻨﺪق",
+        "price": "24.000 د.ل",
+        "desc": "",
+        "image": "images/Waffel_icecream.PNG"
+      },
+      {
+        "name": "واﻓﻞ ﻧﻮﺗﻴﻼ",
+        "price": "22.000 د.ل",
+        "desc": "",
+        "image": "images/Waffel_icecream.PNG"
+      },
+      {
+        "name": "ﻣﻨﻲ ﺑﺎن ﻛﻴﻚ ﻟﻮز",
+        "price": "24.000 د.ل",
+        "desc": "",
+        "image": "images/MiniPancakes_Fruit.PNG"
+      },
+      {
+        "name": "ﻣﻨﻲ ﺑﺎن ﻛﻴﻚ رﻳﺪ ﻓﻴﻠﻔﻴﺖ",
+        "price": "28.000 د.ل",
+        "desc": "",
+        "image": "images/MiniPancakes_Fruit.PNG"
+      },
+      {
+        "name": "ﻣﻨﻲ ﺑﺎن ﻛﻴﻚ ﻓﻮاﻛﺔ",
+        "price": "25.000 د.ل",
+        "desc": "",
+        "image": "images/MiniPancakes_Fruit.PNG"
+      },
+      {
+        "name": "ﻣﻨﻲ ﺑﺎن ﻛﻴﻚ ﻟﻮﺗﺲ",
+        "price": "22.000 د.ل",
+        "desc": "",
+        "image": "images/MiniPancakes_Fruit.PNG"
+      },
+      {
+        "name": "ﻣﻨﻲ ﺑﺎن ﻛﻴﻚ اورﻳﻮ",
+        "price": "22.000 د.ل",
+        "desc": "",
+        "image": "images/MiniPancakes_Fruit.PNG"
+      },
+      {
+        "name": "ﻣﻨﻲ ﺑﺎن ﻛﻴﻚ ﻓﺴﺘﻖ",
+        "price": "24.000 د.ل",
+        "desc": "",
+        "image": "images/MiniPancakes_Fruit.PNG"
+      },
+      {
+        "name": "ﻣﻨﻲ ﺑﺎن ﻛﻴﻚ ﻧﻮﺗﻴﻼ",
+        "price": "20.000 د.ل",
+        "desc": "",
+        "image": "images/MiniPancakes_Fruit.PNG"
+      },
+      {
+        "name": "ﺑﺎن ﻛﻴﻚ ﻛﻼﺳﻴﻚ",
+        "price": "18.000 د.ل",
+        "desc": "",
+        "image": "images/MiniPancakes_Fruit.PNG"
+      },
+      {
+        "name": "ﺑﺎن ﻛﻴﻚ رﻳﺪ ﻓﻴﻠﻔﻴﺖ",
+        "price": "30.000 د.ل",
+        "desc": "",
+        "image": "images/MiniPancakes_Fruit.PNG"
+      },
+      {
+        "name": "ﺑﺎن ﻛﻴﻚ ﻓﻮاﻛﺔ",
+        "price": "28.000 د.ل",
+        "desc": "",
+        "image": "images/MiniPancakes_Fruit.PNG"
+      },
+      {
+        "name": "بان ﻛﻴﻚ ﻓﺴﺘﻖ",
+        "price": "28.000 د.ل",
+        "desc": "",
+        "image": "images/MiniPancakes_Fruit.PNG"
+      },
+      {
+        "name": "ﺑﺎن ﻛﻴﻚ ﻟﻮﺗﺲ",
+        "price": "24.000 د.ل",
+        "desc": "",
+        "image": "images/MiniPancakes_Fruit.PNG"
+      },
+      {
+        "name": "ﺑﺎن ﻛﻴﻚ ﻧﻮﺗﻴﻼ",
+        "price": "20.000 د.ل",
+        "desc": "",
+        "image": "images/MiniPancakes_Fruit.PNG"
+      }
+    ]
+  },
+  {
+    "name": "مشروبات ساخنه",
+    "subcategories": [],
+    "items": [
+      {
+        "name": "ﺑﺴﺘﺎﺷﻴﻮ",
+        "price": "28.000 د.ل",
+        "desc": "",
+        "image": "images/Pistachio_Milkshake.PNG"
+      },
+      {
+        "name": "ﻟﻮﺗﺲ",
+        "price": "27.000 د.ل",
+        "desc": "",
+        "image": "images/Coffee_Machine.PNG"
+      },
+      {
+        "name": "ﺷﻮﻛﻠﺖ",
+        "price": "23.000 د.ل",
+        "desc": "",
+        "image": "images/Coffee_Machine.PNG"
+      },
+      {
+        "name": "مارشميلو",
+        "price": "25.000 د.ل",
+        "desc": "",
+        "image": "images/Coffee_Machine.PNG"
+      },
+      {
+        "name": "براد شاهي صغير مكسرات",
+        "price": "25.000 د.ل",
+        "desc": "",
+        "image": "images/Coffee_Machine.PNG"
+      },
+      {
+        "name": "براد شاهي كبير مكسرات",
+        "price": "45.000 د.ل",
+        "desc": "",
+        "image": "images/Coffee_Machine.PNG"
+      },
+      {
+        "name": "أﺳﺒﺮﻳﺴﻮ",
+        "price": "7.000 د.ل",
+        "desc": "",
+        "image": "images/Coffee_Machine.PNG"
+      },
+      {
+        "name": "اﻣﺮﻳﻜﺎﻧﻮ",
+        "price": "7.000 د.ل",
+        "desc": "",
+        "image": "images/Coffee_Machine.PNG"
+      },
+      {
+        "name": "ﺳﺒﻴﺴﻴﺎل",
+        "price": "7.000 د.ل",
+        "desc": "",
+        "image": "images/Coffee_Machine.PNG"
+      },
+      {
+        "name": "ﻓﻼت واﻳﺖ",
+        "price": "10.000 د.ل",
+        "desc": "",
+        "image": "images/Flat_White.PNG"
+      },
+      {
+        "name": "ﻛﺎﺑﺘﺸﻴﻨﻮ",
+        "price": "12.000 د.ل",
+        "desc": "",
+        "image": "images/Cappuccino.PNG"
+      },
+      {
+        "name": "ﻧﺴﻜﺎﻓﻴﺔ",
+        "price": "12.000 د.ل",
+        "desc": "",
+        "image": "images/Nescafe.PNG"
+      },
+      {
+        "name": "ﻛﻮرﺗﺎدو",
+        "price": "10.000 د.ل",
+        "desc": "",
+        "image": "images/Coffee_Machine.PNG"
+      },
+      {
+        "name": "ﻣﻜﻴﺎﺗﻮ",
+        "price": "8.000 د.ل",
+        "desc": "",
+        "image": "images/Coffee_Machine.PNG"
+      },
+      {
+        "name": "ﻛﺮاﻣﻴﻞ ﻣﻜﻴﺎﺗﻮ",
+        "price": "10.000 د.ل",
+        "desc": "",
+        "image": "images/Coffee_Machine.PNG"
+      },
+      {
+        "name": "أﻓﻮﻛﺎﺗﻮ",
+        "price": "12.000 د.ل",
+        "desc": "",
+        "image": "images/Coffee_Machine.PNG"
+      },
+      {
+        "name": "ﻛﺎﻓﻲ ﻣﻮﻛﺎ",
+        "price": "15.000 د.ل",
+        "desc": "(واﻳﺖ دارك)",
+        "image": "images/Coffee_Machine.PNG"
+      },
+      {
+        "name": "ﻛﺎﻓﻲ لاتيه",
+        "price": "14.000 د.ل",
+        "desc": "(كراميل - بندق - فانيلا)",
+        "image": "images/caffe_latte.jpg"
+      },
+      {
+        "name": "ﺳﺒﺎﻧﺶ ﻻﺗﻲ",
+        "price": "15.000 د.ل",
+        "desc": "",
+        "image": "images/caffe_latte.jpg"
+      },
+      {
+        "name": "ﺳﺒﺎﻧﺶ ﻻﺗﻲ ﻛﺮاﻣﻴﻞ",
+        "price": "16.000 د.ل",
+        "desc": "",
+        "image": "images/caffe_latte.jpg"
+      },
+      {
+        "name": "ﻗﻬﻮة ﻋﺮﺑﻴﺔ",
+        "price": "10.000 د.ل",
+        "desc": "",
+        "image": "images/Arabic_coffee.PNG"
+      },
+      {
+        "name": "ﺷﺎي",
+        "price": "6.000 د.ل",
+        "desc": "( احمر / اخضر )",
+        "image": "images/Coffee_Machine.PNG"
+      }
+    ]
+  },
+  {
+    "name": "العصائر",
+    "subcategories": [
+      {
+        "name": "المخيتو",
+        "items": [
+          {
+            "name": "موخيتو فواكه",
+            "price": "25.000 د.ل",
+            "desc": "فراولة ﻣﺎﻧﺠﺎ أﻧﺎﻧﺎس دﻻع",
+            "image": "images/Mojito.PNG"
+          },
+          {
+            "name": "ﻣوﺨﻴﺘﻮ ﻫﺎواي",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Mojito.PNG"
+          },
+          {
+            "name": "ﻣوﺨﻴﺘﻮ ﺑﻼك ﻣﻮن",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Mojito.PNG"
+          },
+          {
+            "name": "موخيتو بيناكولاده",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Mojito.PNG"
+          },
+          {
+            "name": "ﻣوﺨﻴﺘﻮ ﻣﻮﻧﺘﺎﻧﺎ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Mojito.PNG"
+          },
+          {
+            "name": "ﻣوﺨﻴﺘﻮ روز",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Mojito.PNG"
+          },
+          {
+            "name": "موخيتو باشن فروت",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Mojito.PNG"
+          }
+        ]
+      },
+      {
+        "name": "ميلك شيك",
+        "items": [
+          {
+            "name": "ﻣﻴﻠﻚ ﺷﻴﻚ ﻓﺎﻧﻴﻠﻴﺎ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/milkshakes.PNG"
+          },
+          {
+            "name": "ميلك شيك شوكلاتة",
+            "price": "25.000 د.ل",
+            "desc": "( مارس , كندر , سنكرز )",
+            "image": "images/milkshakes.PNG"
+          },
+          {
+            "name": "ﻣﻴﻠﻚ ﺷﻴﻚ ﻧﻮﺗﻴﻼ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/milkshakes.PNG"
+          },
+          {
+            "name": "ﻣﻴﻠﻚ ﺷﻴﻚ ﻟﻮﺗﺲ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/milkshakes.PNG"
+          },
+          {
+            "name": "ﻣﻴﻠﻚ ﺷﻴﻚ ﻓﺴﺘﻖ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Pistachio_Milkshake.PNG"
+          }
+        ]
+      },
+      {
+        "name": "سموثي",
+        "items": [
+          {
+            "name": "ﺳﻤﻮﺛﻲ ﻓﺮاوﻟﺔ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Smoothies.PNG"
+          },
+          {
+            "name": "ﺳﻤﻮﺛﻲ ﻣﺎﻧﺠﻮ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Smoothies.PNG"
+          },
+          {
+            "name": "ﺳﻤﻮﺛﻲ ﺑﺎﺷﻦ ﻓﺮوت",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Smoothies.PNG"
+          },
+          {
+            "name": "ﺳﻤﻮﺛﻲ ﺗﻮت ﺑﺮي",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Smoothies.PNG"
+          },
+          {
+            "name": "ﺳﻤﻮﺛﻲ ﻛﺮز",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Smoothies.PNG"
+          },
+          {
+            "name": "ﺳﻤﻮﺛﻲ ﻣﻮز",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "images/Smoothies.PNG"
+          }
+        ]
+      },
+      {
+        "name": "مشروبات معلبه",
+        "items": [
+          {
+            "name": "مشروب غازي",
+            "price": "4.000 د.ل",
+            "desc": "ﺑﻴﺒﺴﻲ ﻣﺎرﻳﻨﺪا ﺷﺎﻧﻲ ﺳﻔﻦ أب",
+            "image": "images/Cocktail_Juice.PNG"
+          },
+          {
+            "name": "ﻣﺸﺮوب ﺟﺮﻳﻴﻦ",
+            "price": "5.000 د.ل",
+            "desc": "",
+            "image": "images/Cocktail_Juice.PNG"
+          },
+          {
+            "name": "ﻋﺼﻴﺮ ﺳﺒﺎﻳﺘﺰ",
+            "price": "7.000 د.ل",
+            "desc": "",
+            "image": "images/Cocktail_Juice.PNG"
+          },
+          {
+            "name": "ﻣﺎء ﻏﺎزي زﺟﺎﺟﻴﺔ",
+            "price": "8.000 د.ل",
+            "desc": "",
+            "image": "images/Cocktail_Juice.PNG"
+          },
+          {
+            "name": "ﻣﺎء ﻣﻌﺪﻧﻴﺔ زﺟﺎﺟﻴﺔ",
+            "price": "5.000 د.ل",
+            "desc": "",
+            "image": "images/Cocktail_Juice.PNG"
+          }
+        ]
+      },
+      {
+        "name": "ايس كافي",
+        "items": [
+          {
+            "name": "ايس كافي عادي",
+            "price": "14.000 د.ل",
+            "desc": "",
+            "image": "images/Iced_Coffee.PNG"
+          },
+          {
+            "name": "ايس كافي نكهة",
+            "price": "18.000 د.ل",
+            "desc": "( ﻛﺮاﻣﻴﻞ / ﻓانيليا / ﺑﻨﺪق )",
+            "image": "images/Iced_Coffee.PNG"
+          }
+        ]
+      },
+      {
+        "name": "ايس تي",
+        "items": []
+      },
+      {
+        "name": "فرابتشينو",
+        "items": []
+      }
+    ],
+    "items": [
+      {
+        "name": "ﻋﺼﻴﺮ ﻓﺮاوﻟﺔ",
+        "price": "15.000 د.ل",
+        "desc": "",
+        "image": "images/Strawberry_Juice.PNG"
+      },
+      {
+        "name": "ﻋﺼﻴﺮ ﺑﺮﺗﻘﺎل",
+        "price": "15.000 د.ل",
+        "desc": "",
+        "image": "images/Cocktail_Juice.PNG"
+      },
+      {
+        "name": "ﻋﺼﻴﺮ ﻟﻴﻤﻮن وﻧﻌﻨﺎع",
+        "price": "16.000 د.ل",
+        "desc": "",
+        "image": "images/Lemon_Mint_Juice.PNG"
+      },
+      {
+        "name": "ﻋﺼﻴﺮ ﻣﺎﻧﺠﺎ",
+        "price": "18.000 د.ل",
+        "desc": "",
+        "image": "images/Cocktail_Juice.PNG"
+      },
+      {
+        "name": "ﻋﺼﻴﺮ ﻛﻴﻮي",
+        "price": "20.000 د.ل",
+        "desc": "",
+        "image": "images/Cocktail_Juice.PNG"
+      },
+      {
+        "name": "ﻋﺼﻴﺮ أﻧﺎﻧﺎس",
+        "price": "22.000 د.ل",
+        "desc": "",
+        "image": "images/Cocktail_Juice.PNG"
+      },
+      {
+        "name": "ﻋﺼﻴﺮ أﻓﻮﻛﺎدو",
+        "price": "25.000 د.ل",
+        "desc": "",
+        "image": "images/Cocktail_Juice.PNG"
+      },
+      {
+        "name": "ﻓﺮوﺑﻲ",
+        "price": "18.000 د.ل",
+        "desc": "(ﻓﺮاوﻟﺔ ,ﻣﺎﻧﺠﺎ, ﻣﻮز )",
+        "image": "images/Cocktail_Juice.PNG"
+      },
+      {
+        "name": "ﻛﻮﻛﺘﻴﻞ",
+        "price": "25.000 د.ل",
+        "desc": "حسب الطلب",
+        "image": "images/Cocktail_Juice.PNG"
+      }
+    ]
+  }
+]

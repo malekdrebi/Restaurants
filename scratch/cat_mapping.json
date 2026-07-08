@@ -1,0 +1,147 @@
+[
+    {
+        "type": "category",
+        "name": "الط£ظƒط«ط± ط·ظ„ط ̈ط§ظ‹",
+        "en_name": "Most Ordered"
+    },
+    {
+        "type": "category",
+        "name": "الط£ط3ط±ط1 ط·ظ„ط ̈ط§ظ‹",
+        "en_name": "Fastest Ordered"
+    },
+    {
+        "type": "category",
+        "name": "الافطار من (8ص الى 1م)",
+        "en_name": "Breakfast (8 AM to 1 PM)"
+    },
+    {
+        "type": "category",
+        "name": "الغداء (من الساعه 1م)",
+        "en_name": "Lunch (From 1 PM)"
+    },
+    {
+        "type": "subcategory",
+        "name": "الظ...ظ‚ط ̈ظ„ط§طھ",
+        "en_name": "Appetizers"
+    },
+    {
+        "type": "subcategory",
+        "name": "الط ́ظˆط±ط ̈ط§طھ",
+        "en_name": "Soups"
+    },
+    {
+        "type": "subcategory",
+        "name": "الط3ظ„ط§ط·ط§طھ",
+        "en_name": "Salads"
+    },
+    {
+        "type": "subcategory",
+        "name": "ط ̈ط§ط3طھط§",
+        "en_name": "Pasta"
+    },
+    {
+        "type": "subcategory",
+        "name": "ط±ظٹط2ظˆطھظˆ",
+        "en_name": "Risotto"
+    },
+    {
+        "type": "subcategory",
+        "name": "ط ̈ظٹطھط2ط§",
+        "en_name": "Pizza"
+    },
+    {
+        "type": "subcategory",
+        "name": "طμظپط§ظٹط­",
+        "en_name": "Safiha"
+    },
+    {
+        "type": "subcategory",
+        "name": "ظˆط¬ط ̈ط§طھ ظپط§ظ‡ظٹطھط§",
+        "en_name": "Fajita Meals"
+    },
+    {
+        "type": "subcategory",
+        "name": "ط؛ط±ط ̈ظٹ الظ„ط­ظˆظ...",
+        "en_name": "Meat Selection"
+    },
+    {
+        "type": "subcategory",
+        "name": "ط؛ط±ط ̈ظٹ الط ̄ط¬ط§ط¬",
+        "en_name": "Chicken Selection"
+    },
+    {
+        "type": "subcategory",
+        "name": "ط؛ط±ط ̈ظٹ ط§ط3ظ...ط§ظƒ ظˆط ̈ط­ط±ظٹط§طھ",
+        "en_name": "Seafood"
+    },
+    {
+        "type": "subcategory",
+        "name": "الظ...ط·ط ̈ط® الط ́ط±ظ‚ظٹ",
+        "en_name": "Oriental Cuisine"
+    },
+    {
+        "type": "subcategory",
+        "name": "ط3ظ†ط ̄ظˆطھط ́ط§طھ",
+        "en_name": "Sandwiches"
+    },
+    {
+        "type": "subcategory",
+        "name": "ظˆط¬ط ̈ط§طھ ط§ط·ظپال",
+        "en_name": "Kids' Meals"
+    },
+    {
+        "type": "category",
+        "name": "الطھط­ظ„ظٹظ‡",
+        "en_name": "Desserts"
+    },
+    {
+        "type": "category",
+        "name": "الظ...ط ́ط±ظˆط ̈ط§طھ",
+        "en_name": "Beverages"
+    },
+    {
+        "type": "subcategory",
+        "name": "ظ...ط ́ط±ظˆط ̈ط§طھ ط3ط§ط®ظ†ظ‡",
+        "en_name": "Hot Drinks"
+    },
+    {
+        "type": "subcategory",
+        "name": "ط ́ظˆظƒظˆظ„ط§طھط© ط3ط§ط®ظ†ط©",
+        "en_name": "Hot Chocolate"
+    },
+    {
+        "type": "subcategory",
+        "name": "ط1طμظٹط±",
+        "en_name": "Juice"
+    },
+    {
+        "type": "subcategory",
+        "name": "ط3ظ...ظˆط«ظٹ",
+        "en_name": "Smoothies"
+    },
+    {
+        "type": "subcategory",
+        "name": "ظ...ظٹظ„ظƒ ط ́ظٹظƒ",
+        "en_name": "Milkshakes"
+    },
+    {
+        "type": "subcategory",
+        "name": "الظ...ط®ظٹطھظˆ",
+        "en_name": "Mojitos"
+    },
+    {
+        "type": "subcategory",
+        "name": "ط§ظٹط3 طھظٹ",
+        "en_name": "Iced Tea"
+    },
+    {
+        "type": "subcategory",
+        "name": "ط§ظٹط3 ظƒط§ظپظٹ",
+        "en_name": "Iced Coffee"
+    },
+    {
+        "type": "subcategory",
+        "name": "ظپط±ط§ط ̈طھط ́ظٹظ†ظˆ",
+        "en_name": "Frappuccino"
+    }
+]

@@ -1,0 +1,15 @@
+__pycache__/
+.claude/
+*.pyc
+*.bak
+*.backup
+*.bak_v*
+the_menu.bak
+the_menu.json.backup
+index_source.html
+index.html.bak_v*
+translation_audit*.txt
+arabic_errors.txt
+counts.txt
+counts_new.txt
+LavinaHouseMenu.zip

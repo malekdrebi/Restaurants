@@ -1,0 +1,155 @@
+--- Chicken Alfredo (2 items) ---
+  Cat: Most Ordered, Sub: none
+  Ar Name: ﺍﻟﻔﺮﻳﺪو ﺑﺎﻟﺪﺟﺎج
+  Price: 40.000 د.ل
+  Image: Alfredo.jpg
+  Desc: 
+
+  Cat: Pasta & Pizza, Sub: Pasta
+  Ar Name: اﻟﻔﺮﻳﺪو ﺑﺎﻟﺪﺟﺎج
+  Price: 40.000 د.ل
+  Image: Alfredo.jpg
+  Desc: 
+
+--- Fillet with Mushroom Sauce (2 items) ---
+  Cat: Most Ordered, Sub: none
+  Ar Name: فيليه صوص ماشروم
+  Price: 65.000 د.ل
+  Image: Fellit mashroum sauce.jpg
+  Desc: 
+
+  Cat: Main Courses, Sub: Meat Selection
+  Ar Name: فيليه صوص ماشروم
+  Price: 65.000 د.ل
+  Image: Fellit mashroum sauce.jpg
+  Desc: 
+
+--- Mixed 3 Skewers (2 items) ---
+  Cat: Most Ordered, Sub: none
+  Ar Name: مشكل 3 اسياخ
+  Price: 45.000 د.ل
+  Image: Mixed 3 Skewers.jpg
+  Desc: ﻛﺒﺎب ﻟﺤﻢ / ﺷﻴﺶ ﻃﺎووق / ﺷﻴﺶ ﻟﺤﻢ ﻋﺠﻞ
+
+  Cat: Main Courses, Sub: Oriental Cuisine
+  Ar Name: مشكل 3 اسياخ
+  Price: 45.000 د.ل
+  Image: Mixed 3 Skewers.jpg
+  Desc: ﻛﺒﺎب ﻟﺤﻢ + ﺷﻴﺶ ﻃﺎووق + ﺷﻴﺶ ﻟﺤﻢ ﻋﺠﻞ
+
+--- Margherita (2 items) ---
+  Cat: Fastest Ordered, Sub: none
+  Ar Name: بيتزا مارجريتا
+  Price: 40.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: ﺟﺒﻨﺔ ﻣﻮزارﻳﻼ / ﺟﺒﻨﺔ ﺷﻴﺪر و ﻃﻤﺎﻃﻢ
+
+  Cat: Pasta & Pizza, Sub: Pizza
+  Ar Name: بيتزا مارجريتا
+  Price: 40.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: ﺟﺒﻨﺔ ﻣﻮزارﻳﻼ / ﺟﺒﻨﺔ ﺷﻴﺪر و ﻃﻤﺎﻃﻢ
+
+--- Vegetable (2 items) ---
+  Cat: Fastest Ordered, Sub: none
+  Ar Name: بيتزا خضروات
+  Price: 40.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: ﺧﻀﺮوات / ﺟﺒﻨﺔ / ﻓﻠﻔﻞ ﺣﻠﻮ / ﻃﻤﺎﻃﻢ / زﻳﺘﻮن و ﺑﺼﻞ
+
+  Cat: Pasta & Pizza, Sub: Pizza
+  Ar Name: بيتزا خضروات
+  Price: 40.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: ﺧﻀﺮوات / ﺟﺒﻨﺔ / ﻓﻠﻔﻞ ﺣﻠﻮ / ﻃﻤﺎﻃﻢ / زﻳﺘﻮن و ﺑﺼﻞ
+
+--- Mushroom (2 items) ---
+  Cat: Fastest Ordered, Sub: none
+  Ar Name: ﻓﻘﺎع
+  Price: 35.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: ﺟﺒﻨﺔ / ﻓﻘﺎع / ﻃﻤﺎﻃﻢ و ﺑﺼﻞ.
+
+  Cat: Pasta & Pizza, Sub: Pizza
+  Ar Name: ﻓﻘﺎع
+  Price: 35.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: ﺟﺒﻨﺔ / ﻓﻘﺎع / ﻃﻤﺎﻃﻢ و ﺑﺼﻞ.
+
+--- Tuna (2 items) ---
+  Cat: Fastest Ordered, Sub: none
+  Ar Name: ﺗﻮﻧﺔ
+  Price: 35.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: ﺟﺒﻨﺔ / ﺗﻮﻧﺔ / ﻃﻤﺎﻃﻢ و ﺑﺼﻞ.
+
+  Cat: Pasta & Pizza, Sub: Pizza
+  Ar Name: ﺗﻮﻧﺔ
+  Price: 35.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: ﺟﺒﻨﺔ / ﺗﻮﻧﺔ / ﻃﻤﺎﻃﻢ و ﺑﺼﻞ.
+
+--- Chicken Fajita Sandwich (2 items) ---
+  Cat: Fastest Ordered, Sub: none
+  Ar Name: سندوتش فاهيتا دجاج
+  Price: 35.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: 
+
+  Cat: Main Courses, Sub: Sandwiches
+  Ar Name: سندوتش فاهيتا دجاج
+  Price: 35.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: 
+
+--- Beef Fajita (2 items) ---
+  Cat: Fastest Ordered, Sub: none
+  Ar Name: فاهيتا لحم
+  Price: 40.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: 
+
+  Cat: Main Courses, Sub: Sandwiches
+  Ar Name: فاهيتا لحم
+  Price: 40.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: 
+
+--- Grilled Chicken Baguette (2 items) ---
+  Cat: Fastest Ordered, Sub: none
+  Ar Name: باقيت دجاج
+  Price: 35.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: 
+
+  Cat: Main Courses, Sub: Sandwiches
+  Ar Name: باقيت دجاج
+  Price: 35.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: 
+
+--- Bagels (4 items) ---
+  Cat: Breakfast (8 AM to 1 PM), Sub: none
+  Ar Name: بيجلز
+  Price: 25.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: ﺑﻴﺠﻞ ﺟﺒﻨﺔ ﻛﺮﻳﻢ / ﺳﻼﻣﻲ / ﻃﻤﺎﻃﻢ و ﺟﺮﺟﻴﺮ.
+
+  Cat: Breakfast (8 AM to 1 PM), Sub: none
+  Ar Name: بيجلز
+  Price: 20.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: بيجل بيض جبنة كريم / طماطم / جرجير / جبنة شرائح
+
+  Cat: Breakfast (8 AM to 1 PM), Sub: none
+  Ar Name: بيجلز
+  Price: 20.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: ﺑﻴﺠﻞ ﺗﻮﻧﺔ / ﻃﻤﺎﻃﻢ و ﺟﺮﺟﻴﺮ
+
+  Cat: Breakfast (8 AM to 1 PM), Sub: none
+  Ar Name: بيجلز
+  Price: 25.000 د.ل
+  Image: https://talabiety.net/storage/menu/default.png
+  Desc: بيجل أجبان جبنة شرائح / موزاريلا / جبنة كريم / جرجير و طماطم
+

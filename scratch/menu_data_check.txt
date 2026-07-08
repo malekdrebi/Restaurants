@@ -1,0 +1,105 @@
+﻿
+  index.html:1407:        // JSON_DATA_START
+> index.html:1408:        const menuData = [
+  index.html:1409:    {
+  index.html:1410:        "name": "الأكثر طلباً",
+  index.html:1411:        "en_name": "Most Ordered",
+  index.html:1412:        "items": [
+  index.html:1413:            {
+  index.html:1414:                "name": "اﻟﻔﺮﻳﺪو ﺑﺎﻟﺪﺟﺎج",
+  index.html:1415:                "price": "40.000 د.ل",
+  index.html:1416:                "desc": "",
+  index.html:1417:                "image": "images/باستا الفريدو.PNG",
+  index.html:1418:                "en_name": "Chicken Alfredo",
+  index.html:1419:                "en_desc": ""
+  index.html:1420:            },
+  index.html:1421:            {
+  index.html:1422:                "name": "مشكل 3 اسياخ",
+  index.html:1423:                "price": "45.000 د.ل",
+  index.html:1424:                "desc": "ﻛﺒﺎب ﻟﺤﻢ + ﺷﻴﺶ ﻃﺎووق + ﺷﻴﺶ ﻟﺤﻢ ﻋﺠﻞ",
+  index.html:1425:                "image": "images/مشكل 3 اسياخ.PNG",
+  index.html:1426:                "en_name": "Mixed 3 Skewers",
+  index.html:1427:                "en_desc": "ﻛﺒﺎب ﻟﺤﻢ + ﺷﻴﺶ ﻃﺎووق + ﺷﻴﺶ ﻟﺤﻢ ﻋﺠﻞ"
+  index.html:1428:            },
+  index.html:1429:            {
+  index.html:1430:                "name": "سندوتش ﻓﺎﻫﻴﺘﺎ دﺟﺎج",
+  index.html:1431:                "price": "25.000 د.ل",
+  index.html:1432:                "desc": "",
+  index.html:1433:                "image": "",
+  index.html:1434:                "en_name": "Chicken Fajita Sandwich",
+  index.html:1435:                "en_desc": ""
+  index.html:1436:            },
+  index.html:1437:            {
+  index.html:1438:                "name": "باستا فواكه البحر",
+  index.html:1439:                "price": "50.000 د.ل",
+  index.html:1440:                "desc": "",
+  index.html:1441:                "image": "images/باستا فواكه البجر صوص روزي.PNG",
+  index.html:1442:                "en_name": "Seafood Pasta",
+  index.html:1443:                "en_desc": "",
+  index.html:1444:                "variants": [
+  index.html:1445:                    {
+  index.html:1446:                        "name": "باستا فواكه البحر",
+  index.html:1447:                        "price": "55.000 د.ل",
+  index.html:1448:                        "desc": "",
+  index.html:1449:                        "image": "",
+  index.html:1450:                        "en_name": "Seafood Pasta",
+  index.html:1451:                        "en_desc": "",
+  index.html:1452:                        "variant_en_name": "White Sauce",
+  index.html:1453:                        "variant_name": "الصوص الأبيض",
+  index.html:1454:                        "variants": []
+  index.html:1455:                    },
+  index.html:1456:                    {
+  index.html:1457:                        "name": "باستا فواكه البحر",
+  index.html:1458:                        "price": "50.000 د.ل",
+  index.html:1459:                        "desc": "",
+  index.html:1460:                        "image": "",
+  index.html:1461:                        "en_name": "Seafood Pasta",
+  index.html:1462:                        "en_desc": "",
+  index.html:1463:                        "variant_en_name": "Red Sauce",
+  index.html:1464:                        "variant_name": "الصوص الأحمر",
+  index.html:1465:                        "variants": []
+  index.html:1466:                    },
+  index.html:1467:                    {
+  index.html:1468:                        "name": "باستا فواكه البحر",
+  index.html:1469:                        "price": "50.000 د.ل",
+  index.html:1470:                        "desc": "",
+  index.html:1471:                        "image": "",
+  index.html:1472:                        "en_name": "Seafood Pasta",
+  index.html:1473:                        "en_desc": "",
+  index.html:1474:                        "variant_en_name": "Pink Sauce",
+  index.html:1475:                        "variant_name": "الصوص الوردي",
+  index.html:1476:                        "variants": []
+  index.html:1477:                    },
+  index.html:1478:                    {
+  index.html:1479:                        "name": "باستا فواكه البحر",
+  index.html:1480:                        "price": "50.000 د.ل",
+  index.html:1481:                        "desc": "",
+  index.html:1482:                        "image": "images/باستا فواكه البجر صوص روزي.PNG",
+  index.html:1483:                        "en_name": "Seafood Pasta",
+  index.html:1484:                        "en_desc": "",
+  index.html:1485:                        "variant_en_name": "Rose Sauce",
+  index.html:1486:                        "variant_name": "صوص الروز",
+  index.html:1487:                        "variants": []
+  index.html:1488:                    }
+  index.html:1489:                ],
+  index.html:1490:                "selected_variant_idx": 3
+  index.html:1491:            },
+  index.html:1492:            {
+  index.html:1493:                "name": "تشيكن بريست",
+  index.html:1494:                "price": "40.000 د.ل",
+  index.html:1495:                "desc": "",
+  index.html:1496:                "image": "",
+  index.html:1497:                "en_name": "Chicken Breast",
+  index.html:1498:                "en_desc": ""
+  index.html:1499:            }
+  index.html:1500:        ]
+  index.html:1501:    },
+  index.html:1502:    {
+  index.html:1503:        "name": "الأسرع طلباً",
+  index.html:1504:        "en_name": "Fastest Ordered",
+  index.html:1505:        "items": [
+  index.html:1506:            {
+  index.html:1507:                "name": "اﻟﻔﺮﻳﺪو ﺑﺎﻟﺪﺟﺎج",
+  index.html:1508:                "price": "40.000 د.ل",
+
+

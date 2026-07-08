@@ -1,0 +1,2184 @@
+[
+    {
+        "name": "الأكثر طلباً",
+        "en_name": "Most Ordered",
+        "items": [
+            {
+                "name": "اﻟﻔﺮﻳﺪو ﺑﺎﻟﺪﺟﺎج",
+                "price": "40 د.ل",
+                "desc": "",
+                "image": "images/باستا الفريدو.PNG",
+                "en_name": "Chicken Alfredo",
+                "en_desc": ""
+            },
+            {
+                "name": "مشكل 3 اسياخ",
+                "price": "45 د.ل",
+                "desc": "ﻛﺒﺎب ﻟﺤﻢ + ﺷﻴﺶ ﻃﺎووق + ﺷﻴﺶ ﻟﺤﻢ ﻋﺠﻞ",
+                "image": "images/مشكل 3 اسياخ.PNG",
+                "en_name": "Mixed 3 Skewers",
+                "en_desc": "Meat Kebab + Shish Taouk + Veal Shish"
+            },
+            {
+                "name": "سندوتش ﻓﺎﻫﻴﺘﺎ دﺟﺎج",
+                "price": "25 د.ل",
+                "desc": "",
+                "image": "images/سندوتش فاهيتا دجاج.PNG",
+                "en_name": "Chicken Fajita Sandwich",
+                "en_desc": ""
+            },
+            {
+                "name": "باستا فواكه البحر",
+                "price": "50 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Seafood Pasta",
+                "en_desc": "",
+                "variants": [
+                    {
+                        "variant_en_name": "White Sauce",
+                        "variant_name": "الصوص الأبيض",
+                        "price": "55 د.ل",
+                        "variants": []
+                    },
+                    {
+                        "variant_en_name": "Red Sauce",
+                        "variant_name": "الصوص الأحمر",
+                        "price": "50 د.ل",
+                        "variants": []
+                    },
+                    {
+                        "variant_en_name": "Pink Sauce",
+                        "variant_name": "الصوص الوردي",
+                        "price": "50 د.ل",
+                        "variants": []
+                    },
+                    {
+                        "variant_en_name": "Rose Sauce",
+                        "variant_name": "صوص الروز",
+                        "price": "50 د.ل",
+                        "variants": []
+                    }
+                ],
+                "selected_variant_idx": 3
+            },
+            {
+                "name": "تشيكن بريست",
+                "price": "40 د.ل",
+                "desc": "",
+                "image": "images/تشيكن بريست.PNG",
+                "en_name": "Chicken Breast",
+                "en_desc": ""
+            }
+        ]
+    },
+    {
+        "name": "الأسرع طلباً",
+        "en_name": "Fastest Ordered",
+        "items": [
+            {
+                "name": "اﻟﻔﺮﻳﺪو ﺑﺎﻟﺪﺟﺎج",
+                "price": "40 د.ل",
+                "desc": "",
+                "image": "images/باستا الفريدو.PNG",
+                "en_name": "Chicken Alfredo",
+                "en_desc": ""
+            },
+            {
+                "name": "سندوتش ﻓﺎﻫﻴﺘﺎ دﺟﺎج",
+                "price": "25 د.ل",
+                "desc": "",
+                "image": "images/سندوتش فاهيتا دجاج.PNG",
+                "en_name": "Chicken Fajita Sandwich",
+                "en_desc": ""
+            },
+            {
+                "name": "ﺑﺎﺳﺘﺎ أرﺑﻴﺎﺗﺎ",
+                "price": "30 د.ل",
+                "desc": "",
+                "image": "images/باستا اربياتا.PNG",
+                "en_name": "Pasta Arrabbiata",
+                "en_desc": ""
+            },
+            {
+                "name": "ﺑﻴﺴﺘﻮ ﻓﻮزﻳﻠﻰ",
+                "price": "35 د.ل",
+                "desc": "",
+                "image": "images/بيستو فوزيلى.PNG",
+                "en_name": "Pesto Fusilli",
+                "en_desc": ""
+            },
+            {
+                "name": "ﺑﺎﻗﻴﺖ دﺟﺎج ﻣﺸﻮي",
+                "price": "35 د.ل",
+                "desc": "",
+                "image": "images/باجيت دجاج مشوي.PNG",
+                "en_name": "Grilled Chicken Baguette",
+                "en_desc": ""
+            }
+        ]
+    },
+    {
+        "name": "الافطار من (8ص الى 1م)",
+        "subcategories": [],
+        "items": [
+            {
+                "name": "ﻻﻓﻴﻨﺎ",
+                "price": "40 د.ل",
+                "desc": "ﺑﺮﻳﻮش, أوﻣﻠﻴﺖ, ﻋﺴﻞ, ﻣﺮﺑﻰ, ﺟﺒﻨﺔ, ﻓﻮاﻛﻪ, ﻧﻮﺗﻴﻼ, زﻳﺘﻮن ﻣﺘﺒﻞ, ﻫﺮﻳﺴﺔ, ﺳﻠﺔ ﺧﺒﺰ, ﺷﺎي (أﺧﻀﺮ أو أﺣﻤﺮ)",
+                "image": "",
+                "en_name": "Lavina",
+                "en_desc": "Brioche, Omelette, Honey, Jam, Cheese, Fruits, Nutella, Seasoned Olives, Harissa, Bread Basket, Tea (Green or Red)"
+            },
+            {
+                "name": "ﻻﻓﻴﻨﺎ (ﻋﺎئلي)",
+                "price": "195 د.ل",
+                "desc": "ﺷﻜﺸﻮﻛﺔ, أوﻣﻠﻴﺖ, ﻗﻼﻳﺔ, ﻣﻨﺎﻗﻴﺶ, أﺟﺒﺎن ﻣﺸﻜﻠﺔ, ﺳﻼﻃﺔ مخلل, زﻳﺘﻮن ﻣﺘﺒﻞ, ﻫﺮﻳﺴﺔ, ﺑﺮﻳﻮش, ﺑﻦ ﻛﻴﻚ, ﻣﺮﺑﻰ, ﻓﻄﻴﺮة ﻣﻐﺮﺑﻴﺔ, ﻧﻮﺗﻴﻼ, ﻋﺴﻞ, ﻳﺎﻏﻮرت، زﺑﺪة, ﺳﻠﺔ ﺧﺒﺰ, ﺑﺮاد ﺷﺎﻫﻲ (أﺧﻀﺮ أو أﺣﻤﺮ) (يكفي 3 أشخاص)",
+                "image": "",
+                "en_name": "Lavina (Family)",
+                "en_desc": "Shakshouka, Omelette, Qallaya, Manakish, Assorted Cheeses, Pickled Salad, Seasoned Olives, Harissa, Brioche, Pancake, Jam, Moroccan Pie, Nutella, Honey, Yogurt, Butter, Bread Basket, Large Tea Pot (Green or Red) (Serves 3 Persons)"
+            },
+            {
+                "name": "ﻛﻮﻧﺘﻴﻨﻨﺘﺎل",
+                "price": "45 د.ل",
+                "desc": "ﺑﺮﻳﻮش , اﻧﺠﻠﻴﺶ ﻛﻴﻚ, ﺑﺸﻤﺎط ﻗﺮﻳﺴﻴﻨﻰ, ﻣﺮﺑﻰ , ﻋﺴﻞ, زﺑﺪة, ﺻﺤﻦ ﺳﻼﻃﺔ, ﻓﻮاﻛﺔ ﻣﺠﻔﻔﺔ, ﻛﻮب ﻋﺼﻴﺮ, ﻗﻬﻮة وﺣﻠﻴﺐ",
+                "image": "",
+                "en_name": "Continental",
+                "en_desc": "Brioche, English Cake, Grissini, Jam, Honey, Butter, Salad Plate, Dried Fruits, Juice Cup, Coffee and Milk"
+            },
+            {
+                "name": "افطار مغربي",
+                "price": "35 د.ل",
+                "desc": "ﻓﻄﻴﺮة ﻣﻐﺮﺑﻴﺔ, ﻋﺴﻞ, ﻣﺮﺑﻰ, زﺑﺪة, ﺑﻴﺾ ﻣﺴﻠﻮق, ﺟﺒﻨﺔ , ﺳﻠﺔ ﺧﺒﺰ, ﺷﺎي (أﺧﻀﺮ أو أﺣﻤﺮ )",
+                "image": "",
+                "en_name": "Moroccan Breakfast",
+                "en_desc": "Moroccan Pie, Honey, Jam, Butter, Boiled Egg, Cheese, Bread Basket, Tea (Green or Red)"
+            },
+            {
+                "name": "شرقي",
+                "price": "45 د.ل",
+                "desc": "ﻓﻮل ﻓﻼﻓﻞ, ﺑﺎﺑﺎﻏﻨﻮج, ﺳﻼﻃﺔ ﺣﻤﺺ, ﻣﺨﻠﻞ, ﻟﺒﻨﻪ , ﺳﻠﺔ ﺧﺒﺰ ,ﺷﺎي )أﺧﻀﺮ أو أﺣﻤﺮ",
+                "image": "images/افطار شرقي.PNG",
+                "en_name": "Oriental Breakfast",
+                "en_desc": "Foul, Falafel, Baba Ganoush, Hummus Salad, Pickles, Labneh, Bread Basket, Tea (Green or Red)"
+            },
+            {
+                "name": "صحن قلايه",
+                "price": "38 د.ل",
+                "desc": "ﻟﺤﻢ ﺑﻘﺮ, ﺻﺤﻦ ﺳﻼﻃﺔ ﻣﺸﻜﻞ, ﻫﺮﻳﺴﺔ, زﻳﺘﻮن, ﺳﻠﺔ ﺧﺒﺰ",
+                "image": "",
+                "en_name": "Qallaya Plate",
+                "en_desc": "Beef, Mixed Salad Plate, Harissa, Olives, Bread Basket"
+            },
+            {
+                "name": "ﺷﻜﺸﻮﻛﺔ ﺗﺮﻛﻴﺔ",
+                "price": "28 د.ل",
+                "desc": "ﺷﻜﺸﻮﻛﺔ ﻣﻊ ﺟﺒﻨﺔ ﻣﻮزارﻳﻼ وﺟﺒﻨﺔ ﺗﺸﻴﺪر, ﺧﻴﺎر وﺟﻴﺮﺟﻴﺮ, زﻳﺘﻮن ﻣﺘﺒﻞ, ﺳﻠﺔ ﺧﺒﺰ, ﺷﺎي (أﺧﻀﺮ أو أﺣﻤﺮ)",
+                "image": "",
+                "en_name": "Turkish Shakshouka",
+                "en_desc": "Shakshouka with Mozzarella and Cheddar, Cucumber and Arugula, Seasoned Olives, Bread Basket, Tea (Green or Red)"
+            },
+            {
+                "name": "ﺷﻜﺸﻮﻛﺔ ﻣﺮﻗﺎز",
+                "price": "32 د.ل",
+                "desc": "ﺷﻜﺸﻮﻛﺔ ﻣﻊ ﻣﺮﻗﺎز, ﺟﺒﻨﺔ, ﺧﻀﺮوات, زﻳﺘﻮن ﻣﺘﺒﻞ, ﺳﻠﺔ ﺧﺒﺰو ﺷﺎي (أﺧﻀﺮ أو اﺣﻤﺮ)",
+                "image": "",
+                "en_name": "Merguez Shakshouka",
+                "en_desc": "Shakshouka with Merguez, Cheese, Vegetables, Seasoned Olives, Bread Basket and Tea (Green or Red)"
+            },
+            {
+                "name": "ﺷﻜﺸﻮﻛﺔ ﻗﺪﻳﺪ",
+                "price": "35 د.ل",
+                "desc": "ﺷﻜﺸﻮﻛﺔ ﺑﻘﺪﻳﺪ, ﺟﺒﻨﺔ, ﺧﻀﺮوات, زﻳﺘﻮن ﻣﺘﺒﻞ, ﺳﻠﺔ ﺧﺒﺰ, ﺷﺎي (أﺧﻀﺮ أو اﺣﻤﺮ)",
+                "image": "",
+                "en_name": "Qadeed Shakshouka",
+                "en_desc": "Shakshouka with Qadeed, Cheese, Vegetables, Seasoned Olives, Bread Basket, Tea (Green or Red)"
+            },
+            {
+                "name": "أوﻣﻠﻴﺖ ﻛﻼﺳﻴﻚ",
+                "price": "15 د.ل",
+                "desc": "ﺑﻴﺾ ﻣﻊ ﻫﺮﻳﺴﺔ, زﻳﺘﻮن, ﻃﻤﺎﻃﻢ، ﺧﻴﺎر، ﺟﺮﺟﻴﺮ و ﺳﻠﺔ ﺧﺒﺰ.",
+                "image": "",
+                "en_name": "Classic Omelette",
+                "en_desc": "Eggs with Harissa, Olives, Tomatoes, Cucumber, Arugula and Bread Basket."
+            },
+            {
+                "name": "أوﻣﻠﻴﺖ ﺑﺎﻟﺠﺒﻨﺔ",
+                "price": "18 د.ل",
+                "desc": "ﺑﻴﺾ وﺟﺒﻨﺔ ﻣﻊ ﻫﺮﻳﺴﺔ, زﻳﺘﻮن, ﻃﻤﺎﻃﻢ، ﺧﻴﺎر، ﺟﺮﺟﻴﺮ و ﺳﻠﺔ",
+                "image": "",
+                "en_name": "Cheese Omelette",
+                "en_desc": "Eggs and Cheese with Harissa, Olives, Tomatoes, Cucumber, Arugula and Basket"
+            },
+            {
+                "name": "أوﻣﻠﻴﺖ ﺧﻀﺮوات",
+                "price": "20 د.ل",
+                "desc": "ﺑﻴﺾ, ﻓﻠﻔﻞ ﺣﻠﻮ, ﺑﺼﻞ, ﺟﺒﻨﺔ, ﺟﺮﺟﻴﺮ, ﻃﻤﺎﻃﻢ، ﺧﻴﺎر , زﻳﺘﻮن و ﺳﻠﺔ ﺧﺒﺰ.",
+                "image": "",
+                "en_name": "Veggie Omelette",
+                "en_desc": "Eggs, Bell Pepper, Onion, Cheese, Arugula, Tomatoes, Cucumber, Olives and Bread Basket."
+            },
+            {
+                "name": "أوﻣﻠﻴﺖ ﻓﻘﺎع",
+                "price": "22 د.ل",
+                "desc": "ﺑﻴﺾ, ﻓﻠﻔﻞ ﺣﻠﻮ, ﻓﻘﺎع, ﺟﺒﻨﺔ، زﻳﺘﻮن, ﻃﻤﺎﻃﻢ, ﺧﻴﺎر, ﻫﺮﻳﺴﺔ, و ﺳﻠﺔ ﺧﺒﺰ.",
+                "image": "",
+                "en_name": "Mushroom Omelette",
+                "en_desc": "Eggs, Bell Pepper, Mushroom, Cheese, Olives, Tomatoes, Cucumber, Harissa, and Bread Basket."
+            },
+            {
+                "name": "ﺗﻮﺳﺖ ﺟﺒﻨﺔ",
+                "price": "18 د.ل",
+                "desc": "ﺗﻮﺳﺖ ﻣﻊ ﺟﺒﻨﺔ ﻛﺮﻳﻢ,ﻣﻮزارﻳﻼ و ﺟﺒﻨﺔ زﻋﺘﺮ.",
+                "image": "",
+                "en_name": "Cheese Toast",
+                "en_desc": "Toast with Cream Cheese, Mozzarella and Zaatar Cheese."
+            },
+            {
+                "name": "ﺗﻮﺳﺖ ﺗﻮﻧﺔ",
+                "price": "15 د.ل",
+                "desc": "ﺗﻮﺳﺖ ﺗﻮﻧﺔ, ﺟﺒﻨﺔ, ﻃﻤﺎﻃﻢ, ﺟﺮﺟﻴﺮ, زﻳﺘﻮن أﺳﻮد, زﻳﺘﻮن ﻣﺘﺒﻞ و ﻫﺮﻳﺴﺔ.",
+                "image": "",
+                "en_name": "Tuna Toast",
+                "en_desc": "Tuna Toast, Cheese, Tomatoes, Arugula, Black Olives, Seasoned Olives and Harissa."
+            },
+            {
+                "name": "ﺗﻮﺳﺖ ﺑﻴﺾ",
+                "price": "15 د.ل",
+                "desc": "ﺗﻮﺳﺖ ﺑﻴﺾ ﻣﻘﻠﻲ, ﺟﺒﻨﺔ, ﻃﻤﺎﻃﻢ, ﺟﺮﺟﻴﺮ, زﻳﺘﻮن أﺳﻮد, زﻳﺘﻮن ﻣﺘﺒﻞ وﻫﺮﻳﺴﺔ.",
+                "image": "",
+                "en_name": "Egg Toast",
+                "en_desc": "Fried Egg Toast, Cheese, Tomatoes, Arugula, Black Olives, Seasoned Olives and Harissa."
+            },
+            {
+                "name": "ﺗﻮﺳﺖ ﺑﺒﺮوﻧﻲ",
+                "price": "18 د.ل",
+                "desc": "ﺗﻮﺳﺖ ﺳﻼﻣﻲ, ﺟﺒﻨﺔ, ﻃﻤﺎﻃﻢ, ﺟﺮﺟﻴﺮ ،زﻳﺘﻮن ﺷﺮاﺋﺢ أﺳﻮد, زﻳﺘﻮن ﻣﺘﺒﻞ وﻫﺮﻳﺴﺔ.",
+                "image": "images/SalamiToast.jpeg",
+                "en_name": "Pepperoni Toast",
+                "en_desc": "Salami Toast, Cheese, Tomatoes, Arugula, Sliced Black Olives, Seasoned Olives and Harissa."
+            },
+            {
+                "name": "سكرامبل بيض",
+                "price": "20 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Scrambled Eggs",
+                "en_desc": ""
+            },
+            {
+                "name": "بيض بينديكت",
+                "price": "25 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Eggs Benedict",
+                "en_desc": ""
+            },
+            {
+                "name": "بيجلز",
+                "price": "25 د.ل",
+                "desc": "ﺑﻴﺠﻞ ﺟﺒﻨﺔ ﻛﺮﻳﻢ, ﺳﻼﻣﻲ, ﻃﻤﺎﻃﻢ و ﺟﺮﺟﻴﺮ.",
+                "image": "images/بيجلز بيض.jpg",
+                "en_name": "Bagels",
+                "en_desc": "Bagel with Cream Cheese, Salami, Tomatoes and Arugula."
+            },
+            {
+                "name": "اﻷﻓﻄﺎر اﻟﺼﺤﻲ",
+                "price": "25 د.ل",
+                "desc": "ﺑﻴﺾ ﻣﺴﻠﻮق, ﺗﻮﻧﺔ, ﺻﺤﻦ ﻓﻮاﻛﺔ, ﺷﻮﻓﺎن ﺣﻠﻴﺐ, ﺗﻮﺳﺖ ﺷﻌﻴﺮ و ﻳﻐﻮرت و ﺗﻤﺮ.",
+                "image": "",
+                "en_name": "Healthy Breakfast",
+                "en_desc": "Boiled Eggs, Tuna, Fruit Plate, Oatmeal with Milk, Barley Toast, Yogurt and Dates."
+            },
+            {
+                "name": "صحن شوفان",
+                "price": "20 د.ل",
+                "desc": "ﺻﺤﻦ ﺷﻮﻓﺎن ﻣﻊ اﻟﻤﻜﺴﺮات, ﺗﻤﺮ و ﻓﻮاﻛﺔ.",
+                "image": "",
+                "en_name": "Oatmeal Bowl",
+                "en_desc": "Oatmeal Bowl with Nuts, Dates and Fruits."
+            },
+            {
+                "name": "إﺿﺎﻓﺎت -- ﺻﺤﻦ اﻟﺠﺒﻦ",
+                "price": "20 د.ل",
+                "desc": "ﺻﺤﻦ ﻳﺤﺘﻮي ﻋﻠﻰ ﻣﺠﻤﻮﻋﺔ ﻣﺘﻨﻮﻋﺔ ﻣﻦ اﻷﺟﺒﺎن",
+                "image": "",
+                "en_name": "Extras - Cheese Plate",
+                "en_desc": "A plate containing a variety of cheeses"
+            },
+            {
+                "name": "اضافات -- اﻟﺰﻋﺘﺮ ﻣﻊ زﻳﺖ اﻟﺰﻳﺘﻮن",
+                "price": "8 د.ل",
+                "desc": "-2اﻟﺰﻋﺘﺮ ﻣﻊ زﻳﺖ اﻟﺰﻳﺘﻮن",
+                "image": "",
+                "en_name": "Extras - Zaatar with Olive Oil",
+                "en_desc": "Zaatar with Olive Oil"
+            }
+        ],
+        "en_name": "Breakfast (8 AM to 1 PM)"
+    },
+    {
+        "name": "الغداء (من الساعه 1م)",
+        "subcategories": [
+            {
+                "name": "المقبلات",
+                "items": [
+                    {
+                        "name": "ﺑﺮوﺳﻜﻴﺘﺎ",
+                        "price": "15 د.ل",
+                        "desc": "",
+                        "image": "images/بروسكيتا.PNG",
+                        "en_name": "Bruschetta",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺑﻮرﻳﻚ ﻟﺤﻢ",
+                        "price": "20 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Meat Bourek",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻛﺒﺔ ﻟﺤﻢ (4 ﻗﻄﻊ)",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Meat Kibbeh (4 Pieces)",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻣﻮزارﻳﻼ ﻓﻴﻨﻘﺮ",
+                        "price": "30 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Mozzarella Fingers",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻓﺶ ﻓﻴﻨﻘﺮ",
+                        "price": "40 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Fish Fingers",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺻﺤﻦ ﺑﻄﺎﻃﺎ",
+                        "price": "20 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Potato Fries Plate",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻤﺒﻮﺳﺔ ﺑﺎﻟﺠﺒﻨﺔ",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Cheese Sambousek",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺗﺸﻜﻴﻦ ﺳﺘﺮﻳﺒﺲ",
+                        "price": "35 د.ل",
+                        "desc": "",
+                        "image": "images/ChickenStips.jpeg",
+                        "en_name": "Chicken Strips",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "بسطيلا دجاج",
+                        "price": "35 د.ل",
+                        "desc": "",
+                        "image": "images/بسطيلا دجاج.jpg",
+                        "en_name": "Chicken Pastilla",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "سوتي فواكه البحر",
+                        "price": "35 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Seafood Sauté",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "صحن لاڤينا مشكل",
+                        "price": "70 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Lavina Mixed Plate",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Appetizers"
+            },
+            {
+                "name": "السلاطات",
+                "items": [
+                    {
+                        "name": "ﺳﻼﻃﺔ ﻋﺮﺑﻴﺔ",
+                        "price": "15 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Arabic Salad",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻼﻃﺔ ﺣﻤﺺ",
+                        "price": "15 د.ل",
+                        "desc": "",
+                        "image": "images/humus_salad.jpeg",
+                        "en_name": "Hummus Salad",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻼﻃﺔ ﻛﻮل ﺳﻠﻮ",
+                        "price": "15 د.ل",
+                        "desc": "",
+                        "image": "images/سلاطة كول سلو.PNG",
+                        "en_name": "Coleslaw Salad",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻼﻃﺔ ﺟﺮﺟﻴﺮ",
+                        "price": "20 د.ل",
+                        "desc": "",
+                        "image": "images/سلطة جرجير.jpg",
+                        "en_name": "Arugula Salad",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻼﻃﺔ ﻣﺸﻮﻳﺔ",
+                        "price": "20 د.ل",
+                        "desc": "",
+                        "image": "images/سلاطه مشويه.PNG",
+                        "en_name": "Grilled Salad",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻼﻃﺔ ﺑﺎﺑﺎ ﻏﻨﻮش",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "images/سلاطه بابا غنوج.PNG",
+                        "en_name": "Baba Ganoush Salad",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻼﻃﺔ ﺳﻴﺰر",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Caesar Salad",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻼﻃﺔ ﻳﻮﻧﺎﻧﻴﺔ",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Greek Salad",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻼﻃﺔ ﻓﺘﻮش",
+                        "price": "30 د.ل",
+                        "desc": "",
+                        "image": "images/سلطة فتوش.PNG",
+                        "en_name": "Fattoush Salad",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻼﻃﺔ ﻓﻮاﻛﺔ اﻟﺒﺤﺮ",
+                        "price": "30 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Seafood Salad",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻼﻃﺔ ﻻﻓﻴﻨﺎ",
+                        "price": "45 د.ل",
+                        "desc": "",
+                        "image": "images/سلاطه لافينا.PNG",
+                        "en_name": "Lavina Salad",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Salads"
+            },
+            {
+                "name": "الشوربات",
+                "items": [
+                    {
+                        "name": "ﺷﻮرﺑﺔ اﻟﻌﺪس",
+                        "price": "15 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Lentil Soup",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺷﻮرﺑﺔ اﻟﺪﺟﺎج ﺑﺎﻟﻔﻘﺎع",
+                        "price": "27 د.ل",
+                        "desc": "",
+                        "image": "images/ChickenMashrumSoup.jpeg",
+                        "en_name": "Chicken Mushroom Soup",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺷﻮرﺑﺔ اﻟﺠﻤﺒﺮي",
+                        "price": "30 د.ل",
+                        "desc": "",
+                        "image": "images/شوربه جمبري.PNG",
+                        "en_name": "Shrimp Soup",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Soups"
+            },
+            {
+                "name": "باستا",
+                "items": [
+                    {
+                        "name": "ﺑﺎﺳﺘﺎ أرﺑﻴﺎﺗﺎ",
+                        "price": "30 د.ل",
+                        "desc": "",
+                        "image": "images/باستا اربياتا.PNG",
+                        "en_name": "Pasta Arrabbiata",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺑﻴﺴﺘﻮ ﻓﻮزﻳﻠﻰ",
+                        "price": "35 د.ل",
+                        "desc": "",
+                        "image": "images/بيستو فوزيلى.PNG",
+                        "en_name": "Pesto Fusilli",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺑﻮﻟﻮﻧﻴﺰ",
+                        "price": "40 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Bolognese",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "اﻟﻔﺮﻳﺪو ﺑﺎﻟﺪﺟﺎج",
+                        "price": "40 د.ل",
+                        "desc": "",
+                        "image": "images/باستا الفريدو.PNG",
+                        "en_name": "Chicken Alfredo",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "باستا فواكه البحر",
+                        "price": "50 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Seafood Pasta",
+                        "en_desc": "",
+                        "variants": [
+                            {
+                                "variant_en_name": "White Sauce",
+                                "variant_name": "الصوص الأبيض",
+                                "price": "55 د.ل",
+                                "variants": []
+                            },
+                            {
+                                "variant_en_name": "Red Sauce",
+                                "variant_name": "الصوص الأحمر",
+                                "price": "50 د.ل",
+                                "variants": []
+                            },
+                            {
+                                "variant_en_name": "Pink Sauce",
+                                "variant_name": "الصوص الوردي",
+                                "price": "50 د.ل",
+                                "variants": []
+                            },
+                            {
+                                "variant_en_name": "Rose Sauce",
+                                "variant_name": "صوص الروز",
+                                "price": "50 د.ل",
+                                "variants": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": "لانجويني قمبري",
+                        "price": "55 د.ل",
+                        "desc": "(ﺻﻮص اﺣﻤﺮ ﺻﻮص اﺑﻴﺾﺻﻮص ﺑﻴﻨﻚ)",
+                        "image": "",
+                        "en_name": "Shrimp Linguine",
+                        "en_desc": "( Red / White / Pink Sauce )",
+                        "variants": [
+                            {
+                                "variant_en_name": "White Sauce",
+                                "variant_name": "الصوص الأبيض",
+                                "price": "55 د.ل",
+                                "variants": []
+                            },
+                            {
+                                "variant_en_name": "Red Sauce",
+                                "variant_name": "الصوص الأحمر",
+                                "price": "50 د.ل",
+                                "variants": []
+                            },
+                            {
+                                "variant_en_name": "Pink Sauce",
+                                "variant_name": "الصوص الوردي",
+                                "price": "50 د.ل",
+                                "variants": []
+                            },
+                            {
+                                "variant_en_name": "Rose Sauce",
+                                "variant_name": "صوص الروز",
+                                "price": "50 د.ل",
+                                "variants": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": "ﻻزاﻧﻴﺎ ﺑﻠﻮﻧﻴﺰ",
+                        "price": "45 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Bolognese Lasagna",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "بشاميل دجاج",
+                        "price": "40 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Chicken Béchamel",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Pasta"
+            },
+            {
+                "name": "ريزوتو",
+                "items": [
+                    {
+                        "name": "روزوﺗﻮ ﻣﺸﺮوم",
+                        "price": "40 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Mushroom Risotto",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "روزوﺗﻮ ﺳﻲ ﻓﻮد",
+                        "price": "55 د.ل",
+                        "desc": "",
+                        "image": "images/ريزوتو فواكه البحر.jpg",
+                        "en_name": "Seafood Risotto",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Risotto"
+            },
+            {
+                "name": "بيتزا",
+                "items": [
+                    {
+                        "name": "ﻣﺎرﺟﺎرﻳﺘﺎ",
+                        "price": "25 د.ل",
+                        "desc": "ﺟﺒﻨﺔ ﻣﻮزارﻳﻼ, ﺟﺒﻨﺔ ﺷﻴﺪر و ﻃﻤﺎﻃﻢ",
+                        "image": "",
+                        "en_name": "Margherita",
+                        "en_desc": "Mozzarella Cheese, Cheddar Cheese and Tomato"
+                    },
+                    {
+                        "name": "ﺧﻀﺎر",
+                        "price": "35 د.ل",
+                        "desc": "ﺧﻀﺮوات, ﺟﺒﻨﺔ, ﻓﻠﻔﻞ ﺣﻠﻮ,ﻃﻤﺎﻃﻢ, زﻳﺘﻮن و ﺑﺼﻞ",
+                        "image": "",
+                        "en_name": "Vegetable",
+                        "en_desc": "Vegetables, Cheese, Bell Pepper, Tomato, Olives and Onion"
+                    },
+                    {
+                        "name": "ﻓﻘﺎع",
+                        "price": "35 د.ل",
+                        "desc": "ﺟﺒﻨﺔ, ﻓﻘﺎع, ﻃﻤﺎﻃﻢ و ﺑﺼﻞ.",
+                        "image": "",
+                        "en_name": "Mushroom",
+                        "en_desc": "Cheese, Mushroom, Tomato and Onion."
+                    },
+                    {
+                        "name": "ﺗﻮﻧﺔ",
+                        "price": "35 د.ل",
+                        "desc": "ﺟﺒﻨﺔ, ﺗﻮﻧﺔ, ﻃﻤﺎﻃﻢ و ﺑﺼﻞ.",
+                        "image": "",
+                        "en_name": "Tuna",
+                        "en_desc": "Cheese, Tuna, Tomato and Onion."
+                    },
+                    {
+                        "name": "ﺑﻴﺘﺰا رﻳﺠﻴﻨﺎ",
+                        "price": "35 د.ل",
+                        "desc": "ﺻﻠﺼﺔ, ﺟﺒﻨﺔ , ﻓﻘﺎع , ﺳﻼﻣﻲ وﺣﺒﻖ.",
+                        "image": "",
+                        "en_name": "Regina Pizza",
+                        "en_desc": "Sauce, Cheese, Mushroom, Salami and Basil."
+                    },
+                    {
+                        "name": "ﺑﻴﺘﺰا ﺑﻴﺴﺘﻮ",
+                        "price": "40 د.ل",
+                        "desc": "ﺻﻠﺼﺔ ﺧﻀﺮاء, ﺟﺒﻨﺔ, ﻟﻮز ﺧﺰاﻳﻨﻲ",
+                        "image": "",
+                        "en_name": "Pesto Pizza",
+                        "en_desc": "Green Sauce, Cheese, Almonds"
+                    },
+                    {
+                        "name": "ﺑﻴﺘﺰا ﻛﻮاﺗﺮو ﻓﻮرﻣﺎﺟﻲ",
+                        "price": "35 د.ل",
+                        "desc": "ﻛﻮاﺗﺮو ﻓﻮرﻣﺎﺟﻮ أرﺑﻌﺔ اﻧﻮاع ﻣﻦ ﺟﺒﻨﺔ",
+                        "image": "",
+                        "en_name": "Quattro Formaggi Pizza",
+                        "en_desc": "Quattro Formaggio Four Types of Cheese"
+                    },
+                    {
+                        "name": "ﺑﻴﺘﺰا دﺟﺎج",
+                        "price": "40 د.ل",
+                        "desc": "ﺻﻠﺼﺔ, ﺟﺒﻨﺔ, دﺟﺎج",
+                        "image": "",
+                        "en_name": "Chicken Pizza",
+                        "en_desc": "Sauce, Cheese, Chicken"
+                    },
+                    {
+                        "name": "ﺑﻴﺘﺰا ﺑﻴﺎﻧﻜﺎ",
+                        "price": "45 د.ل",
+                        "desc": "ﺻﻠﺼﺔ ﺑﻴﻀﺎ, ﺟﺒﻨﺔ و ﺟﺒﻤﺒﺮى.",
+                        "image": "",
+                        "en_name": "Bianca Pizza",
+                        "en_desc": "White Sauce, Cheese and Shrimp."
+                    },
+                    {
+                        "name": "ﺑﻴﺘﺰا ﻻﻓﻴﻨﺎ",
+                        "price": "60 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Lavina Pizza",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Pizza"
+            },
+            {
+                "name": "صفايح",
+                "items": [
+                    {
+                        "name": "ﺻﻔﻴﺤﺔ ﻟﺤﻢ",
+                        "price": "28 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Meat Safiha",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺻﻔﻴﺤﺔ ﺟﺒﻨﺔ",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Cheese Safiha",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺻﻔﻴﺤﺔ ﺑﺠﺒﻨﺔ وﻟﺤﻢ",
+                        "price": "30 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Cheese and Meat Safiha",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺻﻔﻴﺤﺔ زﻋﺘﺮ",
+                        "price": "20 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Zaatar Safiha",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "صفيحة زﻋﺘﺮ وﺟﺒﻨﺔ",
+                        "price": "28 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Zaatar and Cheese Safiha",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺻﻔﻴﺤﺔ ﻟﺤﻢ ﻣﻊ ﺟﺒﻨﺔ وزﻋﺘﺮ",
+                        "price": "30 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Meat Safiha with Cheese and Zaatar",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺻﻔﻴﺤﺔ ﺣﺠﻢ ﻋﺎﺋﻠﻲ",
+                        "price": "45 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Family Size Safiha",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Safiha"
+            },
+            {
+                "name": "غربي الدجاج",
+                "items": [
+                    {
+                        "name": "ﺗﺸﻜﻴﻦ ﺑﺮﻳﺴﺖ ﺻﻮص ﻣﺎﺷﺮوم",
+                        "price": "40 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Chicken Breast with Mushroom Sauce",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺗﺸﻜﻴﻦ ﺑﺮﻳﺴﺖ ﺑﺎﻧﻲ",
+                        "price": "40 د.ل",
+                        "desc": "",
+                        "image": "images/Checkin_pane.PNG",
+                        "en_name": "Chicken Breast Pane",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺗﺸﻜﻴﻦ ﺑﺮﻳﺴﺖ ﺻﻮص ﻟﻴﻤﻮن",
+                        "price": "45 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Chicken Breast with Lemon Sauce",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "رول دﺟﺎج ﺑﺎﻟﺴﺒﺎﻧﺦ واﻟﻤﻮزارﻳﻼ",
+                        "price": "50 د.ل",
+                        "desc": "",
+                        "image": "images/نجريسكو دجاج.PNG",
+                        "en_name": "Chicken Roll with Spinach and Mozzarella",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻛﻮردون ﺑﻠﻮ",
+                        "price": "45 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Cordon Bleu",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "تشيكن بريست",
+                        "price": "40 د.ل",
+                        "desc": "",
+                        "image": "images/تشيكن بريست.PNG",
+                        "en_name": "Chicken Breast",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Chicken Selection"
+            },
+            {
+                "name": "غربي اللحوم",
+                "items": [
+                    {
+                        "name": "فيليه صوص ماشروم",
+                        "price": "65 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Fillet with Mushroom Sauce",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "فيليه صوص ليمون",
+                        "price": "65 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Fillet with Lemon Sauce",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "فيليه بصلصة الفلفل الأسود",
+                        "price": "65 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Fillet with Black Pepper Sauce",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "تي بون",
+                        "price": "70 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "T-Bone Steak",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "فيليه المينيون",
+                        "price": "210 د.ل",
+                        "desc": "وزن اللحمة 600ج شخصين",
+                        "image": "",
+                        "en_name": "Filet Mignon",
+                        "en_desc": "Meat weight 600g for two people"
+                    },
+                    {
+                        "name": "أرﻳﺎش ﺧﺮوف ﻣﻊ ﺻﻮص ﻟﻴﻤﻮن",
+                        "price": "85 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Lamb Chops with Lemon Sauce",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻓﻴﻠﻴه صوص ﺟﺮﻳﻔﻲ",
+                        "price": "65 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Fillet with Gravy Sauce",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻓﻴﻠﻴﺔ ﺻﻮص ﻃﻤﺎﻃﻢ والجبن",
+                        "price": "65 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Fillet with Tomato and Cheese Sauce",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻓﻴﻠﻴﺔ مشوي",
+                        "price": "60 د.ل",
+                        "desc": "",
+                        "image": "images/فيليه مشوي.PNG",
+                        "en_name": "Grilled Fillet",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Meat Selection"
+            },
+            {
+                "name": "غربي اسماك وبحريات",
+                "items": [
+                    {
+                        "name": "قاروص مشوي",
+                        "price": "70 د.ل",
+                        "desc": "حوتة قاروص (سي باص )",
+                        "image": "",
+                        "en_name": "Grilled Sea Bass",
+                        "en_desc": "Sea Bass (Sea Bass)"
+                    },
+                    {
+                        "name": "ﺳﻲ ﺑﺎس ﻓﻴﻠﻴﺔ",
+                        "price": "70 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Sea Bass Fillet",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺟﻤﺒﺮي ﻣﺸﻮي",
+                        "price": "85 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Grilled Shrimp",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺷﺮاﺋﺢ وراثة ﻣﻊ ﺻوص اﻟليمون",
+                        "price": "45 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Bream Slices with Lemon Sauce",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺑﺎﻳﻼ",
+                        "price": "75 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Paella",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻣﺸﻜﻞ ﻻﻓﻴﻨﺎ أﺳﻤﺎك",
+                        "price": "130 د.ل",
+                        "desc": "",
+                        "image": "images/Lavina_Mix_seafood.jpeg",
+                        "en_name": "Lavina Seafood Mix",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Seafood"
+            },
+            {
+                "name": "المطبخ الشرقي",
+                "items": [
+                    {
+                        "name": "ﺷﻴﺶ ﻃﺎووق",
+                        "price": "40 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Shish Taouk",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻛﺒﺎب دﺟﺎج",
+                        "price": "40 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Chicken Kebab",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻧﺺ دﺟﺎج ﻣﺸﻮي",
+                        "price": "40 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Half Grilled Chicken",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻛﺒﺎب ﻟﺤﻢ",
+                        "price": "45 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Meat Kebab",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺷﻴﺶ ﻟﺤﻢ ﺧﺮوف",
+                        "price": "65 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Lamb Shish",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "أرﻳﺎش ﺧﺮوف",
+                        "price": "80 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Lamb Chops",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻛﺒﺎب ادﻧﺎ ﺣﺎر",
+                        "price": "48 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Spicy Adana Kebab",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻛﺒﺎب ﺑﺎﻟﺠﺒﻨﺔ",
+                        "price": "50 د.ل",
+                        "desc": "",
+                        "image": "images/Lamp_Chease_kebab.PNG",
+                        "en_name": "Cheese Kebab",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺟﻮاﻧﺢ دﺟﺎج ﻣﺸﻮي",
+                        "price": "35 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Grilled Chicken Wings",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻓﺨﺪة دﺟﺎج ﻣﺸﻮي",
+                        "price": "35 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Grilled Chicken Thigh",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻛﺒﺎب اورﻓﻠﻲ",
+                        "price": "45 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Urfali Kebab",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻣﺸﻜﻞ 2 اسياخ",
+                        "price": "35 د.ل",
+                        "desc": "ﻛﺒﺎب ﻟﺤﻢ + ﺷﻴﺶ ﻃﺎووق",
+                        "image": "images/مشكل 2 اسياخ.PNG",
+                        "en_name": "Mixed 2 Skewers",
+                        "en_desc": "Meat Kebab + Shish Taouk"
+                    },
+                    {
+                        "name": "مشكل 3 اسياخ",
+                        "price": "45 د.ل",
+                        "desc": "ﻛﺒﺎب ﻟﺤﻢ + ﺷﻴﺶ ﻃﺎووق + ﺷﻴﺶ ﻟﺤﻢ ﻋﺠﻞ",
+                        "image": "images/مشكل 3 اسياخ.PNG",
+                        "en_name": "Mixed 3 Skewers",
+                        "en_desc": "Meat Kebab + Shish Taouk + Veal Shish"
+                    },
+                    {
+                        "name": "مشكل 4 اسياخ",
+                        "price": "60 د.ل",
+                        "desc": "ﻛﺒﺎب ﻟﺤﻢ + ﺷﻴﺶ ﻃﺎووق + ﺷﻴﺶ ﻟﺤﻢ + ﻛﺒﺎب دﺟﺎج",
+                        "image": "images/مشكل 4 اسياخ.PNG",
+                        "en_name": "Mixed 4 Skewers",
+                        "en_desc": "Meat Kebab + Shish Taouk + Beef Shish + Chicken Kebab"
+                    },
+                    {
+                        "name": "ﻣﺸﻜﻞ 5 اﺳﻴﺎخ",
+                        "price": "70 د.ل",
+                        "desc": "ﻛﺒﺎب ﻟﺤﻢ +ﻛﺒﺎب دﺟﺎج +ﺷﻴﺶ ﻃﺎووق + ﺷﻴﺶ ﻟﺤﻢ ﻋﺠﻞ + ﻛﺒﺎب اورﻓﻠﻲ",
+                        "image": "",
+                        "en_name": "Mixed 5 Skewers",
+                        "en_desc": "Meat Kebab + Chicken Kebab + Shish Taouk + Veal Shish + Urfali Kebab"
+                    },
+                    {
+                        "name": "ﻣﺸﻜﻞ 8 ﺳﻴﺎخ",
+                        "price": "150 د.ل",
+                        "desc": "ﻛﺒﺎب ﻟﺤﻢ + ﻛﺒﺎب دﺟﺎج + ﺷﻴﺶﻃﺎووق + ﺷﻴﺶ ﻟﺤﻢ ﻋﺠﻞ + ﻛﺒﺎب اورﻓﻠﻲ+ ﻛﺒﺎب ﺣﺎر + ﺟﻮاﻧﺢ + ﺻﻔﻴﺤﺔ + ﺻﺤﻦ ﺳﻼﻃﺔ",
+                        "image": "",
+                        "en_name": "Mixed 8 Skewers",
+                        "en_desc": "Meat Kebab + Chicken Kebab + Shish Taouk + Veal Shish + Urfali Kebab + Spicy Kebab + Wings + Safiha + Salad Plate"
+                    },
+                    {
+                        "name": "ﻣﺸﻜﻞ مشاوي ﻻﻓﻴﻨﺎ ﻋﺎﺋﻠﻲ",
+                        "price": "250 د.ل",
+                        "desc": "2 ﻛﺒﺎب ﻟﺤﻢ + 2 ﻛﺒﺎب دﺟﺎج + 2 ﺷﻴﺶ ﻃﺎووق + 2ﺷﻴﺶ ﻟﺤﻢ ﻋﺠﻞ + 2 أرﻳﺎش ﺧﺮوف + 2 ﺟﻮاﻧﺢ + 2 أﻓﺨﺎد دجاج + 1 ﺻﻔﻴﺤﺔ ﺣﺴﺐ اﻟﻄﻠﺐ + 1 ﺻﺤﻦ سلاطة",
+                        "image": "",
+                        "en_name": "Lavina Family Grill Mix",
+                        "en_desc": "2 Meat Kebab + 2 Chicken Kebab + 2 Shish Taouk + 2 Veal Shish + 2 Lamb Chops + 2 Wings + 2 Chicken Thighs + 1 Safiha as requested + 1 Salad Plate"
+                    }
+                ],
+                "en_name": "Oriental Cuisine"
+            },
+            {
+                "name": "وجبات فاهيتا",
+                "items": [
+                    {
+                        "name": "وجبة فاهيتا دجاج",
+                        "price": "40 د.ل",
+                        "desc": "صدر دجاج متبل بالأعشاب والفلفل الحار و البصل ، الطماطم وخبز مكسيكان ساور كريم ، بيقو ديقالو ، ارز مكسيكان ، جبنة شيدر مكس",
+                        "image": "",
+                        "en_name": "Chicken Fajita Meal",
+                        "en_desc": "Herb-marinated chicken breast with chili, onions, tomatoes, Mexican bread, sour cream, pico de gallo, Mexican rice, and mixed cheddar cheese."
+                    },
+                    {
+                        "name": "وجبة فاهيتا لحم",
+                        "price": "45 د.ل",
+                        "desc": "لحم بقري مشوي متبل بالأعشاب فلفل الوان ، بصل ، طماطم، خبز مكسيكان ، ارز مكسيكان ،ساور كريم ، بيقو ميقالو ، شيدر مكس",
+                        "image": "images/وجبة فاهيتا لحم.PNG",
+                        "en_name": "Beef Fajita Meal",
+                        "en_desc": "Grilled herb-marinated beef with bell peppers, onions, tomatoes, Mexican bread, Mexican rice, sour cream, pico de gallo, and mixed cheddar cheese."
+                    },
+                    {
+                        "name": "وجبة فاهيتا مكس",
+                        "price": "50 د.ل",
+                        "desc": "مكس صدر دجاج مشوي ، لحم بقري مشوي مع فلفل الوات ، بصل ، طماطم ، ارز مكسيكان ، ساور كريم ، بيقو ديقالو ، شيدر مكس",
+                        "image": "images/fajita_mix.PNG",
+                        "en_name": "Mixed Fajita Meal",
+                        "en_desc": "Mixed grilled chicken breast and beef with bell peppers, onions, tomatoes, Mexican rice, sour cream, pico de gallo, and mixed cheddar cheese."
+                    }
+                ],
+                "en_name": "Fajita Meals"
+            },
+            {
+                "name": "سندوتشات",
+                "items": [
+                    {
+                        "name": "سندوتش ﻓﺎﻫﻴﺘﺎ دﺟﺎج",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "images/سندوتش فاهيتا دجاج.PNG",
+                        "en_name": "Chicken Fajita Sandwich",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻓﺎﻫﻴﺘﺎ ﻟﺤﻢ",
+                        "price": "33 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Beef Fajita",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻣﻴﻨﻲ ﺑﺮﺟﺮ ﻟﺤﻢ",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Mini Beef Burger",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻛﻠﻮب ﺳﻨﺪوﺗﺶ",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "images/كلوب سندوتش.PNG",
+                        "en_name": "Club Sandwich",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺑﺮﺟﺮ ﻟﺤﻢ",
+                        "price": "28 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Beef Burger",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺑﺎﻗﻴﺖ دﺟﺎج ﻣﺸﻮي",
+                        "price": "35 د.ل",
+                        "desc": "",
+                        "image": "images/باجيت دجاج مشوي.PNG",
+                        "en_name": "Grilled Chicken Baguette",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "كريب أجبان",
+                        "price": "28 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Cheese Crepe",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻛﺮﻳﺐ دﺟﺎج",
+                        "price": "30 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Chicken Crepe",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻛﺮﻳﺐ ﺗﻮﻧﺔ",
+                        "price": "30 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Tuna Crepe",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Sandwiches"
+            },
+            {
+                "name": "وجبات اطفال",
+                "items": [
+                    {
+                        "name": "ﺗﺸﻜﻴﻦ ﻧﺎﺟﻴﺖ",
+                        "price": "25 د.ل",
+                        "desc": "ﺗﻘﺪم ﻣﻊ أرز ﺑﻄﺎﻃﺔ ﻣﺤﻤﺮة ﺧﻀﺎر ﺳﻮﺗﻲ",
+                        "image": "",
+                        "en_name": "Chicken Nuggets",
+                        "en_desc": "Served with Rice, Fried Potato, Sautéed Vegetables"
+                    }
+                ],
+                "en_name": "Kids' Meals"
+            }
+        ],
+        "items": [],
+        "en_name": "Lunch (From 1 PM)"
+    },
+    {
+        "name": "التحليه",
+        "subcategories": [],
+        "items": [
+            {
+                "name": "ﻛﺮﻳﺐ ﺳﻮﺷﻲ",
+                "price": "28 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Sushi Crepe",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻛﺮﻳﺐ ﻓﻮاﻛﺔ",
+                "price": "30 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Fruit Crepe",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻛﺮﻳﺐ اﻳﺲ ﻛﺮﻳﻢ",
+                "price": "26 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Ice Cream Crepe",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻛﺮﻳﺐ رول",
+                "price": "25 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Crepe Roll",
+                "en_desc": ""
+            },
+            {
+                "name": "كريب فيوتوتشيني",
+                "price": "30 د.ل",
+                "desc": "( نوتيلا/ فستق/ عسل ولوز/ لوتس/ عسل / اوريو / فواكه )",
+                "image": "",
+                "en_name": "Fettuccine Crepe",
+                "en_desc": "( Nutella / Pistachio / Honey & Almond / Lotus / Honey / Oreo / Fruits )"
+            },
+            {
+                "name": "ﻛﺮﻳﺐ ﺗﺎم",
+                "price": "30 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Tam Crepe",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻛﺮﻳﺐ ﻓﺴﺘﻖ",
+                "price": "28 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Pistachio Crepe",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻛﺮﻳﺐ ﺑﻨﺪق",
+                "price": "25 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Hazelnut Crepe",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻛﺮﻳﺐ ﻟﻮز",
+                "price": "25 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Almond Crepe",
+                "en_desc": ""
+            },
+            {
+                "name": "كريب نوتيلا",
+                "price": "20 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Nutella Crepe",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻛﺮواﺳﻮن ﻧﻮﺗﻴﻼ",
+                "price": "12 د.ل",
+                "desc": "",
+                "image": "images/كرواسون نوتيلا.jpg",
+                "en_name": "Nutella Croissant",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻛﺮواﺳﻮن ﺟﺒﻨﺔ",
+                "price": "15 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Cheese Croissant",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻛﺮواﺳﻮن ﻋﺴﻞ",
+                "price": "12 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Honey Croissant",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻛﺮواﺳﻮن ﻧﻮﺗﻴﻼ + ﻋﺴﻞ + ﻟﻮز",
+                "price": "15 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Nutella + Honey + Almond Croissant",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻣﺘﺮد ﺷﺮﻗﻲ ﻣﺸﻜﻞ ﻛﺒﻴﺮ",
+                "price": "60 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Large Oriental Mixed Plate",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻣﺘﺮد ﺷﺮﻗﻲ ﻣﺸﻜﻞ ﺻﻐﻴﺮ",
+                "price": "35 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Small Oriental Mixed Plate",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻓﻄﻴﺮة ﻣﻐﺮﺑﻴﺔ",
+                "price": "20 د.ل",
+                "desc": "(ﺗﻘﺪم ﻣﻊ ﻋﺴﻞ وزﻳﺘﻮن ﻣﻐﺮﺑﻲ)",
+                "image": "",
+                "en_name": "Moroccan Pie",
+                "en_desc": "( Served with honey and Moroccan olives )"
+            },
+            {
+                "name": "ﺻﺤﻦ ﻓﻮاﻛﺔ ﻣﺸﻜﻠﺔ",
+                "price": "50 د.ل",
+                "desc": "(ﺣﺴﺐ اﻟﻤﻮﺳﻢ)",
+                "image": "",
+                "en_name": "Mixed Fruit Plate",
+                "en_desc": "(According to season)"
+            },
+            {
+                "name": "ﻛﻴﻚ ﻻﻓﻴﻨﺎ",
+                "price": "30 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Lavina Cake",
+                "en_desc": ""
+            },
+            {
+                "name": "ﺳﺎن ﺳﺒﺎﺳﺘﻴﺎن",
+                "price": "25 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "San Sebastian",
+                "en_desc": ""
+            },
+            {
+                "name": "ﺑﺮاوﻧﻴﺰ أﻳﺲ ﻛﺮﻳﻢ",
+                "price": "25 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Brownies with Ice Cream",
+                "en_desc": ""
+            },
+            {
+                "name": "واﻓﻞ ﻛﻼﺳﻴﻚ",
+                "price": "18 د.ل",
+                "desc": "عسل",
+                "image": "",
+                "en_name": "Classic Waffle",
+                "en_desc": "Honey"
+            },
+            {
+                "name": "واﻓﻞ ﻟﻮز وﻋﺴﻞ",
+                "price": "25 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Almond and Honey Waffle",
+                "en_desc": ""
+            },
+            {
+                "name": "واﻓﻞ اﻳﺲ ﻛﺮﻳﻢ",
+                "price": "26 د.ل",
+                "desc": "",
+                "image": "images/Waffel_icecream.PNG",
+                "en_name": "Ice Cream Waffle",
+                "en_desc": ""
+            },
+            {
+                "name": "واﻓﻞ ﻓﻮاﻛﺔ",
+                "price": "30 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Fruit Waffle",
+                "en_desc": ""
+            },
+            {
+                "name": "واﻓﻞ ﻓﺴﺘﻖ",
+                "price": "28 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Pistachio Waffle",
+                "en_desc": ""
+            },
+            {
+                "name": "واﻓﻞ ﺑﻨﺪق",
+                "price": "24 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Hazelnut Waffle",
+                "en_desc": ""
+            },
+            {
+                "name": "واﻓﻞ ﻧﻮﺗﻴﻼ",
+                "price": "22 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Nutella Waffle",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻣﻨﻲ ﺑﺎن ﻛﻴﻚ ﻟﻮز",
+                "price": "24 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Mini Almond Pancake",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻣﻨﻲ ﺑﺎن ﻛﻴﻚ رﻳﺪ ﻓﻴﻠﻔﻴﺖ",
+                "price": "28 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Mini Red Velvet Pancake",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻣﻨﻲ ﺑﺎن ﻛﻴﻚ ﻓﻮاﻛﺔ",
+                "price": "25 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Mini Fruit Pancake",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻣﻨﻲ ﺑﺎن ﻛﻴﻚ ﻟﻮﺗﺲ",
+                "price": "22 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Mini Lotus Pancake",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻣﻨﻲ ﺑﺎن ﻛﻴﻚ اورﻳﻮ",
+                "price": "22 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Mini Oreo Pancake",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻣﻨﻲ ﺑﺎن ﻛﻴﻚ ﻓﺴﺘﻖ",
+                "price": "24 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Mini Pistachio Pancake",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻣﻨﻲ ﺑﺎن ﻛﻴﻚ ﻧﻮﺗﻴﻼ",
+                "price": "20 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Mini Nutella Pancake",
+                "en_desc": ""
+            },
+            {
+                "name": "ﺑﺎن ﻛﻴﻚ ﻛﻼﺳﻴﻚ",
+                "price": "18 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Classic Pancake",
+                "en_desc": ""
+            },
+            {
+                "name": "ﺑﺎن ﻛﻴﻚ رﻳﺪ ﻓﻴﻠﻔﻴﺖ",
+                "price": "30 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Red Velvet Pancake",
+                "en_desc": ""
+            },
+            {
+                "name": "ﺑﺎن ﻛﻴﻚ ﻓﻮاﻛﺔ",
+                "price": "28 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Fruit Pancake",
+                "en_desc": ""
+            },
+            {
+                "name": "بان ﻛﻴﻚ ﻓﺴﺘﻖ",
+                "price": "28 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Pistachio Pancake",
+                "en_desc": ""
+            },
+            {
+                "name": "ﺑﺎن ﻛﻴﻚ ﻟﻮﺗﺲ",
+                "price": "24 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Lotus Pancake",
+                "en_desc": ""
+            },
+            {
+                "name": "ﺑﺎن ﻛﻴﻚ ﻧﻮﺗﻴﻼ",
+                "price": "20 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Nutella Pancake",
+                "en_desc": ""
+            }
+        ],
+        "en_name": "Desserts"
+    },
+    {
+        "name": "المشروبات",
+        "subcategories": [
+            {
+                "name": "المخيتو",
+                "items": [
+                    {
+                        "name": "موخيتو فواكه",
+                        "price": "25 د.ل",
+                        "desc": "فراولة ﻣﺎﻧﺠﺎ أﻧﺎﻧﺎس دﻻع",
+                        "image": "",
+                        "en_name": "Fruit Mojito",
+                        "en_desc": "Strawberry, Mango, Pineapple, Watermelon"
+                    },
+                    {
+                        "name": "ﻣوﺨﻴﺘﻮ ﻫﺎواي",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Hawaii Mojito",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻣوﺨﻴﺘﻮ ﺑﻼك ﻣﻮن",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Black Moon Mojito",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "موخيتو بيناكولاده",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Pina Colada Mojito",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻣوﺨﻴﺘﻮ ﻣﻮﻧﺘﺎﻧﺎ",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Montana Mojito",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻣوﺨﻴﺘﻮ روز",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Rose Mojito",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "موخيتو باشن فروت",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Passion Fruit Mojito",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Mojitos"
+            },
+            {
+                "name": "سموثي",
+                "items": [
+                    {
+                        "name": "ﺳﻤﻮﺛﻲ ﻓﺮاوﻟﺔ",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Strawberry Smoothie",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻤﻮﺛﻲ ﻣﺎﻧﺠﻮ",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Mango Smoothie",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻤﻮﺛﻲ ﺑﺎﺷﻦ ﻓﺮوت",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Passion Fruit Smoothie",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻤﻮﺛﻲ ﺗﻮت ﺑﺮي",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Blueberry Smoothie",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻤﻮﺛﻲ ﻛﺮز",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Cherry Smoothie",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﻤﻮﺛﻲ ﻣﻮز",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Banana Smoothie",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Smoothies"
+            },
+            {
+                "name": "ميلك شيك",
+                "items": [
+                    {
+                        "name": "ﻣﻴﻠﻚ ﺷﻴﻚ ﻓﺎﻧﻴﻠﻴﺎ",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Vanilla Milkshake",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ميلك شيك شوكلاتة",
+                        "price": "25 د.ل",
+                        "desc": "( مارس , كندر , سنكرز )",
+                        "image": "",
+                        "en_name": "Chocolate Milkshake",
+                        "en_desc": "( Mars, Kinder, Snickers )"
+                    },
+                    {
+                        "name": "ﻣﻴﻠﻚ ﺷﻴﻚ ﻧﻮﺗﻴﻼ",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Nutella Milkshake",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻣﻴﻠﻚ ﺷﻴﻚ ﻟﻮﺗﺲ",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Lotus Milkshake",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻣﻴﻠﻚ ﺷﻴﻚ ﻓﺴﺘﻖ",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Pistachio Milkshake",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Milkshakes"
+            },
+            {
+                "name": "ايس كافي",
+                "items": [
+                    {
+                        "name": "ايس كافي عادي",
+                        "price": "14 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Regular Iced Coffee",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ايس كافي نكهة",
+                        "price": "18 د.ل",
+                        "desc": "( ﻛﺮاﻣﻴﻞ / ﻓانيليا / ﺑﻨﺪق )",
+                        "image": "",
+                        "en_name": "Flavored Iced Coffee",
+                        "en_desc": "( Caramel / Vanilla / Hazelnut )"
+                    }
+                ],
+                "en_name": "Iced Coffee"
+            },
+            {
+                "name": "ايس تي",
+                "items": [
+                    {
+                        "name": "ايس تي",
+                        "en_name": "Iced Tea",
+                        "price": "14 د.ل",
+                        "desc": "( ﺧﻮخ / ﻧﻌﻨﺎع / قرفة / ﺗﻮت )",
+                        "variants": [
+                            {
+                                "variant_en_name": "Peach",
+                                "variant_name": "خوخ",
+                                "price": "14 د.ل",
+                                "variants": []
+                            },
+                            {
+                                "variant_en_name": "Mint",
+                                "variant_name": "نعناع",
+                                "price": "14 د.ل",
+                                "variants": []
+                            },
+                            {
+                                "variant_en_name": "Cinnamon",
+                                "variant_name": "قرفة",
+                                "price": "14 د.ل",
+                                "variants": []
+                            },
+                            {
+                                "variant_en_name": "Berry",
+                                "variant_name": "توت",
+                                "price": "14 د.ل",
+                                "variants": []
+                            }
+                        ]
+                    }
+                ],
+                "en_name": "Iced Tea"
+            },
+            {
+                "name": "فرابتشينو",
+                "items": [
+                    {
+                        "name": "فرابتشينو",
+                        "en_name": "Frappuccino",
+                        "price": "20 د.ل",
+                        "desc": "( كلاسيك / كراميل / فانيليا )",
+                        "variants": [
+                            {
+                                "variant_en_name": "Classic",
+                                "variant_name": "كلاسيك",
+                                "price": "20 د.ل",
+                                "variants": []
+                            },
+                            {
+                                "variant_en_name": "Caramel",
+                                "variant_name": "كراميل",
+                                "price": "20 د.ل",
+                                "variants": []
+                            },
+                            {
+                                "variant_en_name": "Vanilla",
+                                "variant_name": "فانيليا",
+                                "price": "20 د.ل",
+                                "variants": []
+                            }
+                        ]
+                    }
+                ],
+                "en_name": "Frappuccino"
+            },
+            {
+                "name": "مشروبات ساخنه",
+                "en_name": "Hot Drinks",
+                "items": [
+                    {
+                        "name": "ﺑﺴﺘﺎﺷﻴﻮ",
+                        "price": "28 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Pistachio",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻟﻮﺗﺲ",
+                        "price": "27 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Lotus",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺷﻮﻛﻠﺖ",
+                        "price": "23 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Chocolate",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "مارشميلو",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Marshmallow",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "براد شاهي صغير مكسرات",
+                        "price": "25 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Small Tea Pot with Nuts",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "براد شاهي كبير مكسرات",
+                        "price": "45 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Large Tea Pot with Nuts",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "أﺳﺒﺮﻳﺴﻮ",
+                        "price": "7 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Espresso",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "اﻣﺮﻳﻜﺎﻧﻮ",
+                        "price": "7 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Americano",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﺒﻴﺴﻴﺎل",
+                        "price": "7 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Special",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻓﻼت واﻳﺖ",
+                        "price": "10 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Flat White",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻛﺎﺑﺘﺸﻴﻨﻮ",
+                        "price": "12 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Cappuccino",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻧﺴﻜﺎﻓﻴﺔ",
+                        "price": "12 د.ل",
+                        "desc": "",
+                        "image": "images/Nescafe.PNG",
+                        "en_name": "Nescafe",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻛﻮرﺗﺎدو",
+                        "price": "10 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Cortado",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻣﻜﻴﺎﺗﻮ",
+                        "price": "8 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Macchiato",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻛﺮاﻣﻴﻞ ﻣﻜﻴﺎﺗﻮ",
+                        "price": "10 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Caramel Macchiato",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "أﻓﻮﻛﺎﺗﻮ",
+                        "price": "12 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Affogato",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻛﺎﻓﻲ ﻣﻮﻛﺎ",
+                        "price": "15 د.ل",
+                        "desc": "(واﻳﺖ دارك)",
+                        "image": "",
+                        "en_name": "Caffe Mocha",
+                        "en_desc": "( White - Dark )"
+                    },
+                    {
+                        "name": "ﻛﺎﻓﻲ لاتيه",
+                        "price": "14 د.ل",
+                        "desc": "(كراميل - بندق - فانيلا)",
+                        "image": "",
+                        "en_name": "Caffe Latte",
+                        "en_desc": "( Caramel - Hazelnut - Vanilla )"
+                    },
+                    {
+                        "name": "ﺳﺒﺎﻧﺶ ﻻﺗﻲ",
+                        "price": "15 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Spanish Latte",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺳﺒﺎﻧﺶ ﻻﺗﻲ ﻛﺮاﻣﻴﻞ",
+                        "price": "16 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Caramel Spanish Latte",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻗﻬﻮة ﻋﺮﺑﻴﺔ",
+                        "price": "10 د.ل",
+                        "desc": "",
+                        "image": "images/Arabic_coffee.PNG",
+                        "en_name": "Arabic Coffee",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﺷﺎي",
+                        "price": "6 د.ل",
+                        "desc": "( احمر / اخضر )",
+                        "image": "",
+                        "en_name": "Tea",
+                        "en_desc": "( Red / Green )"
+                    }
+                ]
+            },
+            {
+                "name": "مشروبات معلبه",
+                "items": [
+                    {
+                        "name": "مشروب غازي",
+                        "price": "4 د.ل",
+                        "desc": "ﺑﻴﺒﺴﻲ ﻣﺎرﻳﻨﺪا ﺷﺎﻧﻲ ﺳﻔﻦ أب",
+                        "image": "",
+                        "en_name": "Soft Drink",
+                        "en_desc": "Pepsi, Miranda, Shani, 7-Up"
+                    },
+                    {
+                        "name": "ﻣﺸﺮوب ﺟﺮﻳﻴﻦ",
+                        "price": "5 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Green Drink",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻋﺼﻴﺮ ﺳﺒﺎﻳﺘﺰ",
+                        "price": "7 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Spaitz Juice",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻣﺎء ﻏﺎزي زﺟﺎﺟﻴﺔ",
+                        "price": "8 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Sparkling Water (Glass)",
+                        "en_desc": ""
+                    },
+                    {
+                        "name": "ﻣﺎء ﻣﻌﺪﻧﻴﺔ زﺟﺎﺟﻴﺔ",
+                        "price": "5 د.ل",
+                        "desc": "",
+                        "image": "",
+                        "en_name": "Mineral Water (Glass)",
+                        "en_desc": ""
+                    }
+                ],
+                "en_name": "Canned Drinks"
+            }
+        ],
+        "items": [
+            {
+                "name": "ﻋﺼﻴﺮ ﻓﺮاوﻟﺔ",
+                "price": "15 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Strawberry Juice",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻋﺼﻴﺮ ﺑﺮﺗﻘﺎل",
+                "price": "15 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Orange Juice",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻋﺼﻴﺮ ﻟﻴﻤﻮن وﻧﻌﻨﺎع",
+                "price": "16 د.ل",
+                "desc": "",
+                "image": "images/Lemon_Mint_Juice.PNG",
+                "en_name": "Lemon with Mint Juice",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻋﺼﻴﺮ ﻣﺎﻧﺠﺎ",
+                "price": "18 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Mango Juice",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻋﺼﻴﺮ ﻛﻴﻮي",
+                "price": "20 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Kiwi Juice",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻋﺼﻴﺮ أﻧﺎﻧﺎس",
+                "price": "22 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Pineapple Juice",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻋﺼﻴﺮ أﻓﻮﻛﺎدو",
+                "price": "25 د.ل",
+                "desc": "",
+                "image": "",
+                "en_name": "Avocado Juice",
+                "en_desc": ""
+            },
+            {
+                "name": "ﻓﺮوﺑﻲ",
+                "price": "18 د.ل",
+                "desc": "(ﻓﺮاوﻟﺔ ,ﻣﺎﻧﺠﺎ, ﻣﻮز )",
+                "image": "",
+                "en_name": "Froopy",
+                "en_desc": "( Strawberry, Mango, Banana )"
+            },
+            {
+                "name": "ﻛﻮﻛﺘﻴﻞ",
+                "price": "25 د.ل",
+                "desc": "حسب الطلب",
+                "image": "",
+                "en_name": "Cocktail",
+                "en_desc": "As requested"
+            }
+        ],
+        "en_name": "Beverages"
+    }
+]

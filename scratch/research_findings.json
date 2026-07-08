@@ -1,0 +1,254 @@
+[
+    {
+        "cat": "Breakfast (8 AM to 1 PM)",
+        "sub": "none",
+        "item": {
+            "name": "اﻷﻓﻄﺎر اﻟﺼﺤﻲ 2",
+            "price": "25.000 د.ل",
+            "desc": "ﺑﻴﺾ ﻣﺴﻠﻮق / ﺗﻮﻧﺔ / ﺻﺤﻦ ﻓﻮاﻛﺔ / ﺷﻮﻓﺎن ﺣﻠﻴﺐ / ﺗﻮﺳﺖ ﺷﻌﻴﺮ و ﻳﻐﻮرت و ﺗﻤﺮ.",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Healthy Breakfast 2",
+            "en_desc": "Boiled Eggs / Tuna / Fruit Plate / Oatmeal with Milk / Barley Toast / Yogurt and Dates."
+        }
+    },
+    {
+        "cat": "Breakfast (8 AM to 1 PM)",
+        "sub": "none",
+        "item": {
+            "name": "اﻷﻓﻄﺎر اﻟﺼﺤﻲ",
+            "price": "20.000 د.ل",
+            "desc": "ﺑﻴﺎض ﺑﻴﺾ / ﻓﻮل ﺑﺎﻟﻴﻤﻮن / ﺗﻮﺳﺖ ﺷﻌﻴﺮ / ﻓﺮوﺗﺔ و ﻳﻐﻮرت.",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Healthy Breakfast",
+            "en_desc": "Egg Whites / Foul with Lemon / Barley Toast / Fruit and Yogurt."
+        }
+    },
+    {
+        "cat": "Pasta & Pizza",
+        "sub": "Pasta",
+        "item": {
+            "name": "ﺳﺒﺎﻗﻴﺘﻲ ﺑﺎﻟﻔﻮاﻛﺔ اﻟﺒﺤﺮ",
+            "price": "50.000 د.ل",
+            "desc": "",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Seafood Spaghetti",
+            "en_desc": ""
+        }
+    },
+    {
+        "cat": "Pasta & Pizza",
+        "sub": "Pasta",
+        "item": {
+            "name": "لانجويني قمبري",
+            "price": "55.000 د.ل",
+            "desc": "(ﺻﻮص اﺣﻤﺮ ﺻﻮص اﺑﻴﺾﺻﻮص ﺑﻴﻨﻚ)",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Shrimp Linguine",
+            "en_desc": "(Red Sauce / White Sauce / Pink Sauce)"
+        }
+    },
+    {
+        "cat": "Desserts",
+        "sub": "none",
+        "item": {
+            "name": "ﺻﺤﻦ ﻓﻮاﻛﺔ ﻣﺸﻜﻠﺔ - كبير",
+            "price": "50.000 د.ل",
+            "desc": "(ﺣﺴﺐ اﻟﻤﻮﺳﻢ)",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Large Mixed Fruit Plate",
+            "en_desc": "(According to season)"
+        }
+    },
+    {
+        "cat": "Desserts",
+        "sub": "none",
+        "item": {
+            "name": "ﺻﺤﻦ ﻓﻮاﻛﺔ ﻣﺸﻜﻠﺔ - وسط",
+            "price": "25.000 د.ل",
+            "desc": "(ﺣﺴﺐ اﻟﻤﻮﺳﻢ)",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Medium Mixed Fruit Plate",
+            "en_desc": "(According to season)"
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Mojitos",
+        "item": {
+            "name": "مخيتو",
+            "price": "25.000 د.ل",
+            "desc": "(فراولة / مانجا / أناناس / دلاع / هاواي / بلاك مون / روز)",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Mojito",
+            "en_desc": "(Strawberry / Mango / Pineapple / Watermelon / Hawaii / Black Moon / Rose)"
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Mojitos",
+        "item": {
+            "name": "مخيتو باشن فروت",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Passion Fruit Mojito",
+            "en_desc": ""
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Smoothies",
+        "item": {
+            "name": "ﺳﻤﻮﺛﻲ ﻓﺮاوﻟﺔ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Strawberry Smoothie",
+            "en_desc": ""
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Smoothies",
+        "item": {
+            "name": "ﺳﻤﻮﺛﻲ ﻣﺎﻧﺠﻮ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Mango Smoothie",
+            "en_desc": ""
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Smoothies",
+        "item": {
+            "name": "ﺳﻤﻮﺛﻲ ﺑﺎﺷﻦ ﻓﺮوت",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Passion Fruit Smoothie",
+            "en_desc": ""
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Smoothies",
+        "item": {
+            "name": "ﺳﻤﻮﺛﻲ ﺗﻮت ﺑﺮي",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Blueberry Smoothie",
+            "en_desc": ""
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Smoothies",
+        "item": {
+            "name": "ﺳﻤﻮﺛﻲ ﻛﺮز",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Cherry Smoothie",
+            "en_desc": ""
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Smoothies",
+        "item": {
+            "name": "ﺳﻤﻮﺛﻲ ﻣﻮز",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Banana Smoothie",
+            "en_desc": ""
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Milkshakes",
+        "item": {
+            "name": "ﻣﻴﻠﻚ ﺷﻴﻚ ﻓﺎﻧﻴﻠﻴﺎ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Vanilla Milkshake",
+            "en_desc": ""
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Milkshakes",
+        "item": {
+            "name": "ميلك شيك شوكلاتة",
+            "price": "25.000 د.ل",
+            "desc": "(مارس / كندر / سنكرز)",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Chocolate Milkshake",
+            "en_desc": "(Mars / Kinder / Snickers)"
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Milkshakes",
+        "item": {
+            "name": "ﻣﻴﻠﻚ ﺷﻴﻚ ﻧﻮﺗﻴﻼ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Nutella Milkshake",
+            "en_desc": ""
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Milkshakes",
+        "item": {
+            "name": "ﻣﻴﻠﻚ ﺷﻴﻚ ﻟﻮﺗﺲ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Lotus Milkshake",
+            "en_desc": ""
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Milkshakes",
+        "item": {
+            "name": "ﻣﻴﻠﻚ ﺷﻴﻚ ﻓﺴﺘﻖ",
+            "price": "25.000 د.ل",
+            "desc": "",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Pistachio Milkshake",
+            "en_desc": ""
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Iced Coffee",
+        "item": {
+            "name": "ايس كافي عادي",
+            "price": "14.000 د.ل",
+            "desc": "",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Regular Iced Coffee",
+            "en_desc": ""
+        }
+    },
+    {
+        "cat": "Beverages",
+        "sub": "Iced Coffee",
+        "item": {
+            "name": "ايس كافي نكهة",
+            "price": "18.000 د.ل",
+            "desc": "(ﻛﺮاﻣﻴﻞ / ﻓانيليا / ﺑﻨﺪق)",
+            "image": "https://talabiety.net/storage/menu/default.png",
+            "en_name": "Flavored Iced Coffee",
+            "en_desc": "(Caramel / Vanilla / Hazelnut)"
+        }
+    }
+]
