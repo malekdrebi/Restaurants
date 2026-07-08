@@ -96,8 +96,7 @@ body {
 }
 .tree-category:hover { background: var(--surface2); }
 .tree-category.active { background: var(--surface2); border-left: 3px solid var(--accent-gold); color: var(--accent-gold); }
-.tree-category .tree-actions { display: flex; gap: 4px; opacity: 0; transition: opacity 0.15s; }
-.tree-category:hover .tree-actions { opacity: 1; }
+.tree-category .tree-actions { display: flex; gap: 4px; }
 .tree-subcategory {
     padding: 8px 16px 8px 28px; cursor: pointer; font-size: 0.8rem;
     color: var(--text-muted); border-bottom: 1px solid #1a1a1a;
