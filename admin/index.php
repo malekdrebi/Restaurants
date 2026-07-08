@@ -276,6 +276,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=5"></script>
+    <script src="assets/admin.js?v=6"></script>
 </body>
 </html>

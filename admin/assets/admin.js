@@ -1,7 +1,7 @@
 /**
  * Admin Dashboard — All event delegation, no inline onclick. v3
  */
-console.log('ADMIN JS v5 LOADED');
+console.log('ADMIN JS v6 LOADED');
 function apiUrl(endpoint, params) {
     var url = '/admin/api/' + endpoint + '.php';
     if (params) {
@@ -311,14 +311,14 @@ function renderVariantsInForm(variants) {
             '<input type="text" placeholder="AR Name" value="' + (v.name_ar || v.name || '') + '" data-field="name_ar">' +
             '<input type="text" placeholder="EN Name" value="' + (v.name_en || v.en_name || '') + '" data-field="name_en">' +
             '<input type="number" placeholder="Price" value="' + (v.price || '') + '" step="0.001" data-field="price" style="max-width:100px">' +
-            '<button onclick="this.closest(\'.variant-row\').remove()" type="button">×</button></div>';
+            '<button class="variant-remove-btn" type="button">×</button></div>';
     }).join('');
 }
 function addVariantRow() {
     var c = document.getElementById('variantsList');
     if (c.querySelector('p')) c.innerHTML = '';
     var row = document.createElement('div'); row.className = 'variant-row';
-    row.innerHTML = '<input type="text" placeholder="AR Name" data-field="name_ar"><input type="text" placeholder="EN Name" data-field="name_en"><input type="number" placeholder="Price" step="0.001" data-field="price" style="max-width:100px"><button onclick="this.closest(\'.variant-row\').remove()" type="button">×</button>';
+    row.innerHTML = '<input type="text" placeholder="AR Name" data-field="name_ar"><input type="text" placeholder="EN Name" data-field="name_en"><input type="number" placeholder="Price" step="0.001" data-field="price" style="max-width:100px"><button class="variant-remove-btn" type="button">×</button>';
     c.appendChild(row);
 }
 async function saveVariants(itemId) {
@@ -334,10 +334,11 @@ async function saveVariants(itemId) {
     }
 }
 
-// ── Add buttons ──
+// ── Add/Remove buttons ──
 document.addEventListener('click', function(e) {
     if (e.target.closest('.add-cat-btn')) { showAddCategory(); return; }
     if (e.target.closest('.add-item-btn')) { showAddItem(); return; }
+    if (e.target.closest('.variant-remove-btn')) { e.target.closest('.variant-row').remove(); return; }
 });
 
 function previewMenu() {
