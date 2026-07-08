@@ -98,10 +98,10 @@ function syncItems($db, $items, $categoryId, $subId, &$synced, &$skipped, $resta
 
         // Find matching item in DB
         if ($subId) {
-            $stmt = $db->prepare("SELECT id FROM items WHERE category_id = ? AND subcategory_id = ? AND en_name = ?");
+            $stmt = $db->prepare("SELECT id FROM items WHERE category_id = ? AND subcategory_id = ? AND name_en = ?");
             $stmt->execute([$categoryId, $subId, $itemNameEn]);
         } else {
-            $stmt = $db->prepare("SELECT id FROM items WHERE category_id = ? AND subcategory_id IS NULL AND en_name = ?");
+            $stmt = $db->prepare("SELECT id FROM items WHERE category_id = ? AND subcategory_id IS NULL AND name_en = ?");
             $stmt->execute([$categoryId, $itemNameEn]);
         }
         $item = $stmt->fetch();
