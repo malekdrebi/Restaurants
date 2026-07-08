@@ -87,8 +87,10 @@ var categoriesWithSubs = {};
 function selectCategory(catId) { selectedCategoryId = catId; selectedSubcategoryId = null; renderCategoryTree(); loadItems(catId, null).then(function() { if (currentItems.length === 0) { fetch(apiUrl('subcategories', {category_id: catId})).then(function(r) { return r.json(); }).then(function(d) { var subs = d.subcategories || []; if (subs.length > 0) selectSubcategory(catId, subs[0].id); }); } }); }
 function selectSubcategory(catId, subId) { selectedCategoryId = catId; selectedSubcategoryId = subId; renderCategoryTree(); loadItems(catId, subId); }
 
-// Event delegation for tree clicks (categories + subcategories + edit buttons)
-document.addEventListener('DOMContentLoaded', function() {
+// Event delegation — run now if DOM ready, or wait
+function whenReady(fn) { if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+
+whenReady(function() {
     document.getElementById('categoryTree').addEventListener('click', function(e) {
         // Edit category button
         if (e.target.closest('.cat-edit-btn')) {
@@ -413,4 +415,4 @@ function toast(message, type) {
     setTimeout(function() { el.remove(); }, 3300);
 }
 
-document.addEventListener('DOMContentLoaded', init);
+whenReady(init);
