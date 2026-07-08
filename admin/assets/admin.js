@@ -1,7 +1,7 @@
 /**
  * Admin Dashboard — All event delegation, no inline onclick. v3
  */
-console.log('ADMIN JS v6 LOADED');
+// Admin Dashboard JS
 function apiUrl(endpoint, params) {
     var url = '/admin/api/' + endpoint + '.php';
     if (params) {
@@ -28,7 +28,6 @@ document.addEventListener('click', function(e) {
     if (catBtn) {
         e.preventDefault(); e.stopPropagation();
         var cid = catBtn.getAttribute('data-id');
-        console.log('Edit category', cid);
         if (cid) showEditCategory(parseInt(cid));
         return;
     }
@@ -36,7 +35,6 @@ document.addEventListener('click', function(e) {
     var catRow = e.target.closest('.tree-cat-row');
     if (catRow && !e.target.closest('.cat-edit-btn')) {
         var ccid = catRow.getAttribute('data-cid');
-        console.log('Select category', ccid);
         if (ccid) selectCategory(parseInt(ccid));
         return;
     }
@@ -45,7 +43,6 @@ document.addEventListener('click', function(e) {
     if (subRow) {
         var scid = subRow.getAttribute('data-cid');
         var ssid = subRow.getAttribute('data-sid');
-        console.log('Select subcategory', scid, ssid);
         if (scid && ssid) selectSubcategory(parseInt(scid), parseInt(ssid));
         return;
     }
@@ -53,7 +50,6 @@ document.addEventListener('click', function(e) {
     var itemCard = e.target.closest('.item-card-clickable');
     if (itemCard) {
         var iid = itemCard.getAttribute('data-iid');
-        console.log('Edit item', iid);
         if (iid) showEditItem(parseInt(iid));
         return;
     }
@@ -234,8 +230,7 @@ function showAddItem() {
 }
 function showEditItem(itemId) {
     var item = currentItems.find(function(i) { return i.id == itemId; });
-    console.log('showEditItem', itemId, 'found:', !!item, 'items:', currentItems.length);
-    if (!item) { toast('Item not found in current list', 'error'); return; }
+    if (!item) { toast('Item not found', 'error'); return; }
     document.getElementById('itemId').value = item.id;
     document.getElementById('itemCategoryId').value = item.category_id;
     document.getElementById('itemSubcategoryId').value = item.subcategory_id || '';
