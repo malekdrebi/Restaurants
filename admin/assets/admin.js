@@ -1,5 +1,5 @@
 /**
- * Admin Dashboard — Main Application Logic
+ * Admin Dashboard — All event delegation, no inline onclick.
  */
 function apiUrl(endpoint, params) {
     var url = '/admin/api/' + endpoint + '.php';
@@ -13,122 +13,120 @@ function apiUrl(endpoint, params) {
     return url;
 }
 
-let selectedRestaurantId = null;
-let selectedRestaurantSlug = '';
-let selectedCategoryId = null;
-let selectedSubcategoryId = null;
-let categories = [];
-let currentItems = [];
+var selectedRestaurantId = null;
+var selectedRestaurantSlug = '';
+var selectedCategoryId = null;
+var selectedSubcategoryId = null;
+var categories = [];
+var currentItems = [];
 
-async function init() {
-    if (ADMIN_ROLE === 'restaurant_admin' && ADMIN_RESTAURANT_ID) {
+// ═══ SINGLE EVENT DELEGATION FOR EVERYTHING ═══
+document.addEventListener('click', function(e) {
+    // Category edit button
+    if (e.target.closest('.cat-edit-btn')) {
+        e.preventDefault(); e.stopPropagation();
+        var cid = parseInt(e.target.closest('.cat-edit-btn').getAttribute('data-id'));
+        if (cid) showEditCategory(cid);
+        return;
+    }
+    // Category row — select (but not if edit button was clicked)
+    if (e.target.closest('.tree-cat-row')) {
+        var cr = e.target.closest('.tree-cat-row');
+        if (!e.target.closest('.cat-edit-btn')) {
+            var ccid = parseInt(cr.getAttribute('data-cid'));
+            if (ccid) selectCategory(ccid);
+        }
+        return;
+    }
+    // Subcategory row — select
+    if (e.target.closest('.tree-sub-row')) {
+        var sr = e.target.closest('.tree-sub-row');
+        var scid = parseInt(sr.getAttribute('data-cid'));
+        var ssid = parseInt(sr.getAttribute('data-sid'));
+        if (scid && ssid) selectSubcategory(scid, ssid);
+        return;
+    }
+    // Item card — edit
+    if (e.target.closest('.item-card-clickable')) {
+        var ic = e.target.closest('.item-card-clickable');
+        var iiid = parseInt(ic.getAttribute('data-iid'));
+        if (iiid) showEditItem(iiid);
+        return;
+    }
+});
+
+function init() {
+    if (typeof ADMIN_ROLE !== 'undefined' && ADMIN_ROLE === 'restaurant_admin' && ADMIN_RESTAURANT_ID) {
         document.getElementById('restaurantSelect').value = ADMIN_RESTAURANT_ID;
         document.getElementById('restaurantSelect').disabled = true;
-        await onRestaurantChange();
+        onRestaurantChange();
     }
-    var select = document.getElementById('restaurantSelect');
-    if (select && select.options.length > 1 && !select.value) {
-        select.selectedIndex = 1;
-        await onRestaurantChange();
-    }
+    var s = document.getElementById('restaurantSelect');
+    if (s && s.options.length > 1 && !s.value) { s.selectedIndex = 1; onRestaurantChange(); }
 }
 
 async function onRestaurantChange() {
-    var select = document.getElementById('restaurantSelect');
-    selectedRestaurantId = select.value ? parseInt(select.value) : null;
-    selectedRestaurantSlug = select.selectedOptions[0] ? select.selectedOptions[0].getAttribute('data-slug') : '';
+    var s = document.getElementById('restaurantSelect');
+    selectedRestaurantId = s.value ? parseInt(s.value) : null;
+    selectedRestaurantSlug = s.selectedOptions[0] ? s.selectedOptions[0].getAttribute('data-slug') : '';
     if (!selectedRestaurantId) return;
     await loadCategories();
 }
 
-// ── Categories ──
 async function loadCategories() {
     try {
-        var resp = await fetch(apiUrl('categories', {restaurant_id: selectedRestaurantId}));
-        var data = await resp.json();
-        categories = data.categories || [];
+        var r = await fetch(apiUrl('categories', {restaurant_id: selectedRestaurantId}));
+        var d = await r.json();
+        categories = d.categories || [];
         renderCategoryTree();
     } catch(e) { toast('Failed to load categories', 'error'); }
 }
 
 function renderCategoryTree() {
-    var tree = document.getElementById('categoryTree');
+    var t = document.getElementById('categoryTree');
     if (!categories.length) {
-        tree.innerHTML = '<div class="tree-empty">No categories yet.<br><button class="btn btn-sm btn-gold" style="margin-top:8px" onclick="showAddCategory()">+ Add First Category</button></div>';
+        t.innerHTML = '<div class="tree-empty">No categories.<br><button class="btn btn-sm btn-gold add-cat-btn" style="margin-top:8px">+ Add Category</button></div>';
         return;
     }
-    tree.innerHTML = categories.map(function(cat) {
-        return '<div class="tree-category' + (selectedCategoryId === cat.id && !selectedSubcategoryId ? ' active' : '') + '" onclick="selectCategory(' + cat.id + ')">' +
-            '<span>' + (cat.name_en || cat.name_ar) + (cat.is_featured == 1 ? ' ⭐' : '') + '</span>' +
-            '<button class="tree-edit-btn" onclick="event.stopPropagation();showEditCategory(' + cat.id + ')" title="Edit" style="margin-left:auto;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.8rem;padding:2px 6px">✎</button>' +
-            '</div><div id="subcats-' + cat.id + '"></div>';
+    t.innerHTML = categories.map(function(c) {
+        var act = (selectedCategoryId === c.id && !selectedSubcategoryId) ? ' active' : '';
+        return '<div class="tree-category tree-cat-row' + act + '" data-cid="' + c.id + '">' +
+            '<span>' + (c.name_en || c.name_ar) + (c.is_featured == 1 ? ' ⭐' : '') + '</span>' +
+            '<button class="cat-edit-btn" data-id="' + c.id + '" style="margin-left:auto;background:none;border:1px solid #333;color:#999;cursor:pointer;font-size:0.7rem;padding:2px 8px;border-radius:4px">✎ Edit</button>' +
+            '</div><div id="subcats-' + c.id + '"></div>';
     }).join('');
-    // Load subcategories for all categories
-    categories.forEach(function(cat) { loadSubcategoriesForTree(cat.id); });
+    categories.forEach(function(c) { loadSubcategoriesForTree(c.id); });
     if (!selectedCategoryId && categories.length > 0) selectCategory(categories[0].id);
 }
 
 async function loadSubcategoriesForTree(catId) {
     try {
-        var resp = await fetch(apiUrl('subcategories', {category_id: catId}));
-        var data = await resp.json();
-        var subs = data.subcategories || [];
+        var r = await fetch(apiUrl('subcategories', {category_id: catId}));
+        var d = await r.json();
+        var subs = d.subcategories || [];
         var el = document.getElementById('subcats-' + catId);
         if (!el) return;
-        el.innerHTML = subs.map(function(sub) {
-            return '<div class="tree-subcategory' + (selectedCategoryId === catId && selectedSubcategoryId === sub.id ? ' active' : '') +
-                '" data-cat-id="' + catId + '" data-sub-id="' + sub.id + '">' + (sub.name_en || sub.name_ar) + '</div>';
+        el.innerHTML = subs.map(function(s) {
+            var act = (selectedCategoryId === catId && selectedSubcategoryId === s.id) ? ' active' : '';
+            return '<div class="tree-subcategory tree-sub-row' + act + '" data-cid="' + catId + '" data-sid="' + s.id + '">' + (s.name_en || s.name_ar) + '</div>';
         }).join('');
     } catch(e) {}
 }
 
-// Track which categories have subcategories (loaded in background)
-var categoriesWithSubs = {};
-function selectCategory(catId) { selectedCategoryId = catId; selectedSubcategoryId = null; renderCategoryTree(); loadItems(catId, null).then(function() { if (currentItems.length === 0) { fetch(apiUrl('subcategories', {category_id: catId})).then(function(r) { return r.json(); }).then(function(d) { var subs = d.subcategories || []; if (subs.length > 0) selectSubcategory(catId, subs[0].id); }); } }); }
+function selectCategory(catId) {
+    selectedCategoryId = catId; selectedSubcategoryId = null; renderCategoryTree();
+    loadItems(catId, null).then(function() {
+        if (!currentItems.length) {
+            fetch(apiUrl('subcategories', {category_id: catId})).then(function(r) { return r.json(); }).then(function(d) {
+                if (d.subcategories && d.subcategories.length) selectSubcategory(catId, d.subcategories[0].id);
+            });
+        }
+    });
+}
 function selectSubcategory(catId, subId) { selectedCategoryId = catId; selectedSubcategoryId = subId; renderCategoryTree(); loadItems(catId, subId); }
 
-// Event delegation — run now if DOM ready, or wait
-function whenReady(fn) { if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
-
-whenReady(function() {
-    document.getElementById('categoryTree').addEventListener('click', function(e) {
-        // Edit category button
-        if (e.target.closest('.cat-edit-btn')) {
-            e.stopPropagation();
-            var id = parseInt(e.target.closest('.cat-edit-btn').getAttribute('data-cat-id'));
-            if (id) showEditCategory(id);
-            return;
-        }
-        // Subcategory click
-        var subDiv = e.target.closest('.tree-subcategory');
-        if (subDiv) {
-            var catId = parseInt(subDiv.getAttribute('data-cat-id'));
-            var subId = parseInt(subDiv.getAttribute('data-sub-id'));
-            if (catId && subId) selectSubcategory(catId, subId);
-            return;
-        }
-        // Category click
-        var catDiv = e.target.closest('.tree-category');
-        if (catDiv) {
-            var catId = parseInt(catDiv.getAttribute('data-cat-id'));
-            if (catId) selectCategory(catId);
-        }
-    });
-
-    // Event delegation for item edit buttons
-    document.getElementById('mainPanel').addEventListener('click', function(e) {
-        var editBtn = e.target.closest('.item-edit-btn');
-        if (editBtn) {
-            e.stopPropagation();
-            var id = parseInt(editBtn.getAttribute('data-item-id'));
-            if (id) showEditItem(id);
-        }
-    });
-});
-
-// ── Category CRUD ──
 function showAddCategory() {
-    if (!selectedRestaurantId) { toast('Select a restaurant first', 'error'); return; }
+    if (!selectedRestaurantId) { toast('Select a restaurant', 'error'); return; }
     document.getElementById('catId').value = '';
     document.getElementById('catNameAr').value = '';
     document.getElementById('catNameEn').value = '';
@@ -139,112 +137,89 @@ function showAddCategory() {
     document.getElementById('deleteCatBtn').style.display = 'none';
     document.getElementById('catModalOverlay').classList.add('show');
 }
-
 function showEditCategory(catId) {
-    var cat = categories.find(function(c) { return c.id === catId; });
-    if (!cat) return;
-    document.getElementById('catId').value = cat.id;
-    document.getElementById('catNameAr').value = cat.name_ar || '';
-    document.getElementById('catNameEn').value = cat.name_en || '';
-    document.getElementById('catFeatured').checked = cat.is_featured == 1;
-    document.getElementById('catFeaturedType').value = cat.featured_type || 'most_ordered';
-    document.getElementById('catFeaturedType').disabled = cat.is_featured != 1;
-    document.getElementById('catSortOrder').value = cat.sort_order || 0;
+    var c = categories.find(function(x) { return x.id === catId; });
+    if (!c) return;
+    document.getElementById('catId').value = c.id;
+    document.getElementById('catNameAr').value = c.name_ar || '';
+    document.getElementById('catNameEn').value = c.name_en || '';
+    document.getElementById('catFeatured').checked = c.is_featured == 1;
+    document.getElementById('catFeaturedType').value = c.featured_type || 'most_ordered';
+    document.getElementById('catFeaturedType').disabled = c.is_featured != 1;
+    document.getElementById('catSortOrder').value = c.sort_order || 0;
     document.getElementById('catModalTitle').textContent = 'Edit Category';
     document.getElementById('deleteCatBtn').style.display = 'inline-flex';
     document.getElementById('catModalOverlay').classList.add('show');
 }
-
 function closeCatModal() { document.getElementById('catModalOverlay').classList.remove('show'); }
 
 async function saveCategory() {
     var catId = document.getElementById('catId').value;
-    var isFeatured = document.getElementById('catFeatured').checked;
-    var body = {
-        restaurant_id: selectedRestaurantId,
-        name_ar: document.getElementById('catNameAr').value.trim(),
-        name_en: document.getElementById('catNameEn').value.trim(),
-        is_featured: isFeatured ? 1 : 0,
-        featured_type: isFeatured ? document.getElementById('catFeaturedType').value : null,
-        sort_order: parseInt(document.getElementById('catSortOrder').value) || 0
-    };
-    if (!body.name_ar || !body.name_en) { toast('Name fields are required', 'error'); return; }
+    var isF = document.getElementById('catFeatured').checked;
+    var body = { restaurant_id: selectedRestaurantId, name_ar: document.getElementById('catNameAr').value.trim(), name_en: document.getElementById('catNameEn').value.trim(), is_featured: isF ? 1 : 0, featured_type: isF ? document.getElementById('catFeaturedType').value : null, sort_order: parseInt(document.getElementById('catSortOrder').value) || 0 };
+    if (!body.name_ar || !body.name_en) { toast('Names required', 'error'); return; }
     try {
-        var url = catId ? apiUrl('categories', {id: catId}) : apiUrl('categories');
-        var resp = await fetch(url, { method: catId ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) });
-        var data = await resp.json();
-        if (!resp.ok) { toast(data.error || 'Failed', 'error'); return; }
-        closeCatModal();
-        await loadCategories();
-        toast(catId ? 'Category updated' : 'Category created', 'success');
+        var u = catId ? apiUrl('categories', {id: catId}) : apiUrl('categories');
+        var r = await fetch(u, { method: catId ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) });
+        var d = await r.json();
+        if (!r.ok) { toast(d.error, 'error'); return; }
+        closeCatModal(); await loadCategories(); toast(catId ? 'Updated' : 'Created', 'success');
     } catch(e) { toast('Network error', 'error'); }
 }
-
 async function deleteCategory() {
-    var catId = document.getElementById('catId').value;
-    if (!confirm('Delete this category and ALL its items?')) return;
+    var id = document.getElementById('catId').value;
+    if (!confirm('Delete category and all items?')) return;
     try {
-        var resp = await fetch(apiUrl('categories', {id: catId}), { method: 'DELETE', headers: { 'X-CSRF-Token': CSRF_TOKEN } });
-        if (!resp.ok) { var d = await resp.json(); toast(d.error || 'Failed', 'error'); return; }
-        closeCatModal();
-        selectedCategoryId = null;
-        await loadCategories();
-        toast('Category deleted', 'success');
+        var r = await fetch(apiUrl('categories', {id: id}), { method: 'DELETE', headers: { 'X-CSRF-Token': CSRF_TOKEN } });
+        if (!r.ok) { toast('Failed', 'error'); return; }
+        closeCatModal(); selectedCategoryId = null; await loadCategories(); toast('Deleted', 'success');
     } catch(e) { toast('Network error', 'error'); }
 }
 
 // ── Items ──
 async function loadItems(catId, subId) {
-    var panel = document.getElementById('mainPanel');
-    panel.innerHTML = '<div style="text-align:center;padding:60px"><div style="width:32px;height:32px;border:2px solid rgba(201,163,102,0.2);border-top-color:#C9A366;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto"></div></div>';
+    var p = document.getElementById('mainPanel');
+    p.innerHTML = '<div style="text-align:center;padding:60px"><div style="width:32px;height:32px;border:2px solid rgba(201,163,102,0.2);border-top-color:#C9A366;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto"></div></div>';
     try {
-        var params = {category_id: catId};
-        if (subId) params.subcategory_id = subId;
-        var resp = await fetch(apiUrl('items', params));
-        var data = await resp.json();
-        currentItems = data.items || [];
-        renderItems();
-    } catch(e) { panel.innerHTML = '<div class="panel-placeholder"><p>Failed to load items</p></div>'; }
+        var params = {category_id: catId}; if (subId) params.subcategory_id = subId;
+        var r = await fetch(apiUrl('items', params)); var d = await r.json();
+        currentItems = d.items || []; renderItems();
+    } catch(e) { p.innerHTML = '<div class="panel-placeholder"><p>Failed to load items</p></div>'; }
 }
 
 function renderItems() {
-    var panel = document.getElementById('mainPanel');
-    var cat = categories.find(function(c) { return c.id === selectedCategoryId; });
-    var catName = cat ? (cat.name_en || cat.name_ar) : 'Items';
+    var p = document.getElementById('mainPanel');
+    var c = categories.find(function(x) { return x.id === selectedCategoryId; });
+    var cn = c ? (c.name_en || c.name_ar) : 'Items';
     if (!currentItems.length) {
-        panel.innerHTML = '<div class="panel-header"><h2>' + catName + '</h2><button class="btn btn-gold" onclick="showAddItem()">+ Add Item</button></div><div class="panel-placeholder"><p>No items yet</p></div>';
+        p.innerHTML = '<div class="panel-header"><h2>' + cn + '</h2><button class="btn btn-gold add-item-btn">+ Add Item</button></div><div class="panel-placeholder"><p>No items</p></div>';
         return;
     }
-    var html = '<div class="panel-header"><h2>' + catName + ' <span style="color:var(--text-muted);font-size:0.8rem">(' + currentItems.length + ' items)</span></h2><button class="btn btn-gold" onclick="showAddItem()">+ Add Item</button></div><div class="items-grid">';
+    var h = '<div class="panel-header"><h2>' + cn + ' <span style="color:var(--text-muted);font-size:0.8rem">(' + currentItems.length + ')</span></h2><button class="btn btn-gold add-item-btn">+ Add Item</button></div><div class="items-grid">';
     currentItems.forEach(function(item) {
-        html += '<div class="item-card" onclick="showEditItem(' + item.id + ')" style="cursor:pointer">' +
-            (item.image ? '<img src="/' + item.image + '" class="item-card-img" alt="" onerror="this.style.display=\'none\'">' : '<div class="item-card-img placeholder">🍽</div>') +
+        h += '<div class="item-card item-card-clickable" data-iid="' + item.id + '" style="cursor:pointer">' +
+            (item.image ? '<img src="/' + item.image + '" class="item-card-img" alt="">' : '<div class="item-card-img placeholder">🍽</div>') +
             '<div class="item-card-body"><div class="item-card-name">' + (item.name_ar || '') + '<span class="en">' + (item.name_en || '') + '</span></div>' +
             '<div class="item-card-price">' + parseFloat(item.price).toFixed(3) + ' LYD</div>' +
             '<div class="item-card-meta">' +
             (item.spicy == 1 ? '<span class="badge badge-spicy">Spicy</span>' : '') +
-            (item.recommended == 1 ? '<span class="badge badge-rec">Recommended</span>' : '') +
+            (item.recommended == 1 ? '<span class="badge badge-rec">Rec</span>' : '') +
             (item.variants && item.variants.length ? '<span class="badge badge-variants">' + item.variants.length + ' variants</span>' : '') +
             '</div></div></div>';
     });
-    html += '</div>';
-    panel.innerHTML = html;
+    h += '</div>'; p.innerHTML = h;
 }
 
-// ── Item Modal ──
 function showAddItem() {
-    if (!selectedCategoryId) { toast('Select a category first', 'error'); return; }
+    if (!selectedCategoryId) { toast('Select a category', 'error'); return; }
     document.getElementById('itemId').value = '';
     document.getElementById('itemCategoryId').value = selectedCategoryId;
     document.getElementById('itemSubcategoryId').value = selectedSubcategoryId || '';
-    document.getElementById('itemNameAr').value = '';
-    document.getElementById('itemNameEn').value = '';
-    document.getElementById('itemDescAr').value = '';
-    document.getElementById('itemDescEn').value = '';
+    document.getElementById('itemNameAr').value = ''; document.getElementById('itemNameEn').value = '';
+    document.getElementById('itemDescAr').value = ''; document.getElementById('itemDescEn').value = '';
     document.getElementById('itemPrice').value = '0';
     document.getElementById('itemSortOrder').value = currentItems.length + 1;
-    document.getElementById('itemSpicy').checked = false;
-    document.getElementById('itemRecommended').checked = false;
+    document.getElementById('itemSpicy').checked = false; document.getElementById('itemRecommended').checked = false;
     document.getElementById('itemImagePath').value = '';
     document.getElementById('itemImagePreview').style.display = 'none';
     document.getElementById('itemImageFile').value = '';
@@ -253,49 +228,36 @@ function showAddItem() {
     document.getElementById('variantsList').innerHTML = '';
     document.getElementById('itemModalOverlay').classList.add('show');
 }
-
-async function showEditItem(itemId) {
+function showEditItem(itemId) {
     var item = currentItems.find(function(i) { return i.id === itemId; });
     if (!item) return;
     document.getElementById('itemId').value = item.id;
     document.getElementById('itemCategoryId').value = item.category_id;
     document.getElementById('itemSubcategoryId').value = item.subcategory_id || '';
-    document.getElementById('itemNameAr').value = item.name_ar || '';
-    document.getElementById('itemNameEn').value = item.name_en || '';
-    document.getElementById('itemDescAr').value = item.desc_ar || '';
-    document.getElementById('itemDescEn').value = item.desc_en || '';
+    document.getElementById('itemNameAr').value = item.name_ar || ''; document.getElementById('itemNameEn').value = item.name_en || '';
+    document.getElementById('itemDescAr').value = item.desc_ar || ''; document.getElementById('itemDescEn').value = item.desc_en || '';
     document.getElementById('itemPrice').value = parseFloat(item.price) || 0;
     document.getElementById('itemSortOrder').value = item.sort_order || 0;
-    document.getElementById('itemSpicy').checked = item.spicy == 1;
-    document.getElementById('itemRecommended').checked = item.recommended == 1;
-    document.getElementById('itemImagePath').value = item.image || '';
-    document.getElementById('itemImageFile').value = '';
-    var preview = document.getElementById('itemImagePreview');
-    if (item.image) { preview.src = '/' + item.image; preview.style.display = 'block'; }
-    else { preview.style.display = 'none'; }
+    document.getElementById('itemSpicy').checked = item.spicy == 1; document.getElementById('itemRecommended').checked = item.recommended == 1;
+    document.getElementById('itemImagePath').value = item.image || ''; document.getElementById('itemImageFile').value = '';
+    var pv = document.getElementById('itemImagePreview');
+    if (item.image) { pv.src = '/' + item.image; pv.style.display = 'block'; } else { pv.style.display = 'none'; }
     document.getElementById('itemModalTitle').textContent = 'Edit Item';
     document.getElementById('deleteItemBtn').style.display = 'inline-flex';
     renderVariantsInForm(item.variants || []);
     document.getElementById('itemModalOverlay').classList.add('show');
 }
-
 function closeItemModal() { document.getElementById('itemModalOverlay').classList.remove('show'); }
-
 function switchItemTab(lang, btn) {
     document.querySelectorAll('.lang-tab').forEach(function(t) { t.classList.remove('active'); });
     btn.classList.add('active');
     document.getElementById('tab-ar').style.display = lang === 'ar' ? 'block' : 'none';
     document.getElementById('tab-en').style.display = lang === 'en' ? 'block' : 'none';
 }
-
 function previewItemImage(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-        reader.onload = function(e) {
-            var preview = document.getElementById('itemImagePreview');
-            preview.src = e.target.result;
-            preview.style.display = 'block';
-        };
+        reader.onload = function(e) { var pv = document.getElementById('itemImagePreview'); pv.src = e.target.result; pv.style.display = 'block'; };
         reader.readAsDataURL(input.files[0]);
     }
 }
@@ -304,115 +266,90 @@ async function saveItem() {
     var itemId = document.getElementById('itemId').value;
     var imageFile = document.getElementById('itemImageFile').files[0];
     var imagePath = document.getElementById('itemImagePath').value;
-
     if (imageFile) {
-        var fd = new FormData();
-        fd.append('image', imageFile);
-        fd.append('restaurant_id', selectedRestaurantId);
-        fd.append('restaurant_slug', selectedRestaurantSlug);
+        var fd = new FormData(); fd.append('image', imageFile); fd.append('restaurant_id', selectedRestaurantId); fd.append('restaurant_slug', selectedRestaurantSlug);
         try {
-            var uploadResp = await fetch(apiUrl('upload'), { method: 'POST', headers: { 'X-CSRF-Token': CSRF_TOKEN }, body: fd });
-            var uploadData = await uploadResp.json();
-            if (!uploadResp.ok) { toast(uploadData.error || 'Upload failed', 'error'); return; }
-            imagePath = uploadData.path;
-        } catch(e) { toast('Image upload failed', 'error'); return; }
+            var ur = await fetch(apiUrl('upload'), { method: 'POST', headers: { 'X-CSRF-Token': CSRF_TOKEN }, body: fd });
+            var ud = await ur.json();
+            if (!ur.ok) { toast(ud.error, 'error'); return; }
+            imagePath = ud.path;
+        } catch(e) { toast('Upload failed', 'error'); return; }
     }
-
-    var body = {
-        category_id: parseInt(document.getElementById('itemCategoryId').value),
-        subcategory_id: document.getElementById('itemSubcategoryId').value ? parseInt(document.getElementById('itemSubcategoryId').value) : null,
-        name_ar: document.getElementById('itemNameAr').value.trim(),
-        name_en: document.getElementById('itemNameEn').value.trim(),
-        price: parseFloat(document.getElementById('itemPrice').value) || 0,
-        desc_ar: document.getElementById('itemDescAr').value.trim(),
-        desc_en: document.getElementById('itemDescEn').value.trim(),
-        image: imagePath || null,
-        spicy: document.getElementById('itemSpicy').checked ? 1 : 0,
-        recommended: document.getElementById('itemRecommended').checked ? 1 : 0,
-        sort_order: parseInt(document.getElementById('itemSortOrder').value) || 0
-    };
-    if (!body.name_ar || !body.name_en) { toast('Name fields are required', 'error'); return; }
-
+    var body = { category_id: parseInt(document.getElementById('itemCategoryId').value), subcategory_id: document.getElementById('itemSubcategoryId').value ? parseInt(document.getElementById('itemSubcategoryId').value) : null, name_ar: document.getElementById('itemNameAr').value.trim(), name_en: document.getElementById('itemNameEn').value.trim(), price: parseFloat(document.getElementById('itemPrice').value) || 0, desc_ar: document.getElementById('itemDescAr').value.trim(), desc_en: document.getElementById('itemDescEn').value.trim(), image: imagePath || null, spicy: document.getElementById('itemSpicy').checked ? 1 : 0, recommended: document.getElementById('itemRecommended').checked ? 1 : 0, sort_order: parseInt(document.getElementById('itemSortOrder').value) || 0 };
+    if (!body.name_ar || !body.name_en) { toast('Names required', 'error'); return; }
     try {
-        var url = itemId ? apiUrl('items', {id: itemId}) : apiUrl('items');
-        var resp = await fetch(url, { method: itemId ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) });
-        var data = await resp.json();
-        if (!resp.ok) { toast(data.error || 'Failed', 'error'); return; }
-        var savedId = itemId || data.item.id;
-        await saveVariants(savedId);
-        closeItemModal();
-        await loadItems(selectedCategoryId, selectedSubcategoryId);
-        toast(itemId ? 'Item updated' : 'Item created', 'success');
+        var u = itemId ? apiUrl('items', {id: itemId}) : apiUrl('items');
+        var r = await fetch(u, { method: itemId ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) });
+        var d = await r.json();
+        if (!r.ok) { toast(d.error, 'error'); return; }
+        var sid = itemId || d.item.id;
+        await saveVariants(sid);
+        closeItemModal(); await loadItems(selectedCategoryId, selectedSubcategoryId); toast(itemId ? 'Updated' : 'Created', 'success');
     } catch(e) { toast('Network error', 'error'); }
 }
-
 async function deleteItem() {
-    var itemId = document.getElementById('itemId').value;
-    if (!confirm('Delete this item?')) return;
+    var id = document.getElementById('itemId').value;
+    if (!confirm('Delete item?')) return;
     try {
-        var resp = await fetch(apiUrl('items', {id: itemId}), { method: 'DELETE', headers: { 'X-CSRF-Token': CSRF_TOKEN } });
-        if (!resp.ok) { var d = await resp.json(); toast(d.error || 'Failed', 'error'); return; }
-        closeItemModal();
-        await loadItems(selectedCategoryId, selectedSubcategoryId);
-        toast('Item deleted', 'success');
+        var r = await fetch(apiUrl('items', {id: id}), { method: 'DELETE', headers: { 'X-CSRF-Token': CSRF_TOKEN } });
+        if (!r.ok) { toast('Failed', 'error'); return; }
+        closeItemModal(); await loadItems(selectedCategoryId, selectedSubcategoryId); toast('Deleted', 'success');
     } catch(e) { toast('Network error', 'error'); }
 }
 
 // ── Variants ──
 function renderVariantsInForm(variants) {
-    var container = document.getElementById('variantsList');
-    if (!variants || !variants.length) { container.innerHTML = '<p style="color:var(--text-muted);font-size:0.8rem">No variants</p>'; return; }
-    container.innerHTML = variants.map(function(v) {
+    var c = document.getElementById('variantsList');
+    if (!variants || !variants.length) { c.innerHTML = '<p style="color:var(--text-muted);font-size:0.8rem">No variants</p>'; return; }
+    c.innerHTML = variants.map(function(v) {
         return '<div class="variant-row" data-variant-id="' + (v.id || '') + '">' +
             '<input type="text" placeholder="AR Name" value="' + (v.name_ar || v.name || '') + '" data-field="name_ar">' +
             '<input type="text" placeholder="EN Name" value="' + (v.name_en || v.en_name || '') + '" data-field="name_en">' +
             '<input type="number" placeholder="Price" value="' + (v.price || '') + '" step="0.001" data-field="price" style="max-width:100px">' +
-            '<button onclick="this.closest(\'.variant-row\').remove()" title="Remove">×</button></div>';
+            '<button onclick="this.closest(\'.variant-row\').remove()" type="button">×</button></div>';
     }).join('');
 }
-
 function addVariantRow() {
-    var container = document.getElementById('variantsList');
-    if (container.querySelector('p')) container.innerHTML = '';
-    var row = document.createElement('div');
-    row.className = 'variant-row';
-    row.innerHTML = '<input type="text" placeholder="AR Name" data-field="name_ar">' +
-        '<input type="text" placeholder="EN Name" data-field="name_en">' +
-        '<input type="number" placeholder="Price" step="0.001" data-field="price" style="max-width:100px">' +
-        '<button onclick="this.closest(\'.variant-row\').remove()" title="Remove">×</button>';
-    container.appendChild(row);
+    var c = document.getElementById('variantsList');
+    if (c.querySelector('p')) c.innerHTML = '';
+    var row = document.createElement('div'); row.className = 'variant-row';
+    row.innerHTML = '<input type="text" placeholder="AR Name" data-field="name_ar"><input type="text" placeholder="EN Name" data-field="name_en"><input type="number" placeholder="Price" step="0.001" data-field="price" style="max-width:100px"><button onclick="this.closest(\'.variant-row\').remove()" type="button">×</button>';
+    c.appendChild(row);
 }
-
 async function saveVariants(itemId) {
     var rows = document.querySelectorAll('#variantsList .variant-row');
     for (var i = 0; i < rows.length; i++) {
-        var row = rows[i];
-        var variantId = row.getAttribute('data-variant-id');
-        var nameAr = (row.querySelector('[data-field="name_ar"]') || {}).value || '';
-        var nameEn = (row.querySelector('[data-field="name_en"]') || {}).value || '';
-        var priceVal = (row.querySelector('[data-field="price"]') || {}).value || '';
-        if (!nameAr.trim() && !nameEn.trim()) continue;
-        var body = { item_id: itemId, name_ar: nameAr.trim(), name_en: nameEn.trim(), price: priceVal !== '' ? parseFloat(priceVal) : null, sort_order: i };
-        try {
-            var url = variantId ? apiUrl('variants', {id: variantId}) : apiUrl('variants');
-            await fetch(url, { method: variantId ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) });
-        } catch(e) {}
+        var row = rows[i], vid = row.getAttribute('data-variant-id');
+        var na = (row.querySelector('[data-field="name_ar"]') || {}).value || '';
+        var ne = (row.querySelector('[data-field="name_en"]') || {}).value || '';
+        var pv = (row.querySelector('[data-field="price"]') || {}).value || '';
+        if (!na.trim() && !ne.trim()) continue;
+        var body = { item_id: itemId, name_ar: na.trim(), name_en: ne.trim(), price: pv !== '' ? parseFloat(pv) : null, sort_order: i };
+        try { var u = vid ? apiUrl('variants', {id: vid}) : apiUrl('variants'); await fetch(u, { method: vid ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) }); } catch(e) {}
     }
 }
 
+// ── Add buttons ──
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.add-cat-btn')) { showAddCategory(); return; }
+    if (e.target.closest('.add-item-btn')) { showAddItem(); return; }
+});
+
 function previewMenu() {
-    if (!selectedRestaurantSlug) { toast('Select a restaurant first', 'error'); return; }
+    if (!selectedRestaurantSlug) { toast('Select a restaurant', 'error'); return; }
     window.open('/menu?slug=' + selectedRestaurantSlug, '_blank');
 }
 
-function toast(message, type) {
-    var container = document.getElementById('toastContainer');
-    var el = document.createElement('div');
-    el.className = 'toast toast-' + (type || 'info');
-    el.textContent = message;
-    container.appendChild(el);
+function toast(msg, type) {
+    var c = document.getElementById('toastContainer');
+    var el = document.createElement('div'); el.className = 'toast toast-' + (type || 'info'); el.textContent = msg;
+    c.appendChild(el);
     setTimeout(function() { el.style.opacity = '0'; el.style.transition = 'opacity 0.3s'; }, 3000);
     setTimeout(function() { el.remove(); }, 3300);
 }
 
-whenReady(init);
+// ── Start ──
+(function() {
+    if (document.readyState !== 'loading') init();
+    else document.addEventListener('DOMContentLoaded', init);
+})();
