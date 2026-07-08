@@ -1,6 +1,7 @@
 /**
- * Admin Dashboard — All event delegation, no inline onclick.
+ * Admin Dashboard — All event delegation, no inline onclick. v3
  */
+console.log('ADMIN JS v3 LOADED');
 function apiUrl(endpoint, params) {
     var url = '/admin/api/' + endpoint + '.php';
     if (params) {
@@ -22,6 +23,7 @@ var currentItems = [];
 
 // ═══ SINGLE EVENT DELEGATION FOR EVERYTHING ═══
 document.addEventListener('click', function(e) {
+    console.log('DELEGATE CLICK', e.target.tagName, e.target.className);
     // Category edit button
     if (e.target.closest('.cat-edit-btn')) {
         e.preventDefault(); e.stopPropagation();
