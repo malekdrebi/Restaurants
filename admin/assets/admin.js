@@ -1,7 +1,18 @@
 /**
  * Admin Dashboard — Main Application Logic
  */
-const API_BASE = '/admin/api/index.php?endpoint=';
+function apiUrl(endpoint, params) {
+    var url = '/admin/api/' + endpoint + '.php';
+    if (params) {
+        var pairs = [];
+        for (var k in params) {
+            if (params.hasOwnProperty(k)) pairs.push(k + '=' + encodeURIComponent(params[k]));
+        }
+        if (pairs.length) url += '?' + pairs.join('&');
+    }
+    return url;
+}
+
 let selectedRestaurantId = null;
 let selectedRestaurantSlug = '';
 let selectedCategoryId = null;
@@ -9,24 +20,21 @@ let selectedSubcategoryId = null;
 let categories = [];
 let currentItems = [];
 
-// ── Init ──
 async function init() {
     if (ADMIN_ROLE === 'restaurant_admin' && ADMIN_RESTAURANT_ID) {
         document.getElementById('restaurantSelect').value = ADMIN_RESTAURANT_ID;
         document.getElementById('restaurantSelect').disabled = true;
         await onRestaurantChange();
     }
-    // Auto-load first restaurant for super_admin
-    const select = document.getElementById('restaurantSelect');
+    var select = document.getElementById('restaurantSelect');
     if (select && select.options.length > 1 && !select.value) {
         select.selectedIndex = 1;
         await onRestaurantChange();
     }
 }
 
-// ── Restaurants ──
 async function onRestaurantChange() {
-    const select = document.getElementById('restaurantSelect');
+    var select = document.getElementById('restaurantSelect');
     selectedRestaurantId = select.value ? parseInt(select.value) : null;
     selectedRestaurantSlug = select.selectedOptions[0] ? select.selectedOptions[0].getAttribute('data-slug') : '';
     if (!selectedRestaurantId) return;
@@ -36,39 +44,39 @@ async function onRestaurantChange() {
 // ── Categories ──
 async function loadCategories() {
     try {
-        const resp = await fetch(API_BASE + 'categories&restaurant_id=' + selectedRestaurantId);
-        const data = await resp.json();
+        var resp = await fetch(apiUrl('categories', {restaurant_id: selectedRestaurantId}));
+        var data = await resp.json();
         categories = data.categories || [];
         renderCategoryTree();
     } catch(e) { toast('Failed to load categories', 'error'); }
 }
 
 function renderCategoryTree() {
-    const tree = document.getElementById('categoryTree');
+    var tree = document.getElementById('categoryTree');
     if (!categories.length) {
         tree.innerHTML = '<div class="tree-empty">No categories yet.<br><button class="btn btn-sm btn-gold" style="margin-top:8px" onclick="showAddCategory()">+ Add First Category</button></div>';
         return;
     }
-    tree.innerHTML = categories.map(cat =>
-        '<div class="tree-category' + (selectedCategoryId === cat.id && !selectedSubcategoryId ? ' active' : '') + '" onclick="selectCategory(' + cat.id + ')">' +
-        '<span>' + (cat.name_en || cat.name_ar) + (cat.is_featured == 1 ? ' ⭐' : '') + '</span>' +
-        '<span class="tree-actions"><button onclick="event.stopPropagation();showEditCategory(' + cat.id + ')" title="Edit">✎</button></span>' +
-        '</div><div id="subcats-' + cat.id + '"></div>'
-    ).join('');
+    tree.innerHTML = categories.map(function(cat) {
+        return '<div class="tree-category' + (selectedCategoryId === cat.id && !selectedSubcategoryId ? ' active' : '') + '" onclick="selectCategory(' + cat.id + ')">' +
+            '<span>' + (cat.name_en || cat.name_ar) + (cat.is_featured == 1 ? ' ⭐' : '') + '</span>' +
+            '<span class="tree-actions"><button onclick="event.stopPropagation();showEditCategory(' + cat.id + ')" title="Edit">✎</button></span>' +
+            '</div><div id="subcats-' + cat.id + '"></div>';
+    }).join('');
     if (!selectedCategoryId && categories.length > 0) selectCategory(categories[0].id);
 }
 
 async function loadSubcategoriesForTree(catId) {
     try {
-        const resp = await fetch(API_BASE + 'subcategories&category_id=' + catId);
-        const data = await resp.json();
-        const subs = data.subcategories || [];
-        const el = document.getElementById('subcats-' + catId);
+        var resp = await fetch(apiUrl('subcategories', {category_id: catId}));
+        var data = await resp.json();
+        var subs = data.subcategories || [];
+        var el = document.getElementById('subcats-' + catId);
         if (!el) return;
-        el.innerHTML = subs.map(sub =>
-            '<div class="tree-subcategory' + (selectedCategoryId === catId && selectedSubcategoryId === sub.id ? ' active' : '') +
-            '" onclick="event.stopPropagation();selectSubcategory(' + catId + ',' + sub.id + ')">' + (sub.name_en || sub.name_ar) + '</div>'
-        ).join('');
+        el.innerHTML = subs.map(function(sub) {
+            return '<div class="tree-subcategory' + (selectedCategoryId === catId && selectedSubcategoryId === sub.id ? ' active' : '') +
+                '" onclick="event.stopPropagation();selectSubcategory(' + catId + ',' + sub.id + ')">' + (sub.name_en || sub.name_ar) + '</div>';
+        }).join('');
     } catch(e) {}
 }
 
@@ -119,7 +127,7 @@ async function saveCategory() {
     };
     if (!body.name_ar || !body.name_en) { toast('Name fields are required', 'error'); return; }
     try {
-        var url = catId ? (API_BASE + 'categories&id=' + catId) : (API_BASE + 'categories');
+        var url = catId ? apiUrl('categories', {id: catId}) : apiUrl('categories');
         var resp = await fetch(url, { method: catId ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) });
         var data = await resp.json();
         if (!resp.ok) { toast(data.error || 'Failed', 'error'); return; }
@@ -133,7 +141,7 @@ async function deleteCategory() {
     var catId = document.getElementById('catId').value;
     if (!confirm('Delete this category and ALL its items?')) return;
     try {
-        var resp = await fetch(API_BASE + 'categories&id=' + catId, { method: 'DELETE', headers: { 'X-CSRF-Token': CSRF_TOKEN } });
+        var resp = await fetch(apiUrl('categories', {id: catId}), { method: 'DELETE', headers: { 'X-CSRF-Token': CSRF_TOKEN } });
         if (!resp.ok) { var d = await resp.json(); toast(d.error || 'Failed', 'error'); return; }
         closeCatModal();
         selectedCategoryId = null;
@@ -147,9 +155,9 @@ async function loadItems(catId, subId) {
     var panel = document.getElementById('mainPanel');
     panel.innerHTML = '<div style="text-align:center;padding:60px"><div style="width:32px;height:32px;border:2px solid rgba(201,163,102,0.2);border-top-color:#C9A366;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto"></div></div>';
     try {
-        var url = API_BASE + 'items&category_id=' + catId;
-        if (subId) url += '&subcategory_id=' + subId;
-        var resp = await fetch(url);
+        var params = {category_id: catId};
+        if (subId) params.subcategory_id = subId;
+        var resp = await fetch(apiUrl('items', params));
         var data = await resp.json();
         currentItems = data.items || [];
         renderItems();
@@ -260,7 +268,7 @@ async function saveItem() {
         fd.append('restaurant_id', selectedRestaurantId);
         fd.append('restaurant_slug', selectedRestaurantSlug);
         try {
-            var uploadResp = await fetch(API_BASE + 'upload', { method: 'POST', headers: { 'X-CSRF-Token': CSRF_TOKEN }, body: fd });
+            var uploadResp = await fetch(apiUrl('upload'), { method: 'POST', headers: { 'X-CSRF-Token': CSRF_TOKEN }, body: fd });
             var uploadData = await uploadResp.json();
             if (!uploadResp.ok) { toast(uploadData.error || 'Upload failed', 'error'); return; }
             imagePath = uploadData.path;
@@ -283,7 +291,7 @@ async function saveItem() {
     if (!body.name_ar || !body.name_en) { toast('Name fields are required', 'error'); return; }
 
     try {
-        var url = itemId ? (API_BASE + 'items&id=' + itemId) : (API_BASE + 'items');
+        var url = itemId ? apiUrl('items', {id: itemId}) : apiUrl('items');
         var resp = await fetch(url, { method: itemId ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) });
         var data = await resp.json();
         if (!resp.ok) { toast(data.error || 'Failed', 'error'); return; }
@@ -299,7 +307,7 @@ async function deleteItem() {
     var itemId = document.getElementById('itemId').value;
     if (!confirm('Delete this item?')) return;
     try {
-        var resp = await fetch(API_BASE + 'items&id=' + itemId, { method: 'DELETE', headers: { 'X-CSRF-Token': CSRF_TOKEN } });
+        var resp = await fetch(apiUrl('items', {id: itemId}), { method: 'DELETE', headers: { 'X-CSRF-Token': CSRF_TOKEN } });
         if (!resp.ok) { var d = await resp.json(); toast(d.error || 'Failed', 'error'); return; }
         closeItemModal();
         await loadItems(selectedCategoryId, selectedSubcategoryId);
@@ -343,19 +351,17 @@ async function saveVariants(itemId) {
         if (!nameAr.trim() && !nameEn.trim()) continue;
         var body = { item_id: itemId, name_ar: nameAr.trim(), name_en: nameEn.trim(), price: priceVal !== '' ? parseFloat(priceVal) : null, sort_order: i };
         try {
-            var url = variantId ? (API_BASE + 'variants&id=' + variantId) : (API_BASE + 'variants');
+            var url = variantId ? apiUrl('variants', {id: variantId}) : apiUrl('variants');
             await fetch(url, { method: variantId ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) });
         } catch(e) {}
     }
 }
 
-// ── Preview ──
 function previewMenu() {
     if (!selectedRestaurantSlug) { toast('Select a restaurant first', 'error'); return; }
     window.open('/menu?slug=' + selectedRestaurantSlug, '_blank');
 }
 
-// ── Toast ──
 function toast(message, type) {
     var container = document.getElementById('toastContainer');
     var el = document.createElement('div');
