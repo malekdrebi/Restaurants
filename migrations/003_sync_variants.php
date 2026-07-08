@@ -9,8 +9,10 @@ require_once __DIR__ . '/../includes/helpers.php';
 
 set_time_limit(300);
 ini_set('memory_limit', '256M');
+ini_set('display_errors', '1');
+error_reporting(E_ALL);
 ob_implicit_flush(true);
-ob_end_flush();
+@ob_end_flush();
 
 $db = Database::getInstance();
 
@@ -35,8 +37,8 @@ $totalSkipped = 0;
 foreach ($menuData as $catData) {
     $catNameEn = $catData['en_name'] ?? '';
 
-    echo "Category: {$catNameEn}\n";
-    // Try exact match first, then fuzzy
+    echo "Category: {$catNameEn}... ";
+    try {
     $stmt = $db->prepare("SELECT id, name_en FROM categories WHERE restaurant_id = ? AND name_en = ?");
     $stmt->execute([$restaurantId, $catNameEn]);
     $cat = $stmt->fetch();
@@ -57,11 +59,13 @@ foreach ($menuData as $catData) {
 
     // Process direct items
     if (!empty($catData['items'])) {
+        echo count($catData['items']) . " items... ";
         syncItems($db, $catData['items'], $categoryId, null, $totalSynced, $totalSkipped, $restaurantId);
     }
 
     // Process subcategories
     if (!empty($catData['subcategories'])) {
+        echo count($catData['subcategories']) . " subs... ";
         foreach ($catData['subcategories'] as $subData) {
             $subNameEn = $subData['en_name'] ?? '';
             $stmt = $db->prepare("SELECT id FROM subcategories WHERE category_id = ? AND name_en = ?");
@@ -74,7 +78,8 @@ foreach ($menuData as $catData) {
             }
         }
     }
-}
+    echo "OK\n";
+    } catch (Exception $e) { echo " ERROR: " . $e->getMessage() . "\n"; }
 
 echo "\n=== Done ===\n";
 echo "Variants synced: {$totalSynced}\n";
