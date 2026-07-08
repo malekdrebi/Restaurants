@@ -6,7 +6,7 @@
 /**
  * Send a JSON response with proper headers.
  */
-function jsonResponse(mixed $data, int $status = 200): void
+function jsonResponse($data, int $status = 200): void
 {
     http_response_code($status);
     header('Content-Type: application/json; charset=utf-8');

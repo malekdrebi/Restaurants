@@ -22,7 +22,11 @@ define('STATIC_DIR', __DIR__ . '/../static');
 define('MAX_UPLOAD_SIZE', 5 * 1024 * 1024);  // 5MB
 define('ALLOWED_IMAGE_TYPES', ['image/jpeg', 'image/png', 'image/webp']);
 
-// Session
+// Session — must be set BEFORE session_start()
+ini_set('session.cookie_path', '/');
+ini_set('session.cookie_httponly', '1');
+ini_set('session.cookie_samesite', 'Lax');
+ini_set('session.use_strict_mode', '1');
 define('SESSION_LIFETIME', 86400);  // 24 hours
 
 // Currency
