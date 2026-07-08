@@ -80,6 +80,7 @@ foreach ($menuData as $catData) {
     }
     echo "OK\n";
     } catch (Exception $e) { echo " ERROR: " . $e->getMessage() . "\n"; }
+}
 
 echo "\n=== Done ===\n";
 echo "Variants synced: {$totalSynced}\n";
