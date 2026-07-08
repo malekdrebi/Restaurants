@@ -1,7 +1,7 @@
 /**
  * Admin Dashboard — All event delegation, no inline onclick. v3
  */
-console.log('ADMIN JS v3 LOADED');
+console.log('ADMIN JS v4 LOADED');
 function apiUrl(endpoint, params) {
     var url = '/admin/api/' + endpoint + '.php';
     if (params) {
@@ -23,36 +23,38 @@ var currentItems = [];
 
 // ═══ SINGLE EVENT DELEGATION FOR EVERYTHING ═══
 document.addEventListener('click', function(e) {
-    console.log('DELEGATE CLICK', e.target.tagName, e.target.className);
     // Category edit button
-    if (e.target.closest('.cat-edit-btn')) {
+    var catBtn = e.target.closest('.cat-edit-btn');
+    if (catBtn) {
         e.preventDefault(); e.stopPropagation();
-        var cid = parseInt(e.target.closest('.cat-edit-btn').getAttribute('data-id'));
-        if (cid) showEditCategory(cid);
+        var cid = catBtn.getAttribute('data-id');
+        console.log('Edit category', cid);
+        if (cid) showEditCategory(parseInt(cid));
         return;
     }
-    // Category row — select (but not if edit button was clicked)
-    if (e.target.closest('.tree-cat-row')) {
-        var cr = e.target.closest('.tree-cat-row');
-        if (!e.target.closest('.cat-edit-btn')) {
-            var ccid = parseInt(cr.getAttribute('data-cid'));
-            if (ccid) selectCategory(ccid);
-        }
+    // Category row — select (but not if edit button)
+    var catRow = e.target.closest('.tree-cat-row');
+    if (catRow && !e.target.closest('.cat-edit-btn')) {
+        var ccid = catRow.getAttribute('data-cid');
+        console.log('Select category', ccid);
+        if (ccid) selectCategory(parseInt(ccid));
         return;
     }
-    // Subcategory row — select
-    if (e.target.closest('.tree-sub-row')) {
-        var sr = e.target.closest('.tree-sub-row');
-        var scid = parseInt(sr.getAttribute('data-cid'));
-        var ssid = parseInt(sr.getAttribute('data-sid'));
-        if (scid && ssid) selectSubcategory(scid, ssid);
+    // Subcategory row
+    var subRow = e.target.closest('.tree-sub-row');
+    if (subRow) {
+        var scid = subRow.getAttribute('data-cid');
+        var ssid = subRow.getAttribute('data-sid');
+        console.log('Select subcategory', scid, ssid);
+        if (scid && ssid) selectSubcategory(parseInt(scid), parseInt(ssid));
         return;
     }
-    // Item card — edit
-    if (e.target.closest('.item-card-clickable')) {
-        var ic = e.target.closest('.item-card-clickable');
-        var iiid = parseInt(ic.getAttribute('data-iid'));
-        if (iiid) showEditItem(iiid);
+    // Item card
+    var itemCard = e.target.closest('.item-card-clickable');
+    if (itemCard) {
+        var iid = itemCard.getAttribute('data-iid');
+        console.log('Edit item', iid);
+        if (iid) showEditItem(parseInt(iid));
         return;
     }
 });
