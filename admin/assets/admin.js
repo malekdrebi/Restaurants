@@ -1,7 +1,7 @@
 /**
  * Admin Dashboard — All event delegation, no inline onclick. v3
  */
-console.log('ADMIN JS v4 LOADED');
+console.log('ADMIN JS v5 LOADED');
 function apiUrl(endpoint, params) {
     var url = '/admin/api/' + endpoint + '.php';
     if (params) {
@@ -142,7 +142,7 @@ function showAddCategory() {
     document.getElementById('catModalOverlay').classList.add('show');
 }
 function showEditCategory(catId) {
-    var c = categories.find(function(x) { return x.id === catId; });
+    var c = categories.find(function(x) { return x.id == catId; });
     if (!c) return;
     document.getElementById('catId').value = c.id;
     document.getElementById('catNameAr').value = c.name_ar || '';
@@ -193,7 +193,7 @@ async function loadItems(catId, subId) {
 
 function renderItems() {
     var p = document.getElementById('mainPanel');
-    var c = categories.find(function(x) { return x.id === selectedCategoryId; });
+    var c = categories.find(function(x) { return x.id == selectedCategoryId; });
     var cn = c ? (c.name_en || c.name_ar) : 'Items';
     if (!currentItems.length) {
         p.innerHTML = '<div class="panel-header"><h2>' + cn + '</h2><button class="btn btn-gold add-item-btn">+ Add Item</button></div><div class="panel-placeholder"><p>No items</p></div>';
@@ -233,8 +233,9 @@ function showAddItem() {
     document.getElementById('itemModalOverlay').classList.add('show');
 }
 function showEditItem(itemId) {
-    var item = currentItems.find(function(i) { return i.id === itemId; });
-    if (!item) return;
+    var item = currentItems.find(function(i) { return i.id == itemId; });
+    console.log('showEditItem', itemId, 'found:', !!item, 'items:', currentItems.length);
+    if (!item) { toast('Item not found in current list', 'error'); return; }
     document.getElementById('itemId').value = item.id;
     document.getElementById('itemCategoryId').value = item.category_id;
     document.getElementById('itemSubcategoryId').value = item.subcategory_id || '';
