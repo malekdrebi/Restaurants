@@ -63,6 +63,8 @@ function renderCategoryTree() {
             '<span class="tree-actions"><button onclick="event.stopPropagation();showEditCategory(' + cat.id + ')" title="Edit">✎</button></span>' +
             '</div><div id="subcats-' + cat.id + '"></div>';
     }).join('');
+    // Load subcategories for all categories
+    categories.forEach(function(cat) { loadSubcategoriesForTree(cat.id); });
     if (!selectedCategoryId && categories.length > 0) selectCategory(categories[0].id);
 }
 
@@ -80,7 +82,21 @@ async function loadSubcategoriesForTree(catId) {
     } catch(e) {}
 }
 
-function selectCategory(catId) { selectedCategoryId = catId; selectedSubcategoryId = null; renderCategoryTree(); loadItems(catId, null); }
+// Track which categories have subcategories (loaded in background)
+var categoriesWithSubs = {};
+function selectCategory(catId) {
+    selectedCategoryId = catId; selectedSubcategoryId = null; renderCategoryTree();
+    // Check if this category has subcategories — if so, pick first one with items
+    loadItems(catId, null).then(function() {
+        if (currentItems.length === 0) {
+            // Try loading subcategories and pick first one
+            fetch(apiUrl('subcategories', {category_id: catId})).then(function(r) { return r.json(); }).then(function(d) {
+                var subs = d.subcategories || [];
+                if (subs.length > 0) selectSubcategory(catId, subs[0].id);
+            });
+        }
+    });
+}
 function selectSubcategory(catId, subId) { selectedCategoryId = catId; selectedSubcategoryId = subId; renderCategoryTree(); loadItems(catId, subId); }
 
 // ── Category CRUD ──
