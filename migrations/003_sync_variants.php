@@ -30,12 +30,22 @@ $totalSkipped = 0;
 foreach ($menuData as $catData) {
     $catNameEn = $catData['en_name'] ?? '';
 
-    // Find matching category in DB
-    $stmt = $db->prepare("SELECT id FROM categories WHERE restaurant_id = ? AND name_en = ?");
+    echo "Category: {$catNameEn}\n";
+    // Try exact match first, then fuzzy
+    $stmt = $db->prepare("SELECT id, name_en FROM categories WHERE restaurant_id = ? AND name_en = ?");
     $stmt->execute([$restaurantId, $catNameEn]);
     $cat = $stmt->fetch();
+    // If not found, try matching by Arabic name
+    if (!$cat && !empty($catData['name'])) {
+        $stmt = $db->prepare("SELECT id, name_en FROM categories WHERE restaurant_id = ? AND name_ar = ?");
+        $stmt->execute([$restaurantId, $catData['name']]);
+        $cat = $stmt->fetch();
+    }
     if (!$cat) {
-        echo "SKIP: Category not found: {$catNameEn}\n";
+        echo "  SKIP: Category not found — en='{$catNameEn}', ar='{$catData['name']}'\n";
+        // Show available categories in DB
+        $all = $db->query("SELECT name_en FROM categories WHERE restaurant_id = $restaurantId")->fetchAll(PDO::FETCH_COLUMN);
+        echo "  DB categories: " . implode(', ', $all) . "\n";
         continue;
     }
     $categoryId = $cat['id'];
@@ -86,7 +96,13 @@ function syncItems($db, $items, $categoryId, $subId, &$synced, &$skipped, $resta
         $item = $stmt->fetch();
 
         if (!$item) {
-            echo "  NOT FOUND: {$itemNameEn} (cat={$categoryId}, sub=" . ($subId ?? 'null') . ")\n";
+            echo "  NOT FOUND: '{$itemNameEn}' — checking DB items in this category...\n";
+            // Show items that are in this category
+            $allItems = $db->prepare("SELECT id, name_en FROM items WHERE category_id = ? AND " . ($subId ? "subcategory_id = ?" : "subcategory_id IS NULL"));
+            if ($subId) $allItems->execute([$categoryId, $subId]);
+            else $allItems->execute([$categoryId]);
+            $names = $allItems->fetchAll(PDO::FETCH_COLUMN, 1);
+            echo "  DB items: " . implode(', ', array_slice($names, 0, 10)) . "\n";
             continue;
         }
 
