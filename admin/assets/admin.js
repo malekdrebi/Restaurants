@@ -315,11 +315,11 @@ function renderVariantsInForm(variants) {
             '<input type="text" placeholder="EN Name" value="' + (v.name_en || v.en_name || '') + '" data-field="name_en">' +
             '<input type="number" placeholder="Price" step="0.001" value="' + (v.price || '') + '" data-field="price">' +
             '<div class="var-img-cell">' +
-            '<input type="file" accept="image/*" data-field="image_file" style="font-size:0.62rem;max-width:100px" title="Upload image">' +
-            (v.image ? '<span style="position:relative;display:inline-block"><img src="/' + v.image + '" style="width:40px;height:40px;object-fit:cover;border-radius:4px;border:1px solid #333"><button class="variant-img-remove-btn" type="button" style="position:absolute;top:-6px;right:-6px;background:red;color:white;border:none;border-radius:50%;width:18px;height:18px;font-size:11px;line-height:1;cursor:pointer;padding:0">×</button></span>' : '') +
+            '<input type="file" accept="image/*" data-field="image_file" style="font-size:0.62rem;max-width:90px" title="Upload">' +
+            (v.image ? '<span style="position:relative"><img src="/' + v.image + '" style="width:34px;height:34px;object-fit:cover;border-radius:4px;border:1px solid #333"><button class="variant-img-remove-btn" type="button" style="position:absolute;top:-5px;right:-5px;background:red;color:white;border:none;border-radius:50%;width:16px;height:16px;font-size:10px;line-height:1;cursor:pointer;padding:0">×</button></span>' : '') +
             '</div>' +
             '<input type="hidden" data-field="image" value="' + (v.image || '') + '">' +
-            '<div class="var-remove-cell"><button class="variant-remove-btn" type="button">×</button></div>' +
+            '<button class="variant-remove-btn" type="button" style="text-align:center">×</button>' +
             '</div>';
     }).join('');
 }
@@ -327,7 +327,7 @@ function addVariantRow() {
     var c = document.getElementById('variantsList');
     if (c.querySelector('p')) c.innerHTML = '';
     var row = document.createElement('div'); row.className = 'variant-row';
-    row.innerHTML = '<input type="text" placeholder="AR Name" data-field="name_ar"><input type="text" placeholder="EN Name" data-field="name_en"><input type="number" placeholder="Price" step="0.001" data-field="price"><div class="var-img-cell"><input type="file" accept="image/*" data-field="image_file" style="font-size:0.62rem;max-width:100px" title="Upload image"></div><input type="hidden" data-field="image" value=""><div class="var-remove-cell"><button class="variant-remove-btn" type="button">×</button></div>';
+    row.innerHTML = '<input type="text" placeholder="AR Name" data-field="name_ar"><input type="text" placeholder="EN Name" data-field="name_en"><input type="number" placeholder="Price" step="0.001" data-field="price"><div class="var-img-cell"><input type="file" accept="image/*" data-field="image_file" style="font-size:0.62rem;max-width:90px" title="Upload"></div><input type="hidden" data-field="image" value=""><button class="variant-remove-btn" type="button">×</button>';
     c.appendChild(row);
 }
 async function saveVariants(itemId) {
