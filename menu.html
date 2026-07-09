@@ -3141,13 +3141,18 @@
             header.classList.add('has-info');
             header.innerHTML = `
                 <div class="restaurant-info">
-                    ${restaurantInfo.logo ? `<img src="${restaurantInfo.logo}" alt="Logo" class="restaurant-logo">` : ''}
+                    ${restaurantInfo.logo ? `<img src="/${restaurantInfo.logo}" alt="Logo" class="restaurant-logo">` : ''}
                     <div>
                         <h1 class="restaurant-name ar-text">${restaurantInfo.name_ar || ''}</h1>
                         <h1 class="restaurant-name en-text">${restaurantInfo.name_en || ''}</h1>
                     </div>
                 </div>
             `;
+            // Set background image per restaurant
+            if (restaurantInfo.bg_image) {
+                document.getElementById('parallaxLayer1').style.backgroundImage = 'url(/' + restaurantInfo.bg_image + ')';
+                document.getElementById('parallaxLayer2').style.backgroundImage = 'url(/' + restaurantInfo.bg_image + ')';
+            }
         }
 
         function handleSearch(e) {

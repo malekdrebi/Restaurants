@@ -10,7 +10,7 @@ function getMenuData(PDO $db, string $slug): ?array
 {
     // 1. Get restaurant
     $stmt = $db->prepare(
-        "SELECT id, slug, name_ar, name_en, logo, address_ar, address_en, phone
+        "SELECT id, slug, name_ar, name_en, logo, bg_image, address_ar, address_en, phone
          FROM restaurants WHERE slug = ? AND is_active = 1"
     );
     $stmt->execute([$slug]);
@@ -77,6 +77,7 @@ function getMenuData(PDO $db, string $slug): ?array
             'name_ar' => $restaurant['name_ar'],
             'name_en' => $restaurant['name_en'],
             'logo'    => $restaurant['logo'],
+            'bg_image' => $restaurant['bg_image'],
             'address_ar' => $restaurant['address_ar'],
             'address_en' => $restaurant['address_en'],
             'phone'   => $restaurant['phone'],

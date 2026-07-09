@@ -1,0 +1,1 @@
+ALTER TABLE restaurants ADD COLUMN bg_image VARCHAR(255) DEFAULT NULL AFTER logo;

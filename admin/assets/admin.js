@@ -389,6 +389,8 @@ function showRestaurantModal(editId) {
             document.getElementById('restaurantAddressAr').value = rest.address_ar||'';
             document.getElementById('restaurantAddressEn').value = rest.address_en||'';
             document.getElementById('restaurantPhone').value = rest.phone||'';
+            document.getElementById('restaurantLogo').value = rest.logo||'';
+            document.getElementById('restaurantBg').value = rest.bg_image||'';
             document.getElementById('restaurantModalTitle').textContent = 'Edit Restaurant';
             document.getElementById('deleteRestaurantBtn').style.display = 'inline-flex';
             document.getElementById('restaurantModalOverlay').classList.add('show');
@@ -413,11 +415,24 @@ async function saveRestaurant() {
     var body = {
         name_ar: document.getElementById('restaurantNameAr').value.trim(),
         name_en: document.getElementById('restaurantNameEn').value.trim(),
-        slug: document.getElementById('restaurantSlug').value.trim() || document.getElementById('restaurantNameEn').value.toLowerCase().replace(/\s+/g,'-'),
+        slug: document.getElementById('restaurantSlug').value.trim() || document.getElementById('restaurantNameEn').value.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''),
         address_ar: document.getElementById('restaurantAddressAr').value.trim(),
         address_en: document.getElementById('restaurantAddressEn').value.trim(),
-        phone: document.getElementById('restaurantPhone').value.trim()
+        phone: document.getElementById('restaurantPhone').value.trim(),
+        logo: document.getElementById('restaurantLogo').value,
+        bg_image: document.getElementById('restaurantBg').value
     };
+    // Upload logo if selected
+    var logoF = document.getElementById('restaurantLogoFile').files[0];
+    var bgF = document.getElementById('restaurantBgFile').files[0];
+    if (logoF) {
+        var fd = new FormData(); fd.append('image',logoF); fd.append('restaurant_id',selectedRestaurantId||0); fd.append('restaurant_slug',body.slug);
+        try { var ur=await fetch(apiUrl('upload'),{method:'POST',headers:{'X-CSRF-Token':CSRF_TOKEN},body:fd}); var ud=await ur.json(); if(ur.ok) body.logo=ud.path; } catch(e){}
+    }
+    if (bgF) {
+        var fd2 = new FormData(); fd2.append('image',bgF); fd2.append('restaurant_id',selectedRestaurantId||0); fd2.append('restaurant_slug',body.slug);
+        try { var ur2=await fetch(apiUrl('upload'),{method:'POST',headers:{'X-CSRF-Token':CSRF_TOKEN},body:fd2}); var ud2=await ur2.json(); if(ur2.ok) body.bg_image=ud2.path; } catch(e){}
+    }
     if (!body.name_ar || !body.name_en) { toast('Names required', 'error'); return; }
     try {
         var u = id ? apiUrl('restaurants', {id:id}) : apiUrl('restaurants');

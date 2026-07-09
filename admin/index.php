@@ -289,7 +289,8 @@ $csrfToken = Auth::csrfToken();
                     <div class="form-group"><label>Address (AR)</label><input type="text" id="restaurantAddressAr"></div>
                     <div class="form-group"><label>Address (EN)</label><input type="text" id="restaurantAddressEn"></div>
                     <div class="form-group"><label>Phone</label><input type="text" id="restaurantPhone"></div>
-                    <div class="form-group"><label>Logo</label><input type="file" id="restaurantLogoFile" accept="image/*"></div>
+                    <div class="form-group"><label>Logo</label><input type="file" id="restaurantLogoFile" accept="image/*"><input type="hidden" id="restaurantLogo"></div>
+                    <div class="form-group"><label>Background Image</label><input type="file" id="restaurantBgFile" accept="image/*"><input type="hidden" id="restaurantBg"></div>
                 </form>
             </div>
             <div class="modal-footer">
@@ -349,6 +350,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=16"></script>
+    <script src="assets/admin.js?v=17"></script>
 </body>
 </html>

@@ -46,7 +46,7 @@ if ($method === 'PUT') {
     if (!$id) jsonError('ID required');
     $body = getJsonBody();
     $fields=[]; $params=[];
-    foreach(['name_ar','name_en','slug','address_ar','address_en','phone'] as $f) {
+    foreach(['name_ar','name_en','slug','address_ar','address_en','phone','logo','bg_image'] as $f) {
         if(isset($body[$f])){$fields[]="$f=?";$params[]=$body[$f];}
     }
     foreach(['is_active','sort_order'] as $f) {
