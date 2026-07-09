@@ -314,7 +314,9 @@ function renderVariantsInForm(variants) {
             '<input type="text" placeholder="AR Name" value="' + (v.name_ar || v.name || '') + '" data-field="name_ar">' +
             '<input type="text" placeholder="EN Name" value="' + (v.name_en || v.en_name || '') + '" data-field="name_en">' +
             '<input type="number" placeholder="Price" step="0.001" value="' + (v.price || '') + '" data-field="price" style="max-width:90px">' +
-            '<input type="text" placeholder="Image path" value="' + (v.image || '') + '" data-field="image" style="max-width:140px;font-size:0.7rem">' +
+            '<input type="file" accept="image/*" data-field="image_file" style="max-width:120px;font-size:0.65rem" title="Upload image">' +
+            (v.image ? '<img src="/' + v.image + '" style="width:36px;height:36px;object-fit:cover;border-radius:4px" title="' + v.image + '">' : '') +
+            '<input type="hidden" data-field="image" value="' + (v.image || '') + '">' +
             '<button class="variant-remove-btn" type="button">×</button></div>';
     }).join('');
 }
@@ -322,7 +324,7 @@ function addVariantRow() {
     var c = document.getElementById('variantsList');
     if (c.querySelector('p')) c.innerHTML = '';
     var row = document.createElement('div'); row.className = 'variant-row';
-    row.innerHTML = '<input type="text" placeholder="AR Name" data-field="name_ar"><input type="text" placeholder="EN Name" data-field="name_en"><input type="number" placeholder="Price" step="0.001" data-field="price" style="max-width:90px"><input type="text" placeholder="Image path" data-field="image" style="max-width:140px;font-size:0.7rem"><button class="variant-remove-btn" type="button">×</button>';
+    row.innerHTML = '<input type="text" placeholder="AR Name" data-field="name_ar"><input type="text" placeholder="EN Name" data-field="name_en"><input type="number" placeholder="Price" step="0.001" data-field="price" style="max-width:90px"><input type="file" accept="image/*" data-field="image_file" style="max-width:120px;font-size:0.65rem"><input type="hidden" data-field="image" value=""><button class="variant-remove-btn" type="button">×</button>';
     c.appendChild(row);
 }
 async function saveVariants(itemId) {
@@ -332,9 +334,23 @@ async function saveVariants(itemId) {
         var na = (row.querySelector('[data-field="name_ar"]') || {}).value || '';
         var ne = (row.querySelector('[data-field="name_en"]') || {}).value || '';
         var pv = (row.querySelector('[data-field="price"]') || {}).value || '';
-        var img = (row.querySelector('[data-field="image"]') || {}).value || '';
+        var imgInput = row.querySelector('[data-field="image"]');
+        var imgPath = imgInput ? (imgInput.value || '') : '';
+        var imgFile = row.querySelector('[data-field="image_file"]');
+
+        // Upload variant image if file selected
+        if (imgFile && imgFile.files && imgFile.files[0]) {
+            var fd = new FormData(); fd.append('image', imgFile.files[0]);
+            fd.append('restaurant_id', selectedRestaurantId); fd.append('restaurant_slug', selectedRestaurantSlug);
+            try {
+                var ur = await fetch(apiUrl('upload'), { method: 'POST', headers: { 'X-CSRF-Token': CSRF_TOKEN }, body: fd });
+                var ud = await ur.json();
+                if (ur.ok) imgPath = ud.path;
+            } catch(e) {}
+        }
+
         if (!na.trim() && !ne.trim()) continue;
-        var body = { item_id: itemId, name_ar: na.trim(), name_en: ne.trim(), price: pv !== '' ? parseFloat(pv) : null, image: img.trim() || null, sort_order: i };
+        var body = { item_id: itemId, name_ar: na.trim(), name_en: ne.trim(), price: pv !== '' ? parseFloat(pv) : null, image: imgPath.trim() || null, sort_order: i };
         try { var u = vid ? apiUrl('variants', {id: vid}) : apiUrl('variants'); await fetch(u, { method: vid ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) }); } catch(e) {}
     }
 }
