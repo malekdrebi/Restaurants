@@ -3143,6 +3143,15 @@
                 }
             }
         }
+        function showHubCard(onclickVal) {
+            var cards = document.querySelectorAll('.hub-card');
+            for (var i = 0; i < cards.length; i++) {
+                if (cards[i].getAttribute('onclick') === onclickVal) {
+                    cards[i].style.display = '';
+                    return;
+                }
+            }
+        }
 
         function updateRestaurantHeader() {
             if (!restaurantInfo) return;
@@ -3168,23 +3177,29 @@
                 document.documentElement.style.setProperty('--accent-gold', restaurantInfo.primary_color);
             }
             // Apply feature toggles
-            if (!restaurantInfo.show_vip) {
-                hideHubCard('showVip()');
-                var vs = document.getElementById('vipScreen'); if(vs) vs.style.display = 'none';
-            }
-            if (!restaurantInfo.show_gallery) {
-                hideHubCard('showGallery()');
-                var gs = document.getElementById('galleryScreen'); if(gs) gs.style.display = 'none';
-            }
-            if (!restaurantInfo.show_tutorial) {
-                hideHubCard('showTutorial()');
-                var mt = document.getElementById('menuTutorial'); if(mt) mt.style.display = 'none';
-            }
+            // VIP
+            if (restaurantInfo.show_vip) { showHubCard('showVip()'); }
+            else { hideHubCard('showVip()'); var vs = document.getElementById('vipScreen'); if(vs) vs.style.display = 'none'; }
+            // Gallery
+            if (restaurantInfo.show_gallery) { showHubCard('showGallery()'); }
+            else { hideHubCard('showGallery()'); var gs = document.getElementById('galleryScreen'); if(gs) gs.style.display = 'none'; }
+            // Tutorial
+            if (restaurantInfo.show_tutorial) { showHubCard('showTutorial()'); }
+            else { hideHubCard('showTutorial()'); var mt = document.getElementById('menuTutorial'); if(mt) mt.style.display = 'none'; }
+            // Parallax
             if (!restaurantInfo.show_parallax) { var pb = document.querySelector('.parallax-bg'); if(pb) pb.style.display = 'none'; }
+            // Cart
             if (!restaurantInfo.show_cart) { var cf = document.getElementById('cartFab'); if(cf) cf.style.display = 'none'; }
+            // Hub
             if (!restaurantInfo.show_hub) {
                 var hub = document.getElementById('hubScreen');
                 if (hub) { hub.style.display = 'none'; showMenuElements(); }
+            }
+            // Override hardcoded hub background with restaurant bg
+            if (restaurantInfo.bg_image) {
+                var style = document.createElement('style');
+                style.textContent = '.hub-screen::before { background-image: url(/' + restaurantInfo.bg_image + ') !important; }';
+                document.head.appendChild(style);
             }
         }
 
