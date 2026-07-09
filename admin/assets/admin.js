@@ -305,7 +305,8 @@ function renderVariantsInForm(variants) {
         return '<div class="variant-row" data-variant-id="' + (v.id || '') + '">' +
             '<input type="text" placeholder="AR Name" value="' + (v.name_ar || v.name || '') + '" data-field="name_ar">' +
             '<input type="text" placeholder="EN Name" value="' + (v.name_en || v.en_name || '') + '" data-field="name_en">' +
-            '<input type="number" placeholder="Price" value="' + (v.price || '') + '" step="0.001" data-field="price" style="max-width:100px">' +
+            '<input type="number" placeholder="Price" step="0.001" value="' + (v.price || '') + '" data-field="price" style="max-width:90px">' +
+            '<input type="text" placeholder="Image path" value="' + (v.image || '') + '" data-field="image" style="max-width:140px;font-size:0.7rem">' +
             '<button class="variant-remove-btn" type="button">×</button></div>';
     }).join('');
 }
@@ -313,7 +314,7 @@ function addVariantRow() {
     var c = document.getElementById('variantsList');
     if (c.querySelector('p')) c.innerHTML = '';
     var row = document.createElement('div'); row.className = 'variant-row';
-    row.innerHTML = '<input type="text" placeholder="AR Name" data-field="name_ar"><input type="text" placeholder="EN Name" data-field="name_en"><input type="number" placeholder="Price" step="0.001" data-field="price" style="max-width:100px"><button class="variant-remove-btn" type="button">×</button>';
+    row.innerHTML = '<input type="text" placeholder="AR Name" data-field="name_ar"><input type="text" placeholder="EN Name" data-field="name_en"><input type="number" placeholder="Price" step="0.001" data-field="price" style="max-width:90px"><input type="text" placeholder="Image path" data-field="image" style="max-width:140px;font-size:0.7rem"><button class="variant-remove-btn" type="button">×</button>';
     c.appendChild(row);
 }
 async function saveVariants(itemId) {
@@ -323,8 +324,9 @@ async function saveVariants(itemId) {
         var na = (row.querySelector('[data-field="name_ar"]') || {}).value || '';
         var ne = (row.querySelector('[data-field="name_en"]') || {}).value || '';
         var pv = (row.querySelector('[data-field="price"]') || {}).value || '';
+        var img = (row.querySelector('[data-field="image"]') || {}).value || '';
         if (!na.trim() && !ne.trim()) continue;
-        var body = { item_id: itemId, name_ar: na.trim(), name_en: ne.trim(), price: pv !== '' ? parseFloat(pv) : null, sort_order: i };
+        var body = { item_id: itemId, name_ar: na.trim(), name_en: ne.trim(), price: pv !== '' ? parseFloat(pv) : null, image: img.trim() || null, sort_order: i };
         try { var u = vid ? apiUrl('variants', {id: vid}) : apiUrl('variants'); await fetch(u, { method: vid ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) }); } catch(e) {}
     }
 }
