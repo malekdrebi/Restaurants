@@ -84,6 +84,7 @@ async function loadCategories() {
 
 function renderCategoryTree() {
     var t = document.getElementById('categoryTree');
+    var scrollTop = t.scrollTop;
     if (!categories.length) {
         t.innerHTML = '<div class="tree-empty">No categories.<br><button class="btn btn-sm btn-gold add-cat-btn" style="margin-top:8px">+ Add Category</button></div>';
         return;
@@ -96,6 +97,7 @@ function renderCategoryTree() {
             '</div><div id="subcats-' + c.id + '"></div>';
     }).join('');
     categories.forEach(function(c) { loadSubcategoriesForTree(c.id); });
+    t.scrollTop = scrollTop;
     if (!selectedCategoryId && categories.length > 0) selectCategory(parseInt(categories[0].id));
 }
 
