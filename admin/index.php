@@ -291,6 +291,15 @@ $csrfToken = Auth::csrfToken();
                     <div class="form-group"><label>Phone</label><input type="text" id="restaurantPhone"></div>
                     <div class="form-group"><label>Logo</label><input type="file" id="restaurantLogoFile" accept="image/*"><input type="hidden" id="restaurantLogo"></div>
                     <div class="form-group"><label>Background Image</label><input type="file" id="restaurantBgFile" accept="image/*"><input type="hidden" id="restaurantBg"></div>
+                    <div class="form-group"><label>Theme Color</label><input type="color" id="restaurantColor" value="#C9A366" style="width:60px;height:36px;border:none;cursor:pointer"></div>
+                    <div class="form-row form-checks" style="flex-wrap:wrap">
+                        <label class="check-label"><input type="checkbox" id="restShowVip" checked> VIP Lounge</label>
+                        <label class="check-label"><input type="checkbox" id="restShowGallery" checked> Gallery</label>
+                        <label class="check-label"><input type="checkbox" id="restShowTutorial" checked> Tutorial</label>
+                        <label class="check-label"><input type="checkbox" id="restShowCart" checked> Add to Cart</label>
+                        <label class="check-label"><input type="checkbox" id="restShowParallax" checked> Parallax BG</label>
+                        <label class="check-label"><input type="checkbox" id="restShowHub" checked> Hub Screen</label>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
@@ -350,6 +359,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=17"></script>
+    <script src="assets/admin.js?v=18"></script>
 </body>
 </html>

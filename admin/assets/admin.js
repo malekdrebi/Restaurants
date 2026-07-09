@@ -391,6 +391,13 @@ function showRestaurantModal(editId) {
             document.getElementById('restaurantPhone').value = rest.phone||'';
             document.getElementById('restaurantLogo').value = rest.logo||'';
             document.getElementById('restaurantBg').value = rest.bg_image||'';
+            document.getElementById('restaurantColor').value = rest.primary_color||'#C9A366';
+            document.getElementById('restShowVip').checked = rest.show_vip!=0;
+            document.getElementById('restShowGallery').checked = rest.show_gallery!=0;
+            document.getElementById('restShowTutorial').checked = rest.show_tutorial!=0;
+            document.getElementById('restShowCart').checked = rest.show_cart!=0;
+            document.getElementById('restShowParallax').checked = rest.show_parallax!=0;
+            document.getElementById('restShowHub').checked = rest.show_hub!=0;
             document.getElementById('restaurantModalTitle').textContent = 'Edit Restaurant';
             document.getElementById('deleteRestaurantBtn').style.display = 'inline-flex';
             document.getElementById('restaurantModalOverlay').classList.add('show');
@@ -420,7 +427,14 @@ async function saveRestaurant() {
         address_en: document.getElementById('restaurantAddressEn').value.trim(),
         phone: document.getElementById('restaurantPhone').value.trim(),
         logo: document.getElementById('restaurantLogo').value,
-        bg_image: document.getElementById('restaurantBg').value
+        bg_image: document.getElementById('restaurantBg').value,
+        primary_color: document.getElementById('restaurantColor').value,
+        show_vip: document.getElementById('restShowVip').checked?1:0,
+        show_gallery: document.getElementById('restShowGallery').checked?1:0,
+        show_tutorial: document.getElementById('restShowTutorial').checked?1:0,
+        show_cart: document.getElementById('restShowCart').checked?1:0,
+        show_parallax: document.getElementById('restShowParallax').checked?1:0,
+        show_hub: document.getElementById('restShowHub').checked?1:0
     };
     // Upload logo if selected
     var logoF = document.getElementById('restaurantLogoFile').files[0];
