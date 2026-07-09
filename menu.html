@@ -3195,6 +3195,12 @@
                 var hub = document.getElementById('hubScreen');
                 if (hub) { hub.style.display = 'none'; showMenuElements(); }
             }
+            // Update all hardcoded brand names
+            var brandName = restaurantInfo.name_en || 'Lavina House';
+            var els = document.querySelectorAll('.hub-logo, .lang-logo, .logo-text, .footer-logo');
+            for (var i = 0; i < els.length; i++) { els[i].textContent = brandName; }
+            // Update OG title
+            document.title = brandName + ' | Menu';
             // Override hardcoded hub background with restaurant bg
             if (restaurantInfo.bg_image) {
                 var style = document.createElement('style');
