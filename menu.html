@@ -2207,8 +2207,8 @@
                         <span class="en-text">Menu</span>
                     </h3>
                     <p class="hub-card-desc">
-                        <span class="ar-text">تصفح المنيو الكامل وكيفية استخدامه</span>
-                        <span class="en-text">Browse the full menu and learn how it works</span>
+                        <span class="ar-text">تصفح المنيو الكامل</span>
+                        <span class="en-text">Browse the full menu</span>
                     </p>
                 </div>
                 <div class="hub-card" onclick="showVip()">
@@ -2229,22 +2229,6 @@
                         <span class="en-text">Exclusive selection of our finest signature dishes</span>
                     </p>
                 </div>
-                <div class="hub-card" onclick="showMenuElements();document.getElementById('hubScreen').style.display='none';" id="hubBrowseCard">
-                    <div class="hub-card-icon">
-                        <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </div>
-                    <h3 class="hub-card-title">
-                        <span class="ar-text">القائمة</span>
-                        <span class="en-text">Menu</span>
-                    </h3>
-                    <p class="hub-card-desc">
-                        <span class="ar-text">تصفح القائمة الكاملة</span>
-                        <span class="en-text">Browse the full menu</span>
-                    </p>
-                </div>
-
                 <div class="hub-card" onclick="showGallery()">
                     <div class="hub-card-icon">
                         <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor"
@@ -2977,6 +2961,12 @@
         }
 
         function showTutorial() {
+            // If tutorial is disabled, skip straight to menu
+            if (restaurantInfo && !restaurantInfo.show_tutorial) {
+                document.getElementById('hubScreen').style.display = 'none';
+                showMenuElements();
+                return;
+            }
             hideAllScreens();
             hideMenuElements();
             stopLookCarousel();
@@ -3199,9 +3189,10 @@
             // Gallery
             if (restaurantInfo.show_gallery) { showHubCard('showGallery()'); }
             else { hideHubCard('showGallery()'); var gs = document.getElementById('galleryScreen'); if(gs) gs.style.display = 'none'; }
-            // Tutorial
-            if (restaurantInfo.show_tutorial) { showHubCard('showTutorial()'); }
-            else { hideHubCard('showTutorial()'); var mt = document.getElementById('menuTutorial'); if(mt) mt.style.display = 'none'; }
+            // Tutorial/Menu card always stays — showTutorial() checks the setting and skips if disabled
+            if (!restaurantInfo.show_tutorial) {
+                var mt = document.getElementById('menuTutorial'); if(mt) mt.style.display = 'none';
+            }
             // Parallax
             if (!restaurantInfo.show_parallax) { var pb = document.querySelector('.parallax-bg'); if(pb) pb.style.display = 'none'; }
             // Cart
