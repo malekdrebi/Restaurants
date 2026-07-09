@@ -23,7 +23,7 @@
         "name": "مشكل لافينا أسماك",
         "price": "150 د.ل",
         "desc": "",
-        "image": "images/Lavina_Mix_seafood.jpeg",
+        "image": "images/lavina_mix_seafood.jpeg",
         "en_name": "Lavina Seafood Mix",
         "en_desc": ""
       }
@@ -219,7 +219,7 @@
           {
             "name": "توست ببيروني",
             "en_name": "Pepperoni Toast",
-            "image": "images/PepperoniToast.jpeg",
+            "image": "images/pepperonitoast.jpeg",
             "price": "25 د.ل",
             "desc": "توست سلامي، جبنة، طماطم، جرجير، زيتون شرائح أسود، زيتون متبل وهريسة."
           },
@@ -391,7 +391,7 @@
             "name": "شوربة الدجاج بالفقاع",
             "price": "30 د.ل",
             "desc": "",
-            "image": "images/ChickenMashrumSoup.jpeg",
+            "image": "images/chickenmashrumsoup.jpeg",
             "en_name": "Chicken Mushroom Soup",
             "en_desc": ""
           },
@@ -633,7 +633,7 @@
             "name": "لازانيا بولونيز",
             "price": "45 د.ل",
             "desc": "",
-            "image": "images/Bolognese_Lasagna.jpeg",
+            "image": "images/bolognese_lasagna.jpeg",
             "en_name": "Bolognese Lasagna",
             "en_desc": ""
           },
@@ -749,7 +749,7 @@
             "name": "بيتزا بيانكا",
             "price": "45 د.ل",
             "desc": "صوص أبيض، جبنة و جمبري.",
-            "image": "images/Bianca_Pizza.jpeg",
+            "image": "images/bianca_pizza.jpeg",
             "en_name": "Bianca Pizza",
             "en_desc": "White Sauce, Cheese and Shrimp."
           },
@@ -1088,7 +1088,7 @@
             "name": "مشكل لافينا أسماك",
             "price": "150 د.ل",
             "desc": "",
-            "image": "images/Lavina_Mix_seafood.jpeg",
+            "image": "images/lavina_mix_seafood.jpeg",
             "en_name": "Lavina Seafood Mix",
             "en_desc": ""
           }
@@ -1142,7 +1142,7 @@
             "name": "كباب لحم",
             "price": "45 د.ل",
             "desc": "",
-            "image": "images/Meat_Kebab.jfif",
+            "image": "images/meat_kebab.jfif",
             "en_name": "Meat Kebab",
             "en_desc": ""
           },
@@ -1238,7 +1238,7 @@
             "name": "مشكل مشاوي لافينا عائلي",
             "price": "250 د.ل",
             "desc": "2 كباب لحم + 2 كباب دجاج + 2 شيش طاووق + 2 شيش لحم عجل + 2 أرياش خروف + 2 أجنحة + 2 أفخاذ دجاج + صفيحة حسب الطلب + صحن سلطة ",
-            "image": "images/Lavina_Family_Grill_Mix.jpeg",
+            "image": "images/lavina_family_grill_mix.jpeg",
             "en_name": "Lavina Family Grill Mix",
             "en_desc": "2 Meat Kebab + 2 Chicken Kebab + 2 Shish Taouk + 2 Veal Shish + 2 Lamb Chops + 2 Wings + 2 Chicken Thighs + 1 Safiha as requested + 1 Salad Plate"
           }
@@ -1284,7 +1284,7 @@
             "name": "باقيت دجاج مشوي",
             "price": "35 د.ل",
             "desc": "",
-            "image": "images/Grilled_Chicken_Baguette.jpeg",
+            "image": "images/grilled_chicken_baguette.jpeg",
             "en_name": "Grilled Chicken Baguette",
             "en_desc": ""
           },
@@ -1330,7 +1330,7 @@
             "name": "تشيكن ناقتس",
             "price": "30 د.ل",
             "desc": "يقدم مع أرز، بطاطا مقلية، خضار سوتيه",
-            "image": "images/ChickenNuggets.jpeg",
+            "image": "images/chickennuggets.jpeg",
             "en_name": "Chicken Nuggets",
             "en_desc": "Served with Rice, Fried Potato, Sauted Vegetables"
           }
