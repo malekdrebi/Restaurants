@@ -149,7 +149,16 @@ $csrfToken = Auth::csrfToken();
                 <?php foreach ($restaurants as $r): ?>
                     <option value="<?= $r['id'] ?>" data-slug="<?= htmlspecialchars($r['slug']) ?>"><?= htmlspecialchars($r['name_en'] ?: $r['name_ar']) ?></option>
                 <?php endforeach; ?>
+                <?php if ($admin['role'] === 'super_admin'): ?>
+                    <option value="new">+ New Restaurant</option>
+                <?php endif; ?>
             </select>
+            <?php if ($admin['role'] === 'super_admin'): ?>
+                <button class="btn btn-sm btn-outline" onclick="showAdminModal()">👥 Admins</button>
+            <?php endif; ?>
+            <?php if ($admin['role'] === 'super_admin'): ?>
+                <button class="btn btn-sm btn-outline" onclick="showRestaurantModal()">+ Restaurant</button>
+            <?php endif; ?>
             <button class="btn btn-sm btn-outline" onclick="previewMenu()">👁 Preview</button>
         </div>
         <div class="topbar-right">
@@ -264,6 +273,67 @@ $csrfToken = Auth::csrfToken();
         </div>
     </div>
 
+    <!-- Restaurant Modal -->
+    <div class="modal-overlay" id="restaurantModalOverlay">
+        <div class="modal modal-sm" id="restaurantModal">
+            <div class="modal-header">
+                <h3 id="restaurantModalTitle">New Restaurant</h3>
+                <button class="modal-close" onclick="closeRestaurantModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="restaurantForm">
+                    <input type="hidden" id="restaurantId">
+                    <div class="form-group"><label>Arabic Name</label><input type="text" id="restaurantNameAr" required></div>
+                    <div class="form-group"><label>English Name</label><input type="text" id="restaurantNameEn" required></div>
+                    <div class="form-group"><label>Slug (URL name)</label><input type="text" id="restaurantSlug" placeholder="e.g. lavina-tripoli"></div>
+                    <div class="form-group"><label>Address (AR)</label><input type="text" id="restaurantAddressAr"></div>
+                    <div class="form-group"><label>Address (EN)</label><input type="text" id="restaurantAddressEn"></div>
+                    <div class="form-group"><label>Phone</label><input type="text" id="restaurantPhone"></div>
+                    <div class="form-group"><label>Logo</label><input type="file" id="restaurantLogoFile" accept="image/*"></div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeRestaurantModal()">Cancel</button>
+                <button class="btn btn-danger" id="deleteRestaurantBtn" style="display:none" onclick="deleteRestaurant()">Delete</button>
+                <button class="btn btn-gold" onclick="saveRestaurant()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Management Modal -->
+    <div class="modal-overlay" id="adminModalOverlay">
+        <div class="modal" id="adminModal">
+            <div class="modal-header">
+                <h3>Manage Admins</h3>
+                <button class="modal-close" onclick="closeAdminModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="adminsList" style="margin-bottom:20px"></div>
+                <hr style="border-color:#333;margin:16px 0">
+                <h4 style="color:var(--accent-gold);margin-bottom:12px">Add New Admin</h4>
+                <form id="adminForm">
+                    <div class="form-group"><label>Username</label><input type="text" id="newAdminUsername" required></div>
+                    <div class="form-group"><label>Password</label><input type="password" id="newAdminPassword" required minlength="6"></div>
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select id="newAdminRole">
+                            <option value="restaurant_admin">Restaurant Admin</option>
+                            <option value="super_admin">Super Admin</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="newAdminRestaurantGroup">
+                        <label>Restaurant</label>
+                        <select id="newAdminRestaurantId"></select>
+                    </div>
+                    <button type="button" class="btn btn-gold" onclick="addAdmin()">Add Admin</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeAdminModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
     <div class="toast-container" id="toastContainer"></div>
 
     <script>
@@ -279,6 +349,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=15"></script>
+    <script src="assets/admin.js?v=16"></script>
 </body>
 </html>

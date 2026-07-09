@@ -65,14 +65,6 @@ function init() {
     if (s && s.options.length > 1 && !s.value) { s.selectedIndex = 1; onRestaurantChange(); }
 }
 
-async function onRestaurantChange() {
-    var s = document.getElementById('restaurantSelect');
-    selectedRestaurantId = s.value ? parseInt(s.value) : null;
-    selectedRestaurantSlug = s.selectedOptions[0] ? s.selectedOptions[0].getAttribute('data-slug') : '';
-    if (!selectedRestaurantId) return;
-    await loadCategories();
-}
-
 async function loadCategories() {
     try {
         var r = await fetch(apiUrl('categories', {restaurant_id: selectedRestaurantId}));
@@ -374,6 +366,128 @@ document.addEventListener('click', function(e) {
         return;
     }
 });
+
+// ── Restaurant Management ──
+function onRestaurantChange() {
+    var s = document.getElementById('restaurantSelect');
+    if (s.value === 'new') { showRestaurantModal(); s.value = ''; return; }
+    selectedRestaurantId = s.value ? parseInt(s.value) : null;
+    selectedRestaurantSlug = s.selectedOptions[0] ? s.selectedOptions[0].getAttribute('data-slug') : '';
+    if (!selectedRestaurantId) return;
+    loadCategories();
+}
+
+function showRestaurantModal(editId) {
+    if (editId) {
+        fetch(apiUrl('restaurants')).then(function(r){return r.json()}).then(function(d){
+            var rest = (d.restaurants||[]).find(function(x){return x.id==editId});
+            if(!rest) return;
+            document.getElementById('restaurantId').value = rest.id;
+            document.getElementById('restaurantNameAr').value = rest.name_ar||'';
+            document.getElementById('restaurantNameEn').value = rest.name_en||'';
+            document.getElementById('restaurantSlug').value = rest.slug||'';
+            document.getElementById('restaurantAddressAr').value = rest.address_ar||'';
+            document.getElementById('restaurantAddressEn').value = rest.address_en||'';
+            document.getElementById('restaurantPhone').value = rest.phone||'';
+            document.getElementById('restaurantModalTitle').textContent = 'Edit Restaurant';
+            document.getElementById('deleteRestaurantBtn').style.display = 'inline-flex';
+            document.getElementById('restaurantModalOverlay').classList.add('show');
+        });
+    } else {
+        document.getElementById('restaurantId').value = '';
+        document.getElementById('restaurantNameAr').value = '';
+        document.getElementById('restaurantNameEn').value = '';
+        document.getElementById('restaurantSlug').value = '';
+        document.getElementById('restaurantAddressAr').value = '';
+        document.getElementById('restaurantAddressEn').value = '';
+        document.getElementById('restaurantPhone').value = '';
+        document.getElementById('restaurantModalTitle').textContent = 'New Restaurant';
+        document.getElementById('deleteRestaurantBtn').style.display = 'none';
+        document.getElementById('restaurantModalOverlay').classList.add('show');
+    }
+}
+function closeRestaurantModal() { document.getElementById('restaurantModalOverlay').classList.remove('show'); }
+
+async function saveRestaurant() {
+    var id = document.getElementById('restaurantId').value;
+    var body = {
+        name_ar: document.getElementById('restaurantNameAr').value.trim(),
+        name_en: document.getElementById('restaurantNameEn').value.trim(),
+        slug: document.getElementById('restaurantSlug').value.trim() || document.getElementById('restaurantNameEn').value.toLowerCase().replace(/\s+/g,'-'),
+        address_ar: document.getElementById('restaurantAddressAr').value.trim(),
+        address_en: document.getElementById('restaurantAddressEn').value.trim(),
+        phone: document.getElementById('restaurantPhone').value.trim()
+    };
+    if (!body.name_ar || !body.name_en) { toast('Names required', 'error'); return; }
+    try {
+        var u = id ? apiUrl('restaurants', {id:id}) : apiUrl('restaurants');
+        var r = await fetch(u, { method: id?'PUT':'POST', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify(body) });
+        var d = await r.json();
+        if (!r.ok) { toast(d.error,'error'); return; }
+        closeRestaurantModal();
+        location.reload();
+    } catch(e) { toast('Network error','error'); }
+}
+
+async function deleteRestaurant() {
+    var id = document.getElementById('restaurantId').value;
+    if (!confirm('Delete this restaurant and ALL its data?')) return;
+    try {
+        var r = await fetch(apiUrl('restaurants',{id:id}), { method:'DELETE', headers:{'X-CSRF-Token':CSRF_TOKEN} });
+        if (!r.ok) { toast('Failed','error'); return; }
+        closeRestaurantModal();
+        location.reload();
+    } catch(e) { toast('Network error','error'); }
+}
+
+// ── Admin Management ──
+async function showAdminModal() {
+    document.getElementById('adminModalOverlay').classList.add('show');
+    var r = await fetch(apiUrl('admins'));
+    var d = await r.json();
+    var admins = d.admins || [];
+    var html = '<table style="width:100%;font-size:0.82rem"><tr style="color:var(--accent-gold)"><th>Username</th><th>Role</th><th>Restaurant</th><th></th></tr>';
+    admins.forEach(function(a){
+        html += '<tr style="border-top:1px solid #222"><td style="padding:6px 0">'+a.username+'</td><td>'+a.role+'</td><td>'+(a.restaurant_name_en||'-')+'</td><td><button class="btn btn-sm btn-ghost" onclick="deleteAdmin('+a.id+')">Delete</button></td></tr>';
+    });
+    html += '</table>';
+    document.getElementById('adminsList').innerHTML = html;
+    // Load restaurants for dropdown
+    var rr = await fetch(apiUrl('restaurants'));
+    var dd = await rr.json();
+    var opts = (dd.restaurants||[]).map(function(x){return '<option value="'+x.id+'">'+x.name_en+'</option>'}).join('');
+    document.getElementById('newAdminRestaurantId').innerHTML = opts;
+}
+function closeAdminModal() { document.getElementById('adminModalOverlay').classList.remove('show'); }
+
+async function addAdmin() {
+    var body = {
+        username: document.getElementById('newAdminUsername').value.trim(),
+        password: document.getElementById('newAdminPassword').value,
+        role: document.getElementById('newAdminRole').value,
+        restaurant_id: document.getElementById('newAdminRestaurantId').value || null
+    };
+    if (!body.username || !body.password) { toast('Username and password required','error'); return; }
+    if (body.password.length < 6) { toast('Password must be 6+ chars','error'); return; }
+    try {
+        var r = await fetch(apiUrl('admins'), { method:'POST', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify(body) });
+        var d = await r.json();
+        if (!r.ok) { toast(d.error,'error'); return; }
+        document.getElementById('newAdminUsername').value = '';
+        document.getElementById('newAdminPassword').value = '';
+        toast('Admin created!','success');
+        showAdminModal();
+    } catch(e) { toast('Network error','error'); }
+}
+
+async function deleteAdmin(id) {
+    if (!confirm('Delete this admin?')) return;
+    try {
+        await fetch(apiUrl('admins',{id:id}), { method:'DELETE', headers:{'X-CSRF-Token':CSRF_TOKEN} });
+        toast('Admin deleted','success');
+        showAdminModal();
+    } catch(e) { toast('Network error','error'); }
+}
 
 function previewMenu() {
     if (!selectedRestaurantSlug) { toast('Select a restaurant', 'error'); return; }
