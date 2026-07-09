@@ -158,6 +158,7 @@ $csrfToken = Auth::csrfToken();
             <?php endif; ?>
             <?php if ($admin['role'] === 'super_admin'): ?>
                 <button class="btn btn-sm btn-outline" onclick="showRestaurantModal()">+ Restaurant</button>
+                <button class="btn btn-sm btn-outline" onclick="if(selectedRestaurantId)showRestaurantModal(selectedRestaurantId);else toast('Select a restaurant first','error')">✎ Edit Restaurant</button>
             <?php endif; ?>
             <button class="btn btn-sm btn-outline" onclick="previewMenu()">👁 Preview</button>
         </div>
@@ -359,6 +360,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=18"></script>
+    <script src="assets/admin.js?v=19"></script>
 </body>
 </html>
