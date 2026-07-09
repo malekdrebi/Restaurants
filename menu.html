@@ -2079,35 +2079,6 @@
             border-radius: 4px;
         }
 
-        /* ── Restaurant Header ── */
-        .restaurant-header {
-            text-align: center;
-            padding: 12px 16px 6px;
-            display: none;
-        }
-        .restaurant-header.has-info {
-            display: block;
-        }
-        .restaurant-info {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-        .restaurant-logo {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent-gold);
-        }
-        .restaurant-name {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            margin: 0;
-        }
-
         /* ── Loading Spinner ── */
         .loading-spinner {
             display: flex;
@@ -2166,9 +2137,6 @@
 </head>
 
 <body>
-
-    <!-- Restaurant Header (dynamic) -->
-    <div id="restaurantHeader" class="restaurant-header"></div>
 
     <!-- Language Selection Modal -->
     <div class="lang-overlay" id="langOverlay">
@@ -3161,18 +3129,6 @@
 
         function updateRestaurantHeader() {
             if (!restaurantInfo) return;
-            const header = document.getElementById('restaurantHeader');
-            if (!header) return;
-            header.classList.add('has-info');
-            header.innerHTML = `
-                <div class="restaurant-info">
-                    ${restaurantInfo.logo ? `<img src="/${restaurantInfo.logo}" alt="Logo" class="restaurant-logo">` : ''}
-                    <div>
-                        <h1 class="restaurant-name ar-text">${restaurantInfo.name_ar || ''}</h1>
-                        <h1 class="restaurant-name en-text">${restaurantInfo.name_en || ''}</h1>
-                    </div>
-                </div>
-            `;
             // Set background image per restaurant
             if (restaurantInfo.bg_image) {
                 document.getElementById('parallaxLayer1').style.backgroundImage = 'url(/' + restaurantInfo.bg_image + ')';
