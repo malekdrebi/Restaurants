@@ -119,7 +119,6 @@
             box-sizing: border-box;
         }
 
-        .logo-text, .hub-logo, .lang-logo { visibility: hidden; }
         .logo-text {
             font-size: 2.5rem;
             color: var(--accent-gold);
@@ -2786,8 +2785,7 @@
         function selectLanguage(lang) {
             setLang(lang);
             document.getElementById('langOverlay').style.display = 'none';
-            // Show hub screen after a small delay
-            setTimeout(() => showHub(), 400);
+            // Hub shown after API loads in updateRestaurantHeader
         }
 
         // ---- IMAGE DATA FOR CAROUSELS ----
@@ -3162,7 +3160,11 @@
             // Update all hardcoded brand names
             var brandName = restaurantInfo.name_en || 'Lavina House';
             var els = document.querySelectorAll('.hub-logo, .lang-logo, .logo-text, .footer-logo');
-            for (var i = 0; i < els.length; i++) { els[i].textContent = brandName; els[i].style.visibility = 'visible'; }
+            for (var i = 0; i < els.length; i++) { els[i].textContent = brandName; }
+            // Show hub now that everything is set
+            var hubEl = document.getElementById('hubScreen');
+            if (hubEl && restaurantInfo.show_hub !== false) showHub();
+            else if (hubEl && restaurantInfo.show_hub === false) showMenuElements();
             // Update welcome text
             var welcomeEn = document.querySelector('.hub-subtitle .en-text');
             if (welcomeEn) welcomeEn.textContent = 'Welcome to ' + brandName;
@@ -3689,10 +3691,10 @@
             hideMenuElements();
             document.body.style.overflow = 'hidden';
         } else {
-            // Returning user: set language and show hub
+            // Returning user: set language, hide menu, hub shown after API loads
             setLang(savedLang, false);
             hideMenuElements();
-            showHub();
+            // Don't show hub yet — it shows after updateRestaurantHeader runs
         }
         // Start loading menu data in background (will be ready when menu is accessed)
         loadMenu();
