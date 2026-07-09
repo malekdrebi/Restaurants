@@ -119,6 +119,7 @@
             box-sizing: border-box;
         }
 
+        .logo-text, .hub-logo, .lang-logo { visibility: hidden; }
         .logo-text {
             font-size: 2.5rem;
             color: var(--accent-gold);
@@ -3161,7 +3162,7 @@
             // Update all hardcoded brand names
             var brandName = restaurantInfo.name_en || 'Lavina House';
             var els = document.querySelectorAll('.hub-logo, .lang-logo, .logo-text, .footer-logo');
-            for (var i = 0; i < els.length; i++) { els[i].textContent = brandName; }
+            for (var i = 0; i < els.length; i++) { els[i].textContent = brandName; els[i].style.visibility = 'visible'; }
             // Update welcome text
             var welcomeEn = document.querySelector('.hub-subtitle .en-text');
             if (welcomeEn) welcomeEn.textContent = 'Welcome to ' + brandName;
