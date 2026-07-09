@@ -315,7 +315,9 @@ function renderVariantsInForm(variants) {
             '<input type="text" placeholder="EN Name" value="' + (v.name_en || v.en_name || '') + '" data-field="name_en">' +
             '<input type="number" placeholder="Price" step="0.001" value="' + (v.price || '') + '" data-field="price" style="max-width:90px">' +
             '<input type="file" accept="image/*" data-field="image_file" style="max-width:120px;font-size:0.65rem" title="Upload image">' +
-            (v.image ? '<img src="/' + v.image + '" style="width:36px;height:36px;object-fit:cover;border-radius:4px" title="' + v.image + '">' : '') +
+            '<span style="position:relative;display:inline-block">' +
+            (v.image ? '<img src="/' + v.image + '" style="width:36px;height:36px;object-fit:cover;border-radius:4px"><button class="variant-img-remove-btn" type="button" style="position:absolute;top:-6px;right:-6px;background:red;color:white;border:none;border-radius:50%;width:18px;height:18px;font-size:12px;line-height:1;cursor:pointer;padding:0">×</button>' : '') +
+            '</span>' +
             '<input type="hidden" data-field="image" value="' + (v.image || '') + '">' +
             '<button class="variant-remove-btn" type="button">×</button></div>';
     }).join('');
@@ -360,6 +362,14 @@ document.addEventListener('click', function(e) {
     if (e.target.closest('.add-cat-btn')) { showAddCategory(); return; }
     if (e.target.closest('.add-item-btn')) { showAddItem(); return; }
     if (e.target.closest('.variant-remove-btn')) { e.target.closest('.variant-row').remove(); return; }
+    if (e.target.closest('.variant-img-remove-btn')) {
+        var row = e.target.closest('.variant-row');
+        row.querySelector('[data-field=\"image\"]').value = '';
+        row.querySelector('[data-field=\"image_file\"]').value = '';
+        var img = row.querySelector('img'); if (img) img.remove();
+        e.target.closest('.variant-img-remove-btn').remove();
+        return;
+    }
 });
 
 function previewMenu() {
