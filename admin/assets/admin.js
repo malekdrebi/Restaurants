@@ -222,6 +222,7 @@ function showAddItem() {
     document.getElementById('itemSpicy').checked = false; document.getElementById('itemRecommended').checked = false;
     document.getElementById('itemImagePath').value = '';
     document.getElementById('itemImagePreview').style.display = 'none';
+    document.getElementById('removeImageBtn').style.display = 'none';
     document.getElementById('itemImageFile').value = '';
     document.getElementById('itemModalTitle').textContent = 'Add Item';
     document.getElementById('deleteItemBtn').style.display = 'none';
@@ -241,7 +242,8 @@ function showEditItem(itemId) {
     document.getElementById('itemSpicy').checked = item.spicy == 1; document.getElementById('itemRecommended').checked = item.recommended == 1;
     document.getElementById('itemImagePath').value = item.image || ''; document.getElementById('itemImageFile').value = '';
     var pv = document.getElementById('itemImagePreview');
-    if (item.image) { pv.src = '/' + item.image; pv.style.display = 'block'; } else { pv.style.display = 'none'; }
+    if (item.image) { pv.src = '/' + item.image; pv.style.display = 'block'; document.getElementById('removeImageBtn').style.display = 'block'; }
+    else { pv.style.display = 'none'; document.getElementById('removeImageBtn').style.display = 'none'; }
     document.getElementById('itemModalTitle').textContent = 'Edit Item';
     document.getElementById('deleteItemBtn').style.display = 'inline-flex';
     renderVariantsInForm(item.variants || []);
@@ -257,9 +259,15 @@ function switchItemTab(lang, btn) {
 function previewItemImage(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-        reader.onload = function(e) { var pv = document.getElementById('itemImagePreview'); pv.src = e.target.result; pv.style.display = 'block'; };
+        reader.onload = function(e) { var pv = document.getElementById('itemImagePreview'); pv.src = e.target.result; pv.style.display = 'block'; document.getElementById('removeImageBtn').style.display = 'block'; };
         reader.readAsDataURL(input.files[0]);
     }
+}
+function removeItemImage() {
+    document.getElementById('itemImagePreview').style.display = 'none';
+    document.getElementById('removeImageBtn').style.display = 'none';
+    document.getElementById('itemImagePath').value = '';
+    document.getElementById('itemImageFile').value = '';
 }
 
 async function saveItem() {

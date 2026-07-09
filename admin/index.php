@@ -211,7 +211,10 @@ $csrfToken = Auth::csrfToken();
                     <div class="form-group">
                         <label>Image</label>
                         <input type="file" id="itemImageFile" accept="image/*" onchange="previewItemImage(this)">
-                        <img id="itemImagePreview" class="image-preview" style="display:none" alt="Preview">
+                        <div style="position:relative;display:inline-block">
+                            <img id="itemImagePreview" class="image-preview" style="display:none" alt="Preview">
+                            <button type="button" id="removeImageBtn" onclick="removeItemImage()" style="display:none;position:absolute;top:-8px;right:-8px;background:red;color:white;border:none;border-radius:50%;width:22px;height:22px;font-size:14px;line-height:1;cursor:pointer;padding:0">×</button>
+                        </div>
                         <input type="hidden" id="itemImagePath">
                     </div>
                     <div class="variants-section">
@@ -276,6 +279,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=8"></script>
+    <script src="assets/admin.js?v=9"></script>
 </body>
 </html>
