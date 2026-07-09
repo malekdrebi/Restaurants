@@ -3128,10 +3128,15 @@
 
         function updateRestaurantHeader() {
             if (!restaurantInfo) return;
-            // Set background image per restaurant
+            // Override ALL hardcoded backgrounds with restaurant bg
             if (restaurantInfo.bg_image) {
-                document.getElementById('parallaxLayer1').style.backgroundImage = 'url(/' + restaurantInfo.bg_image + ')';
-                document.getElementById('parallaxLayer2').style.backgroundImage = 'url(/' + restaurantInfo.bg_image + ')';
+                var bgUrl = 'url(/' + restaurantInfo.bg_image + ')';
+                document.getElementById('parallaxLayer1').style.backgroundImage = bgUrl;
+                document.getElementById('parallaxLayer2').style.backgroundImage = bgUrl;
+                // Also override the CSS class directly
+                var bgStyle = document.createElement('style');
+                bgStyle.textContent = '.layer-1 { background-image: ' + bgUrl + ' !important; } .hub-screen::before { background: ' + bgUrl + ' center/cover no-repeat !important; }';
+                document.head.appendChild(bgStyle);
             }
             // Apply theme color
             if (restaurantInfo.primary_color) {
@@ -3170,12 +3175,6 @@
             if (welcomeEn) welcomeEn.textContent = 'Welcome to ' + brandName;
             // Update OG title
             document.title = brandName + ' | Menu';
-            // Override hardcoded hub background with restaurant bg
-            if (restaurantInfo.bg_image) {
-                var style = document.createElement('style');
-                style.textContent = '.hub-screen::before { background-image: url(/' + restaurantInfo.bg_image + ') !important; }';
-                document.head.appendChild(style);
-            }
         }
 
         function handleSearch(e) {
