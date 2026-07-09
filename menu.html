@@ -83,7 +83,7 @@
         }
 
         .layer-1 {
-            background-color: #0d0d0d;
+            background-image: url('background.jpg');
             filter: blur(2px) brightness(0.25);
             opacity: 0.9;
         }
@@ -1296,7 +1296,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #0d0d0d center/cover no-repeat;
+            background: url('background1.jpg') center/cover no-repeat;
             filter: blur(8px);
             z-index: -1;
             pointer-events: none;
@@ -3048,6 +3048,12 @@
 
         // ── Multi-Restaurant Menu Loader ──
         const RESTAURANT_SLUG = new URLSearchParams(window.location.search).get('slug') || 'lavina-house';
+        // For non-Lavina restaurants, hide backgrounds initially to prevent flash
+        if (RESTAURANT_SLUG !== 'lavina-house') {
+            var hideBgStyle = document.createElement('style');
+            hideBgStyle.textContent = '.layer-1, .layer-2, .hub-screen::before { background-image: none !important; }';
+            document.head.appendChild(hideBgStyle);
+        }
         const CART_KEY = 'lavina_cart_' + RESTAURANT_SLUG;
         let menuData = [];
         let restaurantInfo = null;
