@@ -2248,6 +2248,23 @@
                     </p>
                 </div>
 
+                <div class="hub-card" onclick="showMenuElements(); document.getElementById('hubScreen').style.display='none';" id="hubMenuCard">
+                    <div class="hub-card-icon">
+                        <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7"></path>
+                            <path d="M3 7l9 6 9-6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="hub-card-title">
+                        <span class="ar-text">تصفح القائمة</span>
+                        <span class="en-text">Browse Menu</span>
+                    </h3>
+                    <p class="hub-card-desc">
+                        <span class="ar-text">استعرض قائمة الطعام واطلب ما تشتهي</span>
+                        <span class="en-text">Explore our menu and order what you crave</span>
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -3199,6 +3216,9 @@
             var brandName = restaurantInfo.name_en || 'Lavina House';
             var els = document.querySelectorAll('.hub-logo, .lang-logo, .logo-text, .footer-logo');
             for (var i = 0; i < els.length; i++) { els[i].textContent = brandName; }
+            // Update welcome text
+            var welcomeEn = document.querySelector('.hub-subtitle .en-text');
+            if (welcomeEn) welcomeEn.textContent = 'Welcome to ' + brandName;
             // Update OG title
             document.title = brandName + ' | Menu';
             // Override hardcoded hub background with restaurant bg
