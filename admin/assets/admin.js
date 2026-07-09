@@ -89,14 +89,14 @@ function renderCategoryTree() {
         return;
     }
     t.innerHTML = categories.map(function(c) {
-        var act = (selectedCategoryId === c.id && !selectedSubcategoryId) ? ' active' : '';
+        var act = (selectedCategoryId == c.id && !selectedSubcategoryId) ? ' active' : '';
         return '<div class="tree-category tree-cat-row' + act + '" data-cid="' + c.id + '">' +
             '<span>' + (c.name_en || c.name_ar) + (c.is_featured == 1 ? ' ⭐' : '') + '</span>' +
             '<button class="cat-edit-btn" data-id="' + c.id + '" style="margin-left:auto;background:none;border:1px solid #333;color:#999;cursor:pointer;font-size:0.7rem;padding:2px 8px;border-radius:4px">✎ Edit</button>' +
             '</div><div id="subcats-' + c.id + '"></div>';
     }).join('');
     categories.forEach(function(c) { loadSubcategoriesForTree(c.id); });
-    if (!selectedCategoryId && categories.length > 0) selectCategory(categories[0].id);
+    if (!selectedCategoryId && categories.length > 0) selectCategory(parseInt(categories[0].id));
 }
 
 async function loadSubcategoriesForTree(catId) {
@@ -107,7 +107,7 @@ async function loadSubcategoriesForTree(catId) {
         var el = document.getElementById('subcats-' + catId);
         if (!el) return;
         el.innerHTML = subs.map(function(s) {
-            var act = (selectedCategoryId === catId && selectedSubcategoryId === s.id) ? ' active' : '';
+            var act = (selectedCategoryId == catId && selectedSubcategoryId == s.id) ? ' active' : '';
             return '<div class="tree-subcategory tree-sub-row' + act + '" data-cid="' + catId + '" data-sid="' + s.id + '">' + (s.name_en || s.name_ar) + '</div>';
         }).join('');
     } catch(e) {}
