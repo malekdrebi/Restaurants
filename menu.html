@@ -3194,8 +3194,8 @@
             if (footerLogo) footerLogo.textContent = brandName;
             var footerPhone = document.querySelector('.footer-contact a[href^=\"tel:\"] span');
             if (footerPhone && restaurantInfo.phone) footerPhone.textContent = restaurantInfo.phone;
-            var footerAddr = document.getElementById('footerAddress');
-            if (footerAddr && restaurantInfo.address_en) footerAddr.textContent = restaurantInfo.address_en;
+            var footerMapLink = document.querySelector('.footer-contact a[href*=\"maps\"]');
+            if (footerMapLink && restaurantInfo.maps_url) footerMapLink.href = restaurantInfo.maps_url;
 
             // Update welcome text
             var welcomeEn = document.querySelector('.hub-subtitle .en-text');

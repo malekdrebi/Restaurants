@@ -292,6 +292,7 @@ $csrfToken = Auth::csrfToken();
                     <div class="form-group"><label>Address (AR)</label><input type="text" id="restaurantAddressAr"></div>
                     <div class="form-group"><label>Address (EN)</label><input type="text" id="restaurantAddressEn"></div>
                     <div class="form-group"><label>Phone</label><input type="text" id="restaurantPhone"></div>
+                    <div class="form-group"><label>Google Maps URL</label><input type="text" id="restaurantMapsUrl" placeholder="https://maps.google.com/..."></div>
                     <div class="form-group"><label>Logo</label><input type="file" id="restaurantLogoFile" accept="image/*"><input type="hidden" id="restaurantLogo"></div>
                     <div class="form-group"><label>Background Image</label><input type="file" id="restaurantBgFile" accept="image/*"><input type="hidden" id="restaurantBg"></div>
                     <div class="form-group"><label>Theme Color</label><input type="color" id="restaurantColor" value="#C9A366" style="width:60px;height:36px;border:none;cursor:pointer"></div>
@@ -419,6 +420,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=24"></script>
+    <script src="assets/admin.js?v=25"></script>
 </body>
 </html>

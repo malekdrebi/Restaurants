@@ -1,0 +1,1 @@
+ALTER TABLE restaurants ADD COLUMN maps_url VARCHAR(500) DEFAULT NULL AFTER phone;
