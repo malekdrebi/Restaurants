@@ -3200,6 +3200,8 @@
             // Update welcome text
             var welcomeEn = document.querySelector('.hub-subtitle .en-text');
             if (welcomeEn) welcomeEn.textContent = 'Welcome to ' + brandName;
+            var welcomeAr = document.querySelector('.hub-subtitle .ar-text');
+            if (welcomeAr) welcomeAr.textContent = 'أهلاً وسهلاً بكم في ' + (restaurantInfo.name_ar || brandName);
             // Update OG title
             document.title = brandName + ' | Menu';
         }
