@@ -398,6 +398,7 @@ function showRestaurantModal(editId) {
             document.getElementById('restShowCart').checked = rest.show_cart!=0;
             document.getElementById('restShowParallax').checked = rest.show_parallax!=0;
             document.getElementById('restShowHub').checked = rest.show_hub!=0;
+            document.getElementById('restShowVipPrices').checked = rest.show_vip_prices!=0;
             document.getElementById('restaurantModalTitle').textContent = 'Edit Restaurant';
             document.getElementById('deleteRestaurantBtn').style.display = 'inline-flex';
             document.getElementById('restaurantModalOverlay').classList.add('show');
@@ -434,7 +435,8 @@ async function saveRestaurant() {
         show_tutorial: document.getElementById('restShowTutorial').checked?1:0,
         show_cart: document.getElementById('restShowCart').checked?1:0,
         show_parallax: document.getElementById('restShowParallax').checked?1:0,
-        show_hub: document.getElementById('restShowHub').checked?1:0
+        show_hub: document.getElementById('restShowHub').checked?1:0,
+        show_vip_prices: document.getElementById('restShowVipPrices').checked?1:0
     };
     // Upload logo if selected
     var logoF = document.getElementById('restaurantLogoFile').files[0];

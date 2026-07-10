@@ -302,6 +302,7 @@ $csrfToken = Auth::csrfToken();
                         <label class="check-label"><input type="checkbox" id="restShowCart" checked> Add to Cart</label>
                         <label class="check-label"><input type="checkbox" id="restShowParallax" checked> Parallax BG</label>
                         <label class="check-label"><input type="checkbox" id="restShowHub" checked> Hub Screen</label>
+                        <label class="check-label"><input type="checkbox" id="restShowVipPrices" checked> Show VIP Prices</label>
                     </div>
                 </form>
             </div>
@@ -416,6 +417,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=21"></script>
+    <script src="assets/admin.js?v=22"></script>
 </body>
 </html>
