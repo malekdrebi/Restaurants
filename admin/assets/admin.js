@@ -482,6 +482,10 @@ function showRestaurantModal(editId) {
         document.getElementById('restaurantAddressAr').value = '';
         document.getElementById('restaurantAddressEn').value = '';
         document.getElementById('restaurantPhone').value = '';
+        document.getElementById('restaurantBg').value = '';
+        document.getElementById('restaurantBgPreview').style.display = 'none';
+        document.getElementById('restaurantBgRemove').style.display = 'none';
+        document.getElementById('restaurantBgFile').value = '';
         document.getElementById('restaurantModalTitle').textContent = 'New Restaurant';
         document.getElementById('deleteRestaurantBtn').style.display = 'none';
         document.getElementById('restaurantModalOverlay').classList.add('show');
