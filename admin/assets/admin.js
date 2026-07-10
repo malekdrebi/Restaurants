@@ -381,6 +381,8 @@ function onRestaurantChange() {
     if (s.value === 'new') { showRestaurantModal(); s.value = ''; return; }
     selectedRestaurantId = s.value ? parseInt(s.value) : null;
     selectedRestaurantSlug = s.selectedOptions[0] ? s.selectedOptions[0].getAttribute('data-slug') : '';
+    selectedCategoryId = null; selectedSubcategoryId = null; currentItems = [];
+    document.getElementById('mainPanel').innerHTML = '<div class="panel-placeholder"><div class="panel-placeholder-icon">📋</div><p>Select a category from the sidebar</p></div>';
     if (!selectedRestaurantId) return;
     sessionStorage.setItem('lastRestaurantId', selectedRestaurantId);
     loadCategories();
