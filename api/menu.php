@@ -71,6 +71,16 @@ function getMenuData(PDO $db, string $slug): ?array
         $menu[] = $categoryData;
     }
 
+    // Get gallery images for this restaurant
+    $gStmt = $db->prepare("SELECT image_path FROM gallery_images WHERE restaurant_id = ? ORDER BY sort_order ASC");
+    $gStmt->execute([$restaurant['id']]);
+    $gallery = $gStmt->fetchAll(PDO::FETCH_COLUMN);
+
+    // Get VIP items for this restaurant
+    $vStmt = $db->prepare("SELECT * FROM vip_items WHERE restaurant_id = ? ORDER BY sort_order ASC");
+    $vStmt->execute([$restaurant['id']]);
+    $vipItems = $vStmt->fetchAll();
+
     return [
         'restaurant' => [
             'slug'    => $restaurant['slug'],
@@ -90,6 +100,8 @@ function getMenuData(PDO $db, string $slug): ?array
             'phone'   => $restaurant['phone'],
         ],
         'menu' => $menu,
+        'gallery' => $gallery,
+        'vip_items' => $vipItems,
     ];
 }
 
