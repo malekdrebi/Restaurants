@@ -3002,41 +3002,39 @@
         function renderVipItems() {
             const vipContainer = document.getElementById('vipItems');
 
-            const setMenuItems = [];
+            // Use API data if available, fallback to hardcoded
+            var items = [];
+            if (window._vipItems && window._vipItems.length) {
+                items = window._vipItems.map(function(v) {
+                    return {
+                        name: v.title_ar, en_name: v.title_en,
+                        price: v.price || '', image: v.image_path ? '/' + v.image_path : '',
+                        desc: v.desc_ar || '', en_desc: v.desc_en || '', images: []
+                    };
+                });
+            } else {
+                items = [
+                    { name: 'بوفيه مفتوح', en_name: 'Open Buffet', price: '', image: 'images/OpenPuffet/1.jpeg', images: ['images/OpenPuffet/2.jpeg','images/OpenPuffet/3.jpeg','images/OpenPuffet/4.jpeg','images/OpenPuffet/5.jpeg'], desc: 'تشكيلة واسعة من المقبلات، السلطات، الأطباق الرئيسية والحلويات', en_desc: 'Wide selection of appetizers, salads, main courses and desserts' },
+                ];
+            }
 
-            const buffetItems = [
-                { name: 'بوفيه مفتوح', en_name: 'Open Buffet', price: '', image: 'images/OpenPuffet/1.jpeg', images: ['images/OpenPuffet/2.jpeg', 'images/OpenPuffet/3.jpeg', 'images/OpenPuffet/4.jpeg', 'images/OpenPuffet/5.jpeg'], desc: 'تشكيلة واسعة من المقبلات، السلطات، الأطباق الرئيسية والحلويات', en_desc: 'Wide selection of appetizers, salads, main courses and desserts' },
-            ];
+            var sectionCard = function(item) {
+                var showPrice = restaurantInfo && restaurantInfo.show_vip_prices && item.price;
+                return '<div class="vip-item-card">' +
+                    (item.image ? '<img src="' + item.image + '" alt="' + (item.en_name || item.name) + '" class="vip-item-image" loading="lazy" onclick="openLightbox(\'' + item.image + '\')">' : '<div class="vip-item-image-placeholder"></div>') +
+                    '<div class="vip-item-info">' +
+                    '<div class="vip-item-name ar-text">' + item.name + '</div>' +
+                    '<div class="vip-item-name en-text">' + (item.en_name || '') + '</div>' +
+                    (showPrice ? '<div class="vip-item-price" style="color:var(--accent-gold);font-weight:700;margin-top:4px">' + item.price + '</div>' : '') +
+                    (item.desc ? '<div class="vip-item-desc ar-text">' + item.desc + '</div>' : '') +
+                    (item.en_desc ? '<div class="vip-item-desc en-text">' + item.en_desc + '</div>' : '') +
+                    (item.images && item.images.length ? '<div class="vip-item-gallery">' + item.images.map(function(img){return '<img src="' + img + '" class="vip-item-thumb" loading="lazy" onclick="openLightbox(\'' + img + '\')">';}).join('') + '</div>' : '') +
+                    '</div></div>';
+            };
 
-            const sectionCard = (item) => `
-                <div class="vip-item-card">
-                    ${item.image ? `<img src="${item.image}" alt="${item.en_name || item.name}" class="vip-item-image" loading="lazy" onclick="openLightbox('${item.image}')">` : `<div class="vip-item-image-placeholder"></div>`}
-                    <div class="vip-item-info">
-                        <div class="vip-item-name ar-text">${item.name}</div>
-                        <div class="vip-item-name en-text">${item.en_name || ''}</div>
-                        ${item.desc ? `<div class="vip-item-desc ar-text">${item.desc}</div>` : ''}
-                        ${item.en_desc ? `<div class="vip-item-desc en-text">${item.en_desc}</div>` : ''}
-                        ${item.images ? `<div class="vip-item-gallery">${item.images.map(img => `<img src="${img}" class="vip-item-thumb" loading="lazy" onclick="openLightbox('${img}')">`).join('')}</div>` : ''}
-                    </div>
-                </div>
-            `;
-
-            vipContainer.innerHTML = `
-                <!-- <div class="vip-subsection">
-                    <h3 class="vip-subsection-title">
-                        <span class="ar-text">لا يوجد قائمة محددة</span>
-                        <span class="en-text">There is no set menu</span>
-                    </h3>
-                    <div class="vip-items-grid-inner">${setMenuItems.map(sectionCard).join('')}</div> -->
-                </div>
-                <div class="vip-subsection">
-                    <h3 class="vip-subsection-title">
-                        <span class="ar-text">● بوفيه</span>
-                        <span class="en-text">● Buffet</span>
-                    </h3>
-                    <div class="vip-items-grid-inner">${buffetItems.map(sectionCard).join('')}</div>
-                </div>
-            `;
+            vipContainer.innerHTML = '<div class="vip-subsection">' +
+                '<h3 class="vip-subsection-title"><span class="ar-text">● VIP</span><span class="en-text">● VIP</span></h3>' +
+                '<div class="vip-items-grid-inner">' + items.map(sectionCard).join('') + '</div></div>';
         }
 
         // Redundant with init below; kept for safety on slow connections
