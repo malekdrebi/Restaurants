@@ -435,6 +435,11 @@ function onRestaurantChange() {
     document.getElementById('mainPanel').innerHTML = '<div class="panel-placeholder"><div class="panel-placeholder-icon">📋</div><p>Select a category from the sidebar</p></div>';
     if (!selectedRestaurantId) return;
     sessionStorage.setItem('lastRestaurantId', selectedRestaurantId);
+    // Show view count
+    fetch(apiUrl('restaurants')).then(function(r){return r.json()}).then(function(d){
+        var rest = (d.restaurants||[]).find(function(x){return x.id==selectedRestaurantId});
+        if (rest) document.getElementById('viewCount').textContent = '👁 ' + (rest.view_count||0) + ' views';
+    });
     loadCategories();
 }
 

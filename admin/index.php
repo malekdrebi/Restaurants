@@ -163,6 +163,7 @@ $csrfToken = Auth::csrfToken();
                 <button class="btn btn-sm btn-outline" onclick="if(selectedRestaurantId)showVipModal();else toast('Select a restaurant first','error')">⭐ VIP</button>
             <?php endif; ?>
             <button class="btn btn-sm btn-outline" onclick="previewMenu()">👁 Preview</button>
+            <span id="viewCount" style="color:var(--text-muted);font-size:0.75rem;margin-left:4px"></span>
         </div>
         <div class="topbar-right">
             <span class="topbar-user"><?= htmlspecialchars($admin['username']) ?> (<?= $admin['role'] ?>)</span>
@@ -420,6 +421,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=28"></script>
+    <script src="assets/admin.js?v=29"></script>
 </body>
 </html>

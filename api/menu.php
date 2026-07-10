@@ -20,6 +20,9 @@ function getMenuData(PDO $db, string $slug): ?array
         return null;
     }
 
+    // Increment view counter
+    $db->prepare("UPDATE restaurants SET view_count = view_count + 1 WHERE id = ?")->execute([$restaurant['id']]);
+
     // 2. Get categories with their items and subcategories
     $stmt = $db->prepare(
         "SELECT * FROM categories WHERE restaurant_id = ? ORDER BY sort_order ASC"
