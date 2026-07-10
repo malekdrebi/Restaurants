@@ -2079,6 +2079,10 @@
             border-radius: 4px;
         }
 
+        .cart-disabled .add-to-cart-btn,
+        .cart-disabled .cart-btn,
+        .cart-disabled .item-actions { display: none !important; }
+
         /* ── Loading Spinner ── */
         .loading-spinner {
             display: flex;
@@ -2790,20 +2794,9 @@
 
         // ---- IMAGE DATA FOR CAROUSELS ----
         // Drop your images into the 'look/' and 'vip/' folders, then update these arrays:
-        const lookImages = [
-            'look/529382617_1065538569071813_422788919766769381_n.jpg',
-            'look/530474315_1069225922036411_7713793458850291476_n.jpg',
-            'look/532971888_1070884025203934_8871732062709276553_n.jpg',
-            'look/535535072_1074404811518522_6489369758503474818_n.jpg',
-            'look/542752928_1088449826780687_6668822589459107647_n.jpg',
-            'look/568968306_1128858329406503_4712141511669995336_n.jpg',
-            'look/589163086_1160171959608473_3349114471157116383_n.jpg',
-            'look/598745062_1170544235237912_1789301708877099555_n.jpg',
-            'look/599952552_1170544208571248_3734094862384536506_n.jpg',
-            'look/600058512_1168938488731820_5304838275462907869_n.jpg',
-        ];
+        const lookImages = (window._galleryImages && window._galleryImages.length) ? window._galleryImages : [];
 
-        const vipImages = [
+        const vipImages = window._vipImages ? window._vipImages.map(function(v){return v.image_path;}) : [
             'vip/1.jpg', 'vip/2.jpg', 'vip/3.jpg', 'vip/4.jpg', 'vip/5.jpg',
             'vip/7.jpg', 'vip/8.jpg', 'vip/10.jpg', 'vip/VIP1.jpeg', 'vip/VIP2.jpeg',
             'vip/VIP3.jpeg', 'vip/VIP4.jpeg', 'vip/VIP5.jpeg', 'vip/VIP6.jpeg', 'vip/VIP7.jpeg'
@@ -3077,6 +3070,9 @@
                 const data = await response.json();
                 menuData = data.menu;
                 restaurantInfo = data.restaurant;
+                // Store gallery and VIP data
+                if (data.gallery) { window._galleryImages = data.gallery; }
+                if (data.vip_items) { window._vipItems = data.vip_items; }
 
                 // Update restaurant header
                 updateRestaurantHeader();
@@ -3155,14 +3151,19 @@
             // Gallery
             if (restaurantInfo.show_gallery) { showHubCard('showGallery()'); }
             else { hideHubCard('showGallery()'); var gs = document.getElementById('galleryScreen'); if(gs) gs.style.display = 'none'; }
-            // Tutorial/Menu card always stays — showTutorial() checks the setting and skips if disabled
+            // Tutorial — hide help button and tutorial overlay if disabled
             if (!restaurantInfo.show_tutorial) {
                 var mt = document.getElementById('menuTutorial'); if(mt) mt.style.display = 'none';
+                var hb = document.querySelector('.help-btn'); if(hb) hb.style.display = 'none';
             }
             // Parallax
             if (!restaurantInfo.show_parallax) { var pb = document.querySelector('.parallax-bg'); if(pb) pb.style.display = 'none'; }
-            // Cart
-            if (!restaurantInfo.show_cart) { var cf = document.getElementById('cartFab'); if(cf) cf.style.display = 'none'; }
+            // Cart — hide FAB, modal, and add-to-cart buttons
+            if (!restaurantInfo.show_cart) {
+                var cf = document.getElementById('cartFab'); if(cf) cf.style.display = 'none';
+                var cm = document.getElementById('cartModal'); if(cm) cm.style.display = 'none';
+                document.body.classList.add('cart-disabled');
+            }
             // Hub
             if (!restaurantInfo.show_hub) {
                 var hub = document.getElementById('hubScreen');
