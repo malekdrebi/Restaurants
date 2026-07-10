@@ -2895,7 +2895,9 @@
             document.querySelector('main').style.display = '';
             document.querySelector('footer').style.display = '';
             document.querySelector('.cart-fab').style.display = '';
-            document.querySelector('.help-btn').style.display = '';
+            if (!restaurantInfo || restaurantInfo.show_tutorial) {
+                document.querySelector('.help-btn').style.display = '';
+            }
             document.getElementById('noResults').style.display = '';
         }
 
@@ -3187,6 +3189,14 @@
             var hubEl = document.getElementById('hubScreen');
             if (hubEl && restaurantInfo.show_hub !== false) showHub();
             else if (hubEl && restaurantInfo.show_hub === false) showMenuElements();
+            // Update footer with restaurant info
+            var footerLogo = document.querySelector('.footer-logo');
+            if (footerLogo) footerLogo.textContent = brandName;
+            var footerPhone = document.querySelector('.footer-contact a[href^=\"tel:\"] span');
+            if (footerPhone && restaurantInfo.phone) footerPhone.textContent = restaurantInfo.phone;
+            var footerAddr = document.getElementById('footerAddress');
+            if (footerAddr && restaurantInfo.address_en) footerAddr.textContent = restaurantInfo.address_en;
+
             // Update welcome text
             var welcomeEn = document.querySelector('.hub-subtitle .en-text');
             if (welcomeEn) welcomeEn.textContent = 'Welcome to ' + brandName;
