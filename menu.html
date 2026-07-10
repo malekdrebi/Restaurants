@@ -3156,6 +3156,13 @@
             // Apply theme color
             if (restaurantInfo.primary_color) {
                 document.documentElement.style.setProperty('--accent-gold', restaurantInfo.primary_color);
+                // Convert hex to RGB for dim/glow variants
+                var hex = restaurantInfo.primary_color.replace('#','');
+                var r = parseInt(hex.substring(0,2), 16);
+                var g = parseInt(hex.substring(2,4), 16);
+                var b = parseInt(hex.substring(4,6), 16);
+                document.documentElement.style.setProperty('--accent-gold-dim', 'rgba('+r+','+g+','+b+',0.15)');
+                document.documentElement.style.setProperty('--accent-gold-glow', 'rgba('+r+','+g+','+b+',0.35)');
             }
             // Apply feature toggles
             // VIP

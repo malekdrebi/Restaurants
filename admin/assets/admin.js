@@ -23,6 +23,14 @@ var currentItems = [];
 
 // ═══ SINGLE EVENT DELEGATION FOR EVERYTHING ═══
 document.addEventListener('click', function(e) {
+    // Category reorder
+    if (e.target.closest('.reorder-btn')) {
+        var rb = e.target.closest('.reorder-btn');
+        var dir = rb.getAttribute('data-dir');
+        var cid = parseInt(rb.getAttribute('data-cid'));
+        reorderCategory(cid, dir);
+        return;
+    }
     // Category edit button
     var catBtn = e.target.closest('.cat-edit-btn');
     if (catBtn) {
@@ -44,6 +52,13 @@ document.addEventListener('click', function(e) {
         var scid = subRow.getAttribute('data-cid');
         var ssid = subRow.getAttribute('data-sid');
         if (scid && ssid) selectSubcategory(parseInt(scid), parseInt(ssid));
+        return;
+    }
+    // Item reorder
+    if (e.target.closest('.item-reorder')) {
+        e.stopPropagation();
+        var irb = e.target.closest('.item-reorder');
+        reorderItem(parseInt(irb.getAttribute('data-iid')), irb.getAttribute('data-dir'));
         return;
     }
     // Item card
@@ -89,12 +104,15 @@ function renderCategoryTree() {
         t.innerHTML = '<div class="tree-empty">No categories.<br><button class="btn btn-sm btn-gold add-cat-btn" style="margin-top:8px">+ Add Category</button></div>';
         return;
     }
-    t.innerHTML = categories.map(function(c) {
+    t.innerHTML = categories.map(function(c, i) {
         var act = (selectedCategoryId == c.id && !selectedSubcategoryId) ? ' active' : '';
         return '<div class="tree-category tree-cat-row' + act + '" data-cid="' + c.id + '">' +
             '<span>' + (c.name_en || c.name_ar) + (c.is_featured == 1 ? ' ⭐' : '') + '</span>' +
-            '<button class="cat-edit-btn" data-id="' + c.id + '" style="margin-left:auto;background:none;border:1px solid #333;color:#999;cursor:pointer;font-size:0.7rem;padding:2px 8px;border-radius:4px">✎ Edit</button>' +
-            '</div><div id="subcats-' + c.id + '"></div>';
+            '<span style="display:flex;gap:2px;margin-left:auto">' +
+            (i > 0 ? '<button class="reorder-btn" data-dir="up" data-cid="'+c.id+'" title="Move up">▲</button>' : '') +
+            (i < categories.length-1 ? '<button class="reorder-btn" data-dir="down" data-cid="'+c.id+'" title="Move down">▼</button>' : '') +
+            '<button class="cat-edit-btn" data-id="' + c.id + '" style="background:none;border:1px solid #333;color:#999;cursor:pointer;font-size:0.7rem;padding:2px 6px;border-radius:4px">✎</button>' +
+            '</span></div><div id="subcats-' + c.id + '"></div>';
     }).join('');
     categories.forEach(function(c) { loadSubcategoriesForTree(c.id); });
     t.scrollTop = scrollTop;
@@ -153,6 +171,34 @@ function showEditCategory(catId) {
     document.getElementById('deleteCatBtn').style.display = 'inline-flex';
     document.getElementById('catModalOverlay').classList.add('show');
 }
+async function reorderCategory(catId, dir) {
+    var idx = -1;
+    for (var i = 0; i < categories.length; i++) { if (categories[i].id == catId) { idx = i; break; } }
+    if (idx < 0) return;
+    var swapIdx = dir === 'up' ? idx - 1 : idx + 1;
+    if (swapIdx < 0 || swapIdx >= categories.length) return;
+    var catA = categories[idx], catB = categories[swapIdx];
+    try {
+        await fetch(apiUrl('categories', {id: catA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: catB.sort_order}) });
+        await fetch(apiUrl('categories', {id: catB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: catA.sort_order}) });
+        await loadCategories();
+    } catch(e) { toast('Reorder failed','error'); }
+}
+
+async function reorderItem(itemId, dir) {
+    var idx = -1;
+    for (var i = 0; i < currentItems.length; i++) { if (currentItems[i].id == itemId) { idx = i; break; } }
+    if (idx < 0) return;
+    var swapIdx = dir === 'up' ? idx - 1 : idx + 1;
+    if (swapIdx < 0 || swapIdx >= currentItems.length) return;
+    var itemA = currentItems[idx], itemB = currentItems[swapIdx];
+    try {
+        await fetch(apiUrl('items', {id: itemA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: itemB.sort_order}) });
+        await fetch(apiUrl('items', {id: itemB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: itemA.sort_order}) });
+        loadItems(selectedCategoryId, selectedSubcategoryId);
+    } catch(e) { toast('Reorder failed','error'); }
+}
+
 function closeCatModal() { document.getElementById('catModalOverlay').classList.remove('show'); }
 
 async function saveCategory() {
@@ -198,8 +244,12 @@ function renderItems() {
         return;
     }
     var h = '<div class="panel-header"><h2>' + cn + ' <span style="color:var(--text-muted);font-size:0.8rem">(' + currentItems.length + ')</span></h2><button class="btn btn-gold add-item-btn">+ Add Item</button></div><div class="items-grid">';
-    currentItems.forEach(function(item) {
+    currentItems.forEach(function(item, i) {
         h += '<div class="item-card item-card-clickable" data-iid="' + item.id + '" style="cursor:pointer">' +
+            '<div style="display:flex;flex-direction:column;gap:2px;margin-right:4px" onclick="event.stopPropagation()">' +
+            (i > 0 ? '<button class="reorder-btn item-reorder" data-dir="up" data-iid="'+item.id+'" title="Move up">▲</button>' : '') +
+            (i < currentItems.length-1 ? '<button class="reorder-btn item-reorder" data-dir="down" data-iid="'+item.id+'" title="Move down">▼</button>' : '') +
+            '</div>' +
             (item.image ? '<img src="/' + item.image + '" class="item-card-img" alt="">' : '<div class="item-card-img placeholder">🍽</div>') +
             '<div class="item-card-body"><div class="item-card-name">' + (item.name_ar || '') + '<span class="en">' + (item.name_en || '') + '</span></div>' +
             '<div class="item-card-price">' + parseFloat(item.price).toFixed(3) + ' LYD</div>' +
