@@ -458,6 +458,9 @@ function showRestaurantModal(editId) {
             document.getElementById('restaurantMapsUrl').value = rest.maps_url||'';
             document.getElementById('restaurantLogo').value = rest.logo||'';
             document.getElementById('restaurantBg').value = rest.bg_image||'';
+            var bgPv = document.getElementById('restaurantBgPreview');
+            if (rest.bg_image) { bgPv.src = '/' + rest.bg_image; bgPv.style.display = 'block'; document.getElementById('restaurantBgRemove').style.display = 'block'; }
+            else { bgPv.style.display = 'none'; document.getElementById('restaurantBgRemove').style.display = 'none'; }
             document.getElementById('restIsActive').checked = rest.is_active!=0;
             document.getElementById('restaurantColor').value = rest.primary_color||'#C9A366';
             document.getElementById('restShowVip').checked = rest.show_vip!=0;
@@ -677,6 +680,24 @@ async function deleteVipItem(id) {
     await fetch(apiUrl('vip_items',{id:id}), { method:'DELETE', headers:{'X-CSRF-Token':CSRF_TOKEN} });
     toast('Deleted','success');
     showVipModal();
+}
+
+function previewRestaurantBg(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('restaurantBgPreview').src = e.target.result;
+            document.getElementById('restaurantBgPreview').style.display = 'block';
+            document.getElementById('restaurantBgRemove').style.display = 'block';
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function removeRestaurantBg() {
+    document.getElementById('restaurantBgPreview').style.display = 'none';
+    document.getElementById('restaurantBgRemove').style.display = 'none';
+    document.getElementById('restaurantBg').value = '';
+    document.getElementById('restaurantBgFile').value = '';
 }
 
 function previewMenu() {
