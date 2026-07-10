@@ -60,8 +60,16 @@ function init() {
         document.getElementById('restaurantSelect').value = ADMIN_RESTAURANT_ID;
         document.getElementById('restaurantSelect').disabled = true;
         onRestaurantChange();
+        return;
     }
     var s = document.getElementById('restaurantSelect');
+    // Restore last selected restaurant
+    var lastId = sessionStorage.getItem('lastRestaurantId');
+    if (lastId && s) {
+        for (var i = 0; i < s.options.length; i++) {
+            if (s.options[i].value === lastId) { s.selectedIndex = i; onRestaurantChange(); return; }
+        }
+    }
     if (s && s.options.length > 1 && !s.value) { s.selectedIndex = 1; onRestaurantChange(); }
 }
 
@@ -374,6 +382,7 @@ function onRestaurantChange() {
     selectedRestaurantId = s.value ? parseInt(s.value) : null;
     selectedRestaurantSlug = s.selectedOptions[0] ? s.selectedOptions[0].getAttribute('data-slug') : '';
     if (!selectedRestaurantId) return;
+    sessionStorage.setItem('lastRestaurantId', selectedRestaurantId);
     loadCategories();
 }
 
@@ -458,6 +467,7 @@ async function saveRestaurant() {
         var d = await r.json();
         if (!r.ok) { toast(d.error,'error'); return; }
         closeRestaurantModal();
+        sessionStorage.setItem('lastRestaurantId', id || selectedRestaurantId);
         location.reload();
     } catch(e) { toast('Network error','error'); }
 }
