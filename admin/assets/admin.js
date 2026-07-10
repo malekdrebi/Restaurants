@@ -391,6 +391,7 @@ function showRestaurantModal(editId) {
             document.getElementById('restaurantPhone').value = rest.phone||'';
             document.getElementById('restaurantLogo').value = rest.logo||'';
             document.getElementById('restaurantBg').value = rest.bg_image||'';
+            document.getElementById('restIsActive').checked = rest.is_active!=0;
             document.getElementById('restaurantColor').value = rest.primary_color||'#C9A366';
             document.getElementById('restShowVip').checked = rest.show_vip!=0;
             document.getElementById('restShowGallery').checked = rest.show_gallery!=0;
@@ -436,7 +437,8 @@ async function saveRestaurant() {
         show_cart: document.getElementById('restShowCart').checked?1:0,
         show_parallax: document.getElementById('restShowParallax').checked?1:0,
         show_hub: document.getElementById('restShowHub').checked?1:0,
-        show_vip_prices: document.getElementById('restShowVipPrices').checked?1:0
+        show_vip_prices: document.getElementById('restShowVipPrices').checked?1:0,
+        is_active: document.getElementById('restIsActive').checked?1:0
     };
     // Upload logo if selected
     var logoF = document.getElementById('restaurantLogoFile').files[0];

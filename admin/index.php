@@ -295,14 +295,16 @@ $csrfToken = Auth::csrfToken();
                     <div class="form-group"><label>Logo</label><input type="file" id="restaurantLogoFile" accept="image/*"><input type="hidden" id="restaurantLogo"></div>
                     <div class="form-group"><label>Background Image</label><input type="file" id="restaurantBgFile" accept="image/*"><input type="hidden" id="restaurantBg"></div>
                     <div class="form-group"><label>Theme Color</label><input type="color" id="restaurantColor" value="#C9A366" style="width:60px;height:36px;border:none;cursor:pointer"></div>
-                    <div class="form-row form-checks" style="flex-wrap:wrap">
-                        <label class="check-label"><input type="checkbox" id="restShowVip" checked> VIP Lounge</label>
-                        <label class="check-label"><input type="checkbox" id="restShowGallery" checked> Gallery</label>
-                        <label class="check-label"><input type="checkbox" id="restShowTutorial" checked> Tutorial</label>
-                        <label class="check-label"><input type="checkbox" id="restShowCart" checked> Add to Cart</label>
-                        <label class="check-label"><input type="checkbox" id="restShowParallax" checked> Parallax BG</label>
-                        <label class="check-label"><input type="checkbox" id="restShowHub" checked> Hub Screen</label>
-                        <label class="check-label"><input type="checkbox" id="restShowVipPrices" checked> Show VIP Prices</label>
+
+                    <div class="toggle-row">
+                        <label class="toggle-label"><span class="toggle-switch"><input type="checkbox" id="restIsActive" checked><span class="toggle-slider"></span></span> Restaurant Active</label>
+                        <label class="toggle-label"><span class="toggle-switch"><input type="checkbox" id="restShowVip" checked><span class="toggle-slider"></span></span> VIP Lounge</label>
+                        <label class="toggle-label"><span class="toggle-switch"><input type="checkbox" id="restShowGallery" checked><span class="toggle-slider"></span></span> Gallery</label>
+                        <label class="toggle-label"><span class="toggle-switch"><input type="checkbox" id="restShowTutorial" checked><span class="toggle-slider"></span></span> Tutorial</label>
+                        <label class="toggle-label"><span class="toggle-switch"><input type="checkbox" id="restShowCart" checked><span class="toggle-slider"></span></span> Add to Cart</label>
+                        <label class="toggle-label"><span class="toggle-switch"><input type="checkbox" id="restShowParallax" checked><span class="toggle-slider"></span></span> Parallax BG</label>
+                        <label class="toggle-label"><span class="toggle-switch"><input type="checkbox" id="restShowHub" checked><span class="toggle-slider"></span></span> Hub Screen</label>
+                        <label class="toggle-label"><span class="toggle-switch"><input type="checkbox" id="restShowVipPrices" checked><span class="toggle-slider"></span></span> Show VIP Prices</label>
                     </div>
                 </form>
             </div>
@@ -417,6 +419,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=22"></script>
+    <script src="assets/admin.js?v=23"></script>
 </body>
 </html>
