@@ -109,8 +109,8 @@ function renderCategoryTree() {
         return '<div class="tree-category tree-cat-row' + act + '" data-cid="' + c.id + '">' +
             '<span>' + (c.name_en || c.name_ar) + (c.is_featured == 1 ? ' ⭐' : '') + '</span>' +
             '<span style="display:flex;gap:2px;margin-left:auto">' +
-            (i > 0 ? '<button class="reorder-btn" data-dir="up" data-cid="'+c.id+'" title="Move up">▲</button>' : '') +
-            (i < categories.length-1 ? '<button class="reorder-btn" data-dir="down" data-cid="'+c.id+'" title="Move down">▼</button>' : '') +
+            (i > 0 ? '<button class="reorder-btn" data-dir="up" data-cid="'+c.id+'" title="Move up">↑</button>' : '') +
+            (i < categories.length-1 ? '<button class="reorder-btn" data-dir="down" data-cid="'+c.id+'" title="Move down">↓</button>' : '') +
             '<button class="cat-edit-btn" data-id="' + c.id + '" style="background:none;border:1px solid #333;color:#999;cursor:pointer;font-size:0.7rem;padding:2px 6px;border-radius:4px">✎</button>' +
             '</span></div><div id="subcats-' + c.id + '"></div>';
     }).join('');
@@ -247,8 +247,8 @@ function renderItems() {
     currentItems.forEach(function(item, i) {
         h += '<div class="item-card item-card-clickable" data-iid="' + item.id + '" style="cursor:pointer">' +
             '<div style="display:flex;flex-direction:column;gap:2px;margin-right:4px" onclick="event.stopPropagation()">' +
-            (i > 0 ? '<button class="reorder-btn item-reorder" data-dir="up" data-iid="'+item.id+'" title="Move up">▲</button>' : '') +
-            (i < currentItems.length-1 ? '<button class="reorder-btn item-reorder" data-dir="down" data-iid="'+item.id+'" title="Move down">▼</button>' : '') +
+            (i > 0 ? '<button class="reorder-btn item-reorder" data-dir="up" data-iid="'+item.id+'" title="Move up">↑</button>' : '') +
+            (i < currentItems.length-1 ? '<button class="reorder-btn item-reorder" data-dir="down" data-iid="'+item.id+'" title="Move down">↓</button>' : '') +
             '</div>' +
             (item.image ? '<img src="/' + item.image + '" class="item-card-img" alt="">' : '<div class="item-card-img placeholder">🍽</div>') +
             '<div class="item-card-body"><div class="item-card-name">' + (item.name_ar || '') + '<span class="en">' + (item.name_en || '') + '</span></div>' +
