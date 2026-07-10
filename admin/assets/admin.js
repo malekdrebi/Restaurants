@@ -518,6 +518,94 @@ async function deleteAdmin(id) {
     } catch(e) { toast('Network error','error'); }
 }
 
+// ── Gallery Management ──
+async function showGalleryModal() {
+    document.getElementById('galleryModalOverlay').classList.add('show');
+    var r = await fetch(apiUrl('gallery', {restaurant_id: selectedRestaurantId}));
+    var d = await r.json();
+    var images = d.images || [];
+    var html = '';
+    images.forEach(function(img) {
+        html += '<div style="position:relative"><img src="/'+img.image_path+'" style="width:100px;height:80px;object-fit:cover;border-radius:6px;border:1px solid #333"><button style="position:absolute;top:-6px;right:-6px;background:red;color:white;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer" onclick="deleteGalleryImage('+img.id+')">×</button></div>';
+    });
+    if (!images.length) html = '<p style="color:var(--text-muted)">No gallery images yet</p>';
+    document.getElementById('galleryImagesList').innerHTML = html;
+}
+function closeGalleryModal() { document.getElementById('galleryModalOverlay').classList.remove('show'); }
+
+async function uploadGalleryImage() {
+    var file = document.getElementById('galleryFile').files[0];
+    if (!file) { toast('Select a file','error'); return; }
+    var fd = new FormData(); fd.append('image',file); fd.append('restaurant_id',selectedRestaurantId);
+    var r = await fetch(apiUrl('gallery'), { method:'POST', headers:{'X-CSRF-Token':CSRF_TOKEN}, body:fd });
+    var d = await r.json();
+    if (!r.ok) { toast(d.error,'error'); return; }
+    document.getElementById('galleryFile').value = '';
+    toast('Uploaded','success');
+    showGalleryModal();
+}
+async function deleteGalleryImage(id) {
+    if (!confirm('Delete this image?')) return;
+    await fetch(apiUrl('gallery',{id:id}), { method:'DELETE', headers:{'X-CSRF-Token':CSRF_TOKEN} });
+    toast('Deleted','success');
+    showGalleryModal();
+}
+
+// ── VIP Management ──
+async function showVipModal() {
+    document.getElementById('vipModalOverlay').classList.add('show');
+    var r = await fetch(apiUrl('vip_items', {restaurant_id: selectedRestaurantId}));
+    var d = await r.json();
+    var items = d.items || [];
+    var html = '';
+    items.forEach(function(item) {
+        html += '<div style="display:flex;gap:10px;align-items:center;padding:8px;background:var(--surface2);border-radius:6px;margin-bottom:6px">';
+        if (item.image_path) html += '<img src="/'+item.image_path+'" style="width:50px;height:50px;object-fit:cover;border-radius:4px">';
+        html += '<div style="flex:1"><b>'+item.title_en+'</b><br><small style="color:var(--text-muted)">'+item.desc_en+' | '+item.price+'</small></div>';
+        html += '<button class="btn btn-sm btn-ghost" onclick="deleteVipItem('+item.id+')">×</button></div>';
+    });
+    if (!items.length) html = '<p style="color:var(--text-muted)">No VIP items yet</p>';
+    document.getElementById('vipItemsList').innerHTML = html;
+}
+function closeVipModal() { document.getElementById('vipModalOverlay').classList.remove('show'); }
+
+async function addVipItem() {
+    var body = {
+        restaurant_id: selectedRestaurantId,
+        title_ar: document.getElementById('vipTitleAr').value.trim(),
+        title_en: document.getElementById('vipTitleEn').value.trim(),
+        desc_ar: document.getElementById('vipDescAr').value.trim(),
+        desc_en: document.getElementById('vipDescEn').value.trim(),
+        price: document.getElementById('vipPrice').value.trim()
+    };
+    if (!body.title_ar || !body.title_en) { toast('Title required','error'); return; }
+    // Upload image if selected
+    var imgFile = document.getElementById('vipImageFile').files[0];
+    if (imgFile) {
+        var fd = new FormData(); fd.append('image',imgFile); fd.append('restaurant_id',selectedRestaurantId); fd.append('restaurant_slug',selectedRestaurantSlug);
+        var ur = await fetch(apiUrl('upload'), { method:'POST', headers:{'X-CSRF-Token':CSRF_TOKEN}, body:fd });
+        var ud = await ur.json();
+        if (ur.ok) body.image_path = ud.path;
+    }
+    var r = await fetch(apiUrl('vip_items'), { method:'POST', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify(body) });
+    var d = await r.json();
+    if (!r.ok) { toast(d.error,'error'); return; }
+    document.getElementById('vipTitleAr').value = '';
+    document.getElementById('vipTitleEn').value = '';
+    document.getElementById('vipDescAr').value = '';
+    document.getElementById('vipDescEn').value = '';
+    document.getElementById('vipPrice').value = '';
+    document.getElementById('vipImageFile').value = '';
+    toast('VIP item added','success');
+    showVipModal();
+}
+async function deleteVipItem(id) {
+    if (!confirm('Delete this VIP item?')) return;
+    await fetch(apiUrl('vip_items',{id:id}), { method:'DELETE', headers:{'X-CSRF-Token':CSRF_TOKEN} });
+    toast('Deleted','success');
+    showVipModal();
+}
+
 function previewMenu() {
     if (!selectedRestaurantSlug) { toast('Select a restaurant', 'error'); return; }
     window.open('/menu?slug=' + selectedRestaurantSlug, '_blank');

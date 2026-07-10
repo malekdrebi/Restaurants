@@ -158,7 +158,9 @@ $csrfToken = Auth::csrfToken();
             <?php endif; ?>
             <?php if ($admin['role'] === 'super_admin'): ?>
                 <button class="btn btn-sm btn-outline" onclick="showRestaurantModal()">+ Restaurant</button>
-                <button class="btn btn-sm btn-outline" onclick="if(selectedRestaurantId)showRestaurantModal(selectedRestaurantId);else toast('Select a restaurant first','error')">✎ Edit Restaurant</button>
+                <button class="btn btn-sm btn-outline" onclick="if(selectedRestaurantId)showRestaurantModal(selectedRestaurantId);else toast('Select a restaurant first','error')">✎ Edit</button>
+                <button class="btn btn-sm btn-outline" onclick="if(selectedRestaurantId)showGalleryModal();else toast('Select a restaurant first','error')">🖼 Gallery</button>
+                <button class="btn btn-sm btn-outline" onclick="if(selectedRestaurantId)showVipModal();else toast('Select a restaurant first','error')">⭐ VIP</button>
             <?php endif; ?>
             <button class="btn btn-sm btn-outline" onclick="previewMenu()">👁 Preview</button>
         </div>
@@ -345,6 +347,60 @@ $csrfToken = Auth::csrfToken();
         </div>
     </div>
 
+    <!-- Gallery Modal -->
+    <div class="modal-overlay" id="galleryModalOverlay">
+        <div class="modal" id="galleryModal">
+            <div class="modal-header">
+                <h3>Gallery Images</h3>
+                <button class="modal-close" onclick="closeGalleryModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="galleryImagesList" style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px"></div>
+                <div class="form-group">
+                    <label>Upload New Image</label>
+                    <input type="file" id="galleryFile" accept="image/*">
+                    <button class="btn btn-gold btn-sm" onclick="uploadGalleryImage()" style="margin-top:6px">Upload</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeGalleryModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIP Modal -->
+    <div class="modal-overlay" id="vipModalOverlay">
+        <div class="modal" id="vipModal">
+            <div class="modal-header">
+                <h3>VIP Lounge Items</h3>
+                <button class="modal-close" onclick="closeVipModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="vipItemsList" style="margin-bottom:16px"></div>
+                <hr style="border-color:#333;margin:14px 0">
+                <h4 style="color:var(--accent-gold);margin-bottom:10px">Add VIP Item</h4>
+                <form id="vipForm">
+                    <div class="form-row">
+                        <div class="form-group"><label>Title AR</label><input type="text" id="vipTitleAr"></div>
+                        <div class="form-group"><label>Title EN</label><input type="text" id="vipTitleEn"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Description AR</label><input type="text" id="vipDescAr"></div>
+                        <div class="form-group"><label>Description EN</label><input type="text" id="vipDescEn"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Price</label><input type="text" id="vipPrice" placeholder="e.g. 150 د.ل"></div>
+                        <div class="form-group"><label>Image</label><input type="file" id="vipImageFile" accept="image/*"></div>
+                    </div>
+                    <button type="button" class="btn btn-gold btn-sm" onclick="addVipItem()">Add Item</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeVipModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
     <div class="toast-container" id="toastContainer"></div>
 
     <script>
@@ -360,6 +416,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=20"></script>
+    <script src="assets/admin.js?v=21"></script>
 </body>
 </html>
