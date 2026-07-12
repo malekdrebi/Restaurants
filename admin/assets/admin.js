@@ -760,15 +760,15 @@ async function deleteVipCarouselImage(id) {
 async function saveVipHero() {
     var file = document.getElementById('vipHeroBgFile').files[0];
     if (!file) { toast('Select an image','error'); return; }
+    if (!selectedRestaurantId) { toast('No restaurant selected','error'); return; }
     var fd = new FormData(); fd.append('image',file); fd.append('restaurant_id',selectedRestaurantId); fd.append('restaurant_slug',selectedRestaurantSlug);
     var r = await fetch(apiUrl('upload'), { method:'POST', headers:{'X-CSRF-Token':CSRF_TOKEN}, body:fd });
     var d = await r.json();
-    if (r.ok) {
-        document.getElementById('vipHeroBgPath').value = d.path;
-        // Update restaurant record
-        await fetch(apiUrl('restaurants', {id: selectedRestaurantId}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({vip_hero_bg: d.path}) });
-        toast('Hero image saved','success');
-    } else { toast(d.error,'error'); }
+    if (!r.ok) { toast(d.error||'Upload failed','error'); return; }
+    document.getElementById('vipHeroBgPath').value = d.path;
+    var r2 = await fetch(apiUrl('restaurants', {id: selectedRestaurantId}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({vip_hero_bg: d.path}) });
+    if (!r2.ok) { toast('Save failed','error'); return; }
+    toast('Hero image saved','success');
 }
 
 function closeVipModal() { document.getElementById('vipModalOverlay').classList.remove('show'); document.getElementById('vipEditId').value = ''; document.querySelector('#vipForm .btn-gold').textContent = 'Add Item'; }
