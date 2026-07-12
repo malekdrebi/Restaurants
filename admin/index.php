@@ -63,7 +63,7 @@ if (!$admin) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin Login — Lavina House</title>
+        <title>Admin Login — Webich</title>
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
         <style>
             :root { --bg: #0d0d0d; --surface: #1a1a1a; --accent-gold: #C9A366; --text: #e0e0e0; --text-muted: #999; --danger: #e74c3c; }
@@ -103,7 +103,7 @@ if (!$admin) {
     </head>
     <body>
         <div class="login-card">
-            <div class="login-logo">Lavina House</div>
+            <div class="login-logo">Webich</div>
             <div class="login-subtitle">Admin Dashboard</div>
             <?php if (isset($loginError)): ?>
                 <div class="error-msg"><?= htmlspecialchars($loginError) ?></div>
@@ -145,14 +145,14 @@ $csrfToken = Auth::csrfToken();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard — Lavina House Admin</title>
+    <title>Dashboard — Webich Admin</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/admin.css">
 </head>
 <body>
     <!-- Top Bar -->
     <header class="topbar">
-        <div class="topbar-brand">Lavina House <span class="topbar-label">Admin</span></div>
+        <div class="topbar-brand"><span id="topbarName">Webich</span> <span class="topbar-label">Admin</span></div>
         <div class="topbar-center">
             <select id="restaurantSelect" class="restaurant-select" onchange="onRestaurantChange()">
                 <option value="">Select restaurant...</option>
@@ -454,6 +454,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=47"></script>
+    <script src="assets/admin.js?v=48"></script>
 </body>
 </html>

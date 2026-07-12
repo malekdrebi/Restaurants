@@ -487,6 +487,9 @@ function onRestaurantChange() {
     document.getElementById('mainPanel').innerHTML = '<div class="panel-placeholder"><div class="panel-placeholder-icon">📋</div><p>Select a category from the sidebar</p></div>';
     if (!selectedRestaurantId) return;
     sessionStorage.setItem('lastRestaurantId', selectedRestaurantId);
+    // Update topbar name
+    var topName = document.getElementById('topbarName');
+    if (topName && s.selectedOptions[0]) topName.textContent = s.selectedOptions[0].text;
     // Show view count
     fetch(apiUrl('restaurants')).then(function(r){return r.json()}).then(function(d){
         var rest = (d.restaurants||[]).find(function(x){return x.id==selectedRestaurantId});
