@@ -2927,6 +2927,11 @@
             hideMenuElements();
             stopLookCarousel();
             renderVipItems();
+            // Hide carousel and hero image, show only items
+            var vc = document.getElementById('vipCarousel');
+            if (vc) vc.style.display = 'none';
+            var vh = document.querySelector('.vip-hero-top');
+            if (vh) vh.style.display = 'none';
             document.getElementById('vipScreen').style.display = 'block';
             document.getElementById('menuTopBar').style.display = 'flex';
             document.body.style.overflow = 'auto';
@@ -3029,7 +3034,7 @@
                 var thumbs = allImages.length ? allImages : (item.image ? [item.image] : []);
                 return '<div class="vip-item-card">' +
                     (mainImg ? '<img src="' + mainImg + '" alt="' + (item.en_name || item.name) + '" class="vip-item-image vip-main-img" loading="lazy" onclick="openLightbox(\'' + mainImg + '\')">' : '<div class="vip-item-image-placeholder"></div>') +
-                    (thumbs.length > 1 ? '<div class="vip-item-gallery">' + thumbs.map(function(t){return '<img src="' + t + '" class="vip-item-thumb" loading="lazy" onclick="var m=this.parentElement.parentElement.querySelector(\'.vip-main-img\');if(m)m.src=this.src;">';}).join('') + '</div>' : '') +
+                    (thumbs.length > 1 ? '<div class="vip-item-gallery">' + thumbs.map(function(t){return '<img src="' + t + '" class="vip-item-thumb" loading="lazy" onclick="openLightbox(\'' + t + '\')">';}).join('') + '</div>' : '') +
                     '<div class="vip-item-info">' +
                     '<div class="vip-item-name ar-text">' + item.name + '</div>' +
                     '<div class="vip-item-name en-text">' + (item.en_name || '') + '</div>' +
