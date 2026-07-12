@@ -448,7 +448,7 @@ $csrfToken = Auth::csrfToken();
                 <button class="modal-close" onclick="document.getElementById('helpModal').classList.remove('show')">&times;</button>
             </div>
             <div class="modal-body" style="text-align:center;line-height:2">
-                <p style="font-size:1.1rem;font-weight:700;color:var(--accent-gold)">Malek Drebi</p>
+                <p style="font-size:1.1rem;font-weight:700;color:var(--accent-gold)">Malek Aldrebi</p>
                 <p>📞 <a href="tel:0923611056" style="color:var(--text)">0923611056</a></p>
                 <p>📍 Tripoli, Libya</p>
             </div>
