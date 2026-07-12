@@ -439,8 +439,10 @@ async function saveVariants(itemId) {
             try {
                 var ur = await fetch(apiUrl('upload'), { method: 'POST', headers: { 'X-CSRF-Token': CSRF_TOKEN }, body: fd });
                 var ud = await ur.json();
+                console.log('Variant upload:', ur.status, ud);
                 if (ur.ok) imgPath = ud.path;
-            } catch(e) {}
+                else console.log('Upload error:', ud.error);
+            } catch(e) { console.log('Upload failed:', e); }
         }
 
         if (!na.trim() && !ne.trim()) continue;
