@@ -203,15 +203,20 @@ async function reorderCategory(catId, dir) {
 }
 
 async function reorderItem(itemId, dir) {
+    console.log('reorderItem start', itemId, dir, 'total items:', currentItems.length);
     var idx = -1;
     for (var i = 0; i < currentItems.length; i++) { if (currentItems[i].id == itemId) { idx = i; break; } }
-    if (idx < 0) return;
+    console.log('idx:', idx);
+    if (idx < 0) { console.log('item not found in currentItems'); return; }
     var swapIdx = dir === 'up' ? idx - 1 : idx + 1;
-    if (swapIdx < 0 || swapIdx >= currentItems.length) return;
+    if (swapIdx < 0 || swapIdx >= currentItems.length) { console.log('swap out of range'); return; }
     var itemA = currentItems[idx], itemB = currentItems[swapIdx];
+    console.log('swapping', itemA.id, itemA.sort_order, '<->', itemB.id, itemB.sort_order);
     try {
-        await fetch(apiUrl('items', {id: itemA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: itemB.sort_order}) });
-        await fetch(apiUrl('items', {id: itemB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: itemA.sort_order}) });
+        var r1 = await fetch(apiUrl('items', {id: itemA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: itemB.sort_order}) });
+        console.log('PUT1 status:', r1.status);
+        var r2 = await fetch(apiUrl('items', {id: itemB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: itemA.sort_order}) });
+        console.log('PUT2 status:', r2.status);
         loadItems(selectedCategoryId, selectedSubcategoryId);
     } catch(e) { toast('Reorder failed','error'); }
 }
