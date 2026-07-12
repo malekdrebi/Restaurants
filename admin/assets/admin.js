@@ -642,14 +642,16 @@ async function showVipModal() {
         html += '<div style="display:flex;gap:10px;align-items:center;padding:8px;background:var(--surface2);border-radius:6px;margin-bottom:6px">';
         if (item.image_path) html += '<img src="/'+item.image_path+'" style="width:50px;height:50px;object-fit:cover;border-radius:4px">';
         html += '<div style="flex:1"><b>'+item.title_en+'</b><br><small style="color:var(--text-muted)">'+item.desc_en+' | '+item.price+'</small></div>';
+        html += '<button class="btn btn-sm btn-ghost" onclick="editVipItem('+item.id+')">✎</button>';
         html += '<button class="btn btn-sm btn-ghost" onclick="deleteVipItem('+item.id+')">×</button></div>';
     });
     if (!items.length) html = '<p style="color:var(--text-muted)">No VIP items yet</p>';
     document.getElementById('vipItemsList').innerHTML = html;
 }
-function closeVipModal() { document.getElementById('vipModalOverlay').classList.remove('show'); }
+function closeVipModal() { document.getElementById('vipModalOverlay').classList.remove('show'); document.getElementById('vipEditId').value = ''; document.querySelector('#vipForm .btn-gold').textContent = 'Add Item'; }
 
 async function addVipItem() {
+    var editId = document.getElementById('vipEditId').value;
     var body = {
         restaurant_id: selectedRestaurantId,
         title_ar: document.getElementById('vipTitleAr').value.trim(),
@@ -659,7 +661,6 @@ async function addVipItem() {
         price: document.getElementById('vipPrice').value.trim()
     };
     if (!body.title_ar || !body.title_en) { toast('Title required','error'); return; }
-    // Upload image if selected
     var imgFile = document.getElementById('vipImageFile').files[0];
     if (imgFile) {
         var fd = new FormData(); fd.append('image',imgFile); fd.append('restaurant_id',selectedRestaurantId); fd.append('restaurant_slug',selectedRestaurantSlug);
@@ -667,17 +668,35 @@ async function addVipItem() {
         var ud = await ur.json();
         if (ur.ok) body.image_path = ud.path;
     }
-    var r = await fetch(apiUrl('vip_items'), { method:'POST', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify(body) });
+    var method = editId ? 'PUT' : 'POST';
+    var url = editId ? apiUrl('vip_items', {id: editId}) : apiUrl('vip_items');
+    var r = await fetch(url, { method: method, headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify(body) });
     var d = await r.json();
     if (!r.ok) { toast(d.error,'error'); return; }
+    document.getElementById('vipEditId').value = '';
     document.getElementById('vipTitleAr').value = '';
     document.getElementById('vipTitleEn').value = '';
     document.getElementById('vipDescAr').value = '';
     document.getElementById('vipDescEn').value = '';
     document.getElementById('vipPrice').value = '';
     document.getElementById('vipImageFile').value = '';
-    toast('VIP item added','success');
+    document.querySelector('#vipForm .btn-gold').textContent = 'Add Item';
+    toast(editId ? 'VIP item updated' : 'VIP item added','success');
     showVipModal();
+}
+
+async function editVipItem(id) {
+    var r = await fetch(apiUrl('vip_items', {restaurant_id: selectedRestaurantId}));
+    var d = await r.json();
+    var item = (d.items||[]).find(function(x){return x.id==id});
+    if (!item) return;
+    document.getElementById('vipEditId').value = item.id;
+    document.getElementById('vipTitleAr').value = item.title_ar||'';
+    document.getElementById('vipTitleEn').value = item.title_en||'';
+    document.getElementById('vipDescAr').value = item.desc_ar||'';
+    document.getElementById('vipDescEn').value = item.desc_en||'';
+    document.getElementById('vipPrice').value = item.price||'';
+    document.querySelector('#vipForm .btn-gold').textContent = 'Update Item';
 }
 async function deleteVipItem(id) {
     if (!confirm('Delete this VIP item?')) return;

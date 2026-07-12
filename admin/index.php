@@ -397,6 +397,7 @@ $csrfToken = Auth::csrfToken();
                         <div class="form-group"><label>Price</label><input type="text" id="vipPrice" placeholder="e.g. 150 د.ل"></div>
                         <div class="form-group"><label>Image</label><input type="file" id="vipImageFile" accept="image/*"></div>
                     </div>
+                    <input type="hidden" id="vipEditId">
                     <button type="button" class="btn btn-gold btn-sm" onclick="addVipItem()">Add Item</button>
                 </form>
             </div>
@@ -421,6 +422,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=30"></script>
+    <script src="assets/admin.js?v=31"></script>
 </body>
 </html>
