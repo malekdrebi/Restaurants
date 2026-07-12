@@ -54,6 +54,13 @@ document.addEventListener('click', function(e) {
         if (scid && ssid) selectSubcategory(parseInt(scid), parseInt(ssid));
         return;
     }
+    // Subcategory reorder
+    if (e.target.closest('.sub-reorder')) {
+        e.stopPropagation();
+        var srb = e.target.closest('.sub-reorder');
+        reorderSubcategory(parseInt(srb.getAttribute('data-sid')), parseInt(srb.getAttribute('data-cid')), srb.getAttribute('data-dir'));
+        return;
+    }
     // Item reorder
     if (e.target.closest('.item-reorder')) {
         e.stopPropagation();
@@ -126,9 +133,14 @@ async function loadSubcategoriesForTree(catId) {
         var subs = d.subcategories || [];
         var el = document.getElementById('subcats-' + catId);
         if (!el) return;
-        el.innerHTML = subs.map(function(s) {
+        el.innerHTML = subs.map(function(s, i) {
             var act = (selectedCategoryId == catId && selectedSubcategoryId == s.id) ? ' active' : '';
-            return '<div class="tree-subcategory tree-sub-row' + act + '" data-cid="' + catId + '" data-sid="' + s.id + '">' + (s.name_en || s.name_ar) + '</div>';
+            return '<div class="tree-subcategory tree-sub-row' + act + '" data-cid="' + catId + '" data-sid="' + s.id + '">' +
+                '<span>' + (s.name_en || s.name_ar) + '</span>' +
+                '<span style="display:flex;gap:2px;margin-left:auto">' +
+                (i > 0 ? '<button class="reorder-btn sub-reorder" data-dir="up" data-sid="'+s.id+'" data-cid="'+catId+'" title="Move up">↑</button>' : '') +
+                (i < subs.length-1 ? '<button class="reorder-btn sub-reorder" data-dir="down" data-sid="'+s.id+'" data-cid="'+catId+'" title="Move down">↓</button>' : '') +
+                '</span></div>';
         }).join('');
     } catch(e) {}
 }
@@ -199,6 +211,23 @@ async function reorderItem(itemId, dir) {
     } catch(e) { toast('Reorder failed','error'); }
 }
 
+async function reorderSubcategory(subId, catId, dir) {
+    var r = await fetch(apiUrl('subcategories', {category_id: catId}));
+    var d = await r.json();
+    var subs = d.subcategories || [];
+    var idx = -1;
+    for (var i = 0; i < subs.length; i++) { if (subs[i].id == subId) { idx = i; break; } }
+    if (idx < 0) return;
+    var swapIdx = dir === 'up' ? idx - 1 : idx + 1;
+    if (swapIdx < 0 || swapIdx >= subs.length) return;
+    var subA = subs[idx], subB = subs[swapIdx];
+    try {
+        await fetch(apiUrl('subcategories', {id: subA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: subB.sort_order}) });
+        await fetch(apiUrl('subcategories', {id: subB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: subA.sort_order}) });
+        loadSubcategoriesForTree(catId);
+    } catch(e) { toast('Reorder failed','error'); }
+}
+
 function closeCatModal() { document.getElementById('catModalOverlay').classList.remove('show'); }
 
 async function saveCategory() {
@@ -246,7 +275,7 @@ function renderItems() {
     var h = '<div class="panel-header"><h2>' + cn + ' <span style="color:var(--text-muted);font-size:0.8rem">(' + currentItems.length + ')</span></h2><button class="btn btn-gold add-item-btn">+ Add Item</button></div><div class="items-grid">';
     currentItems.forEach(function(item, i) {
         h += '<div class="item-card item-card-clickable" data-iid="' + item.id + '" style="cursor:pointer">' +
-            '<div style="display:flex;flex-direction:column;gap:2px;margin-right:4px" onclick="event.stopPropagation()">' +
+            '<div style="display:flex;flex-direction:column;gap:2px;margin-right:4px">' +
             (i > 0 ? '<button class="reorder-btn item-reorder" data-dir="up" data-iid="'+item.id+'" title="Move up">↑</button>' : '') +
             (i < currentItems.length-1 ? '<button class="reorder-btn item-reorder" data-dir="down" data-iid="'+item.id+'" title="Move down">↓</button>' : '') +
             '</div>' +
