@@ -462,6 +462,8 @@ function showRestaurantModal(editId) {
             document.getElementById('restaurantAddressEn').value = rest.address_en||'';
             document.getElementById('restaurantPhone').value = rest.phone||'';
             document.getElementById('restaurantMapsUrl').value = rest.maps_url||'';
+            document.getElementById('restaurantHoursAr').value = rest.working_hours_ar||'';
+            document.getElementById('restaurantHoursEn').value = rest.working_hours_en||'';
             document.getElementById('restaurantLogo').value = rest.logo||'';
             document.getElementById('restaurantBg').value = rest.bg_image||'';
             document.getElementById('vipHeroBgPath').value = rest.vip_hero_bg||'';
@@ -515,6 +517,8 @@ async function saveRestaurant() {
         address_en: document.getElementById('restaurantAddressEn').value.trim(),
         phone: document.getElementById('restaurantPhone').value.trim(),
         maps_url: document.getElementById('restaurantMapsUrl').value.trim(),
+        working_hours_ar: document.getElementById('restaurantHoursAr').value.trim(),
+        working_hours_en: document.getElementById('restaurantHoursEn').value.trim(),
         logo: document.getElementById('restaurantLogo').value,
         bg_image: document.getElementById('restaurantBg').value,
         primary_color: document.getElementById('restaurantColor').value,

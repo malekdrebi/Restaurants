@@ -304,6 +304,10 @@ $csrfToken = Auth::csrfToken();
                     <div class="form-group"><label>Address (EN)</label><input type="text" id="restaurantAddressEn"></div>
                     <div class="form-group"><label>Phone</label><input type="text" id="restaurantPhone"></div>
                     <div class="form-group"><label>Google Maps URL</label><input type="text" id="restaurantMapsUrl" placeholder="https://maps.google.com/..."></div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Working Hours (AR)</label><input type="text" id="restaurantHoursAr" placeholder="مثال: 8 صباحاً - 11 مساءً"></div>
+                        <div class="form-group"><label>Working Hours (EN)</label><input type="text" id="restaurantHoursEn" placeholder="e.g. 8 AM - 11 PM"></div>
+                    </div>
                     <div class="form-group"><label>Logo</label><input type="file" id="restaurantLogoFile" accept="image/*"><input type="hidden" id="restaurantLogo"></div>
                     <div class="form-group"><label>Background Image</label><input type="file" id="restaurantBgFile" accept="image/*" onchange="previewRestaurantBg(this)"><div style="position:relative;display:inline-block;margin-top:6px"><img id="restaurantBgPreview" class="image-preview" style="display:none;max-width:200px;max-height:100px" alt="BG Preview"><button type="button" onclick="removeRestaurantBg()" id="restaurantBgRemove" style="display:none;position:absolute;top:-6px;right:-6px;background:red;color:white;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;padding:0">×</button></div><input type="hidden" id="restaurantBg"></div>
                     <div class="form-group"><label>Theme Color</label><input type="color" id="restaurantColor" value="#C9A366" style="width:60px;height:36px;border:none;cursor:pointer"></div>
@@ -450,6 +454,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=35"></script>
+    <script src="assets/admin.js?v=36"></script>
 </body>
 </html>

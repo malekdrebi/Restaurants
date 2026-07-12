@@ -2524,7 +2524,7 @@
 
     <footer style="display: none;">
         <div class="footer-logo">Lavina House</div>
-        <div class="footer-text">An Elegant Experience</div>
+        <div class="footer-text" id="footerHours"></div>
         <div class="footer-contact">
             <a href="tel:0922162016" class="contact-item" style="text-decoration: none;">
                 <svg class="contact-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
@@ -3197,6 +3197,8 @@
             if (footerPhone && restaurantInfo.phone) footerPhone.textContent = restaurantInfo.phone;
             var footerMapLink = document.querySelector('.footer-contact a[href*=\"maps\"]');
             if (footerMapLink && restaurantInfo.maps_url) footerMapLink.href = restaurantInfo.maps_url;
+            var footerHours = document.getElementById('footerHours');
+            if (footerHours) footerHours.textContent = restaurantInfo.working_hours_en || restaurantInfo.working_hours_ar || '';
 
             // Update welcome text
             var welcomeEn = document.querySelector('.hub-subtitle .en-text');

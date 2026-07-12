@@ -118,6 +118,8 @@ function getMenuData(PDO $db, string $slug): ?array
             'address_en' => $restaurant['address_en'],
             'phone'   => $restaurant['phone'],
             'maps_url' => $restaurant['maps_url'],
+            'working_hours_ar' => $restaurant['working_hours_ar'] ?? '',
+            'working_hours_en' => $restaurant['working_hours_en'] ?? '',
         ],
         'menu' => $menu,
         'gallery' => $gallery,
