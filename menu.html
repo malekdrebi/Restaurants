@@ -3202,7 +3202,6 @@
             if (footerAddress && restaurantInfo.address_en) footerAddress.textContent = restaurantInfo.address_en;
             var footerHours = document.getElementById('footerHours');
             var hours = restaurantInfo.working_hours_en || restaurantInfo.working_hours_ar || '';
-            if (footerHours) { footerHours.textContent = hours; footerHours.style.display = hours ? '' : 'none'; }
             var footerHoursIcon = document.getElementById('footerHoursIcon');
             if (footerHoursIcon) { footerHoursIcon.textContent = hours; footerHoursIcon.style.display = hours ? '' : 'none'; }
 
