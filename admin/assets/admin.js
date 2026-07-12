@@ -32,10 +32,15 @@ document.addEventListener('click', function(e) {
     }
     // Item reorder (must come before .reorder-btn)
     if (e.target.closest('.item-reorder')) {
+        console.log('ITEM REORDER MATCHED');
         e.stopPropagation();
         var irb = e.target.closest('.item-reorder');
         reorderItem(parseInt(irb.getAttribute('data-iid')), irb.getAttribute('data-dir'));
         return;
+    }
+    // Debug: check why item-reorder doesn't match
+    if (e.target.closest('.reorder-btn') && !e.target.closest('.item-reorder') && !e.target.closest('.sub-reorder')) {
+        console.log('Only reorder-btn matched, classes:', e.target.className, 'parent:', e.target.parentElement.className);
     }
     // Category reorder
     if (e.target.closest('.reorder-btn')) {
