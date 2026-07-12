@@ -460,6 +460,8 @@ document.addEventListener('click', function(e) {
         if (vid) { editVipItem(vid); switchVipTab('items', document.querySelectorAll('#vipModal .lang-tab')[1]); }
         return;
     }
+    // Help button
+    if (e.target.closest('.help-info-btn')) { document.getElementById('helpModal').classList.add('show'); return; }
     // VIP buttons (all use delegation to avoid CSP issues)
     if (e.target.closest('.remove-vip-hero-btn')) { removeVipHeroBg(); return; }
     if (e.target.closest('.save-vip-hero-btn')) { saveVipHero(); return; }

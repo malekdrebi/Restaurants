@@ -174,6 +174,7 @@ $csrfToken = Auth::csrfToken();
             <?php endif; ?>
             <button class="btn btn-sm btn-outline" onclick="previewMenu()">👁 Preview</button>
             <span id="viewCount" style="color:var(--text-muted);font-size:0.75rem;margin-left:4px"></span>
+            <button class="btn btn-sm btn-ghost help-info-btn" title="Help">?</button>
         </div>
         <div class="topbar-right">
             <span class="topbar-user"><?= htmlspecialchars($admin['username']) ?> (<?= $admin['role'] ?>)</span>
@@ -439,6 +440,24 @@ $csrfToken = Auth::csrfToken();
         </div>
     </div>
 
+    <!-- Help Modal -->
+    <div class="modal-overlay" id="helpModal">
+        <div class="modal modal-sm">
+            <div class="modal-header">
+                <h3>Help & Support</h3>
+                <button class="modal-close" onclick="document.getElementById('helpModal').classList.remove('show')">&times;</button>
+            </div>
+            <div class="modal-body" style="text-align:center;line-height:2">
+                <p style="font-size:1.1rem;font-weight:700;color:var(--accent-gold)">Malek Drebi</p>
+                <p>📞 <a href="tel:0923611056" style="color:var(--text)">0923611056</a></p>
+                <p>📍 Tripoli, Libya</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="document.getElementById('helpModal').classList.remove('show')">Close</button>
+            </div>
+        </div>
+    </div>
+
     <div class="toast-container" id="toastContainer"></div>
 
     <script>
@@ -454,6 +473,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=49"></script>
+    <script src="assets/admin.js?v=50"></script>
 </body>
 </html>
