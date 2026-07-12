@@ -3,176 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Lavina House — Restaurants">
-    <meta property="og:description" content="Discover our restaurants and explore their menus">
+    <meta property="og:title" content="Webich — Digital Restaurant Menus">
+    <meta property="og:description" content="Modern digital menus for restaurants. QR-based, easy to manage, beautiful design.">
     <meta property="og:image" content="logo.jpeg">
-    <meta property="og:url" content="https://lavina-house.vercel.app">
-    <title>Lavina House — Restaurants</title>
+    <title>Webich — Digital Menus</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #0d0d0d;
-            --surface: #1a1a1a;
-            --accent-gold: #C9A366;
-            --text: #e0e0e0;
-            --text-muted: #999;
-        }
+        :root { --bg: #0d0d0d; --surface: #1a1a1a; --accent: #C9A366; --text: #e0e0e0; --text-muted: #999; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Cairo', 'Montserrat', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        /* Language toggle */
-        .lang-bar {
-            position: fixed;
-            top: 12px;
-            right: 16px;
-            z-index: 100;
-            display: flex;
-            gap: 6px;
-        }
-        .lang-btn {
-            background: transparent;
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
-            padding: 5px 12px;
-            border-radius: 16px;
-            cursor: pointer;
-            font-size: 0.75rem;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-            transition: all 0.2s;
-        }
-        .lang-btn.active {
-            background: var(--accent-gold);
-            color: #1a1a1a;
-        }
+        body { background: var(--bg); color: var(--text); font-family: 'Cairo','Montserrat',sans-serif; }
+        .lang-bar { position: fixed; top: 16px; right: 20px; z-index: 100; display: flex; gap: 6px; }
+        .lang-btn { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 5px 14px; border-radius: 20px; cursor: pointer; font-size: 0.75rem; font-weight: 700; font-family: 'Montserrat',sans-serif; transition: all 0.2s; }
+        .lang-btn.active { background: var(--accent); color: #1a1a1a; }
+
         /* Hero */
-        .hero {
-            text-align: center;
-            padding: 60px 20px 20px;
-        }
-        .brand-logo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent-gold);
-            margin-bottom: 16px;
-        }
-        .brand-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--accent-gold);
-            font-weight: 700;
-        }
-        .brand-tagline {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-top: 6px;
-        }
-        .ornament {
-            width: 60px;
-            height: 2px;
-            background: var(--accent-gold);
-            margin: 16px auto;
-            opacity: 0.5;
-        }
-        /* Restaurant grid */
-        .restaurant-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
-            padding: 20px 24px 60px;
-            max-width: 900px;
-            width: 100%;
-        }
-        .restaurant-card {
-            background: var(--surface);
-            border-radius: 16px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.25s, box-shadow 0.25s;
-            border: 1px solid #2a2a2a;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        .restaurant-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(201, 163, 102, 0.15);
-            border-color: var(--accent-gold);
-        }
-        .card-img-wrap {
-            width: 100%;
-            height: 180px;
-            background: #222;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .card-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .card-img-placeholder {
-            font-size: 3rem;
-            opacity: 0.3;
-        }
-        .card-body {
-            padding: 16px;
-        }
-        .card-name {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-        }
-        .card-address {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-            line-height: 1.4;
-        }
-        .card-arrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            margin-top: 10px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-        }
-        /* Loading & error */
-        .loading-spinner {
-            grid-column: 1 / -1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 60px 20px;
-        }
-        .spinner {
-            width: 40px; height: 40px;
-            border: 3px solid rgba(201,163,102,0.2);
-            border-top-color: var(--accent-gold);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
+        .hero { text-align: center; padding: 80px 20px 30px; background: linear-gradient(180deg, rgba(201,163,102,0.08) 0%, transparent 100%); }
+        .hero-logo { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); margin-bottom: 20px; }
+        .hero-title { font-family: 'Playfair Display',serif; font-size: 2.8rem; color: var(--accent); font-weight: 700; letter-spacing: 2px; }
+        .hero-subtitle { color: var(--text-muted); font-size: 1.15rem; margin-top: 10px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+        .hero-ornament { width: 50px; height: 2px; background: var(--accent); margin: 20px auto; opacity: 0.6; }
+
+        /* About */
+        .about { text-align: center; padding: 40px 20px; max-width: 700px; margin: 0 auto; }
+        .about h2 { color: var(--accent); font-size: 1.5rem; margin-bottom: 16px; font-family: 'Playfair Display',serif; }
+        .about p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
+        .feature { background: var(--surface); border-radius: 12px; padding: 24px 16px; text-align: center; border: 1px solid #222; }
+        .feature-icon { font-size: 2rem; margin-bottom: 10px; }
+        .feature h3 { color: var(--accent); font-size: 1rem; margin-bottom: 6px; }
+        .feature p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+
+        /* Restaurants */
+        .section-title { text-align: center; color: var(--accent); font-size: 1.3rem; margin: 40px 0 8px; font-family: 'Playfair Display',serif; }
+        .section-subtitle { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 24px; }
+        .restaurant-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 0 24px 40px; max-width: 900px; margin: 0 auto; }
+        .restaurant-card { background: var(--surface); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.25s, box-shadow 0.25s; border: 1px solid #2a2a2a; text-decoration: none; color: inherit; display: block; }
+        .restaurant-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(201,163,102,0.12); border-color: var(--accent); }
+        .card-img-wrap { width: 100%; height: 170px; background: #222; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .card-img { width: 100%; height: 100%; object-fit: cover; }
+        .card-img-placeholder { font-size: 2.5rem; opacity: 0.25; }
+        .card-body { padding: 14px 16px; }
+        .card-name { font-size: 1.05rem; font-weight: 700; color: var(--accent); }
+        .card-address { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; line-height: 1.4; }
+        .card-arrow { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; font-size: 0.78rem; font-weight: 700; color: var(--accent); }
+
+        /* Footer */
+        .footer { text-align: center; padding: 40px 20px; border-top: 1px solid #1a1a1a; color: var(--text-muted); font-size: 0.8rem; line-height: 2; margin-top: 20px; }
+        .footer strong { color: var(--accent); }
+
+        /* Loading */
+        .loading-spinner { grid-column: 1/-1; display: flex; flex-direction: column; align-items: center; padding: 60px 20px; }
+        .spinner { width: 36px; height: 36px; border: 3px solid rgba(201,163,102,0.15); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
-        .empty-state {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-muted);
-        }
-        /* RTL/LTR */
-        [dir="ltr"] .lang-bar { right: auto; left: 16px; }
+        .empty-state { grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--text-muted); }
+
+        [dir="ltr"] .lang-bar { right: auto; left: 20px; }
         [lang="en"] .ar-text { display: none !important; }
         [lang="ar"] .en-text { display: none !important; }
     </style>
@@ -185,17 +70,72 @@
     </div>
 
     <div class="hero">
-        <img src="logo.jpeg" alt="Lavina House" class="brand-logo">
-        <h1 class="brand-name">Webich</h1>
-        <p class="brand-tagline ar-text">اختر المطعم لتصفح القائمة</p>
-        <p class="brand-tagline en-text">Select a restaurant to browse its menu</p>
-        <div class="ornament"></div>
+        <img src="logo.jpeg" alt="Webich" class="hero-logo">
+        <h1 class="hero-title">Webich</h1>
+        <p class="hero-subtitle ar-text">حلول رقمية متكاملة لقوائم المطاعم — تصميم أنيق، إدارة سهلة، وتجربة حديثة لعملائك</p>
+        <p class="hero-subtitle en-text">Complete digital menu solutions for restaurants — elegant design, easy management, and a modern experience for your customers</p>
+        <div class="hero-ornament"></div>
     </div>
 
-    <div class="restaurant-grid" id="restaurantGrid">
-        <div class="loading-spinner">
-            <div class="spinner"></div>
+    <div class="about">
+        <h2>
+            <span class="ar-text">لماذا Webich؟</span>
+            <span class="en-text">Why Webich?</span>
+        </h2>
+        <p>
+            <span class="ar-text">نوفر منصة رقمية متكاملة لقوائم المطاعم والمقاهي. يمكنك إدارة قائمتك بسهولة، تحديث الأسعار، إضافة الصور، وتخصيص التصميم حسب هوية مطعمك. كل ذلك من لوحة تحكم واحدة يديرها صاحب المطعم أو المدير.</span>
+            <span class="en-text">We provide a complete digital menu platform for restaurants and cafes. Easily manage your menu, update prices, add photos, and customize the design to match your restaurant's identity — all from a single dashboard.</span>
+        </p>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <h3 class="ar-text">قوائم QR</h3>
+                <h3 class="en-text">QR Menus</h3>
+                <p class="ar-text">امسح الكود وتصفح القائمة فوراً بدون تطبيقات</p>
+                <p class="en-text">Scan the code and browse instantly — no app needed</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎨</div>
+                <h3 class="ar-text">تصميم مخصص</h3>
+                <h3 class="en-text">Custom Design</h3>
+                <p class="ar-text">تحكم كامل بالألوان والخلفيات والمظهر</p>
+                <p class="en-text">Full control over colors, backgrounds, and appearance</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3 class="ar-text">تحديث فوري</h3>
+                <h3 class="en-text">Instant Updates</h3>
+                <p class="ar-text">عدل الأسعار والأطباق مباشرة من لوحة التحكم</p>
+                <p class="en-text">Edit prices and dishes directly from the dashboard</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌍</div>
+                <h3 class="ar-text">ثنائي اللغة</h3>
+                <h3 class="en-text">Bilingual</h3>
+                <p class="ar-text">دعم كامل للعربية والإنجليزية في آن واحد</p>
+                <p class="en-text">Full Arabic and English support simultaneously</p>
+            </div>
         </div>
+    </div>
+
+    <h2 class="section-title">
+        <span class="ar-text">مطاعمنا</span>
+        <span class="en-text">Our Restaurants</span>
+    </h2>
+    <p class="section-subtitle">
+        <span class="ar-text">اختر المطعم لتصفح قائمته الرقمية</span>
+        <span class="en-text">Select a restaurant to browse its digital menu</span>
+    </p>
+
+    <div class="restaurant-grid" id="restaurantGrid">
+        <div class="loading-spinner"><div class="spinner"></div></div>
+    </div>
+
+    <div class="footer">
+        <strong>Webich</strong> — Digital Menu Solutions<br>
+        📞 <span dir="ltr">0923611056</span> &nbsp;|&nbsp; 📍 Tripoli, Libya<br>
+        <span class="ar-text">طور بواسطة مالك الدربي</span>
+        <span class="en-text">Developed by Malek Drebi</span>
     </div>
 
     <script>
@@ -207,56 +147,39 @@
             localStorage.setItem('lavina_language', lang);
             document.documentElement.lang = lang;
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-            document.querySelectorAll('.lang-btn').forEach(btn => {
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
                 btn.classList.toggle('active', btn.innerText.toLowerCase() === lang);
             });
         }
 
         async function loadRestaurants() {
             try {
-                const resp = await fetch('/api/index.php?endpoint=restaurants');
-                if (!resp.ok) throw new Error('Failed to load');
-                const data = await resp.json();
-                const restaurants = data.restaurants || [];
+                var resp = await fetch('/api/index.php?endpoint=restaurants');
+                if (!resp.ok) throw new Error('Failed');
+                var data = await resp.json();
+                var restaurants = data.restaurants || [];
 
-                if (restaurants.length === 0) {
-                    grid.innerHTML = `<div class="empty-state">
-                        <p class="ar-text">لا توجد مطاعم متاحة حالياً</p>
-                        <p class="en-text">No restaurants available at the moment</p>
-                    </div>`;
+                if (!restaurants.length) {
+                    grid.innerHTML = '<div class="empty-state"><p class="ar-text">لا توجد مطاعم متاحة حالياً</p><p class="en-text">No restaurants available at the moment</p></div>';
                     return;
                 }
 
-                grid.innerHTML = restaurants.map(r => `
-                    <a href="/menu?slug=${r.slug}" class="restaurant-card">
-                        <div class="card-img-wrap">
-                            ${r.logo
-                                ? `<img src="${r.logo}" alt="${r.name_en}" class="card-img">`
-                                : `<span class="card-img-placeholder">🍽</span>`}
-                        </div>
-                        <div class="card-body">
-                            <div class="card-name">
-                                <span class="ar-text">${r.name_ar}</span>
-                                <span class="en-text">${r.name_en}</span>
-                            </div>
-                            ${r.address_ar ? `<div class="card-address ar-text">${r.address_ar}</div>` : ''}
-                            ${r.address_en ? `<div class="card-address en-text">${r.address_en}</div>` : ''}
-                            <div class="card-arrow">
-                                <span class="ar-text">تصفح القائمة ←</span>
-                                <span class="en-text">Browse Menu →</span>
-                            </div>
-                        </div>
-                    </a>
-                `).join('');
+                grid.innerHTML = restaurants.map(function(r) {
+                    return '<a href="/menu?slug=' + r.slug + '" class="restaurant-card">' +
+                        '<div class="card-img-wrap">' +
+                        (r.logo ? '<img src="' + r.logo + '" alt="' + r.name_en + '" class="card-img">' : '<span class="card-img-placeholder">🍽</span>') +
+                        '</div><div class="card-body">' +
+                        '<div class="card-name"><span class="ar-text">' + r.name_ar + '</span><span class="en-text">' + r.name_en + '</span></div>' +
+                        (r.address_ar ? '<div class="card-address ar-text">' + r.address_ar + '</div>' : '') +
+                        (r.address_en ? '<div class="card-address en-text">' + r.address_en + '</div>' : '') +
+                        '<div class="card-arrow"><span class="ar-text">تصفح القائمة ←</span><span class="en-text">Browse Menu →</span></div>' +
+                        '</div></a>';
+                }).join('');
             } catch (err) {
-                grid.innerHTML = `<div class="empty-state">
-                    <p class="ar-text">تعذر تحميل المطاعم. يرجى المحاولة مرة أخرى.</p>
-                    <p class="en-text">Could not load restaurants. Please try again.</p>
-                </div>`;
+                grid.innerHTML = '<div class="empty-state"><p class="ar-text">تعذر تحميل المطاعم</p><p class="en-text">Could not load restaurants</p></div>';
             }
         }
 
-        // Init
         setLang(currentLang);
         loadRestaurants();
     </script>
