@@ -661,6 +661,8 @@ async function addVipItem() {
         price: document.getElementById('vipPrice').value.trim()
     };
     if (!body.title_ar || !body.title_en) { toast('Title required','error'); return; }
+    var existingImg = document.getElementById('vipImagePath').value;
+    if (existingImg) body.image_path = existingImg;
     var imgFile = document.getElementById('vipImageFile').files[0];
     if (imgFile) {
         var fd = new FormData(); fd.append('image',imgFile); fd.append('restaurant_id',selectedRestaurantId); fd.append('restaurant_slug',selectedRestaurantSlug);
@@ -680,9 +682,30 @@ async function addVipItem() {
     document.getElementById('vipDescEn').value = '';
     document.getElementById('vipPrice').value = '';
     document.getElementById('vipImageFile').value = '';
+    document.getElementById('vipImagePath').value = '';
+    document.getElementById('vipImagePreview').style.display = 'none';
+    document.getElementById('vipImageRemove').style.display = 'none';
     document.querySelector('#vipForm .btn-gold').textContent = 'Add Item';
     toast(editId ? 'VIP item updated' : 'VIP item added','success');
     showVipModal();
+}
+
+function previewVipImage(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('vipImagePreview').src = e.target.result;
+            document.getElementById('vipImagePreview').style.display = 'block';
+            document.getElementById('vipImageRemove').style.display = 'block';
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function removeVipImage() {
+    document.getElementById('vipImagePreview').style.display = 'none';
+    document.getElementById('vipImageRemove').style.display = 'none';
+    document.getElementById('vipImagePath').value = '';
+    document.getElementById('vipImageFile').value = '';
 }
 
 async function editVipItem(id) {
@@ -696,6 +719,10 @@ async function editVipItem(id) {
     document.getElementById('vipDescAr').value = item.desc_ar||'';
     document.getElementById('vipDescEn').value = item.desc_en||'';
     document.getElementById('vipPrice').value = item.price||'';
+    document.getElementById('vipImagePath').value = item.image_path||'';
+    var pv = document.getElementById('vipImagePreview');
+    if (item.image_path) { pv.src = '/' + item.image_path; pv.style.display = 'block'; document.getElementById('vipImageRemove').style.display = 'block'; }
+    else { pv.style.display = 'none'; document.getElementById('vipImageRemove').style.display = 'none'; }
     document.querySelector('#vipForm .btn-gold').textContent = 'Update Item';
 }
 async function deleteVipItem(id) {
