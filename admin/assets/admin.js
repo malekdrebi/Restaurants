@@ -743,6 +743,21 @@ async function deleteGalleryImage(id) {
 // ── VIP Management ──
 async function showVipModal() {
     document.getElementById('vipModalOverlay').classList.add('show');
+    // Load restaurant hero bg
+    var restR = await fetch(apiUrl('restaurants'));
+    var restD = await restR.json();
+    var rest = (restD.restaurants||[]).find(function(x){return x.id==selectedRestaurantId});
+    if (rest && rest.vip_hero_bg) {
+        document.getElementById('vipHeroBgPath').value = rest.vip_hero_bg;
+        document.getElementById('vipHeroBgPreview').src = '/' + rest.vip_hero_bg;
+        document.getElementById('vipHeroBgPreview').style.display = 'block';
+        document.getElementById('vipHeroBgRemove').style.display = 'block';
+    } else {
+        document.getElementById('vipHeroBgPath').value = '';
+        document.getElementById('vipHeroBgPreview').style.display = 'none';
+        document.getElementById('vipHeroBgRemove').style.display = 'none';
+    }
+    // Load VIP items
     var r = await fetch(apiUrl('vip_items', {restaurant_id: selectedRestaurantId}));
     var d = await r.json();
     var items = d.items || [];
@@ -775,11 +790,14 @@ function previewVipHeroBg(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
-function removeVipHeroBg() {
+async function removeVipHeroBg() {
     document.getElementById('vipHeroBgPreview').style.display = 'none';
     document.getElementById('vipHeroBgRemove').style.display = 'none';
     document.getElementById('vipHeroBgPath').value = '';
     document.getElementById('vipHeroBgFile').value = '';
+    // Clear from restaurant record
+    await fetch(apiUrl('restaurants', {id: selectedRestaurantId}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({vip_hero_bg: ''}) });
+    toast('Hero image removed','success');
 }
 async function loadVipCarouselImages() {
     if (!selectedRestaurantId) return;
