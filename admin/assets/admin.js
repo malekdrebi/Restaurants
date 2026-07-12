@@ -191,10 +191,11 @@ async function reorderCategory(catId, dir) {
     if (swapIdx < 0 || swapIdx >= categories.length) return;
     var catA = categories[idx], catB = categories[swapIdx];
     try {
-        var tmp = 999999;
-        await fetch(apiUrl('categories', {id: catA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: tmp}) });
-        await fetch(apiUrl('categories', {id: catB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: catA.sort_order}) });
-        await fetch(apiUrl('categories', {id: catA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: catB.sort_order}) });
+        var soA = parseInt(catA.sort_order) || idx;
+        var soB = parseInt(catB.sort_order) || swapIdx;
+        if (soA === soB) { soA = idx * 10; soB = swapIdx * 10; }
+        await fetch(apiUrl('categories', {id: catA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: soB}) });
+        await fetch(apiUrl('categories', {id: catB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: soA}) });
         await loadCategories();
     } catch(e) { toast('Reorder failed','error'); }
 }
@@ -207,10 +208,12 @@ async function reorderItem(itemId, dir) {
     if (swapIdx < 0 || swapIdx >= currentItems.length) return;
     var itemA = currentItems[idx], itemB = currentItems[swapIdx];
     try {
-        var tmp = 999999;
-        await fetch(apiUrl('items', {id: itemA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: tmp}) });
-        await fetch(apiUrl('items', {id: itemB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: itemA.sort_order}) });
-        await fetch(apiUrl('items', {id: itemA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: itemB.sort_order}) });
+        // Use sort_order values, normalizing if identical
+        var soA = parseInt(itemA.sort_order) || idx;
+        var soB = parseInt(itemB.sort_order) || swapIdx;
+        if (soA === soB) { soA = idx * 10; soB = swapIdx * 10; }
+        await fetch(apiUrl('items', {id: itemA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: soB}) });
+        await fetch(apiUrl('items', {id: itemB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: soA}) });
         loadItems(selectedCategoryId, selectedSubcategoryId);
     } catch(e) { toast('Reorder failed','error'); }
 }
@@ -226,10 +229,11 @@ async function reorderSubcategory(subId, catId, dir) {
     if (swapIdx < 0 || swapIdx >= subs.length) return;
     var subA = subs[idx], subB = subs[swapIdx];
     try {
-        var tmp = 999999;
-        await fetch(apiUrl('subcategories', {id: subA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: tmp}) });
-        await fetch(apiUrl('subcategories', {id: subB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: subA.sort_order}) });
-        await fetch(apiUrl('subcategories', {id: subA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: subB.sort_order}) });
+        var soA = parseInt(subA.sort_order) || idx;
+        var soB = parseInt(subB.sort_order) || swapIdx;
+        if (soA === soB) { soA = idx * 10; soB = swapIdx * 10; }
+        await fetch(apiUrl('subcategories', {id: subA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: soB}) });
+        await fetch(apiUrl('subcategories', {id: subB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: soA}) });
         loadSubcategoriesForTree(catId);
     } catch(e) { toast('Reorder failed','error'); }
 }
