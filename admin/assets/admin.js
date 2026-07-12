@@ -23,6 +23,20 @@ var currentItems = [];
 
 // ═══ SINGLE EVENT DELEGATION FOR EVERYTHING ═══
 document.addEventListener('click', function(e) {
+    // Subcategory reorder (must come before .reorder-btn)
+    if (e.target.closest('.sub-reorder')) {
+        e.stopPropagation();
+        var srb = e.target.closest('.sub-reorder');
+        reorderSubcategory(parseInt(srb.getAttribute('data-sid')), parseInt(srb.getAttribute('data-cid')), srb.getAttribute('data-dir'));
+        return;
+    }
+    // Item reorder (must come before .reorder-btn)
+    if (e.target.closest('.item-reorder')) {
+        e.stopPropagation();
+        var irb = e.target.closest('.item-reorder');
+        reorderItem(parseInt(irb.getAttribute('data-iid')), irb.getAttribute('data-dir'));
+        return;
+    }
     // Category reorder
     if (e.target.closest('.reorder-btn')) {
         var rb = e.target.closest('.reorder-btn');
@@ -52,20 +66,6 @@ document.addEventListener('click', function(e) {
         var scid = subRow.getAttribute('data-cid');
         var ssid = subRow.getAttribute('data-sid');
         if (scid && ssid) selectSubcategory(parseInt(scid), parseInt(ssid));
-        return;
-    }
-    // Subcategory reorder
-    if (e.target.closest('.sub-reorder')) {
-        e.stopPropagation();
-        var srb = e.target.closest('.sub-reorder');
-        reorderSubcategory(parseInt(srb.getAttribute('data-sid')), parseInt(srb.getAttribute('data-cid')), srb.getAttribute('data-dir'));
-        return;
-    }
-    // Item reorder
-    if (e.target.closest('.item-reorder')) {
-        e.stopPropagation();
-        var irb = e.target.closest('.item-reorder');
-        reorderItem(parseInt(irb.getAttribute('data-iid')), irb.getAttribute('data-dir'));
         return;
     }
     // Item card
@@ -198,7 +198,6 @@ async function reorderCategory(catId, dir) {
 }
 
 async function reorderItem(itemId, dir) {
-    console.log('reorderItem called', itemId, dir, 'items:', currentItems.length);
     var idx = -1;
     for (var i = 0; i < currentItems.length; i++) { if (currentItems[i].id == itemId) { idx = i; break; } }
     if (idx < 0) return;
@@ -223,7 +222,6 @@ async function reorderSubcategory(subId, catId, dir) {
     if (swapIdx < 0 || swapIdx >= subs.length) return;
     var subA = subs[idx], subB = subs[swapIdx];
     try {
-        console.log('Swapping sub', subA.id, subA.sort_order, '<->', subB.id, subB.sort_order);
         await fetch(apiUrl('subcategories', {id: subA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: subB.sort_order}) });
         await fetch(apiUrl('subcategories', {id: subB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: subA.sort_order}) });
         loadSubcategoriesForTree(catId);
