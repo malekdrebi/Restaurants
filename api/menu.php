@@ -9,26 +9,11 @@
 function getMenuData(PDO $db, string $slug): ?array
 {
     // 1. Get restaurant
-    try {
-        $stmt = $db->prepare(
-            "SELECT id, slug, name_ar, name_en, logo, bg_image, vip_hero_bg, primary_color, show_vip, show_gallery, show_tutorial, show_cart, show_parallax, show_hub, show_vip_prices, address_ar, address_en, phone, maps_url
-             FROM restaurants WHERE slug = ? AND is_active = 1"
-        );
-        $stmt->execute([$slug]);
-        $restaurant = $stmt->fetch();
-    } catch (Exception $e) {
-        // Fallback without optional columns
-        $stmt = $db->prepare("SELECT id, slug, name_ar, name_en, logo, bg_image, address_ar, address_en, phone, maps_url FROM restaurants WHERE slug = ? AND is_active = 1");
-        $stmt->execute([$slug]);
-        $restaurant = $stmt->fetch();
-        if ($restaurant) {
-            $restaurant['vip_hero_bg'] = null;
-            $restaurant['primary_color'] = '#C9A366';
-            $restaurant['show_vip'] = 1; $restaurant['show_gallery'] = 1; $restaurant['show_tutorial'] = 1;
-            $restaurant['show_cart'] = 1; $restaurant['show_parallax'] = 1; $restaurant['show_hub'] = 1;
-            $restaurant['show_vip_prices'] = 1;
-        }
-    }
+    $stmt = $db->prepare(
+        "SELECT * FROM restaurants WHERE slug = ? AND is_active = 1"
+    );
+    $stmt->execute([$slug]);
+    $restaurant = $stmt->fetch();
 
     if (!$restaurant) {
         return null;
