@@ -373,34 +373,46 @@ $csrfToken = Auth::csrfToken();
         </div>
     </div>
 
-    <!-- VIP Modal -->
+    <!-- VIP Modal with Tabs -->
     <div class="modal-overlay" id="vipModalOverlay">
         <div class="modal" id="vipModal">
             <div class="modal-header">
-                <h3>VIP Lounge Items</h3>
+                <h3>VIP Lounge</h3>
                 <button class="modal-close" onclick="closeVipModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <div id="vipItemsList" style="margin-bottom:16px"></div>
-                <hr style="border-color:#333;margin:14px 0">
-                <h4 style="color:var(--accent-gold);margin-bottom:10px">Add VIP Item</h4>
-                <form id="vipForm">
-                    <div class="form-row">
-                        <div class="form-group"><label>Title AR</label><input type="text" id="vipTitleAr"></div>
-                        <div class="form-group"><label>Title EN</label><input type="text" id="vipTitleEn"></div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group"><label>Description AR</label><input type="text" id="vipDescAr"></div>
-                        <div class="form-group"><label>Description EN</label><input type="text" id="vipDescEn"></div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group"><label>Price</label><input type="text" id="vipPrice" placeholder="e.g. 150 د.ل"></div>
-                        <div class="form-group"><label>Main Image</label><input type="file" id="vipImageFile" accept="image/*" onchange="previewVipImage(this)"><div style="position:relative;display:inline-block;margin-top:4px"><img id="vipImagePreview" class="image-preview" style="display:none;max-width:120px;max-height:80px" alt="VIP Preview"><button type="button" onclick="removeVipImage()" id="vipImageRemove" style="display:none;position:absolute;top:-6px;right:-6px;background:red;color:white;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;padding:0">×</button></div><input type="hidden" id="vipImagePath"></div>
-                        <div class="form-group"><label>Extra Images</label><input type="file" id="vipExtraImages" accept="image/*" multiple><div id="vipExtraImagesList" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px"></div></div>
-                    </div>
-                    <input type="hidden" id="vipEditId">
-                    <button type="button" class="btn btn-gold btn-sm" onclick="addVipItem()">Add Item</button>
-                </form>
+                <div class="lang-tabs" style="margin-bottom:16px">
+                    <button class="lang-tab active" onclick="switchVipTab('hero',this)">Main Page</button>
+                    <button class="lang-tab" onclick="switchVipTab('items',this)">Items</button>
+                </div>
+                <!-- Hero tab -->
+                <div id="vipTabHero">
+                    <div class="form-group"><label>Hero Background</label><input type="file" id="vipHeroBgFile" accept="image/*" onchange="previewVipHeroBg(this)"><div style="position:relative;display:inline-block;margin-top:4px"><img id="vipHeroBgPreview" class="image-preview" style="display:none;max-width:200px;max-height:100px" alt="Hero Preview"><button type="button" onclick="removeVipHeroBg()" id="vipHeroBgRemove" style="display:none;position:absolute;top:-6px;right:-6px;background:red;color:white;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;padding:0">×</button></div><input type="hidden" id="vipHeroBgPath"></div>
+                    <button type="button" class="btn btn-gold btn-sm" onclick="saveVipHero()">Save Hero</button>
+                </div>
+                <!-- Items tab -->
+                <div id="vipTabItems" style="display:none">
+                    <div id="vipItemsList" style="margin-bottom:16px"></div>
+                    <hr style="border-color:#333;margin:14px 0">
+                    <h4 style="color:var(--accent-gold);margin-bottom:10px">Add VIP Item</h4>
+                    <form id="vipForm">
+                        <div class="form-row">
+                            <div class="form-group"><label>Title AR</label><input type="text" id="vipTitleAr"></div>
+                            <div class="form-group"><label>Title EN</label><input type="text" id="vipTitleEn"></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label>Description AR</label><input type="text" id="vipDescAr"></div>
+                            <div class="form-group"><label>Description EN</label><input type="text" id="vipDescEn"></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label>Price</label><input type="text" id="vipPrice" placeholder="e.g. 150 د.ل"></div>
+                            <div class="form-group"><label>Main Image</label><input type="file" id="vipImageFile" accept="image/*" onchange="previewVipImage(this)"><div style="position:relative;display:inline-block;margin-top:4px"><img id="vipImagePreview" class="image-preview" style="display:none;max-width:120px;max-height:80px" alt="VIP Preview"><button type="button" onclick="removeVipImage()" id="vipImageRemove" style="display:none;position:absolute;top:-6px;right:-6px;background:red;color:white;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;padding:0">×</button></div><input type="hidden" id="vipImagePath"></div>
+                            <div class="form-group"><label>Extra Images</label><input type="file" id="vipExtraImages" accept="image/*" multiple><div id="vipExtraImagesList" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px"></div></div>
+                        </div>
+                        <input type="hidden" id="vipEditId">
+                        <button type="button" class="btn btn-gold btn-sm" onclick="addVipItem()">Add Item</button>
+                    </form>
+                </div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-ghost" onclick="closeVipModal()">Close</button>
@@ -423,6 +435,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=33"></script>
+    <script src="assets/admin.js?v=34"></script>
 </body>
 </html>

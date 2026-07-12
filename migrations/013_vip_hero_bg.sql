@@ -1,0 +1,1 @@
+ALTER TABLE restaurants ADD COLUMN vip_hero_bg VARCHAR(255) DEFAULT NULL AFTER bg_image;

@@ -2927,11 +2927,11 @@
             hideMenuElements();
             stopLookCarousel();
             renderVipItems();
-            // Hide carousel and hero image, show only items
-            var vc = document.getElementById('vipCarousel');
-            if (vc) vc.style.display = 'none';
-            var vh = document.querySelector('.vip-hero-top');
-            if (vh) vh.style.display = 'none';
+            // Show restaurant VIP hero bg if set
+            if (restaurantInfo && restaurantInfo.vip_hero_bg) {
+                var vh = document.querySelector('.vip-hero-bg');
+                if (vh) vh.style.backgroundImage = 'url(/' + restaurantInfo.vip_hero_bg + ')';
+            }
             document.getElementById('vipScreen').style.display = 'block';
             document.getElementById('menuTopBar').style.display = 'flex';
             document.body.style.overflow = 'auto';

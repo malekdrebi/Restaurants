@@ -96,6 +96,7 @@ function getMenuData(PDO $db, string $slug): ?array
             'name_en' => $restaurant['name_en'],
             'logo'    => $restaurant['logo'],
             'bg_image' => $restaurant['bg_image'],
+            'vip_hero_bg' => $restaurant['vip_hero_bg'],
             'primary_color' => $restaurant['primary_color'],
             'show_vip' => (bool)$restaurant['show_vip'],
             'show_gallery' => (bool)$restaurant['show_gallery'],
