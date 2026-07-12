@@ -765,9 +765,11 @@ async function deleteVipCarouselImage(id) {
 }
 
 async function saveVipHero() {
+    console.log('saveVipHero called');
     var file = document.getElementById('vipHeroBgFile').files[0];
-    if (!file) { toast('Select an image','error'); return; }
-    if (!selectedRestaurantId) { toast('No restaurant selected','error'); return; }
+    if (!file) { toast('Select an image','error'); console.log('no file'); return; }
+    if (!selectedRestaurantId) { toast('No restaurant selected','error'); console.log('no rest'); return; }
+    console.log('uploading...', file.name);
     var fd = new FormData(); fd.append('image',file); fd.append('restaurant_id',selectedRestaurantId); fd.append('restaurant_slug',selectedRestaurantSlug);
     var r = await fetch(apiUrl('upload'), { method:'POST', headers:{'X-CSRF-Token':CSRF_TOKEN}, body:fd });
     var d = await r.json();
