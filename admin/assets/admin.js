@@ -20,6 +20,7 @@ var selectedCategoryId = null;
 var selectedSubcategoryId = null;
 var categories = [];
 var currentItems = [];
+var expandedCategories = {};
 
 // ═══ SINGLE EVENT DELEGATION FOR EVERYTHING ═══
 document.addEventListener('click', function(e) {
@@ -130,6 +131,15 @@ function renderCategoryTree() {
             '</span></div><div id="subcats-' + c.id + '" style="display:none"></div>';
     }).join('');
     t.scrollTop = scrollTop;
+    // Restore expanded categories
+    Object.keys(expandedCategories).forEach(function(cid) {
+        if (expandedCategories[cid]) {
+            var sd = document.getElementById('subcats-' + cid);
+            if (sd) { sd.style.display = ''; loadSubcategoriesForTree(parseInt(cid)); }
+            var ct = document.querySelector('.cat-toggle[data-cid="' + cid + '"]');
+            if (ct) ct.textContent = '▼';
+        }
+    });
     if (!selectedCategoryId && categories.length > 0) selectCategory(parseInt(categories[0].id));
 }
 
@@ -157,10 +167,12 @@ function toggleCategory(catId, toggleEl) {
     if (!subDiv) return;
     if (subDiv.style.display === 'none') {
         subDiv.style.display = '';
+        expandedCategories[catId] = true;
         if (toggleEl) toggleEl.textContent = '▼';
         if (!subDiv.innerHTML.trim()) loadSubcategoriesForTree(catId);
     } else {
         subDiv.style.display = 'none';
+        expandedCategories[catId] = false;
         if (toggleEl) toggleEl.textContent = '▶';
     }
 }
