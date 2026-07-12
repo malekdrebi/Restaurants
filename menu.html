@@ -39,6 +39,8 @@
             --glass-border: rgba(166, 111, 54, 0.2);
             --shadow-premium: 0 20px 50px rgba(0, 0, 0, 0.8);
             --shimmer-gradient: linear-gradient(90deg, transparent, rgba(166, 111, 54, 0.1), transparent);
+            --accent-gold-soft: rgba(166, 111, 54, 0.3);
+            --accent-r: 166; --accent-g: 111; --accent-b: 54;
         }
 
         html {
@@ -127,7 +129,7 @@
             letter-spacing: 2px;
             margin-bottom: 5px;
             text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(166, 111, 54, 0.3);
+            text-shadow: 0 0 20px var(--accent-gold-soft);
             animation: logoPulse 4s infinite ease-in-out;
         }
 
@@ -135,12 +137,12 @@
 
             0%,
             100% {
-                text-shadow: 0 0 20px rgba(166, 111, 54, 0.3);
+                text-shadow: 0 0 20px var(--accent-gold-soft);
                 filter: brightness(1);
             }
 
             50% {
-                text-shadow: 0 0 40px rgba(166, 111, 54, 0.6);
+                text-shadow: 0 0 40px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.6);
                 filter: brightness(1.2);
             }
         }
@@ -1333,7 +1335,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(166, 111, 54, 0.3);
+            text-shadow: 0 0 20px var(--accent-gold-soft);
             animation: logoPulse 4s infinite ease-in-out;
         }
 
@@ -1585,7 +1587,7 @@
         .vip-hero-star {
             color: var(--accent-gold);
             margin-bottom: 16px;
-            filter: drop-shadow(0 0 20px rgba(166, 111, 54, 0.6));
+            filter: drop-shadow(0 0 20px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.6));
             animation: logoPulse 3s infinite ease-in-out;
         }
 
@@ -1681,7 +1683,7 @@
         }
 
         .vip-carousel-dots .carousel-dot {
-            background: rgba(166, 111, 54, 0.3);
+            background: var(--accent-gold-soft);
         }
 
         .vip-carousel-dots .carousel-dot.active {
@@ -3145,13 +3147,18 @@
             // Apply theme color
             if (restaurantInfo.primary_color) {
                 document.documentElement.style.setProperty('--accent-gold', restaurantInfo.primary_color);
-                // Convert hex to RGB for dim/glow variants
                 var hex = restaurantInfo.primary_color.replace('#','');
                 var r = parseInt(hex.substring(0,2), 16);
                 var g = parseInt(hex.substring(2,4), 16);
                 var b = parseInt(hex.substring(4,6), 16);
                 document.documentElement.style.setProperty('--accent-gold-dim', 'rgba('+r+','+g+','+b+',0.15)');
                 document.documentElement.style.setProperty('--accent-gold-glow', 'rgba('+r+','+g+','+b+',0.35)');
+                document.documentElement.style.setProperty('--accent-gold-soft', 'rgba('+r+','+g+','+b+',0.3)');
+                document.documentElement.style.setProperty('--glass-border', 'rgba('+r+','+g+','+b+',0.2)');
+                document.documentElement.style.setProperty('--shimmer-gradient', 'linear-gradient(90deg, transparent, rgba('+r+','+g+','+b+',0.1), transparent)');
+                document.documentElement.style.setProperty('--accent-r', r);
+                document.documentElement.style.setProperty('--accent-g', g);
+                document.documentElement.style.setProperty('--accent-b', b);
             }
             // Apply feature toggles
             // VIP
