@@ -460,6 +460,13 @@ document.addEventListener('click', function(e) {
         if (vid) { editVipItem(vid); switchVipTab('items', document.querySelectorAll('#vipModal .lang-tab')[1]); }
         return;
     }
+    // VIP buttons (all use delegation to avoid CSP issues)
+    if (e.target.closest('.remove-vip-hero-btn')) { removeVipHeroBg(); return; }
+    if (e.target.closest('.save-vip-hero-btn')) { saveVipHero(); return; }
+    if (e.target.closest('.add-vip-item-btn')) { addVipItem(); return; }
+    if (e.target.closest('.upload-vip-carousel-btn')) { uploadVipCarousel(); return; }
+    if (e.target.closest('.close-vip-modal-btn')) { closeVipModal(); return; }
+    if (e.target.closest('.vip-tab-btn')) { var b = e.target.closest('.vip-tab-btn'); switchVipTab(b.getAttribute('data-tab'), b); return; }
     if (e.target.closest('.variant-img-remove-btn')) {
         var row = e.target.closest('.variant-row');
         row.querySelector('[data-field=\"image\"]').value = '';

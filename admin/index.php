@@ -392,22 +392,22 @@ $csrfToken = Auth::csrfToken();
         <div class="modal" id="vipModal">
             <div class="modal-header">
                 <h3>VIP Lounge</h3>
-                <button class="modal-close" onclick="closeVipModal()">&times;</button>
+                <button class="modal-close close-vip-modal-btn">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="lang-tabs" style="margin-bottom:16px">
-                    <button class="lang-tab active" onclick="switchVipTab('hero',this)">Main Page</button>
-                    <button class="lang-tab" onclick="switchVipTab('items',this)">Items</button>
+                    <button class="lang-tab vip-tab-btn active" data-tab="hero">Main Page</button>
+                    <button class="lang-tab vip-tab-btn" data-tab="items">Items</button>
                 </div>
                 <!-- Hero tab -->
                 <div id="vipTabHero">
-                    <div class="form-group"><label>Hero Background</label><input type="file" id="vipHeroBgFile" accept="image/*" onchange="previewVipHeroBg(this)"><div style="position:relative;display:inline-block;margin-top:4px"><img id="vipHeroBgPreview" class="image-preview" style="display:none;max-width:200px;max-height:100px" alt="Hero Preview"><button type="button" onclick="removeVipHeroBg()" id="vipHeroBgRemove" style="display:none;position:absolute;top:-6px;right:-6px;background:red;color:white;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;padding:0">×</button></div><input type="hidden" id="vipHeroBgPath"></div>
-                    <button type="button" class="btn btn-gold btn-sm" onclick="saveVipHero()">Save Hero</button>
+                    <div class="form-group"><label>Hero Background</label><input type="file" id="vipHeroBgFile" accept="image/*" onchange="previewVipHeroBg(this)"><div style="position:relative;display:inline-block;margin-top:4px"><img id="vipHeroBgPreview" class="image-preview" style="display:none;max-width:200px;max-height:100px" alt="Hero Preview"><button type="button" class="remove-vip-hero-btn" id="vipHeroBgRemove" style="display:none;position:absolute;top:-6px;right:-6px;background:red;color:white;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;padding:0">×</button></div><input type="hidden" id="vipHeroBgPath"></div>
+                    <button type="button" class="btn btn-gold btn-sm save-vip-hero-btn">Save Hero</button>
                     <hr style="border-color:#333;margin:16px 0">
                     <h4 style="color:var(--accent-gold);margin-bottom:8px">Carousel Images</h4>
                     <div id="vipCarouselImagesList" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px"></div>
                     <input type="file" id="vipCarouselFile" accept="image/*" multiple>
-                    <button type="button" class="btn btn-gold btn-sm" onclick="uploadVipCarousel()" style="margin-top:6px">Upload</button>
+                    <button type="button" class="btn btn-gold btn-sm upload-vip-carousel-btn" style="margin-top:6px">Upload</button>
                 </div>
                 <!-- Items tab -->
                 <div id="vipTabItems" style="display:none">
@@ -429,12 +429,12 @@ $csrfToken = Auth::csrfToken();
                             <div class="form-group"><label>Extra Images</label><input type="file" id="vipExtraImages" accept="image/*" multiple><div id="vipExtraImagesList" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px"></div></div>
                         </div>
                         <input type="hidden" id="vipEditId">
-                        <button type="button" class="btn btn-gold btn-sm" onclick="addVipItem()">Add Item</button>
+                        <button type="button" class="btn btn-gold btn-sm add-vip-item-btn">Add Item</button>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-ghost" onclick="closeVipModal()">Close</button>
+                <button class="btn btn-ghost close-vip-modal-btn">Close</button>
             </div>
         </div>
     </div>
@@ -454,6 +454,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=44"></script>
+    <script src="assets/admin.js?v=45"></script>
 </body>
 </html>
