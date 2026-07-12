@@ -2796,11 +2796,7 @@
         // Drop your images into the 'look/' and 'vip/' folders, then update these arrays:
         const fallbackLookImages = null; // Only used if API fails to load at all
 
-        const vipImages = window._vipImages ? window._vipImages.map(function(v){return v.image_path;}) : [
-            'vip/1.jpg', 'vip/2.jpg', 'vip/3.jpg', 'vip/4.jpg', 'vip/5.jpg',
-            'vip/7.jpg', 'vip/8.jpg', 'vip/10.jpg', 'vip/VIP1.jpeg', 'vip/VIP2.jpeg',
-            'vip/VIP3.jpeg', 'vip/VIP4.jpeg', 'vip/VIP5.jpeg', 'vip/VIP6.jpeg', 'vip/VIP7.jpeg'
-        ];
+        const vipImages = [];
 
         let lookCarouselInterval = null;
         let vipCarouselInterval = null;
@@ -2924,7 +2920,7 @@
             document.getElementById('vipScreen').style.display = 'block';
             document.getElementById('menuTopBar').style.display = 'flex';
             document.body.style.overflow = 'auto';
-            var vipCImages = (window._vipCarousel && window._vipCarousel.length) ? window._vipCarousel : ((window._vipItems && window._vipItems.length) ? window._vipItems.map(function(v){return v.image_path;}).filter(Boolean) : vipImages);
+            var vipCImages = (window._vipCarousel && window._vipCarousel.length) ? window._vipCarousel : [];
             buildCarousel('vipCarousel', 'vipDots', vipCImages);
             startCarousel('vipCarousel', 'vipDots', 'vip');
         }
