@@ -32,15 +32,10 @@ document.addEventListener('click', function(e) {
     }
     // Item reorder (must come before .reorder-btn)
     if (e.target.closest('.item-reorder')) {
-        console.log('ITEM REORDER MATCHED');
         e.stopPropagation();
         var irb = e.target.closest('.item-reorder');
         reorderItem(parseInt(irb.getAttribute('data-iid')), irb.getAttribute('data-dir'));
         return;
-    }
-    // Debug: check why item-reorder doesn't match
-    if (e.target.closest('.reorder-btn') && !e.target.closest('.item-reorder') && !e.target.closest('.sub-reorder')) {
-        console.log('Only reorder-btn matched, classes:', e.target.className, 'parent:', e.target.parentElement.className);
     }
     // Category reorder
     if (e.target.closest('.reorder-btn')) {
@@ -196,27 +191,26 @@ async function reorderCategory(catId, dir) {
     if (swapIdx < 0 || swapIdx >= categories.length) return;
     var catA = categories[idx], catB = categories[swapIdx];
     try {
-        await fetch(apiUrl('categories', {id: catA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: catB.sort_order}) });
+        var tmp = 999999;
+        await fetch(apiUrl('categories', {id: catA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: tmp}) });
         await fetch(apiUrl('categories', {id: catB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: catA.sort_order}) });
+        await fetch(apiUrl('categories', {id: catA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: catB.sort_order}) });
         await loadCategories();
     } catch(e) { toast('Reorder failed','error'); }
 }
 
 async function reorderItem(itemId, dir) {
-    console.log('reorderItem start', itemId, dir, 'total items:', currentItems.length);
     var idx = -1;
     for (var i = 0; i < currentItems.length; i++) { if (currentItems[i].id == itemId) { idx = i; break; } }
-    console.log('idx:', idx);
-    if (idx < 0) { console.log('item not found in currentItems'); return; }
+    if (idx < 0) return;
     var swapIdx = dir === 'up' ? idx - 1 : idx + 1;
-    if (swapIdx < 0 || swapIdx >= currentItems.length) { console.log('swap out of range'); return; }
+    if (swapIdx < 0 || swapIdx >= currentItems.length) return;
     var itemA = currentItems[idx], itemB = currentItems[swapIdx];
-    console.log('swapping', itemA.id, itemA.sort_order, '<->', itemB.id, itemB.sort_order);
     try {
-        var r1 = await fetch(apiUrl('items', {id: itemA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: itemB.sort_order}) });
-        console.log('PUT1 status:', r1.status);
-        var r2 = await fetch(apiUrl('items', {id: itemB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: itemA.sort_order}) });
-        console.log('PUT2 status:', r2.status);
+        var tmp = 999999;
+        await fetch(apiUrl('items', {id: itemA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: tmp}) });
+        await fetch(apiUrl('items', {id: itemB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: itemA.sort_order}) });
+        await fetch(apiUrl('items', {id: itemA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: itemB.sort_order}) });
         loadItems(selectedCategoryId, selectedSubcategoryId);
     } catch(e) { toast('Reorder failed','error'); }
 }
@@ -232,8 +226,10 @@ async function reorderSubcategory(subId, catId, dir) {
     if (swapIdx < 0 || swapIdx >= subs.length) return;
     var subA = subs[idx], subB = subs[swapIdx];
     try {
-        await fetch(apiUrl('subcategories', {id: subA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: subB.sort_order}) });
+        var tmp = 999999;
+        await fetch(apiUrl('subcategories', {id: subA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: tmp}) });
         await fetch(apiUrl('subcategories', {id: subB.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: subA.sort_order}) });
+        await fetch(apiUrl('subcategories', {id: subA.id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({sort_order: subB.sort_order}) });
         loadSubcategoriesForTree(catId);
     } catch(e) { toast('Reorder failed','error'); }
 }
