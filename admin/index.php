@@ -327,7 +327,9 @@ $csrfToken = Auth::csrfToken();
             </div>
             <div class="modal-footer">
                 <button class="btn btn-ghost" onclick="closeRestaurantModal()">Cancel</button>
-                <button class="btn btn-danger" id="deleteRestaurantBtn" style="display:none" onclick="deleteRestaurant()">Delete</button>
+                <button class="btn btn-danger" id="deactivateRestaurantBtn" style="display:none" onclick="deleteRestaurant()">Deactivate</button>
+                <button class="btn btn-gold" id="reactivateRestaurantBtn" style="display:none" onclick="reactivateRestaurant()">Reactivate</button>
+                <button class="btn btn-danger" id="hardDeleteRestaurantBtn" style="display:none" onclick="hardDeleteRestaurant()">Delete Permanently</button>
                 <button class="btn btn-gold" onclick="saveRestaurant()">Save</button>
             </div>
         </div>
@@ -473,6 +475,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=56"></script>
+    <script src="assets/admin.js?v=57"></script>
 </body>
 </html>

@@ -578,7 +578,10 @@ function showRestaurantModal(editId) {
             document.getElementById('restShowHub').checked = rest.show_hub!=0;
             document.getElementById('restShowVipPrices').checked = rest.show_vip_prices!=0;
             document.getElementById('restaurantModalTitle').textContent = 'Edit Restaurant';
-            document.getElementById('deleteRestaurantBtn').style.display = 'inline-flex';
+            var active = rest.is_active != 0;
+            document.getElementById('deactivateRestaurantBtn').style.display = active ? 'inline-flex' : 'none';
+            document.getElementById('reactivateRestaurantBtn').style.display = active ? 'none' : 'inline-flex';
+            document.getElementById('hardDeleteRestaurantBtn').style.display = active ? 'none' : 'inline-flex';
             document.getElementById('restaurantModalOverlay').classList.add('show');
         });
     } else {
@@ -594,7 +597,9 @@ function showRestaurantModal(editId) {
         document.getElementById('restaurantBgRemove').style.display = 'none';
         document.getElementById('restaurantBgFile').value = '';
         document.getElementById('restaurantModalTitle').textContent = 'New Restaurant';
-        document.getElementById('deleteRestaurantBtn').style.display = 'none';
+        document.getElementById('deactivateRestaurantBtn').style.display = 'none';
+        document.getElementById('reactivateRestaurantBtn').style.display = 'none';
+        document.getElementById('hardDeleteRestaurantBtn').style.display = 'none';
         document.getElementById('restaurantModalOverlay').classList.add('show');
     }
 }
@@ -649,12 +654,36 @@ async function saveRestaurant() {
 
 async function deleteRestaurant() {
     var id = document.getElementById('restaurantId').value;
-    if (!confirm('Delete this restaurant and ALL its data?')) return;
+    if (!confirm('Deactivate this restaurant? It will be hidden from customers but data is saved. Type DELETE to permanently remove it later.')) return;
+    try {
+        var r = await fetch(apiUrl('restaurants',{id:id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({is_active: 0}) });
+        if (!r.ok) { toast('Failed','error'); return; }
+        closeRestaurantModal();
+        toast('Restaurant deactivated','success');
+        setTimeout(function(){location.reload();}, 800);
+    } catch(e) { toast('Network error','error'); }
+}
+async function reactivateRestaurant() {
+    var id = document.getElementById('restaurantId').value;
+    try {
+        var r = await fetch(apiUrl('restaurants',{id:id}), { method:'PUT', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({is_active: 1}) });
+        if (!r.ok) { toast('Failed','error'); return; }
+        closeRestaurantModal();
+        toast('Restaurant reactivated','success');
+        setTimeout(function(){location.reload();}, 800);
+    } catch(e) { toast('Network error','error'); }
+}
+async function hardDeleteRestaurant() {
+    var id = document.getElementById('restaurantId').value;
+    var name = document.getElementById('restaurantNameEn').value;
+    var typed = prompt('Type "' + name + '" to permanently delete this restaurant and ALL its data. This cannot be undone.');
+    if (typed !== name) { toast('Name did not match. Cancelled.','error'); return; }
     try {
         var r = await fetch(apiUrl('restaurants',{id:id}), { method:'DELETE', headers:{'X-CSRF-Token':CSRF_TOKEN} });
         if (!r.ok) { toast('Failed','error'); return; }
         closeRestaurantModal();
-        location.reload();
+        toast('Restaurant permanently deleted','success');
+        setTimeout(function(){location.reload();}, 800);
     } catch(e) { toast('Network error','error'); }
 }
 
