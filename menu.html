@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#1a1816">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽</text></svg>">
     <title>Menu</title>
     <!-- Social Sharing Meta Tags (Open Graph) -->
     <meta property="og:title" content="Lavina House Cafe & Restaurant | Menu">
@@ -3095,15 +3096,6 @@
                 updateCartUI();
             } catch (err) {
                 console.error('Menu load failed:', err);
-                // Try static fallback
-                try {
-                    const fallbackResp = await fetch('/static/' + RESTAURANT_SLUG + '.html');
-                    if (fallbackResp.ok) {
-                        window.location.href = '/static/' + RESTAURANT_SLUG + '.html';
-                        return;
-                    }
-                } catch (e) { /* fallback also failed */ }
-
                 menuContainer.innerHTML = `<div class="error-banner">
                     <div class="error-icon">⚠</div>
                     <p class="ar-text">تعذر تحميل القائمة. يرجى المحاولة مرة أخرى.</p>
