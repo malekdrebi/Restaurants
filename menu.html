@@ -2551,8 +2551,7 @@
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
-                <span class="ar-text">السبت إلى الجمعة 9:00 صباحاً - 12:00 مساءً</span>
-                <span class="en-text">Saturday to Friday 9:00 AM - 12:00 PM</span>
+                <span id="footerHoursIcon"></span>
             </div>
         </div>
     </footer>
@@ -3204,6 +3203,8 @@
             var footerHours = document.getElementById('footerHours');
             var hours = restaurantInfo.working_hours_en || restaurantInfo.working_hours_ar || '';
             if (footerHours) { footerHours.textContent = hours; footerHours.style.display = hours ? '' : 'none'; }
+            var footerHoursIcon = document.getElementById('footerHoursIcon');
+            if (footerHoursIcon) { footerHoursIcon.textContent = hours; footerHoursIcon.style.display = hours ? '' : 'none'; }
 
             // Update welcome text
             var welcomeEn = document.querySelector('.hub-subtitle .en-text');
