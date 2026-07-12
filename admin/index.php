@@ -389,6 +389,11 @@ $csrfToken = Auth::csrfToken();
                 <div id="vipTabHero">
                     <div class="form-group"><label>Hero Background</label><input type="file" id="vipHeroBgFile" accept="image/*" onchange="previewVipHeroBg(this)"><div style="position:relative;display:inline-block;margin-top:4px"><img id="vipHeroBgPreview" class="image-preview" style="display:none;max-width:200px;max-height:100px" alt="Hero Preview"><button type="button" onclick="removeVipHeroBg()" id="vipHeroBgRemove" style="display:none;position:absolute;top:-6px;right:-6px;background:red;color:white;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;padding:0">×</button></div><input type="hidden" id="vipHeroBgPath"></div>
                     <button type="button" class="btn btn-gold btn-sm" onclick="saveVipHero()">Save Hero</button>
+                    <hr style="border-color:#333;margin:16px 0">
+                    <h4 style="color:var(--accent-gold);margin-bottom:8px">Carousel Images</h4>
+                    <div id="vipCarouselImagesList" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px"></div>
+                    <input type="file" id="vipCarouselFile" accept="image/*" multiple>
+                    <button type="button" class="btn btn-gold btn-sm" onclick="uploadVipCarousel()" style="margin-top:6px">Upload</button>
                 </div>
                 <!-- Items tab -->
                 <div id="vipTabItems" style="display:none">
@@ -435,6 +440,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=34"></script>
+    <script src="assets/admin.js?v=35"></script>
 </body>
 </html>

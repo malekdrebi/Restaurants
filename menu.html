@@ -2935,7 +2935,7 @@
             document.getElementById('vipScreen').style.display = 'block';
             document.getElementById('menuTopBar').style.display = 'flex';
             document.body.style.overflow = 'auto';
-            var vipCImages = (window._vipItems && window._vipItems.length) ? window._vipItems.map(function(v){return v.image_path;}).filter(Boolean) : vipImages;
+            var vipCImages = (window._vipCarousel && window._vipCarousel.length) ? window._vipCarousel : ((window._vipItems && window._vipItems.length) ? window._vipItems.map(function(v){return v.image_path;}).filter(Boolean) : vipImages);
             buildCarousel('vipCarousel', 'vipDots', vipCImages);
             startCarousel('vipCarousel', 'vipDots', 'vip');
         }
@@ -3095,6 +3095,7 @@
                 // Store gallery and VIP data
                 if (data.gallery) { window._galleryImages = data.gallery; }
                 if (data.vip_items) { window._vipItems = data.vip_items; }
+                if (data.vip_carousel) { window._vipCarousel = data.vip_carousel; }
 
                 // Update restaurant header
                 updateRestaurantHeader();

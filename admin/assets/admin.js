@@ -415,6 +415,12 @@ document.addEventListener('click', function(e) {
     if (e.target.closest('.add-cat-btn')) { showAddCategory(); return; }
     if (e.target.closest('.add-item-btn')) { showAddItem(); return; }
     if (e.target.closest('.variant-remove-btn')) { e.target.closest('.variant-row').remove(); return; }
+    // VIP edit button
+    if (e.target.closest('.vip-edit-btn')) {
+        var vid = parseInt(e.target.closest('.vip-edit-btn').getAttribute('data-vid'));
+        if (vid) { editVipItem(vid); switchVipTab('items', document.querySelectorAll('#vipModal .lang-tab')[1]); }
+        return;
+    }
     if (e.target.closest('.variant-img-remove-btn')) {
         var row = e.target.closest('.variant-row');
         row.querySelector('[data-field=\"image\"]').value = '';
@@ -648,11 +654,12 @@ async function showVipModal() {
         html += '<div style="display:flex;gap:10px;align-items:center;padding:8px;background:var(--surface2);border-radius:6px;margin-bottom:6px">';
         if (item.image_path) html += '<img src="/'+item.image_path+'" style="width:50px;height:50px;object-fit:cover;border-radius:4px">';
         html += '<div style="flex:1"><b>'+item.title_en+'</b><br><small style="color:var(--text-muted)">'+item.desc_en+' | '+item.price+'</small></div>';
-        html += '<button class="btn btn-sm btn-ghost" onclick="editVipItem('+item.id+')">✎</button>';
+        html += '<button class="btn btn-sm btn-ghost vip-edit-btn" data-vid="'+item.id+'">✎</button>';
         html += '<button class="btn btn-sm btn-ghost" onclick="deleteVipItem('+item.id+')">×</button></div>';
     });
     if (!items.length) html = '<p style="color:var(--text-muted)">No VIP items yet</p>';
     document.getElementById('vipItemsList').innerHTML = html;
+    loadVipCarouselImages();
 }
 function switchVipTab(tab, btn) {
     document.querySelectorAll('#vipModal .lang-tab').forEach(function(t){t.classList.remove('active')});
@@ -677,6 +684,36 @@ function removeVipHeroBg() {
     document.getElementById('vipHeroBgPath').value = '';
     document.getElementById('vipHeroBgFile').value = '';
 }
+async function loadVipCarouselImages() {
+    if (!selectedRestaurantId) return;
+    var r = await fetch(apiUrl('vip_carousel', {restaurant_id: selectedRestaurantId}));
+    var d = await r.json();
+    var imgs = d.images || [];
+    var html = '';
+    imgs.forEach(function(img) {
+        html += '<div style="position:relative"><img src="/'+img.image_path+'" style="width:70px;height:55px;object-fit:cover;border-radius:4px;border:1px solid #333"><button onclick="deleteVipCarouselImage('+img.id+')" style="position:absolute;top:-5px;right:-5px;background:red;color:white;border:none;border-radius:50%;width:16px;height:16px;font-size:10px;cursor:pointer;padding:0">×</button></div>';
+    });
+    if (!imgs.length) html = '<span style="color:var(--text-muted);font-size:0.75rem">No carousel images</span>';
+    document.getElementById('vipCarouselImagesList').innerHTML = html;
+}
+async function uploadVipCarousel() {
+    var files = document.getElementById('vipCarouselFile').files;
+    if (!files || !files.length) { toast('Select files','error'); return; }
+    for (var i=0;i<files.length;i++) {
+        var fd = new FormData(); fd.append('image',files[i]); fd.append('restaurant_id',selectedRestaurantId); fd.append('restaurant_slug',selectedRestaurantSlug);
+        var ur = await fetch(apiUrl('upload'), { method:'POST', headers:{'X-CSRF-Token':CSRF_TOKEN}, body:fd });
+        var ud = await ur.json();
+        if (ur.ok) await fetch(apiUrl('vip_carousel'), { method:'POST', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({restaurant_id:selectedRestaurantId, image_path: ud.path}) });
+    }
+    document.getElementById('vipCarouselFile').value = '';
+    loadVipCarouselImages();
+    toast('Carousel updated','success');
+}
+async function deleteVipCarouselImage(id) {
+    await fetch(apiUrl('vip_carousel',{id:id}), { method:'DELETE', headers:{'X-CSRF-Token':CSRF_TOKEN} });
+    loadVipCarouselImages();
+}
+
 async function saveVipHero() {
     var file = document.getElementById('vipHeroBgFile').files[0];
     if (!file) { toast('Select an image','error'); return; }
@@ -692,6 +729,7 @@ async function saveVipHero() {
 }
 
 function closeVipModal() { document.getElementById('vipModalOverlay').classList.remove('show'); document.getElementById('vipEditId').value = ''; document.querySelector('#vipForm .btn-gold').textContent = 'Add Item'; }
+
 
 async function addVipItem() {
     var editId = document.getElementById('vipEditId').value;
