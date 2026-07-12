@@ -9,12 +9,26 @@
 function getMenuData(PDO $db, string $slug): ?array
 {
     // 1. Get restaurant
-    $stmt = $db->prepare(
-        "SELECT id, slug, name_ar, name_en, logo, bg_image, vip_hero_bg, primary_color, show_vip, show_gallery, show_tutorial, show_cart, show_parallax, show_hub, show_vip_prices, address_ar, address_en, phone, maps_url
-         FROM restaurants WHERE slug = ? AND is_active = 1"
-    );
-    $stmt->execute([$slug]);
-    $restaurant = $stmt->fetch();
+    try {
+        $stmt = $db->prepare(
+            "SELECT id, slug, name_ar, name_en, logo, bg_image, vip_hero_bg, primary_color, show_vip, show_gallery, show_tutorial, show_cart, show_parallax, show_hub, show_vip_prices, address_ar, address_en, phone, maps_url
+             FROM restaurants WHERE slug = ? AND is_active = 1"
+        );
+        $stmt->execute([$slug]);
+        $restaurant = $stmt->fetch();
+    } catch (Exception $e) {
+        // Fallback without optional columns
+        $stmt = $db->prepare("SELECT id, slug, name_ar, name_en, logo, bg_image, address_ar, address_en, phone, maps_url FROM restaurants WHERE slug = ? AND is_active = 1");
+        $stmt->execute([$slug]);
+        $restaurant = $stmt->fetch();
+        if ($restaurant) {
+            $restaurant['vip_hero_bg'] = null;
+            $restaurant['primary_color'] = '#C9A366';
+            $restaurant['show_vip'] = 1; $restaurant['show_gallery'] = 1; $restaurant['show_tutorial'] = 1;
+            $restaurant['show_cart'] = 1; $restaurant['show_parallax'] = 1; $restaurant['show_hub'] = 1;
+            $restaurant['show_vip_prices'] = 1;
+        }
+    }
 
     if (!$restaurant) {
         return null;
@@ -105,16 +119,16 @@ function getMenuData(PDO $db, string $slug): ?array
             'name_ar' => $restaurant['name_ar'],
             'name_en' => $restaurant['name_en'],
             'logo'    => $restaurant['logo'],
-            'bg_image' => $restaurant['bg_image'],
-            'vip_hero_bg' => $restaurant['vip_hero_bg'],
-            'primary_color' => $restaurant['primary_color'],
-            'show_vip' => (bool)$restaurant['show_vip'],
-            'show_gallery' => (bool)$restaurant['show_gallery'],
-            'show_tutorial' => (bool)$restaurant['show_tutorial'],
-            'show_cart' => (bool)$restaurant['show_cart'],
-            'show_parallax' => (bool)$restaurant['show_parallax'],
-            'show_hub' => (bool)$restaurant['show_hub'],
-            'show_vip_prices' => (bool)$restaurant['show_vip_prices'],
+            'bg_image' => $restaurant['bg_image'] ?? null,
+            'vip_hero_bg' => $restaurant['vip_hero_bg'] ?? null,
+            'primary_color' => $restaurant['primary_color'] ?? '#C9A366',
+            'show_vip' => (bool)($restaurant['show_vip'] ?? 1),
+            'show_gallery' => (bool)($restaurant['show_gallery'] ?? 1),
+            'show_tutorial' => (bool)($restaurant['show_tutorial'] ?? 1),
+            'show_cart' => (bool)($restaurant['show_cart'] ?? 1),
+            'show_parallax' => (bool)($restaurant['show_parallax'] ?? 1),
+            'show_hub' => (bool)($restaurant['show_hub'] ?? 1),
+            'show_vip_prices' => (bool)($restaurant['show_vip_prices'] ?? 1),
             'address_ar' => $restaurant['address_ar'],
             'address_en' => $restaurant['address_en'],
             'phone'   => $restaurant['phone'],
