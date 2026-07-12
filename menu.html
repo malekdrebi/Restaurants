@@ -3012,7 +3012,8 @@
                     return {
                         name: v.title_ar, en_name: v.title_en,
                         price: v.price || '', image: v.image_path ? '/' + v.image_path : '',
-                        desc: v.desc_ar || '', en_desc: v.desc_en || '', images: []
+                        desc: v.desc_ar || '', en_desc: v.desc_en || '',
+                        images: (v.images || []).map(function(i){ return '/' + i; })
                     };
                 });
             } else {
@@ -3023,15 +3024,18 @@
 
             var sectionCard = function(item) {
                 var showPrice = restaurantInfo && restaurantInfo.show_vip_prices && item.price;
+                var allImages = item.images || [];
+                var mainImg = item.image || (allImages.length ? allImages[0] : '');
+                var thumbs = allImages.length ? allImages : (item.image ? [item.image] : []);
                 return '<div class="vip-item-card">' +
-                    (item.image ? '<img src="' + item.image + '" alt="' + (item.en_name || item.name) + '" class="vip-item-image" loading="lazy" onclick="openLightbox(\'' + item.image + '\')">' : '<div class="vip-item-image-placeholder"></div>') +
+                    (mainImg ? '<img src="' + mainImg + '" alt="' + (item.en_name || item.name) + '" class="vip-item-image vip-main-img" loading="lazy" onclick="openLightbox(\'' + mainImg + '\')">' : '<div class="vip-item-image-placeholder"></div>') +
+                    (thumbs.length > 1 ? '<div class="vip-item-gallery">' + thumbs.map(function(t){return '<img src="' + t + '" class="vip-item-thumb" loading="lazy" onclick="var m=this.parentElement.parentElement.querySelector(\'.vip-main-img\');if(m)m.src=this.src;">';}).join('') + '</div>' : '') +
                     '<div class="vip-item-info">' +
                     '<div class="vip-item-name ar-text">' + item.name + '</div>' +
                     '<div class="vip-item-name en-text">' + (item.en_name || '') + '</div>' +
                     (showPrice ? '<div class="vip-item-price" style="color:var(--accent-gold);font-weight:700;margin-top:4px">' + item.price + '</div>' : '') +
                     (item.desc ? '<div class="vip-item-desc ar-text">' + item.desc + '</div>' : '') +
                     (item.en_desc ? '<div class="vip-item-desc en-text">' + item.en_desc + '</div>' : '') +
-                    (item.images && item.images.length ? '<div class="vip-item-gallery">' + item.images.map(function(img){return '<img src="' + img + '" class="vip-item-thumb" loading="lazy" onclick="openLightbox(\'' + img + '\')">';}).join('') + '</div>' : '') +
                     '</div></div>';
             };
 
