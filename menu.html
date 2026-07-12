@@ -2900,7 +2900,7 @@
             hideMenuElements();
             stopVipCarousel();
             document.getElementById('galleryScreen').style.display = 'block';
-            document.getElementById('menuTopBar').style.display = 'flex';
+            document.getElementById('menuTopBar').style.display = 'none';
             document.body.style.overflow = 'hidden';
             var galleryImgs = (window._galleryImages && window._galleryImages.length) ? window._galleryImages : (fallbackLookImages || []);
             buildCarousel('lookCarousel', 'lookDots', galleryImgs);
@@ -2918,7 +2918,7 @@
                 if (vh) vh.style.backgroundImage = 'url(/' + restaurantInfo.vip_hero_bg + ')';
             }
             document.getElementById('vipScreen').style.display = 'block';
-            document.getElementById('menuTopBar').style.display = 'flex';
+            document.getElementById('menuTopBar').style.display = 'none';
             document.body.style.overflow = 'auto';
             var vipCImages = (window._vipCarousel && window._vipCarousel.length) ? window._vipCarousel : [];
             buildCarousel('vipCarousel', 'vipDots', vipCImages);
