@@ -45,6 +45,13 @@ document.addEventListener('click', function(e) {
         reorderCategory(cid, dir);
         return;
     }
+    // Category toggle (expand/collapse subcategories)
+    if (e.target.closest('.cat-toggle')) {
+        e.stopPropagation();
+        var ct = e.target.closest('.cat-toggle');
+        toggleCategory(parseInt(ct.getAttribute('data-cid')), ct);
+        return;
+    }
     // Category edit button
     var catBtn = e.target.closest('.cat-edit-btn');
     if (catBtn) {
@@ -114,14 +121,14 @@ function renderCategoryTree() {
     t.innerHTML = categories.map(function(c, i) {
         var act = (selectedCategoryId == c.id && !selectedSubcategoryId) ? ' active' : '';
         return '<div class="tree-category tree-cat-row' + act + '" data-cid="' + c.id + '">' +
+            '<span class="cat-toggle" data-cid="' + c.id + '" style="cursor:pointer;margin-right:4px;font-size:0.55rem;color:#666">▶</span>' +
             '<span>' + (c.name_en || c.name_ar) + (c.is_featured == 1 ? ' ⭐' : '') + '</span>' +
             '<span style="display:flex;gap:2px;margin-left:auto">' +
             (i > 0 ? '<button class="reorder-btn" data-dir="up" data-cid="'+c.id+'" title="Move up">↑</button>' : '') +
             (i < categories.length-1 ? '<button class="reorder-btn" data-dir="down" data-cid="'+c.id+'" title="Move down">↓</button>' : '') +
             '<button class="cat-edit-btn" data-id="' + c.id + '" style="background:none;border:1px solid #333;color:#999;cursor:pointer;font-size:0.7rem;padding:2px 6px;border-radius:4px">✎</button>' +
-            '</span></div><div id="subcats-' + c.id + '"></div>';
+            '</span></div><div id="subcats-' + c.id + '" style="display:none"></div>';
     }).join('');
-    categories.forEach(function(c) { loadSubcategoriesForTree(c.id); });
     t.scrollTop = scrollTop;
     if (!selectedCategoryId && categories.length > 0) selectCategory(parseInt(categories[0].id));
 }
@@ -145,6 +152,18 @@ async function loadSubcategoriesForTree(catId) {
     } catch(e) {}
 }
 
+function toggleCategory(catId, toggleEl) {
+    var subDiv = document.getElementById('subcats-' + catId);
+    if (!subDiv) return;
+    if (subDiv.style.display === 'none') {
+        subDiv.style.display = '';
+        if (toggleEl) toggleEl.textContent = '▼';
+        if (!subDiv.innerHTML.trim()) loadSubcategoriesForTree(catId);
+    } else {
+        subDiv.style.display = 'none';
+        if (toggleEl) toggleEl.textContent = '▶';
+    }
+}
 function selectCategory(catId) {
     selectedCategoryId = catId; selectedSubcategoryId = null; renderCategoryTree();
     loadItems(catId, null).then(function() {
