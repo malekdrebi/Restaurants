@@ -22,17 +22,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $username = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
 
-    if (empty($username) || empty($password)) {
+    // Rate limiting: block after 5 failures, reset after 15 minutes
+    $attempts = $_SESSION['login_attempts'] ?? ['count' => 0, 'first' => time()];
+    if (time() - $attempts['first'] > 900) { $attempts = ['count' => 0, 'first' => time()]; }
+
+    if ($attempts['count'] >= 5) {
+        $wait = ceil((900 - (time() - $attempts['first'])) / 60);
+        $loginError = $wait > 0 ? "Too many attempts. Wait {$wait} minutes." : 'Too many attempts. Try again.';
+    } elseif (empty($username) || empty($password)) {
         $loginError = 'Username and password are required.';
     } else {
         $admin = Auth::login($username, $password);
         if ($admin) {
+            unset($_SESSION['login_attempts']);
             header('Location: index.php');
             exit;
         } else {
+            $attempts['count']++;
             $loginError = 'Invalid username or password.';
         }
     }
+    $_SESSION['login_attempts'] = $attempts;
 }
 
 // ── Handle Logout ──
