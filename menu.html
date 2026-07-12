@@ -2794,18 +2794,7 @@
 
         // ---- IMAGE DATA FOR CAROUSELS ----
         // Drop your images into the 'look/' and 'vip/' folders, then update these arrays:
-        const fallbackLookImages = [
-            'look/529382617_1065538569071813_422788919766769381_n.jpg',
-            'look/530474315_1069225922036411_7713793458850291476_n.jpg',
-            'look/532971888_1070884025203934_8871732062709276553_n.jpg',
-            'look/535535072_1074404811518522_6489369758503474818_n.jpg',
-            'look/542752928_1088449826780687_6668822589459107647_n.jpg',
-            'look/568968306_1128858329406503_4712141511669995336_n.jpg',
-            'look/589163086_1160171959608473_3349114471157116383_n.jpg',
-            'look/598745062_1170544235237912_1789301708877099555_n.jpg',
-            'look/599952552_1170544208571248_3734094862384536506_n.jpg',
-            'look/600058512_1168938488731820_5304838275462907869_n.jpg',
-        ];
+        const fallbackLookImages = null; // Only used if API fails to load at all
 
         const vipImages = window._vipImages ? window._vipImages.map(function(v){return v.image_path;}) : [
             'vip/1.jpg', 'vip/2.jpg', 'vip/3.jpg', 'vip/4.jpg', 'vip/5.jpg',
@@ -2917,7 +2906,7 @@
             document.getElementById('galleryScreen').style.display = 'block';
             document.getElementById('menuTopBar').style.display = 'flex';
             document.body.style.overflow = 'hidden';
-            var galleryImgs = (window._galleryImages && window._galleryImages.length) ? window._galleryImages : fallbackLookImages;
+            var galleryImgs = (window._galleryImages && window._galleryImages.length) ? window._galleryImages : (fallbackLookImages || []);
             buildCarousel('lookCarousel', 'lookDots', galleryImgs);
             startCarousel('lookCarousel', 'lookDots', 'look');
         }
@@ -3022,9 +3011,7 @@
                     };
                 });
             } else {
-                items = [
-                    { name: 'بوفيه مفتوح', en_name: 'Open Buffet', price: '', image: 'images/OpenPuffet/1.jpeg', images: ['images/OpenPuffet/2.jpeg','images/OpenPuffet/3.jpeg','images/OpenPuffet/4.jpeg','images/OpenPuffet/5.jpeg'], desc: 'تشكيلة واسعة من المقبلات، السلطات، الأطباق الرئيسية والحلويات', en_desc: 'Wide selection of appetizers, salads, main courses and desserts' },
-                ];
+                items = []; // Empty for new restaurants — super admin must add VIP items
             }
 
             var sectionCard = function(item) {
