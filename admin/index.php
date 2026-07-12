@@ -395,7 +395,8 @@ $csrfToken = Auth::csrfToken();
                     </div>
                     <div class="form-row">
                         <div class="form-group"><label>Price</label><input type="text" id="vipPrice" placeholder="e.g. 150 د.ل"></div>
-                        <div class="form-group"><label>Image</label><input type="file" id="vipImageFile" accept="image/*" onchange="previewVipImage(this)"><div style="position:relative;display:inline-block;margin-top:4px"><img id="vipImagePreview" class="image-preview" style="display:none;max-width:120px;max-height:80px" alt="VIP Preview"><button type="button" onclick="removeVipImage()" id="vipImageRemove" style="display:none;position:absolute;top:-6px;right:-6px;background:red;color:white;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;padding:0">×</button></div><input type="hidden" id="vipImagePath"></div>
+                        <div class="form-group"><label>Main Image</label><input type="file" id="vipImageFile" accept="image/*" onchange="previewVipImage(this)"><div style="position:relative;display:inline-block;margin-top:4px"><img id="vipImagePreview" class="image-preview" style="display:none;max-width:120px;max-height:80px" alt="VIP Preview"><button type="button" onclick="removeVipImage()" id="vipImageRemove" style="display:none;position:absolute;top:-6px;right:-6px;background:red;color:white;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;padding:0">×</button></div><input type="hidden" id="vipImagePath"></div>
+                        <div class="form-group"><label>Extra Images</label><input type="file" id="vipExtraImages" accept="image/*" multiple><div id="vipExtraImagesList" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px"></div></div>
                     </div>
                     <input type="hidden" id="vipEditId">
                     <button type="button" class="btn btn-gold btn-sm" onclick="addVipItem()">Add Item</button>
@@ -422,6 +423,6 @@ $csrfToken = Auth::csrfToken();
             setTimeout(onRestaurantChange, 100);
         }
     </script>
-    <script src="assets/admin.js?v=32"></script>
+    <script src="assets/admin.js?v=33"></script>
 </body>
 </html>

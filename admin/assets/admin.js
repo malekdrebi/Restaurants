@@ -675,6 +675,9 @@ async function addVipItem() {
     var r = await fetch(url, { method: method, headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify(body) });
     var d = await r.json();
     if (!r.ok) { toast(d.error,'error'); return; }
+    // Upload extra images
+    var itemId = editId || (d.item ? d.item.id : null);
+    if (itemId) uploadVipExtraImages(itemId);
     document.getElementById('vipEditId').value = '';
     document.getElementById('vipTitleAr').value = '';
     document.getElementById('vipTitleEn').value = '';
@@ -724,6 +727,41 @@ async function editVipItem(id) {
     if (item.image_path) { pv.src = '/' + item.image_path; pv.style.display = 'block'; document.getElementById('vipImageRemove').style.display = 'block'; }
     else { pv.style.display = 'none'; document.getElementById('vipImageRemove').style.display = 'none'; }
     document.querySelector('#vipForm .btn-gold').textContent = 'Update Item';
+    loadVipExtraImages(id);
+}
+async function uploadVipExtraImages(itemId) {
+    var files = document.getElementById('vipExtraImages').files;
+    if (!files || !files.length) return;
+    for (var i = 0; i < files.length; i++) {
+        var fd = new FormData(); fd.append('image', files[i]); fd.append('restaurant_id', selectedRestaurantId); fd.append('restaurant_slug', selectedRestaurantSlug);
+        try {
+            var ur = await fetch(apiUrl('upload'), { method:'POST', headers:{'X-CSRF-Token':CSRF_TOKEN}, body:fd });
+            var ud = await ur.json();
+            if (ur.ok) {
+                await fetch(apiUrl('vip_item_images'), { method:'POST', headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN}, body:JSON.stringify({vip_item_id: itemId, image_path: ud.path}) });
+            }
+        } catch(e) {}
+    }
+    document.getElementById('vipExtraImages').value = '';
+}
+async function deleteVipExtraImage(id) {
+    if (!confirm('Delete image?')) return;
+    await fetch(apiUrl('vip_item_images', {id:id}), { method:'DELETE', headers:{'X-CSRF-Token':CSRF_TOKEN} });
+    toast('Deleted','success');
+    // Refresh extra images list
+    var vipId = document.getElementById('vipEditId').value;
+    if (vipId) loadVipExtraImages(vipId);
+}
+async function loadVipExtraImages(vipItemId) {
+    var r = await fetch(apiUrl('vip_item_images', {vip_item_id: vipItemId}));
+    var d = await r.json();
+    var imgs = d.images || [];
+    var html = '';
+    imgs.forEach(function(img) {
+        html += '<div style="position:relative"><img src="/'+img.image_path+'" style="width:60px;height:50px;object-fit:cover;border-radius:4px;border:1px solid #333"><button onclick="deleteVipExtraImage('+img.id+')" style="position:absolute;top:-5px;right:-5px;background:red;color:white;border:none;border-radius:50%;width:16px;height:16px;font-size:10px;cursor:pointer;padding:0">×</button></div>';
+    });
+    if (!imgs.length) html = '<span style="color:var(--text-muted);font-size:0.75rem">No extra images</span>';
+    document.getElementById('vipExtraImagesList').innerHTML = html;
 }
 async function deleteVipItem(id) {
     if (!confirm('Delete this VIP item?')) return;

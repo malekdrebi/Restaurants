@@ -83,6 +83,11 @@ function getMenuData(PDO $db, string $slug): ?array
     $vStmt = $db->prepare("SELECT * FROM vip_items WHERE restaurant_id = ? ORDER BY sort_order ASC");
     $vStmt->execute([$restaurant['id']]);
     $vipItems = $vStmt->fetchAll();
+    foreach ($vipItems as &$vi) {
+        $imgStmt = $db->prepare("SELECT image_path FROM vip_item_images WHERE vip_item_id = ? ORDER BY sort_order ASC");
+        $imgStmt->execute([$vi['id']]);
+        $vi['images'] = $imgStmt->fetchAll(PDO::FETCH_COLUMN);
+    }
 
     return [
         'restaurant' => [
