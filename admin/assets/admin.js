@@ -423,6 +423,7 @@ function addVariantRow() {
 }
 async function saveVariants(itemId) {
     var rows = document.querySelectorAll('#variantsList .variant-row');
+    console.log('saveVariants called, rows:', rows.length);
     for (var i = 0; i < rows.length; i++) {
         var row = rows[i], vid = row.getAttribute('data-variant-id');
         var na = (row.querySelector('[data-field="name_ar"]') || {}).value || '';
@@ -447,7 +448,8 @@ async function saveVariants(itemId) {
 
         if (!na.trim() && !ne.trim()) continue;
         var body = { item_id: itemId, name_ar: na.trim(), name_en: ne.trim(), price: pv !== '' ? parseFloat(pv) : null, image: imgPath.trim() || null, sort_order: i };
-        try { var u = vid ? apiUrl('variants', {id: vid}) : apiUrl('variants'); await fetch(u, { method: vid ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) }); } catch(e) {}
+        console.log('Saving variant', i, 'body:', JSON.stringify(body));
+        try { var u = vid ? apiUrl('variants', {id: vid}) : apiUrl('variants'); var vr = await fetch(u, { method: vid ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) }); console.log('Variant save status:', vr.status); } catch(e) { console.log('Variant save error:', e); }
     }
 }
 
