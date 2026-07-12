@@ -1,21 +1,30 @@
 RewriteEngine On
 
-# Clean URLs: /lavina-house → /menu?slug=lavina-house
-# /admin → admin dashboard
+# ── Security Headers ──
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
 
-# Don't rewrite actual files or directories
+# ── Block access to sensitive files ──
+<FilesMatch "\.(sql|json\.bak|log|md)$">
+    Require all denied
+</FilesMatch>
+
+# Protect includes directory
+RewriteRule ^includes/ - [F,L]
+
+# Clean URLs: /lavina-house → /menu?slug=lavina-house
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-# API routes already handled by api/.htaccess
 
 # Static menu fallback URLs: /menu/slug → menu.html?slug=slug
 RewriteRule ^menu/([a-zA-Z0-9_-]+)$ menu.html?slug=$1 [QSA,L]
 
 # Restaurant slug URLs: /slug → menu.html?slug=slug
-# Only match single-segment paths that aren't reserved words
-RewriteCond %{REQUEST_URI} !^/(api|admin|static|images|look|vip|includes|migrations|scratch)($|/)
+RewriteCond %{REQUEST_URI} !^/(api|admin|static|images|look|vip|includes)($|/)
 RewriteRule ^([a-zA-Z0-9_-]+)$ menu.html?slug=$1 [QSA,L]
 
-# Default: serve index.html for root
 DirectoryIndex index.html
