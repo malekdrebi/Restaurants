@@ -2543,7 +2543,8 @@
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <span id="footerAddress"></span>
+                <span class="ar-text" id="footerAddressAr"></span>
+                <span class="en-text" id="footerAddressEn"></span>
             </a>
             <div class="contact-item">
                 <svg class="contact-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
@@ -2551,7 +2552,8 @@
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
-                <span id="footerHoursIcon"></span>
+                <span class="ar-text" id="footerHoursAr"></span>
+                <span class="en-text" id="footerHoursEn"></span>
             </div>
         </div>
     </footer>
@@ -3198,12 +3200,14 @@
             if (footerPhoneLink && restaurantInfo.phone) footerPhoneLink.href = 'tel:' + restaurantInfo.phone;
             var footerMapLink = document.getElementById('footerMapLink');
             if (footerMapLink && restaurantInfo.maps_url) footerMapLink.href = restaurantInfo.maps_url;
-            var footerAddress = document.getElementById('footerAddress');
-            if (footerAddress && restaurantInfo.address_en) footerAddress.textContent = restaurantInfo.address_en;
-            var footerHours = document.getElementById('footerHours');
-            var hours = restaurantInfo.working_hours_en || restaurantInfo.working_hours_ar || '';
-            var footerHoursIcon = document.getElementById('footerHoursIcon');
-            if (footerHoursIcon) { footerHoursIcon.textContent = hours; footerHoursIcon.style.display = hours ? '' : 'none'; }
+            var footerAddrAr = document.getElementById('footerAddressAr');
+            if (footerAddrAr && restaurantInfo.address_ar) footerAddrAr.textContent = restaurantInfo.address_ar;
+            var footerAddrEn = document.getElementById('footerAddressEn');
+            if (footerAddrEn && restaurantInfo.address_en) footerAddrEn.textContent = restaurantInfo.address_en;
+            var footerHoursAr = document.getElementById('footerHoursAr');
+            if (footerHoursAr && restaurantInfo.working_hours_ar) footerHoursAr.textContent = restaurantInfo.working_hours_ar;
+            var footerHoursEn = document.getElementById('footerHoursEn');
+            if (footerHoursEn && restaurantInfo.working_hours_en) footerHoursEn.textContent = restaurantInfo.working_hours_en;
 
             // Update welcome text
             var welcomeEn = document.querySelector('.hub-subtitle .en-text');
