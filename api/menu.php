@@ -79,19 +79,24 @@ function getMenuData(PDO $db, string $slug): ?array
     $gStmt->execute([$restaurant['id']]);
     $gallery = $gStmt->fetchAll(PDO::FETCH_COLUMN);
 
-    // Get VIP carousel images
-    $vcStmt = $db->prepare("SELECT image_path FROM vip_carousel_images WHERE restaurant_id = ? ORDER BY sort_order ASC");
-    $vcStmt->execute([$restaurant['id']]);
-    $vipCarousel = $vcStmt->fetchAll(PDO::FETCH_COLUMN);
+    // Get VIP carousel images (if table exists)
+    $vipCarousel = [];
+    try {
+        $vcStmt = $db->prepare("SELECT image_path FROM vip_carousel_images WHERE restaurant_id = ? ORDER BY sort_order ASC");
+        $vcStmt->execute([$restaurant['id']]);
+        $vipCarousel = $vcStmt->fetchAll(PDO::FETCH_COLUMN);
+    } catch (Exception $e) { /* table may not exist yet */ }
 
     // Get VIP items for this restaurant
     $vStmt = $db->prepare("SELECT * FROM vip_items WHERE restaurant_id = ? ORDER BY sort_order ASC");
     $vStmt->execute([$restaurant['id']]);
     $vipItems = $vStmt->fetchAll();
     foreach ($vipItems as &$vi) {
-        $imgStmt = $db->prepare("SELECT image_path FROM vip_item_images WHERE vip_item_id = ? ORDER BY sort_order ASC");
-        $imgStmt->execute([$vi['id']]);
-        $vi['images'] = $imgStmt->fetchAll(PDO::FETCH_COLUMN);
+        try {
+            $imgStmt = $db->prepare("SELECT image_path FROM vip_item_images WHERE vip_item_id = ? ORDER BY sort_order ASC");
+            $imgStmt->execute([$vi['id']]);
+            $vi['images'] = $imgStmt->fetchAll(PDO::FETCH_COLUMN);
+        } catch (Exception $e) { $vi['images'] = []; }
     }
 
     return [
