@@ -372,6 +372,9 @@
             background-color: rgba(255, 255, 255, 0.05);
         }
 
+        .item-image-default {
+            filter: grayscale(100%) brightness(1.8) opacity(0.6);
+        }
         .item-image-placeholder {
             width: 70px;
             height: 70px;
@@ -3310,7 +3313,7 @@
                     return `
                     <div class="menu-item reveal-item visible" id="${itemId}" data-item='${encodeURIComponent(JSON.stringify(item))}'>
                         <div class="item-visual">
-                             ${displayItem.image ? `<img src="${displayItem.image}" alt="${displayItem.name}" class="item-image" loading="lazy" onclick="openLightbox('${displayItem.image}')">` : `<div class="item-image-placeholder"></div>`}
+                             ${displayItem.image ? `<img src="${displayItem.image}" alt="${displayItem.name}" class="item-image" loading="lazy" onclick="openLightbox('${displayItem.image}')">` : (RESTAURANT_SLUG === 'lavina-house' ? `<img src="images/lavina-item-bg.jpg" alt="Default" class="item-image item-image-default" loading="lazy">` : `<div class="item-image-placeholder"></div>`)}
                         </div>
                         <div class="item-details">
                             <div class="item-header" style="flex-direction: row; justify-content: space-between; align-items: flex-start;">
@@ -3395,7 +3398,7 @@
                                             <div class="carousel-card shimmer" id="${itemId}" data-item='${encodeURIComponent(JSON.stringify(item))}'>
                                                 ${item.recommended ? `<div class="badge badge-recommended"><span class="ar-text">موصى به</span><span class="en-text">Recommended</span></div>` : ''}
                                                 ${item.spicy ? `<div class="badge badge-spicy">🌶️</div>` : ''}
-                                                ${item.image ? `<img src="${item.image}" alt="${item.name}" class="card-image" loading="lazy" onclick="openLightbox('${item.image}')">` : `<div class="item-image-placeholder" style="width: 100%; height: 200px;"></div>`}
+                                                ${item.image ? `<img src="${item.image}" alt="${item.name}" class="card-image" loading="lazy" onclick="openLightbox('${item.image}')">` : (RESTAURANT_SLUG === 'lavina-house' ? `<img src="images/lavina-item-bg.jpg" alt="Default" class="card-image item-image-default" loading="lazy">` : `<div class="item-image-placeholder" style="width: 100%; height: 200px;"></div>`)}
                                                 <div class="card-details">
                                                     <div class="card-name ar-text">${item.name}</div>
                                                     <div class="card-name en-text">${item.en_name}</div>

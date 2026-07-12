@@ -320,7 +320,7 @@ function renderItems() {
             (i > 0 ? '<button class="reorder-btn item-reorder" data-dir="up" data-iid="'+item.id+'" title="Move up">↑</button>' : '') +
             (i < currentItems.length-1 ? '<button class="reorder-btn item-reorder" data-dir="down" data-iid="'+item.id+'" title="Move down">↓</button>' : '') +
             '</div>' +
-            (item.image ? '<img src="/' + item.image + '" class="item-card-img" alt="">' : '<div class="item-card-img placeholder">🍽</div>') +
+            (item.image ? '<img src="/' + item.image + '" class="item-card-img" alt="">' : (selectedRestaurantSlug === 'lavina-house' ? '<img src="/images/lavina-item-bg.jpg" class="item-card-img" alt="" style="filter:grayscale(100%) brightness(1.8) opacity(0.6)">' : '<div class="item-card-img placeholder">🍽</div>')) +
             '<div class="item-card-body"><div class="item-card-name">' + (item.name_ar || '') + '<span class="en">' + (item.name_en || '') + '</span></div>' +
             '<div class="item-card-price">' + parseFloat(item.price).toFixed(3) + ' LYD</div>' +
             '<div class="item-card-meta">' +
