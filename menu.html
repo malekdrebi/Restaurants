@@ -3202,7 +3202,8 @@
             var footerAddress = document.getElementById('footerAddress');
             if (footerAddress && restaurantInfo.address_en) footerAddress.textContent = restaurantInfo.address_en;
             var footerHours = document.getElementById('footerHours');
-            if (footerHours) footerHours.textContent = restaurantInfo.working_hours_en || restaurantInfo.working_hours_ar || '';
+            var hours = restaurantInfo.working_hours_en || restaurantInfo.working_hours_ar || '';
+            if (footerHours) { footerHours.textContent = hours; footerHours.style.display = hours ? '' : 'none'; }
 
             // Update welcome text
             var welcomeEn = document.querySelector('.hub-subtitle .en-text');
