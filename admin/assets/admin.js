@@ -21,6 +21,7 @@ var selectedSubcategoryId = null;
 var categories = [];
 var currentItems = [];
 var expandedCategories = {};
+var originalVariantIds = [];
 
 // ═══ SINGLE EVENT DELEGATION FOR EVERYTHING ═══
 document.addEventListener('click', function(e) {
@@ -369,6 +370,7 @@ function showEditItem(itemId) {
     document.getElementById('itemModalTitle').textContent = 'Edit Item';
     document.getElementById('deleteItemBtn').style.display = 'inline-flex';
     renderVariantsInForm(item.variants || []);
+    originalVariantIds = (item.variants || []).map(function(v) { return v.id; }).filter(Boolean);
     document.getElementById('itemModalOverlay').classList.add('show');
 }
 function closeItemModal() { document.getElementById('itemModalOverlay').classList.remove('show'); }
@@ -487,6 +489,15 @@ async function saveVariants(itemId) {
         var body = { item_id: itemId, name_ar: na.trim(), name_en: ne.trim(), price: pv !== '' ? parseFloat(pv) : null, image: imgPath.trim() || null, sort_order: i };
         try { var u = vid ? apiUrl('variants', {id: vid}) : apiUrl('variants'); await fetch(u, { method: vid ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) }); } catch(e) {}
     }
+    // Delete variants that were removed from the form
+    var currentIds = [];
+    rows.forEach(function(r) { var id = r.getAttribute('data-variant-id'); if (id) currentIds.push(parseInt(id)); });
+    originalVariantIds.forEach(function(origId) {
+        if (currentIds.indexOf(origId) === -1) {
+            fetch(apiUrl('variants', {id: origId}), { method: 'DELETE', headers: { 'X-CSRF-Token': CSRF_TOKEN } }).catch(function(){});
+        }
+    });
+    originalVariantIds = [];
 }
 
 // ── Add/Remove buttons ──
