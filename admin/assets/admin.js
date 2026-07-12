@@ -406,7 +406,7 @@ function renderVariantsInForm(variants) {
             '<input type="text" placeholder="EN Name" value="' + (v.name_en || v.en_name || '') + '" data-field="name_en">' +
             '<input type="number" placeholder="Price" step="0.001" value="' + (v.price || '') + '" data-field="price">' +
             '<div class="var-img-cell">' +
-            '<input type="file" accept="image/*" data-field="image_file" style="font-size:0.62rem;max-width:90px" title="Upload">' +
+            '<input type="file" accept="image/*" data-field="image_file" onchange="previewVariantFile(this)" style="font-size:0.62rem;max-width:90px" title="Upload">' +
             (v.image ? '<span style="position:relative"><img src="/' + v.image + '" style="width:34px;height:34px;object-fit:cover;border-radius:4px;border:1px solid #333"><button class="variant-img-remove-btn" type="button" style="position:absolute;top:-5px;right:-5px;background:red;color:white;border:none;border-radius:50%;width:16px;height:16px;font-size:10px;line-height:1;cursor:pointer;padding:0">×</button></span>' : '') +
             '</div>' +
             '<input type="hidden" data-field="image" value="' + (v.image || '') + '">' +
@@ -418,12 +418,11 @@ function addVariantRow() {
     var c = document.getElementById('variantsList');
     if (c.querySelector('p')) c.innerHTML = '';
     var row = document.createElement('div'); row.className = 'variant-row';
-    row.innerHTML = '<input type="text" placeholder="AR Name" data-field="name_ar"><input type="text" placeholder="EN Name" data-field="name_en"><input type="number" placeholder="Price" step="0.001" data-field="price"><div class="var-img-cell"><input type="file" accept="image/*" data-field="image_file" style="font-size:0.62rem;max-width:90px" title="Upload"></div><input type="hidden" data-field="image" value=""><button class="variant-remove-btn" type="button">×</button>';
+    row.innerHTML = '<input type="text" placeholder="AR Name" data-field="name_ar"><input type="text" placeholder="EN Name" data-field="name_en"><input type="number" placeholder="Price" step="0.001" data-field="price"><div class="var-img-cell"><input type="file" accept="image/*" data-field="image_file" onchange="previewVariantFile(this)" style="font-size:0.62rem;max-width:90px" title="Upload"></div><input type="hidden" data-field="image" value=""><button class="variant-remove-btn" type="button">×</button>';
     c.appendChild(row);
 }
 async function saveVariants(itemId) {
     var rows = document.querySelectorAll('#variantsList .variant-row');
-    console.log('saveVariants called, rows:', rows.length);
     for (var i = 0; i < rows.length; i++) {
         var row = rows[i], vid = row.getAttribute('data-variant-id');
         var na = (row.querySelector('[data-field="name_ar"]') || {}).value || '';
@@ -440,16 +439,22 @@ async function saveVariants(itemId) {
             try {
                 var ur = await fetch(apiUrl('upload'), { method: 'POST', headers: { 'X-CSRF-Token': CSRF_TOKEN }, body: fd });
                 var ud = await ur.json();
-                console.log('Variant upload:', ur.status, ud);
-                if (ur.ok) imgPath = ud.path;
-                else console.log('Upload error:', ud.error);
-            } catch(e) { console.log('Upload failed:', e); }
+                if (ur.ok) {
+                    imgPath = ud.path;
+                    // Show thumbnail in row
+                    var oldImg = row.querySelector('img');
+                    if (oldImg) oldImg.remove();
+                    var thumb = document.createElement('img');
+                    thumb.src = '/' + ud.path;
+                    thumb.style.cssText = 'width:34px;height:34px;object-fit:cover;border-radius:4px;border:1px solid #333;margin-left:4px';
+                    row.querySelector('[data-field="image_file"]').parentElement.appendChild(thumb);
+                }
+            } catch(e) {}
         }
 
         if (!na.trim() && !ne.trim()) continue;
         var body = { item_id: itemId, name_ar: na.trim(), name_en: ne.trim(), price: pv !== '' ? parseFloat(pv) : null, image: imgPath.trim() || null, sort_order: i };
-        console.log('Saving variant', i, 'body:', JSON.stringify(body));
-        try { var u = vid ? apiUrl('variants', {id: vid}) : apiUrl('variants'); var vr = await fetch(u, { method: vid ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) }); console.log('Variant save status:', vr.status); } catch(e) { console.log('Variant save error:', e); }
+        try { var u = vid ? apiUrl('variants', {id: vid}) : apiUrl('variants'); await fetch(u, { method: vid ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN }, body: JSON.stringify(body) }); } catch(e) {}
     }
 }
 
@@ -928,6 +933,21 @@ function removeRestaurantBg() {
     document.getElementById('restaurantBgRemove').style.display = 'none';
     document.getElementById('restaurantBg').value = '';
     document.getElementById('restaurantBgFile').value = '';
+}
+
+function previewVariantFile(input) {
+    if (!input.files || !input.files[0]) return;
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        var row = input.closest('.variant-row');
+        var oldImg = row.querySelector('img');
+        if (oldImg) oldImg.remove();
+        var img = document.createElement('img');
+        img.src = e.target.result;
+        img.style.cssText = 'width:34px;height:34px;object-fit:cover;border-radius:4px;border:1px solid #333;margin-left:4px';
+        input.parentElement.appendChild(img);
+    };
+    reader.readAsDataURL(input.files[0]);
 }
 
 function previewMenu() {
